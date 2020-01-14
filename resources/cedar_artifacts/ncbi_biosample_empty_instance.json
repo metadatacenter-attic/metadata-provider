@@ -1,0 +1,152 @@
+{
+  "cell_type": {
+    "@value": null
+  },
+  "sample_name": {
+    "@value": null
+  },
+  "organism": {
+    "@value": null
+  },
+  "isolate": {
+    "@value": null
+  },
+  "disease": {
+    "@value": null
+  },
+  "biosample_accession": {
+    "@value": null
+  },
+  "sample_title": {
+    "@value": null
+  },
+  "karyotype": {
+    "@value": null
+  },
+  "dev_stage": {
+    "@value": null
+  },
+  "cell_line": {
+    "@value": null
+  },
+  "description": {
+    "@value": null
+  },
+  "culture_collection": {
+    "@value": null
+  },
+  "health_state": {
+    "@value": null
+  },
+  "age": {
+    "@value": null
+  },
+  "tissue": {
+    "@value": null
+  },
+  "@context": {
+    "cell_type": "https://schema.metadatacenter.orgx/properties/94ceabd6-3f4d-4b01-86a8-03e32caab969",
+    "pav:lastUpdatedOn": {
+      "@type": "xsd:dateTime"
+    },
+    "treatment": "https://schema.metadatacenter.orgx/properties/e78d5ac8-f63d-4b99-921f-f098c0cb283e",
+    "sample_name": "https://schema.metadatacenter.orgx/properties/34c6b732-407f-4b70-94e7-0baaae702b23",
+    "organism": "https://schema.metadatacenter.orgx/properties/41996b5d-00e2-438c-8325-23b5fc863ac9",
+    "isolate": "https://schema.metadatacenter.orgx/properties/10c0569f-cb39-492d-a43a-8c76b1d75d60",
+    "karyotype": "https://schema.metadatacenter.orgx/properties/b50022dd-94b3-4cc8-bdd1-fe6f7da9a805",
+    "disease": "https://schema.metadatacenter.orgx/properties/e54d6fd0-4dc9-4cf7-9c87-902f2ea8dd8e",
+    "biosample_accession": "https://schema.metadatacenter.orgx/properties/e017bdcd-74b4-49d1-88da-cdbd30406777",
+    "sample_title": "https://schema.metadatacenter.orgx/properties/2f5dedc2-5734-4d0f-85c5-830245bbb03a",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dev_stage": "https://schema.metadatacenter.orgx/properties/1779d7b0-0d43-4f56-b0b1-d56a26d48664",
+    "cell_line": "https://schema.metadatacenter.orgx/properties/87d1d9c8-6a2d-4b8b-ba7a-ff13ff77ab82",
+    "description": "https://schema.metadatacenter.orgx/properties/7e7908be-10f1-4425-83f4-a8fa92600d8c",
+    "culture_collection": "https://schema.metadatacenter.orgx/properties/5f803d52-315a-42b0-bf17-49d85d5ed945",
+    "health_state": "https://schema.metadatacenter.orgx/properties/ff444026-1bd6-4e99-815f-49f362c615a7",
+    "schema:isBasedOn": {
+      "@type": "@id"
+    },
+    "rdfs:label": {
+      "@type": "xsd:string"
+    },
+    "sex": "https://schema.metadatacenter.orgx/properties/0a274639-4826-4059-8420-5d05e7025c5d",
+    "skos:notation": {
+      "@type": "xsd:string"
+    },
+    "sample_type": "https://schema.metadatacenter.orgx/properties/8fdfa307-2559-4f0c-8ba7-3b051e16c970",
+    "race": "https://schema.metadatacenter.orgx/properties/f2c6d083-9b5e-4ac8-a1b8-73d200319f25",
+    "schema:name": {
+      "@type": "xsd:string"
+    },
+    "population": "https://schema.metadatacenter.orgx/properties/309d9999-d8a4-4020-bf4a-6335394f3738",
+    "pav:createdOn": {
+      "@type": "xsd:dateTime"
+    },
+    "tissue": "https://schema.metadatacenter.orgx/properties/38a64ebe-359c-4cb2-8675-1d17034058dd",
+    "disease_stage": "https://schema.metadatacenter.orgx/properties/c9df31c8-0816-41da-80e8-84cff4495818",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "pav:derivedFrom": {
+      "@type": "@id"
+    },
+    "cell_subtype": "https://schema.metadatacenter.orgx/properties/6b1d7360-23c6-49d3-a909-1e9754de1d32",
+    "oslc": "http://open-services.net/ns/core#",
+    "ethnicity": "https://schema.metadatacenter.orgx/properties/7f970a8d-e6b7-431f-8f58-4a4040f8cc20",
+    "biomaterial_provider": "https://schema.metadatacenter.orgx/properties/bb92a1bd-c74e-4b3a-9b88-a295d15640ec",
+    "oslc:modifiedBy": {
+      "@type": "@id"
+    },
+    "schema:description": {
+      "@type": "xsd:string"
+    },
+    "bioproject_accession": "https://schema.metadatacenter.orgx/properties/eac88336-77a9-4bea-b6c3-cbe336e89a61",
+    "pav:createdBy": {
+      "@type": "@id"
+    },
+    "age": "https://schema.metadatacenter.orgx/properties/7291107f-0d20-47f2-b04b-308482294c8b",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "phenotype": "https://schema.metadatacenter.orgx/properties/f0d33494-5423-477c-9583-f9e42111d934",
+    "pav": "http://purl.org/pav/"
+  },
+  "sample_type": {
+    "@value": null
+  },
+  "race": {
+    "@value": null
+  },
+  "population": {
+    "@value": null
+  },
+  "sex": {
+    "@value": null
+  },
+  "disease_stage": {
+    "@value": null
+  },
+  "cell_subtype": {
+    "@value": null
+  },
+  "ethnicity": {
+    "@value": null
+  },
+  "treatment": {
+    "@value": null
+  },
+  "biomaterial_provider": {
+    "@value": null
+  },
+  "phenotype": {
+    "@value": null
+  },
+  "bioproject_accession": {
+    "@value": null
+  },
+  "schema:isBasedOn": "https://repo.metadatacenter.orgx/templates/01e71943-7c49-49f3-a6d9-8418b886e154",
+  "schema:name": "NCBI BioSample - Human Package 1.0 metadata",
+  "schema:description": "",
+  "pav:createdOn": "2019-10-28T12:03:32-0700",
+  "pav:createdBy": "https://metadatacenter.org/users/8d787b98-33dd-4aff-a88c-440caf452c61",
+  "pav:lastUpdatedOn": "2019-10-28T12:03:32-0700",
+  "oslc:modifiedBy": "https://metadatacenter.org/users/8d787b98-33dd-4aff-a88c-440caf452c61",
+  "@id": "https://repo.metadatacenter.orgx/template-instances/cd12be86-7a6f-42dc-a7d2-e319d27474ca"
+}
