@@ -2,6 +2,23 @@ import time
 import sys
 
 
+def get_base_folder(expected_exec_folder):
+    """
+    Returns the right execution folder
+    :param expected_exec_folder:
+    :return:
+    """
+    import os
+    current_exec_folder = os.path.split(os.getcwd())[1]
+    if current_exec_folder == expected_exec_folder:
+        return '.'
+    elif current_exec_folder != expected_exec_folder and current_exec_folder == 'scripts':
+        return './..'
+    else:
+        print("Error: Cannot figure out the right execution folder\n")
+        sys.exit(1)
+
+
 def log_progress(count, block_size, total_size):
     global start_time
     if count == 0:

@@ -1,12 +1,9 @@
 #!/usr/bin/python3
 
-# Server
-#SERVER = 'https://valuerecommender.metadatacenter.orgx'
-#TEMPLATE_ID = 'https://repo.metadatacenter.orgx/templates/01e71943-7c49-49f3-a6d9-8418b886e154'
+import scripts.util.utils as utils
 
-# Base folder
-BASE_FOLDER = './..' # for IntelliJ execution
-#BASE_FOLDER = '.' # for Jupyter execution
+ROOT_FOLDER_NAME = 'cedar-translator-demo'
+BASE_FOLDER = utils.get_base_folder(ROOT_FOLDER_NAME)
 
 # Resources
 RESOURCES_FOLDER = BASE_FOLDER + '/' + 'resources'

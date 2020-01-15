@@ -13,6 +13,7 @@ OUTPUT_FILE = constants.NCBI_FILTER_HOMO_SAPIENS_OUTPUT_FILE
 
 
 def main():
+    constants.BASE_FOLDER = utils.get_base_folder(constants.ROOT_FOLDER_NAME)
     execute = True
     if os.path.exists(OUTPUT_FILE):
         if not utils.confirm('The destination file already exist. Do you want to overwrite it [y/n]? '):
