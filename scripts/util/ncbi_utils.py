@@ -17,15 +17,6 @@ def is_valid_value(value):
             return False
 
 
-def normalize_attribute_name(attribute_name):
-    import re
-    if attribute_name is not None:
-        normalized_attribute_name = re.sub('[^A-Za-z0-9]+', ' ', attribute_name).lower().strip()
-        return normalized_attribute_name
-    else:
-        return None
-
-
 # def extract_ncbi_attribute_value(attribute_node, attribute_name):
 #     """
 #     It extracts the attribute value from a BioSample attribute XML node

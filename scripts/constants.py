@@ -20,21 +20,39 @@ NCBI_DOWNLOAD_URL = 'https://ftp.ncbi.nih.gov/biosample/biosample_set.xml.gz'
 NCBI_SAMPLES_FOLDER_DEST = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + SOURCE_SAMPLES_FOLDER
 NCBI_SAMPLES_FILE_DEST = 'biosample_set.xml.gz'
 
-# Filtering
+# Filter - homo sapiens
 NCBI_FILTER_INPUT_FILE = NCBI_SAMPLES_FOLDER_DEST + '/' + NCBI_SAMPLES_FILE_DEST
 NCBI_FILTER_OUTPUT_FOLDER = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + FILTERED_SAMPLES_FOLDER
 NCBI_FILTER_HOMO_SAPIENS_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/homo_sapiens/' + 'biosample_filtered.xml'
 
-# Analysis
-NCBI_ANALYSIS_INPUT_FILE = NCBI_FILTER_INPUT_FILE
+# Analysis of attribute names in homo sapiens samples
+NCBI_ANALYSIS_INPUT_FILE = NCBI_FILTER_HOMO_SAPIENS_OUTPUT_FILE
 NCBI_ANALYSIS_OUTPUT_FOLDER = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + SAMPLES_ANALYSIS_FOLDER
-NCBI_ANALYSIS_OUTPUT_FILE_ATTRIBUTE_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'attribute_names.txt'
-NCBI_ANALYSIS_OUTPUT_FILE_DISPLAY_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'display_names.txt'
-NCBI_ANALYSIS_OUTPUT_FILE_HARMONIZED_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'harmonized_names.txt'
-NCBI_ANALYSIS_OUTPUT_FILE_ALL_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'all_names.txt'
+NCBI_ANALYSIS_OUTPUT_FILE_ATTRIBUTE_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'attribute_names.csv'
+NCBI_ANALYSIS_OUTPUT_FILE_DISPLAY_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'display_names.csv'
+NCBI_ANALYSIS_OUTPUT_FILE_HARMONIZED_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'harmonized_names.csv'
+NCBI_ANALYSIS_OUTPUT_FILE_ALL_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'all_names.csv'
 
-#NCBI_FILTER_RELEVANT_ATTS = ['age', 'sex', 'tissue', 'disease', 'cell type', 'cell line']
-NCBI_FILTER_RELEVANT_ATTS = ['sex', 'tissue', 'disease']
+# Filter - homo sapiens and relevant attributes
+NCBI_FILTER_HS_AND_ATTS_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/hs_and_atts/' + 'biosample_filtered.xml'
+
+NCBI_FILTER_RELEVANT_ATTS_1 = \
+    [{"name": "sex", "variations": ["sex", "cell sex", "patient gender", "donor gender"]},
+    {"name": "tissue", "variations": ["tissue", "tissue supergroup", "tissue source", "metastatic tissue",
+                                      "DiseaseLocation", "tissue subtype"]},
+    {"name": "disease", "variations": ["disease", "diseaseseverity", "disease staging", "DiseaseStaging",
+                                       "clincial information - disease outcome", "original disease abbreviation",
+                                       "original disease annotation", "disease group"]}]
+
+# NCBI_FILTER_RELEVANT_ATTS = [
+#     {"name": "age", "variations": ["age"]},
+#     {"name": "sex", "variations": ["sex"]},
+#     {"name": "tissue", "variations": ["tissue"]},
+#     {"name": "disease", "variations": ["disease"]},
+#     {"name": "cell type", "variations": ["cell type", "cell_type"]},
+#     {"name": "cell line", "variations": ["cell line", "cell_line"]}
+# ]
+
 # Instances generation
 NCBI_INSTANCES_TRAINING_SET_SIZE = 222797 # 85% of 262,114
 NCBI_INSTANCES_TESTING_SET_SIZE = 39317 # 15% of 262,114
@@ -47,7 +65,3 @@ NCBI_INSTANCES_EXCLUDE_IDS = False
 NCBI_INSTANCES_EXCLUDED_IDS_FILE_PATH = RESOURCES_FOLDER + 'excluded_ids.txt'
 NCBI_INSTANCES_OUTPUT_BASE_FILE_NAME = 'ncbi_biosample_instance'
 NCBI_INSTANCES_EMPTY_BIOSAMPLE_INSTANCE_PATH = RESOURCES_FOLDER + '/cedar_artifacts/ncbi_biosample_empty_instance.json'
-
-
-
-

@@ -1,5 +1,8 @@
 import time
 import sys
+import os
+import xml.dom.pulldom as pulldom
+import gzip
 
 
 def get_base_folder(expected_exec_folder):
@@ -49,9 +52,10 @@ def confirm(question):
         sys.stdout.write("Please respond 'y' or 'n'")
 
 
-def save_dict_to_csv(dct, output_file_path):
+def save_dict_to_csv(headers, dct, output_file_path):
     """
     Saves a dictionary to a CSV file
+    :param headers: array with headers (e.g., ["Attribute name", "Count"]
     :param dct: input dictionary
     :param output_file_path:
     :return:
@@ -62,6 +66,8 @@ def save_dict_to_csv(dct, output_file_path):
     if not os.path.exists(os.path.dirname(output_file_path)):
         os.makedirs(os.path.dirname(output_file_path))
     f = csv.writer(open(output_file_path, "w"))
+    if headers is not None:
+        f.writerow(headers)
     for key, val in dct.items():
         f.writerow([key, val])
 
@@ -75,3 +81,52 @@ def sort_dict_by_values(dct):
     import collections
     sorted_dct = {k: v for k, v in sorted(dct.items(), key=lambda item: item[1], reverse=True)}
     return collections.OrderedDict(sorted_dct)
+
+
+def norm_str(input_str):
+    """
+    Normalizes a string by applying the following transformations:
+    1) Replaces special characters by a white space
+    2) Converts the string to lower case
+    3) Removes all leading and trailing whitespaces
+    :param input_str: input string
+    :return: normalized string
+    """
+    import re
+    if input_str is not None:
+        return re.sub('[^A-Za-z0-9]+', ' ', input_str).lower().strip()
+    else:
+        return None
+
+
+def equal_norm_str(str1, str2):
+    """
+    Checks if two normalized strings are equal
+    :param str1:
+    :param str2:
+    :return: True if the normalized strings are equal. False otherwise
+    """
+    if norm_str(str1) == norm_str(str2):
+        return True
+    else:
+        return False
+
+
+def read_xml_or_gz_file(input_file_path):
+    """
+    Reads a file in xml format and returns its content. If the file is zipped, it unzips it first
+    :param input_file_path:
+    :return:
+    """
+    input_file_extension = os.path.splitext(input_file_path)[1]
+    # Read biosamples from XML file
+    if input_file_extension == '.gz':
+        content = pulldom.parse(gzip.open(input_file_path))
+    elif input_file_extension == '.xml':
+        content = pulldom.parse(input_file_path)
+    else:
+        print('Error: invalid file extension')
+        sys.exit(1)
+    return content
+
+

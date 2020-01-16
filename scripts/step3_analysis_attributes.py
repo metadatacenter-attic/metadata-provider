@@ -7,25 +7,32 @@ import xml.dom.pulldom as pulldom
 import xml.etree.ElementTree as ET
 import gzip
 import scripts.util.utils as utils
+import os
 
 INPUT_FILE = constants.NCBI_ANALYSIS_INPUT_FILE
 OUTPUT_FILE_ATTRIBUTE_NAMES = constants.NCBI_ANALYSIS_OUTPUT_FILE_ATTRIBUTE_NAMES
 OUTPUT_FILE_DISPLAY_NAMES = constants.NCBI_ANALYSIS_OUTPUT_FILE_DISPLAY_NAMES
 OUTPUT_FILE_HARMONIZED_NAMES = constants.NCBI_ANALYSIS_OUTPUT_FILE_HARMONIZED_NAMES
 OUTPUT_FILE_ALL_NAMES = constants.NCBI_ANALYSIS_OUTPUT_FILE_ALL_NAMES
+LOG_FREQUENCY = 100000
 
 
 def main():
     print('Input file: ' + INPUT_FILE)
     print('Processing NCBI samples...')
+    input_file_extension = os.path.splitext(INPUT_FILE)[1]
     # Read biosamples from XML file
-    content = pulldom.parse(gzip.open(INPUT_FILE))
+    if input_file_extension == 'gz':
+        content = pulldom.parse(gzip.open(INPUT_FILE))
+    else:
+        content = pulldom.parse(INPUT_FILE)
+
     processed_samples_count = 0
 
     attribute_names_count = {}
     display_names_count = {}
     harmonized_names_count = {}
-    attribute_variations_count = {}
+    all_names_count = {}
 
     for event, node in content:
         if event == 'START_ELEMENT' and node.tagName == 'BioSample':
@@ -62,34 +69,34 @@ def main():
                     # String with attribute name, display name, and harmonized name
                     att_str = attribute_name + '|' + display_name + '|' + harmonized_name
 
-                    if att_str not in attribute_variations_count:
-                        attribute_variations_count[att_str] = 1
+                    if att_str not in all_names_count:
+                        all_names_count[att_str] = 1
                     else:
-                        attribute_variations_count[att_str] = attribute_variations_count[att_str] + 1
+                        all_names_count[att_str] = all_names_count[att_str] + 1
 
             else:
                 print('No attributes for this sample')
 
             processed_samples_count = processed_samples_count + 1
 
-            if processed_samples_count % 5000 == 0:
+            if processed_samples_count % LOG_FREQUENCY == 0:
                 print('Processed samples: ' + str(processed_samples_count))
-                break
 
     # Sort by count
     sorted_attribute_names_count = utils.sort_dict_by_values(attribute_names_count)
     sorted_display_names_count = utils.sort_dict_by_values(display_names_count)
     sorted_harmonized_names_count = utils.sort_dict_by_values(harmonized_names_count)
-    sorted_all_names_count = utils.sort_dict_by_values(attribute_variations_count)
+    sorted_all_names_count = utils.sort_dict_by_values(all_names_count)
 
     # Save the results to CSV
-    utils.save_dict_to_csv(sorted_attribute_names_count, OUTPUT_FILE_ATTRIBUTE_NAMES)
-    utils.save_dict_to_csv(sorted_display_names_count, OUTPUT_FILE_DISPLAY_NAMES)
-    utils.save_dict_to_csv(sorted_harmonized_names_count, OUTPUT_FILE_HARMONIZED_NAMES)
-    utils.save_dict_to_csv(sorted_all_names_count, OUTPUT_FILE_ALL_NAMES)
+    utils.save_dict_to_csv(["attribute_name", "count"], sorted_attribute_names_count, OUTPUT_FILE_ATTRIBUTE_NAMES)
+    utils.save_dict_to_csv(["display_name", "count"], sorted_display_names_count, OUTPUT_FILE_DISPLAY_NAMES)
+    utils.save_dict_to_csv(["harmonized_name", "count"], sorted_harmonized_names_count, OUTPUT_FILE_HARMONIZED_NAMES)
+    utils.save_dict_to_csv(["attribute_name|display_name|harmonized_name", "count"], sorted_all_names_count, OUTPUT_FILE_ALL_NAMES)
 
     print('Finished processing NCBI samples')
     print('- Total samples processed: ' + str(processed_samples_count))
+
 
 if __name__ == "__main__":
     main()
