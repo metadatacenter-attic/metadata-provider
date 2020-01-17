@@ -130,3 +130,12 @@ def read_xml_or_gz_file(input_file_path):
     return content
 
 
+def add_timestamp_to_filename(file_path):
+    """
+    Prepends timestamp
+    :return:
+    """
+    import time
+    base_path = file_path.rsplit('/', 1)[0]
+    file_name = file_path.rsplit('/', 1)[1]
+    return str(base_path) + '/' + str(time.strftime("%Y%m%d-%H%M%S_")) + str(file_name)

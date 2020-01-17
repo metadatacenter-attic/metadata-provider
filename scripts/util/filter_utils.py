@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import scripts.util.utils as utils
+import scripts.util.ncbi_utils as ncbi_utils
 import scripts.constants as constants
 import xml.etree.ElementTree as ET
 import os
@@ -27,41 +28,50 @@ def is_homo_sapiens(sample):
 def has_attributes(sample, required_attributes):
     """
     :param sample:
-    :param required_attributes: list of relevant attributes and synonyms that can be used to refer to each of them. Example:
-        [{"name": "age", "synonyms": []},
-         {"name": "sex", "synonyms": []}]
+    :param required_attributes: list of relevant attribute names, values, and their variations
     :return: Boolean
     """
-    # Array with all the variations for all the sample attributes (e.g., ["age", "sex", "cell line", "cell_line"]
-    sample_att_names = []
     biosample_node = ET.fromstring(sample)
     sample_atts = biosample_node.find('Attributes')
     if sample_atts is not None:
-        for sample_att in sample_atts:
-            attribute_name = sample_att.get('attribute_name')
-            # display_name = sample_att.get('display_name')
-            harmonized_name = sample_att.get('harmonized_name')
 
-            if attribute_name is not None:
-                sample_att_names.append(attribute_name)
-            # if display_name is not None:
-            #     sample_att_names.append(display_name)
-            if harmonized_name is not None:
-                sample_att_names.append(harmonized_name)
-
-        # Check if the sample contains all the required attributes
+        # Check if the sample contains all the required attribute names and values
         for required_att in required_attributes:
             found = False
-            for variation in required_att["variations"]:
-                if variation in sample_att_names:
-                    found = True
-                    break
+            for sample_att in sample_atts:
+                attribute_name = sample_att.get('attribute_name')
+                display_name = sample_att.get('display_name')
+                harmonized_name = sample_att.get('harmonized_name')
 
-            # required attribute not found
+                # Check if the current sample attribute matches the required attribute
+                if (attribute_name is not None and attribute_name in required_att['att_name_variations']) or \
+                        (display_name is not None and display_name in required_att['att_name_variations']) or \
+                        (harmonized_name is not None and harmonized_name in required_att['att_name_variations']):
+
+                    found = True  # Attribute name found
+
+                    if len(required_att['att_values']) > 0:
+                        found = False
+                        sample_att_value = sample_att.text
+                        for req_value_obj in required_att['att_values']:
+                            if sample_att_value in req_value_obj['att_value_variations']:
+                                found = True # Attribute value found
+                                break
+
+                        # Attribute value not found
+                        if not found:
+                            return False
+                    else:
+                        break
+
+            # Attribute name not found
             if not found:
                 return False
 
-        # all the required attributes were found
+        # All the required attribute names-values were found
+        # print('All required attributes were found!')
+        # print(sample)
+        # print('-------------------------')
         return True
 
 
@@ -84,10 +94,8 @@ def filter_samples(input_file, output_file, is_homo_sapiens_filter, has_attribut
     print('Input file: ' + input_file)
     print('Output file: ' + output_file)
     if has_attributes_filter:
-        req_atts = []
-        for required_att in required_attributes:
-            req_atts.append(required_att['name'])
-        print('Required attributes: ' + str(req_atts))
+        print('Required attribute names and values: ')
+        print(required_attributes)
     print('Processing NCBI samples...')
     # Read biosamples from XML file
     content = utils.read_xml_or_gz_file(input_file)
@@ -106,7 +114,6 @@ def filter_samples(input_file, output_file, is_homo_sapiens_filter, has_attribut
                 if processed_samples_count % log_frequency == 0:
                     print('Processed samples: ' + str(processed_samples_count))
                     print('Selected samples: ' + str(selected_samples_count))
-                    break;
 
                 selected = True
                 if is_homo_sapiens_filter:
@@ -126,3 +133,47 @@ def filter_samples(input_file, output_file, is_homo_sapiens_filter, has_attribut
     print('Finished processing NCBI samples')
     print('- Total samples processed: ' + str(processed_samples_count))
     print('- Total samples selected: ' + str(selected_samples_count))
+
+
+def filter_atts_and_variations(filter_specs, atts_and_variations):
+    """
+    Keeps only the attribute names and variations for the attribute names and values specified in filter_specs
+    :param filter_specs: the attribute names and values that will be used for filtering
+    :param atts_and_variations: Object with all the attribute names, values, and their variations
+    :return: a new array of objects with only the relevant attributes names, values, and their variations
+    """
+    result = []
+    for spec in filter_specs:
+        for av in atts_and_variations:
+            if av['att_name'] == spec['att_name']:
+                new_av = av.copy()
+                new_av['att_values'] = []
+                for spec_att_value in spec['att_values']:
+                    for att_values_item in av['att_values']:
+                        if spec_att_value == att_values_item['att_value']:
+                            new_av['att_values'].append(att_values_item)
+
+                result.append(new_av)
+    return result
+
+
+def filter_samples_by_attributes(root_folder_name, input_file, output_file, filter_specs, atts_and_variations,
+                                 log_frequency=100000):
+    """
+    Utility to filter NCBI biosamples by attribute names and/or attribute values
+    :param root_folder_name:
+    :param input_file:
+    :param output_file:
+    :param filter_specs:
+    :param atts_and_variations:
+    :param log_frequency:
+    :return:
+    """
+    constants.BASE_FOLDER = utils.get_base_folder(root_folder_name)
+    execute = True
+    if os.path.exists(output_file):
+        if not utils.confirm('The destination file already exist. Do you want to overwrite it [y/n]? '):
+            execute = False
+    if execute:
+        relevant_atts_and_variations = filter_atts_and_variations(filter_specs, atts_and_variations)
+        filter_samples(input_file, output_file, True, True, relevant_atts_and_variations, log_frequency)
