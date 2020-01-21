@@ -14,6 +14,7 @@ SAMPLES_FOLDER = 'samples'
 SOURCE_SAMPLES_FOLDER = 'source'
 FILTERED_SAMPLES_FOLDER = 'filtered'
 SAMPLES_ANALYSIS_FOLDER = 'analysis'
+EXPORT_FOLDER = 'export'
 
 # Data download
 NCBI_DOWNLOAD_URL = 'https://ftp.ncbi.nih.gov/biosample/biosample_set.xml.gz'
@@ -70,19 +71,6 @@ NCBI_FILTER_6_SPECS = [{"att_name": "sex", "att_values": []},
                        {"att_name": "disease", "att_values": ["liver_cancer"]}]
 
 NCBI_FILTER_6_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter6/' + 'biosample_filtered.xml'
-
-# Instances generation
-NCBI_INSTANCES_TRAINING_SET_SIZE = 222797  # 85% of 262,114
-NCBI_INSTANCES_TESTING_SET_SIZE = 39317  # 15% of 262,114
-NCBI_INSTANCES_MAX_FILES_PER_FOLDER = 10000
-# NCBI_INSTANCES_INPUT_PATH = NCBI_FILTER_OUTPUT_FILE
-NCBI_INSTANCES_OUTPUT_BASE_PATH = WORKSPACE_FOLDER + '/cedar_instances/ncbi_cedar_instances'
-NCBI_INSTANCES_TRAINING_BASE_PATH = NCBI_INSTANCES_OUTPUT_BASE_PATH + '/training'
-NCBI_INSTANCES_TESTING_BASE_PATH = NCBI_INSTANCES_OUTPUT_BASE_PATH + '/testing'
-NCBI_INSTANCES_EXCLUDE_IDS = False
-NCBI_INSTANCES_EXCLUDED_IDS_FILE_PATH = RESOURCES_FOLDER + 'excluded_ids.txt'
-NCBI_INSTANCES_OUTPUT_BASE_FILE_NAME = 'ncbi_biosample_instance'
-NCBI_INSTANCES_EMPTY_BIOSAMPLE_INSTANCE_PATH = RESOURCES_FOLDER + '/cedar_artifacts/ncbi_biosample_empty_instance.json'
 
 # The attribute name variations include the harmonized name for the attribute (first item in the array) plus all the
 # non-harmonized variations. Harmonized variations (e.g., 'gender' for the attribute 'sex') don't need to be included
@@ -165,4 +153,29 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
     "att_values": []
   }
 ]
+
+# Export to CSV
+NCBI_EXPORT_INPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter6/' + '20200117-141930_biosample_filtered_834.xml'
+NCBI_EXPORT_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/' + 'biosample_exported.csv'
+# export sex, tissue, and disease, with all their values
+NCBI_EXPORT_FILTER_SPECS = [{"att_name": "sex", "att_values": []},
+                            {"att_name": "tissue", "att_values": []},
+                            {"att_name": "disease", "att_values": []}]
+
+# Analysis of attribute values in the CSV
+NCBI_ANALYSIS_VALUES_INPUT_FILE = NCBI_EXPORT_OUTPUT_FILE
+
+
+# # Instances generation
+# NCBI_INSTANCES_TRAINING_SET_SIZE = 222797  # 85% of 262,114
+# NCBI_INSTANCES_TESTING_SET_SIZE = 39317  # 15% of 262,114
+# NCBI_INSTANCES_MAX_FILES_PER_FOLDER = 10000
+# # NCBI_INSTANCES_INPUT_PATH = NCBI_FILTER_OUTPUT_FILE
+# NCBI_INSTANCES_OUTPUT_BASE_PATH = WORKSPACE_FOLDER + '/cedar_instances/ncbi_cedar_instances'
+# NCBI_INSTANCES_TRAINING_BASE_PATH = NCBI_INSTANCES_OUTPUT_BASE_PATH + '/training'
+# NCBI_INSTANCES_TESTING_BASE_PATH = NCBI_INSTANCES_OUTPUT_BASE_PATH + '/testing'
+# NCBI_INSTANCES_EXCLUDE_IDS = False
+# NCBI_INSTANCES_EXCLUDED_IDS_FILE_PATH = RESOURCES_FOLDER + 'excluded_ids.txt'
+# NCBI_INSTANCES_OUTPUT_BASE_FILE_NAME = 'ncbi_biosample_instance'
+# NCBI_INSTANCES_EMPTY_BIOSAMPLE_INSTANCE_PATH = RESOURCES_FOLDER + '/cedar_artifacts/ncbi_biosample_empty_instance.json'
 

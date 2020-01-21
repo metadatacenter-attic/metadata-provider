@@ -3,6 +3,7 @@ import sys
 import os
 import xml.dom.pulldom as pulldom
 import gzip
+import csv
 
 
 def get_base_folder(expected_exec_folder):
@@ -70,6 +71,33 @@ def save_dict_to_csv(headers, dct, output_file_path):
         f.writerow(headers)
     for key, val in dct.items():
         f.writerow([key, val])
+
+
+def save_json_to_csv(input_json, output_file_path):
+    """
+    Saves an array of json objects to CSV
+    :param input_json:
+    :param output_file_path:
+    :return:
+    """
+
+    # Save headers
+    headers = []
+    for key in input_json[0]:
+        headers.append(key)
+
+    f = csv.writer(open(output_file_path, "w"))
+    f.writerow(headers)
+
+    # Iterate through each record in the JSON Array
+    for record in input_json:
+        # Create placeholder to hold the data for the current record
+        current_record = []
+        # Iterate through each key in the keylist and add the data to our current record list
+        for key in headers:
+            current_record.append(record[key])
+            # Write the current record as a line in our CSV
+        f.writerow(current_record)
 
 
 def sort_dict_by_values(dct):

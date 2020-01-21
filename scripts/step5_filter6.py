@@ -10,7 +10,6 @@ FILTER_SPECS = constants.NCBI_FILTER_6_SPECS
 
 
 def main():
-    print(INPUT_FILE)
     filter_utils.filter_samples_by_attributes(constants.ROOT_FOLDER_NAME, INPUT_FILE, OUTPUT_FILE, FILTER_SPECS,
                                               constants.NCBI_ATT_NAMES_VALUES_VARIATIONS, 10000)
 
