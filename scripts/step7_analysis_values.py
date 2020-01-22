@@ -5,7 +5,6 @@
 import scripts.constants as constants
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 
 INPUT_FILE = constants.NCBI_ANALYSIS_VALUES_INPUT_FILE
@@ -24,19 +23,17 @@ def main():
         print('    Unique values (' + str(len(df[col].unique())) + '): ')
         for value in df[col].unique():
             print('     - ' + value)
-
-        # Generate plots with frequencies of unique values
-        df[col].value_counts().plot(kind='bar', rot=0)
-        sns.set(font_scale=1.4)
-        plt.xlabel(col, labelpad=14)
-        plt.ylabel("Count", labelpad=14)
-        plt.xticks(rotation=90)
-        plt.show()
-
         index = index + 1
 
+    # Generate plots with frequencies of unique values
+    for col in df:
+        df[col].value_counts().plot(kind='bar', rot=90)
+        plt.xlabel(col, labelpad=14)
+        plt.ylabel("Count", labelpad=14)
+        plt.show()
 
-
+    # Count of different combinations
+    print(df.groupby(['disease', 'tissue', 'sex'], as_index=False).size())
 
 
 if __name__ == "__main__":
