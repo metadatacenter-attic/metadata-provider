@@ -25,6 +25,22 @@ def is_homo_sapiens(sample):
     return False
 
 
+def str_contained_in_list(str, str_list):
+    """
+    Checks if a string is contained in a list of strings
+    :return: boolean
+    """
+    if str is None or len(str) == 0 or str_list is None or len(str_list) == 0:
+        return False;
+    else:
+        str_norm = str.lower()
+        list_norm = [item.lower() for item in str_list]
+        if str_norm in list_norm:
+            return True
+        else:
+            return False
+
+
 def has_attributes(sample, required_attributes):
     """
     :param sample:
@@ -44,9 +60,9 @@ def has_attributes(sample, required_attributes):
                 harmonized_name = sample_att.get('harmonized_name')
 
                 # Check if the current sample attribute matches the required attribute
-                if (attribute_name is not None and attribute_name in required_att['att_name_variations']) or \
-                        (display_name is not None and display_name in required_att['att_name_variations']) or \
-                        (harmonized_name is not None and harmonized_name in required_att['att_name_variations']):
+                if str_contained_in_list(attribute_name, required_att['att_name_variations']) \
+                        or str_contained_in_list(display_name, required_att['att_name_variations']) \
+                        or str_contained_in_list(harmonized_name, required_att['att_name_variations']):
 
                     found = True  # Attribute name found
 

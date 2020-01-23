@@ -36,8 +36,9 @@ def sample_to_json(sample, required_attributes):
                         (harmonized_name is not None and harmonized_name in required_att['att_name_variations']):
 
                     # Attribute found. Add it to the json object using the reference name in required_attributes
+                    # Note that we transform the value to lower case because BioSample search ignores case too
                     found = True
-                    sample_json[required_att['att_name']] = sample_att.text
+                    sample_json[required_att['att_name']] = sample_att.text.lower()
                     break
 
             if not found:

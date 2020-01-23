@@ -15,6 +15,7 @@ SOURCE_SAMPLES_FOLDER = 'source'
 FILTERED_SAMPLES_FOLDER = 'filtered'
 SAMPLES_ANALYSIS_FOLDER = 'analysis'
 EXPORT_FOLDER = 'export'
+ANNOTATED_SAMPLES_FOLDER = 'annotated'
 
 # Data download
 NCBI_DOWNLOAD_URL = 'https://ftp.ncbi.nih.gov/biosample/biosample_set.xml.gz'
@@ -165,6 +166,9 @@ NCBI_EXPORT_FILTER_SPECS = [{"att_name": "sex", "att_values": []},
 # Analysis of attribute values in the CSV
 NCBI_ANALYSIS_VALUES_INPUT_FILE = NCBI_EXPORT_OUTPUT_FILE
 
+# Semantic annotation
+ANNOTATION_INPUT_FILE = NCBI_EXPORT_OUTPUT_FILE
+ANNOTATION_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER
 
 # # Instances generation
 # NCBI_INSTANCES_TRAINING_SET_SIZE = 222797  # 85% of 262,114
