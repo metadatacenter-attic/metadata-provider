@@ -1,17 +1,19 @@
 #!/usr/bin/python3
 
 import scripts.util.utils as utils
+import scripts.util.ncbi_utils as ncbi_utils
 import scripts.util.filter_utils as filter_utils
 import scripts.constants as constants
 import xml.etree.ElementTree as ET
 import os
-import codecs
 import sys
+import xmltodict
+import json
 
 
 def sample_to_json(sample, required_attributes):
     """
-
+    Generates a simplified version of a biosample in JSON format
     :param sample:
     :param required_attributes:
     :return:
@@ -34,7 +36,6 @@ def sample_to_json(sample, required_attributes):
                 if (attribute_name is not None and attribute_name in required_att['att_name_variations']) or \
                         (display_name is not None and display_name in required_att['att_name_variations']) or \
                         (harmonized_name is not None and harmonized_name in required_att['att_name_variations']):
-
                     # Attribute found. Add it to the json object using the reference name in required_attributes
                     # Note that we transform the value to lower case because BioSample search ignores case too
                     found = True
@@ -51,7 +52,7 @@ def sample_to_json(sample, required_attributes):
 def export_samples_to_csv(root_folder_name, input_file, output_file, filter_specs, atts_and_variations,
                           log_frequency=1000):
     """
-
+    Generates a simplified version of the samples in CSV and saves them to a file
     :param samples: samples in BioSamples's XML format
     :param attributes:
     :return:
@@ -97,3 +98,54 @@ def export_samples_to_csv(root_folder_name, input_file, output_file, filter_spec
         print('Finished processing NCBI samples')
         print('- Total samples processed: ' + str(processed_samples_count))
         print('- Total samples exported: ' + str(len(exported_samples)))
+
+
+def export_samples_to_json(root_folder_name, input_file, output_file, log_frequency=1000):
+    """
+    Generates a direct translation of the samples from the BioSample's XML to JSON and saves them to a file
+    :param root_folder_name:
+    :param input_file:
+    :param output_file:
+    :param log_frequency:
+    :return: It saves the samples to the output_file
+    """
+
+    constants.BASE_FOLDER = utils.get_base_folder(root_folder_name)
+    execute = True
+    if os.path.exists(output_file):
+        if not utils.confirm('The destination file already exist. Do you want to overwrite it [y/n]? '):
+            execute = False
+    if execute:
+
+        # Array of sample dictionaries
+        samples_dct = []
+
+        if not os.path.exists(os.path.dirname(output_file)):
+            os.makedirs(os.path.dirname(output_file))
+
+        print('Input file: ' + input_file)
+        print('Output file: ' + output_file)
+        print('Processing NCBI samples...')
+
+        # Read biosamples from XML file
+        content = utils.read_xml_or_gz_file(input_file)
+
+        processed_samples_count = 0
+
+        for event, node in content:
+            if event == 'START_ELEMENT' and node.tagName == 'BioSample':
+                content.expandNode(node)
+                node_xml = node.toxml()
+                sample_dct = xmltodict.parse(node_xml)
+                samples_dct.append(sample_dct)
+
+                processed_samples_count = processed_samples_count + 1
+                if processed_samples_count % log_frequency == 0:
+                    print('Processed samples: ' + str(processed_samples_count))
+
+        with open(output_file, 'w') as f:
+            json.dump(samples_dct, f)
+
+        print('Finished processing NCBI samples')
+        print('- Total samples processed: ' + str(processed_samples_count))
+        print('- Total samples exported: ' + str(len(samples_dct)))

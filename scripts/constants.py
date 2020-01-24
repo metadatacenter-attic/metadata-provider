@@ -14,7 +14,7 @@ SAMPLES_FOLDER = 'samples'
 SOURCE_SAMPLES_FOLDER = 'source'
 FILTERED_SAMPLES_FOLDER = 'filtered'
 SAMPLES_ANALYSIS_FOLDER = 'analysis'
-EXPORT_FOLDER = 'export'
+EXPORT_FOLDER = 'exported'
 ANNOTATED_SAMPLES_FOLDER = 'annotated'
 
 # Data download
@@ -155,20 +155,24 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
   }
 ]
 
-# Export to CSV
+# Export samples to other formats
 NCBI_EXPORT_INPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter6/' + '20200117-141930_biosample_filtered_834.xml'
-NCBI_EXPORT_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/' + 'biosample_exported.csv'
-# export sex, tissue, and disease, with all their values
+NCBI_EXPORT_CSV_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
+# export sex, tissue, and disease, with all their values. This is only used for the CSV export, to simplify analysis
 NCBI_EXPORT_FILTER_SPECS = [{"att_name": "sex", "att_values": []},
                             {"att_name": "tissue", "att_values": []},
                             {"att_name": "disease", "att_values": []}]
 
+# Export to JSON
+NCBI_EXPORT_JSON_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/json/' + 'biosample_exported.json'
+
 # Analysis of attribute values in the CSV
-NCBI_ANALYSIS_VALUES_INPUT_FILE = NCBI_EXPORT_OUTPUT_FILE
+NCBI_ANALYSIS_VALUES_INPUT_FILE = NCBI_EXPORT_CSV_OUTPUT_FILE
 
 # Semantic annotation
-ANNOTATION_INPUT_FILE = NCBI_EXPORT_OUTPUT_FILE
-ANNOTATION_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER
+ANNOTATION_INPUT_FILE = NCBI_EXPORT_CSV_OUTPUT_FILE
+ANNOTATION_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
+                         + '/' + 'biosample_annotated.csv'
 
 # # Instances generation
 # NCBI_INSTANCES_TRAINING_SET_SIZE = 222797  # 85% of 262,114
