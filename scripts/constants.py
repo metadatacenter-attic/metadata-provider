@@ -155,7 +155,7 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
   }
 ]
 
-# Export samples to other formats
+# Export samples to other formats #
 NCBI_EXPORT_INPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter6/' + '20200117-141930_biosample_filtered_834.xml'
 NCBI_EXPORT_CSV_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
 # export sex, tissue, and disease, with all their values. This is only used for the CSV export, to simplify analysis
@@ -173,6 +173,15 @@ NCBI_ANALYSIS_VALUES_INPUT_FILE = NCBI_EXPORT_CSV_OUTPUT_FILE
 ANNOTATION_INPUT_FILE = NCBI_EXPORT_CSV_OUTPUT_FILE
 ANNOTATION_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
                          + '/' + 'biosample_annotated.csv'
+
+# Save samples to Mongo #
+ORIGINAL_SAMPLES_PATH = NCBI_EXPORT_JSON_OUTPUT_FILE
+#ANNOTATED_SAMPLES_FILE_PATH =
+MONGO_HOST = "localhost"
+MONGO_PORT = 27017
+MONGO_DB = "ncats-demo"
+MONGO_COLLECTION_BIOSAMPLE_ORIGINAL = "biosample-original"
+MONGO_COLLECTION_BIOSAMPLE_ANNOTATED = "biosample-annotated"
 
 # # Instances generation
 # NCBI_INSTANCES_TRAINING_SET_SIZE = 222797  # 85% of 262,114
