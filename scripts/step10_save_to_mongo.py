@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+# Saves both the non-annotated samples and the annotated samples to two different collections in MongoDB
+
 import scripts.util.mongo_utils as mongo_utils
 import scripts.constants as constants
 import json

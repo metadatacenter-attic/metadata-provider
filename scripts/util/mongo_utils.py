@@ -35,6 +35,3 @@ def save_to_mongo(json_objects_list, mongo_host, mongo_port, db_name, collection
         client.close()
     except ConnectionFailure as e:
         print("Could not connect to server: %s" % e)
-
-
-
