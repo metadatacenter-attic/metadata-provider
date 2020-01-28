@@ -92,6 +92,7 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
     "att_name_variations": [
       "disease",
       "diseaseseverity",
+      "diseaseSeverity",
       "disease staging",
       "DiseaseStaging",
       "clincial information - disease outcome",
@@ -173,6 +174,10 @@ NCBI_ANALYSIS_VALUES_INPUT_FILE = NCBI_EXPORT_CSV_OUTPUT_FILE
 ANNOTATION_INPUT_FILE = NCBI_EXPORT_JSON_OUTPUT_FILE # original (non-annotated) samples
 ANNOTATION_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
                          + '/' + 'biosample_annotated.json'
+ANNOTATION_NORMALIZED_ATT_NAMES_FILE = RESOURCES_FOLDER + '/annotation/normalized_att_names.json'
+ANNOTATION_NORMALIZED_ATT_VALUES_FILE = RESOURCES_FOLDER + '/annotation/normalized_att_values.json'
+
+ANNOTATION_CACHE_FILE = RESOURCES_FOLDER + '/annotation/annotation_cache.json'
 
 # Save samples to Mongo
 ORIGINAL_SAMPLES_PATH = NCBI_EXPORT_JSON_OUTPUT_FILE

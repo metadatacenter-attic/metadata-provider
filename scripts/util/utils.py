@@ -4,6 +4,7 @@ import os
 import xml.dom.pulldom as pulldom
 import gzip
 import csv
+import re
 
 
 def get_base_folder(expected_exec_folder):
@@ -109,6 +110,12 @@ def sort_dict_by_values(dct):
     import collections
     sorted_dct = {k: v for k, v in sorted(dct.items(), key=lambda item: item[1], reverse=True)}
     return collections.OrderedDict(sorted_dct)
+
+
+def camel_case_to_space_delimited(term):
+    return re.sub("([a-z])([A-Z])","\g<1> \g<2>",term)
+    # matches = re.finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', term)
+    # return [m.group(0) for m in matches]
 
 
 def norm_str(input_str):
