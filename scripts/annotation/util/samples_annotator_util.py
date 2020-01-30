@@ -10,7 +10,7 @@ def is_relevant_attribute(att_name, att_names_values_variations):
             return True
         else:
             for att_var in att['att_name_variations']:
-                if att_name ==  att_var:
+                if att_name == att_var:
                     return True
     return False
 

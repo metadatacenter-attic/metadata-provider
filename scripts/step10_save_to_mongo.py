@@ -9,14 +9,20 @@ import json
 
 def main():
     # Store filtered, non-annotated samples to MongoDB
-    with open(constants.ORIGINAL_SAMPLES_PATH) as json_file:
+    with open(constants.ORIGINAL_SAMPLES_FILE_PATH) as json_file:
         original_samples = json.load(json_file)
 
     mongo_utils.save_to_mongo(original_samples, constants.MONGO_HOST, constants.MONGO_PORT,
                               constants.MONGO_DB, constants.MONGO_COLLECTION_BIOSAMPLE_ORIGINAL,
                               delete_existing_docs=True)
+
     # Store filtered, annotated samples to MongoDB
-    # TODO...
+    with open(constants.ANNOTATED_SAMPLES_FILE_PATH) as json_file:
+        annotated_samples = json.load(json_file)
+
+    mongo_utils.save_to_mongo(annotated_samples, constants.MONGO_HOST, constants.MONGO_PORT,
+                              constants.MONGO_DB, constants.MONGO_COLLECTION_BIOSAMPLE_ANNOTATED,
+                              delete_existing_docs=True)
 
 
 if __name__ == "__main__":

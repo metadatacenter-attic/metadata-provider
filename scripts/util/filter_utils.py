@@ -164,10 +164,14 @@ def filter_atts_and_variations(filter_specs, atts_and_variations):
             if av['att_name'] == spec['att_name']:
                 new_av = av.copy()
                 new_av['att_values'] = []
-                for spec_att_value in spec['att_values']:
+                if 'att_values' in spec:
+                    for spec_att_value in spec['att_values']:
+                        for att_values_item in av['att_values']:
+                            if spec_att_value == att_values_item['att_value']:
+                                new_av['att_values'].append(att_values_item)
+                else:  # consider all values
                     for att_values_item in av['att_values']:
-                        if spec_att_value == att_values_item['att_value']:
-                            new_av['att_values'].append(att_values_item)
+                        new_av['att_values'].append(att_values_item)
 
                 result.append(new_av)
     return result

@@ -46,9 +46,7 @@ def annotate(api_key, text, ontologies=[], longest_only=False, expand_mappings=F
         response = requests.post(url, json=payload, headers=headers, verify=False)
 
         if response.status_code != 200:
-            raise Exception('Problem when calling the Annotator: ' + response.text)
-
-
+            raise Exception('Problem calling the Annotator: ' + response.text)
 
         # print(payload)
         # print(response.url)

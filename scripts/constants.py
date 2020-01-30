@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import scripts.util.utils as utils
+import os
 
 ROOT_FOLDER_NAME = 'cedar-translator-demo'
 BASE_FOLDER = utils.get_base_folder(ROOT_FOLDER_NAME)
@@ -16,6 +17,9 @@ FILTERED_SAMPLES_FOLDER = 'filtered'
 SAMPLES_ANALYSIS_FOLDER = 'analysis'
 EXPORT_FOLDER = 'exported'
 ANNOTATED_SAMPLES_FOLDER = 'annotated'
+
+# BioPortal Annotator
+BIOPORTAL_APIKEY = os.environ['NCATS_TRANSLATOR_BIOPORTAL_API_KEY']  # You need to define it in your local environment
 
 # Data download
 NCBI_DOWNLOAD_URL = 'https://ftp.ncbi.nih.gov/biosample/biosample_set.xml.gz'
@@ -69,6 +73,7 @@ NCBI_FILTER_5_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter5/' + 'biosample
 # Filtering by attribute names and values
 NCBI_FILTER_6_SPECS = [{"att_name": "sex", "att_values": []},
                        {"att_name": "tissue", "att_values": []},
+                       {"att_name": "race", "att_values": []},
                        {"att_name": "disease", "att_values": ["liver_cancer"]}]
 
 NCBI_FILTER_6_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter6/' + 'biosample_filtered.xml'
@@ -148,6 +153,11 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
     "att_values": []
   },
   {
+    "att_name": "race",
+    "att_name_variations": [],
+    "att_values": []
+  },
+  {
     "att_name": "age",
     "att_name_variations": [
       "age"
@@ -179,8 +189,12 @@ ANNOTATION_NORMALIZED_ATT_VALUES_FILE = RESOURCES_FOLDER + '/annotation/normaliz
 
 ANNOTATION_CACHE_FILE = RESOURCES_FOLDER + '/annotation/annotation_cache.json'
 
+ANNOTATION_FILTER_SPECS = [{"att_name": "sex"},
+                            {"att_name": "tissue"},
+                            {"att_name": "disease"}]
+
 # Save samples to Mongo
-ORIGINAL_SAMPLES_PATH = NCBI_EXPORT_JSON_OUTPUT_FILE
+ORIGINAL_SAMPLES_FILE_PATH = NCBI_EXPORT_JSON_OUTPUT_FILE
 ANNOTATED_SAMPLES_FILE_PATH = ANNOTATION_OUTPUT_FILE
 MONGO_HOST = "localhost"
 MONGO_PORT = 27017
