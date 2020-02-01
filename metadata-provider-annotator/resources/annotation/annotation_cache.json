@@ -1,0 +1,124 @@
+{
+  "att-names": {
+    "disease": {
+      "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C2991",
+      "term-label": "Disease or Disorder",
+      "term-source": "NCIT"
+    },
+    "sex": {
+      "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C28421",
+      "term-label": "Sex",
+      "term-source": "NCIT"
+    },
+    "tissue": {
+      "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12801",
+      "term-label": "Tissue",
+      "term-source": "NCIT"
+    },
+    "tissue supergroup": {
+      "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12801",
+      "term-label": "Tissue",
+      "term-source": "NCIT"
+    }
+  },
+  "att-values": {
+    "disease": {
+      "hepatocellular carcinoma": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7927",
+        "term-label": "Liver and Intrahepatic Bile Duct Carcinoma",
+        "term-source": "NCIT"
+      },
+      "hepatoma": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7927",
+        "term-label": "Liver and Intrahepatic Bile Duct Carcinoma",
+        "term-source": "NCIT"
+      },
+      "liver cancer": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7927",
+        "term-label": "Liver and Intrahepatic Bile Duct Carcinoma",
+        "term-source": "NCIT"
+      }
+    },
+    "sex": {
+      "male": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C46107",
+        "term-label": "Male, Self-Report",
+        "term-source": "NCIT"
+      },
+      "female": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C46113",
+        "term-label": "Female Phenotype",
+        "term-source": "NCIT"
+      },
+      "not available": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C126101",
+        "term-label": "Not Available",
+        "term-source": "NCIT"
+      },
+      "not applicable": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C159816",
+        "term-label": "Performance Status Scale Timing Not Applicable",
+        "term-source": "NCIT"
+      },
+      "not collected": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25453",
+        "term-label": "Collection",
+        "term-source": "NCIT"
+      }
+    },
+    "tissue": {
+      "liver": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
+        "term-label": "Liver",
+        "term-source": "NCIT"
+      },
+      "Liver": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
+        "term-label": "Liver",
+        "term-source": "NCIT"
+      },
+      "blood": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12434",
+        "term-label": "Blood",
+        "term-source": "NCIT"
+      },
+      "hepatocellular carcinoma": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7927",
+        "term-label": "Liver and Intrahepatic Bile Duct Carcinoma",
+        "term-source": "NCIT"
+      },
+      "non-cancerous liver tissue": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25594",
+        "term-label": "Negation",
+        "term-source": "NCIT"
+      },
+      "cancerous liver tissue": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C32735",
+        "term-label": "Hepatic Tissue",
+        "term-source": "NCIT"
+      },
+      "liver cell line": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
+        "term-label": "Liver",
+        "term-source": "NCIT"
+      },
+      "plasma": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C13356",
+        "term-label": "Plasma",
+        "term-source": "NCIT"
+      },
+      "blood cell": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12434",
+        "term-label": "Blood",
+        "term-source": "NCIT"
+      }
+    },
+    "tissue supergroup": {
+      "liver": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
+        "term-label": "Liver",
+        "term-source": "NCIT"
+      }
+    }
+  }
+}
