@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <dropwizard.version>2.0.1</dropwizard.version>
-        <mainClass>io.dropwizard.MetadataProviderApiApplication</mainClass>
+        <mainClass>org.metadatacenter.MetadataProviderApiApplication</mainClass>
     </properties>
 
     <dependencyManagement>

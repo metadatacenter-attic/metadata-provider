@@ -1,4 +1,4 @@
-package io.dropwizard;
+package org.metadatacenter;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
