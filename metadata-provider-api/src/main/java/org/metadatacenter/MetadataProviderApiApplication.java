@@ -3,6 +3,7 @@ package org.metadatacenter;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import org.metadatacenter.resources.SampleResource;
 
 public class MetadataProviderApiApplication extends Application<MetadataProviderApiConfiguration> {
 
@@ -23,7 +24,9 @@ public class MetadataProviderApiApplication extends Application<MetadataProvider
     @Override
     public void run(final MetadataProviderApiConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        final SampleResource sampleResource = new SampleResource();
+
+        environment.jersey().register(sampleResource);
     }
 
 }
