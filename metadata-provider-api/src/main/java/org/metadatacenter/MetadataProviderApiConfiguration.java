@@ -1,7 +1,17 @@
 package org.metadatacenter;
 
 import io.dropwizard.Configuration;
+import org.metadatacenter.db.configuration.MongoDBConnection;
 
 public class MetadataProviderApiConfiguration extends Configuration {
-    // TODO: implement service configuration
+
+  private MongoDBConnection mongoDBConnection;
+
+  public MongoDBConnection getMongoDBConnection() {
+    return mongoDBConnection;
+  }
+
+  public void setMongoDBConnection(MongoDBConnection mongoDBConnection) {
+    this.mongoDBConnection = mongoDBConnection;
+  }
 }

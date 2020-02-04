@@ -1,4 +1,4 @@
-package org.metadatacenter.api;
+package org.metadatacenter.api.biosample;
 
 import java.util.List;
 

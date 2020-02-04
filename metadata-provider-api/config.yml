@@ -2,3 +2,16 @@ logging:
   level: INFO
   loggers:
     io.dropwizard: DEBUG
+
+mongoDBConnection:
+  user: ~
+  password: ~
+  host: "localhost"
+  port: 27017
+  database: "ncats-demo"
+  collections:
+    originalSamples: "biosample-original"
+    annotatedSamples: "biosample-annotated"
+
+
+
