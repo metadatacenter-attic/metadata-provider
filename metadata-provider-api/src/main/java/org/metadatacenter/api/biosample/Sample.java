@@ -1,35 +1,42 @@
 package org.metadatacenter.api.biosample;
 
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+import java.util.Map;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Sample {
 
-  private String id;
-  private String title;
+  private String biosampleAccession;
+  private String bioprojectAccession;
+  private String sampleName;
+  private String sampleTitle;
   private List<SampleAttribute> attributes;
 
   public Sample() {
     // Jackson deserialization
   }
 
-  public String getId() {
-    return id;
-  }
+  @JsonProperty("BioSample")
+  private void unpackBioSample(Map<String,Object> biosample) {
+    this.biosampleAccession = (String) biosample.get("@accession");
 
-  public String getTitle() {
-    return title;
-  }
 
-  public List<SampleAttribute> getAttributes() {
-    return attributes;
-  }
+    if (biosample.get("Links") != null) {
+      for (Map<String,Object> link:  (List<Map<String,Object>>) biosample.get("Links")) {
+        if (((String) link.get("@target")).compareTo("bioproject") == 0) {
+          this.bioprojectAccession = (String) link.get("#text");
+        }
+      }
+    }
 
-  public Sample(String id, String title, List<SampleAttribute> attributes) {
-    this.id = id;
-    this.title = title;
-    this.attributes = attributes;
-  }
 
+
+
+
+  }
 
 
 

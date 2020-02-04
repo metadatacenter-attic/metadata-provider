@@ -3,20 +3,16 @@ package org.metadatacenter.resources;
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.metadatacenter.api.biosample.Sample;
-import org.metadatacenter.db.BiosampleDAO;
+import org.metadatacenter.db.BiosampleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Path("/biosample")
 @Produces(MediaType.APPLICATION_JSON)
@@ -24,10 +20,10 @@ public class BiosampleResource {
 
   private static final Logger logger = LoggerFactory.getLogger(BiosampleResource.class);
 
-  private final BiosampleDAO originalSamplesDAO;
-  private final BiosampleDAO annotatedSamplesDAO;
+  private final BiosampleService originalSamplesDAO;
+  private final BiosampleService annotatedSamplesDAO;
 
-  public BiosampleResource(BiosampleDAO originalSamplesDAO, BiosampleDAO annotatedSamplesDAO) {
+  public BiosampleResource(BiosampleService originalSamplesDAO, BiosampleService annotatedSamplesDAO) {
     this.originalSamplesDAO = originalSamplesDAO;
     this.annotatedSamplesDAO = annotatedSamplesDAO;
   }

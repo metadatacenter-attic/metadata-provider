@@ -149,3 +149,125 @@ def export_samples_to_json(root_folder_name, input_file, output_file, log_freque
         print('Finished processing NCBI samples')
         print('- Total samples processed: ' + str(processed_samples_count))
         print('- Total samples exported: ' + str(len(samples_dct)))
+
+
+def transform_and_export_samples_to_json(root_folder_name, input_file, output_file, log_frequency=1000):
+    """
+       Parses an XML file with multiple NCBI biosamples and...
+
+    """
+    constants.BASE_FOLDER = utils.get_base_folder(root_folder_name)
+    execute = True
+    if os.path.exists(output_file):
+        if not utils.confirm('The destination file already exist. Do you want to overwrite it [y/n]? '):
+            execute = False
+    if execute:
+
+        biosamples = []
+
+        if not os.path.exists(os.path.dirname(output_file)):
+            os.makedirs(os.path.dirname(output_file))
+
+        print('Input file: ' + input_file)
+        print('Output file: ' + output_file)
+        print('Processing NCBI samples...')
+
+        processed_samples_count = 0
+
+        # Read biosamples from XML file
+        tree = ET.parse(input_file)
+        root = tree.getroot()
+        num_biosamples = len(list(root))
+        print('Extracting all samples from file (no. samples: ' + str(num_biosamples) + ')')
+        for child in root:
+            biosample = NcbiBiosample()
+            description_node = child.find('Description')
+            attributes_node = child.find('Attributes')
+
+            # sample identifiers
+            sample_ids = child.find('Ids')
+            for sample_id in sample_ids:
+                value = sample_id.text
+                if sample_id.get('db') == 'BioSample':
+                    biosample.biosample_accession = value
+
+            # sample name
+            for sample_id in sample_ids:
+                if sample_id.get('db_label') == 'Sample name':
+                    value = sample_id.text
+                    biosample.sample_name = value
+
+            # sample title
+            if description_node is not None and description_node.find('Title') is not None:
+                value = description_node.find('Title').text
+                biosample.sample_title = value
+
+            # bioproject accession
+            links = child.find('Links')
+            if links is not None:
+                for link in links:
+                    if link.get('target') == 'bioproject':
+                        value = link.text
+                        biosample.bioproject_accession = value
+
+            # organism
+            if description_node is not None:
+                organism_node = description_node.find('Organism')
+                if organism_node is not None and organism_node.get('taxonomy_name') is not None:
+                    value = organism_node.get('taxonomy_name')
+                    biosample.organism = value
+
+            # attributes
+            biosample_attributes = []
+
+            for att in attributes_node:
+                biosample_attribute = NcbiBiosampleAttribute()
+
+                if att.get('display_name') is not None:
+                    att_name = att.get('display_name')
+                else:
+                    att_name = att.get('attribute_name')
+
+                biosample_attribute.att_name = att_name
+                biosample_attribute.att_value = att.text
+
+                biosample_attributes.append(biosample_attribute)
+
+            biosample.attributes = biosample_attributes
+            biosamples.append(biosample)
+            processed_samples_count = processed_samples_count + 1
+
+            # from pprint import pprint
+            # pprint(vars(biosample))
+
+        with open(output_file, 'w') as f:
+            # json_string = json.dumps(biosamples, default=obj_dict)
+            # print
+            json.dump(biosamples, f, default=obj_dict)
+
+        print('Finished processing NCBI samples')
+        print('- Total samples processed: ' + str(processed_samples_count))
+        print('- Total samples exported: ' + str(len(biosamples)))
+
+
+def obj_dict(obj):
+    return obj.__dict__
+
+# Class that represents a biological sample for the NCBI's BioSample Human Package 1.0
+# https://submit.ncbi.nlm.nih.gov/biosample/template/?package=Human.1.0&action=definition
+class NcbiBiosample:
+    def __init__(self, biosample_accession=None, sample_name=None, sample_title=None,
+                 bioproject_accession=None,
+                 organism=None, attributes=None):
+        self.biosample_accession = biosample_accession
+        self.sample_name = sample_name
+        self.sample_title = sample_title
+        self.bioproject_accession = bioproject_accession
+        self.organism = organism
+        self.attributes = attributes
+
+
+class NcbiBiosampleAttribute:
+    def __init__(self, attribute_name=None, attribute_value=None):
+        self.att_name = attribute_name
+        self.att_value = attribute_value

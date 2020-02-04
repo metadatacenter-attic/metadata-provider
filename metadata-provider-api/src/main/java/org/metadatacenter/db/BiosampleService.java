@@ -6,16 +6,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import org.bson.Document;
+import org.metadatacenter.api.biosample.Sample;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BiosampleDAO {
+public class BiosampleService {
 
   private final MongoCollection<Document> samplesCollection;
   private final ObjectMapper mapper = new ObjectMapper();
 
-  public BiosampleDAO(MongoCollection<Document> samplesCollection) {
+  public BiosampleService(MongoCollection<Document> samplesCollection) {
     this.samplesCollection = samplesCollection;
   }
 
@@ -25,8 +26,13 @@ public class BiosampleDAO {
     final List<JsonNode> samplesFound = new ArrayList<>();
     try {
       while (samplesDocs.hasNext()) {
-        final Document sample = samplesDocs.next();
-        samplesFound.add(mapper.readTree(sample.toJson()));
+        final Document sampleDoc = samplesDocs.next();
+
+        samplesFound.add(mapper.readTree(sampleDoc.toJson()));
+
+        Sample sample = mapper.readValue(sampleDoc.toJson(), Sample.class);
+        int a = 2;
+
       }
     } finally {
       samplesDocs.close();

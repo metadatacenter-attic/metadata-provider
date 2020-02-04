@@ -1,4 +1,4 @@
-package org.metadatacenter.db;
+package org.metadatacenter.db.util;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
