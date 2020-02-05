@@ -2,14 +2,18 @@ package org.metadatacenter.db;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.BasicDBObject;
-import com.mongodb.client.FindIterable;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
-import com.mongodb.client.model.Projections;
+import org.bson.BsonDocument;
 import org.bson.Document;
+import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.conversions.Bson;
 import org.metadatacenter.api.Biosample;
+import org.metadatacenter.db.util.MongoDBFactoryConnection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +22,8 @@ import java.util.Map;
 import static com.mongodb.client.model.Filters.*;
 
 public class BiosampleService {
+
+  private static final Logger logger = LoggerFactory.getLogger(BiosampleService.class);
 
   private final MongoCollection<Document> samplesCollection;
   private final ObjectMapper mapper = new ObjectMapper();
@@ -52,7 +58,11 @@ public class BiosampleService {
           elemMatch("attributes", and(eq("attributeName", attributeName), eq("attributeValue", attributeValue))));
     }
 
-    MongoCursor<Document> iterator = samplesCollection.find(and(attNameValueFilters)).iterator();
+
+    Bson searchFilter = and(attNameValueFilters);
+    BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class, MongoClientSettings.getDefaultCodecRegistry());
+    logger.info("Search filter: " + bsonDocument.toJson());
+    MongoCursor<Document> iterator = samplesCollection.find(searchFilter).iterator();
 
     try {
       while (iterator.hasNext()) {

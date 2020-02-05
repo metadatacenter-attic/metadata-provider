@@ -7,9 +7,9 @@ import org.metadatacenter.db.BiosampleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.HashMap;
@@ -25,12 +25,16 @@ public class BiosampleResource {
   private final BiosampleService originalSamplesService;
   private final BiosampleService annotatedSamplesService;
 
+  public enum BiosamplesDB {
+    original,
+    annotated
+  }
+
   public BiosampleResource(BiosampleService originalSamplesService, BiosampleService annotatedSamplesService) {
     this.originalSamplesService = originalSamplesService;
     this.annotatedSamplesService = annotatedSamplesService;
   }
 
-  // TODO: extend to return annotated samples too
   @GET
   @Path("/all")
   @Timed
@@ -47,20 +51,27 @@ public class BiosampleResource {
   @GET
   @Path("/search")
   @Timed
-  public Response search() {
+  public Response search(@QueryParam("q") @NotEmpty String q, @QueryParam("db") @DefaultValue("original") BiosamplesDB db) {
+    BiosampleService service;
+    if (db.equals(BiosamplesDB.annotated)) {
+      logger.info("Selected DB: " + BiosamplesDB.annotated);
+      service = annotatedSamplesService;
+    }
+    else {
+      logger.info("Selected DB: " + BiosamplesDB.original);
+      service = originalSamplesService;
+    }
     try {
-      // We will represent the attribute-value pairs as a map
-
-      Map<String, String> attributesAndValuesFilter = new HashMap<>();
-
-      attributesAndValuesFilter.put("disease", "liver cancer");
-      attributesAndValuesFilter.put("sex", "female");
-
-      final List<Biosample> samplesFound = originalSamplesService.search(attributesAndValuesFilter);
+      Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q);
+      final List<Biosample> samplesFound = service.search(attributeNameValuePairs);
       logger.info(samplesFound.size() + " samples found");
-
       return Response.ok(samplesFound).build();
-    } catch (JsonProcessingException e) {
+    }
+    catch (BadRequestException e) {
+      logger.error(e.getMessage());
+      return Response.status(Response.Status.BAD_REQUEST).build();
+    }
+    catch (JsonProcessingException e) {
       logger.error(e.getMessage());
       return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
     }

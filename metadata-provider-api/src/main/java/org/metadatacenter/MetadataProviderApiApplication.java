@@ -41,7 +41,7 @@ public class MetadataProviderApiApplication extends Application<MetadataProvider
 
     String samplesDB = configuration.getMongoDBConnection().getDatabase();
     String originalSamplesCollection = configuration.getMongoDBConnection().getCollections().getOriginalSamples();
-    String annotatedSamplesCollection = configuration.getMongoDBConnection().getCollections().getOriginalSamples();
+    String annotatedSamplesCollection = configuration.getMongoDBConnection().getCollections().getAnnotatedSamples();
 
     final BiosampleService originalSamplesDAO = new BiosampleService(mongoDBFactoryConnection.getClient().
         getDatabase(samplesDB).getCollection(originalSamplesCollection));
