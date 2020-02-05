@@ -8,8 +8,7 @@ def get_attributes(sample):
     return attributes
 
 def get_attribute_name(attribute):
-    return attribute['att_name']
-
+    return attribute['attributeName']
 
 def get_attribute_value(attribute):
-    return attribute['att_value']
+    return attribute['attributeValue']

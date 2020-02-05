@@ -13,12 +13,12 @@ import scripts.constants as constants
 import scripts.util.filter_utils as filter_utils
 import time
 
-ATT_NAME_TERM_URI = 'att_name_term_uri'
-ATT_NAME_TERM_LABEL = 'att_name_term_label'
-ATT_NAME_TERM_SOURCE = 'att_name_term_source'
-ATT_VALUE_TERM_URI = 'att_value_term_uri'
-ATT_VALUE_TERM_LABEL = 'att_value_term_label'
-ATT_VALUE_TERM_SOURCE = 'att_value_term_source'
+ATT_NAME_TERM_URI = 'attributeNameTermUri'
+ATT_NAME_TERM_LABEL = 'attributeNameTermLabel'
+ATT_NAME_TERM_SOURCE = 'attributeNameTermSource'
+ATT_VALUE_TERM_URI = 'attributeValueTermUri'
+ATT_VALUE_TERM_LABEL = 'attributeValueTermLabel'
+ATT_VALUE_TERM_SOURCE = 'attributeValueTermSource'
 
 
 def annotate_attribute_names(sample, annotation_cache, relevant_atts_and_variations):

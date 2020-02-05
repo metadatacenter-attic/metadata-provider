@@ -189,18 +189,18 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
             for sample_id in sample_ids:
                 value = sample_id.text
                 if sample_id.get('db') == 'BioSample':
-                    biosample.biosample_accession = value
+                    biosample.biosampleAccession = value
 
             # sample name
             for sample_id in sample_ids:
                 if sample_id.get('db_label') == 'Sample name':
                     value = sample_id.text
-                    biosample.sample_name = value
+                    biosample.sampleName = value
 
             # sample title
             if description_node is not None and description_node.find('Title') is not None:
                 value = description_node.find('Title').text
-                biosample.sample_title = value
+                biosample.sampleTitle = value
 
             # bioproject accession
             links = child.find('Links')
@@ -208,7 +208,7 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
                 for link in links:
                     if link.get('target') == 'bioproject':
                         value = link.text
-                        biosample.bioproject_accession = value
+                        biosample.bioprojectAccession = value
 
             # organism
             if description_node is not None:
@@ -228,8 +228,8 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
                 else:
                     att_name = att.get('attribute_name')
 
-                biosample_attribute.att_name = att_name
-                biosample_attribute.att_value = att.text
+                biosample_attribute.attributeName = att_name
+                biosample_attribute.attributeValue = att.text
 
                 biosample_attributes.append(biosample_attribute)
 
@@ -259,15 +259,15 @@ class NcbiBiosample:
     def __init__(self, biosample_accession=None, sample_name=None, sample_title=None,
                  bioproject_accession=None,
                  organism=None, attributes=None):
-        self.biosample_accession = biosample_accession
-        self.sample_name = sample_name
-        self.sample_title = sample_title
-        self.bioproject_accession = bioproject_accession
+        self.biosampleAccession = biosample_accession
+        self.sampleName = sample_name
+        self.sampleTitle = sample_title
+        self.bioprojectAccession = bioproject_accession
         self.organism = organism
         self.attributes = attributes
 
 
 class NcbiBiosampleAttribute:
     def __init__(self, attribute_name=None, attribute_value=None):
-        self.att_name = attribute_name
-        self.att_value = attribute_value
+        self.attributeName = attribute_name
+        self.attributeValue = attribute_value
