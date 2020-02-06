@@ -22,6 +22,9 @@ public class Biosample {
   @JsonProperty("attributes")
   private List<BiosampleAttribute> attributes;
 
+  // Generated attributes
+  private String biosampleUrl;
+
   public Biosample() {
     // Jackson deserialization
   }
@@ -48,5 +51,9 @@ public class Biosample {
 
   public List<BiosampleAttribute> getAttributes() {
     return attributes;
+  }
+
+  public String getBiosampleUrl() {
+    return "https://www.ncbi.nlm.nih.gov/biosample/" + getBiosampleAccession();
   }
 }

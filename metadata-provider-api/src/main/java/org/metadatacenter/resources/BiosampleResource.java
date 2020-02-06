@@ -53,16 +53,19 @@ public class BiosampleResource {
   @Timed
   public Response search(@QueryParam("q") @NotEmpty String q, @QueryParam("db") @DefaultValue("original") BiosamplesDB db) {
     BiosampleService service;
+    boolean isAnnotatedSamplesQuery;
     if (db.equals(BiosamplesDB.annotated)) {
       logger.info("Selected DB: " + BiosamplesDB.annotated);
       service = annotatedSamplesService;
+      isAnnotatedSamplesQuery = true;
     }
     else {
       logger.info("Selected DB: " + BiosamplesDB.original);
       service = originalSamplesService;
+      isAnnotatedSamplesQuery = false;
     }
     try {
-      Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q);
+      Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q, isAnnotatedSamplesQuery);
       final List<Biosample> samplesFound = service.search(attributeNameValuePairs);
       logger.info(samplesFound.size() + " samples found");
       return Response.ok(samplesFound).build();
