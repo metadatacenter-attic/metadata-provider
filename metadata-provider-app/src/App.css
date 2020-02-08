@@ -68,6 +68,12 @@ h1 {
 /* Bootstrap customizations */
 /****************************/
 
+.carousel {
+  width:900px;
+  height:200px;
+  margin: auto;
+}
+
 /* remove rounding from cards, buttons and inputs */
 /*.btn, .btn-lg, .btn-outline-info, .form-control {*/
 /*  border-radius: 0 !important;*/
