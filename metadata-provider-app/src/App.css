@@ -3,8 +3,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 10vh;
+  background-color: #181a20;
+  min-height: 6vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +14,8 @@
 }
 
 .App-content {
-  background-color: #282c34;
+  //background-color: #282c34;
+  background-color: #202020;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,6 +23,18 @@
   justify-content: center;
   font-size: calc(8px + 2vmin);
   color: white;
+  padding: 3vw;
+}
+
+h1 {
+  color: #3ad9fc;
+}
+
+.search-container-col {
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  background-color: #2e3032;
 }
 
 
@@ -50,3 +63,14 @@
     transform: rotate(360deg);
   }
 }
+
+/****************************/
+/* Bootstrap customizations */
+/****************************/
+
+/* remove rounding from cards, buttons and inputs */
+/*.btn, .btn-lg, .btn-outline-info, .form-control {*/
+/*  border-radius: 0 !important;*/
+/*}*/
+
+
