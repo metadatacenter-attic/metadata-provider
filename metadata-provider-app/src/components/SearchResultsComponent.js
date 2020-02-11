@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Form} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Col from "react-bootstrap/Col";
@@ -9,12 +9,12 @@ function SearchResultsComponent(props) {
   const [hasError, setErrors] = useState(false);
   const [samples, setSamples] = useState([]);
   const [showResults, setShowResults] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(props.searchQuery);
+  const [searchQuery, setSearchQuery] = useState('');
   const [showEnterQueryMessage, setShowEnterQueryMessage] = useState(false);
 
   function querySamples(e, db) {
     e.preventDefault();
-    if (searchQuery.length === 0) {
+    if (!searchQuery || searchQuery.length === 0) {
       setShowEnterQueryMessage(true);
     } else {
       setShowEnterQueryMessage(false);
@@ -35,7 +35,7 @@ function SearchResultsComponent(props) {
   // Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
     setSearchQuery(props.searchQuery);
-  });
+  }, [props.searchQuery]);
 
   // function updateSearchQuery(e, v) {
   //   setSearchQuery(v);
@@ -56,6 +56,7 @@ function SearchResultsComponent(props) {
               setSearchQuery(e.target.value)
             }}
           />
+
           <Button className="mt-4" variant="info" size="lg" type="submit" onClick={e => {
             querySamples(e, props.db)
           }}>Search</Button>

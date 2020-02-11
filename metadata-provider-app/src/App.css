@@ -1,52 +1,92 @@
+
 .App {
   text-align: center;
+  background-color: #000;
+  margin-top: 0px;
+  font-family: "Avenir Next W01","Avenir Next W00","Avenir Next",Avenir,"Helvetica Neue",sans-serif;
+  padding-top: 1vw;
 }
 
 .App-header {
-  background-color: #181a20;
-  min-height: 8vh;
+  margin: 0vw 1vw;
+  background-color: #2e3032;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  border-color: #5c5c5c;
+  border-width: 1px;
+  border-style: solid;
+  padding-top: 1vw;
+}
+
+h1 sup {
+  font-size: 0.5em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 0.3em;
 }
 
 .App-content {
-  //background-color: #282c34;
-  background-color: #202020;
+  background-color: #000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(8px + 2vmin);
+  //justify-content: center;
+  font-size: calc(5px + 2vmin);
   color: white;
-  padding: 3vw;
+  padding: 0vw 1vw;
 }
 
-h1 {
-  color: #3ad9fc;
+.instructions-container, .examples-container {
+  margin-top: 1vw;
+  background-color: #2e3032;
+  border-color: #5c5c5c;
+  border-width: 1px;
+  border-style: solid;
+  font-weight: 600;
+  width: 100%;
+  padding: 1vw;
+}
+
+.instructions-container .btn {
+  font-size: calc(5px + 2vmin);
+  font-weight: 600;
+  color: #61dafb;
+}
+
+.instructions-container .btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {
+  color: aqua;
+  //background-color: #00b3db;
+  //border-color: #285e8e; /*set the color you want here*/
+}
+
+.instructions-container-col {
+  background-color: #2e3032;
 }
 
 .search-container-col {
-  /*border-color: white;*/
-  /*border-width: 1px;*/
-  /*border-style: solid;*/
-  background-color: #2e3032;
-}
-
-.examples-container {
-  border-color: red;
+  border-color: #5c5c5c;
   border-width: 1px;
   border-style: solid;
-}
-
-.examples-container-col {
   background-color: #2e3032;
 }
 
+.example-selection, .queries-selection {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: calc(5px + 1.2vmin);
+  text-align: left;
+  margin-top: 3vw;
+}
+
+.example-selection .form-control, .queries-selection .form-control {
+  background-color: #2e3032 !important;
+  color: white !important;
+}
 
 .examples {
   margin-top: 2vh;
@@ -54,7 +94,6 @@ h1 {
   font-size: 16px;
   color: darkgray;
 }
-
 
 .results {
   margin-top: 4vh;
@@ -78,15 +117,14 @@ h1 {
 /* Bootstrap customizations */
 /****************************/
 
-.carousel {
-  width:900px;
-  height:200px;
-  margin: auto;
-}
-
 /* remove rounding from cards, buttons and inputs */
 /*.btn, .btn-lg, .btn-outline-info, .form-control {*/
 /*  border-radius: 0 !important;*/
 /*}*/
+
+.close {
+  color: white !important;
+}
+
 
 
