@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #181a20;
-  min-height: 6vh;
+  min-height: 8vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,9 +31,19 @@ h1 {
 }
 
 .search-container-col {
-  border-color: white;
+  /*border-color: white;*/
+  /*border-width: 1px;*/
+  /*border-style: solid;*/
+  background-color: #2e3032;
+}
+
+.examples-container {
+  border-color: red;
   border-width: 1px;
   border-style: solid;
+}
+
+.examples-container-col {
   background-color: #2e3032;
 }
 

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, Form} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Col from "react-bootstrap/Col";
@@ -9,7 +9,7 @@ function SearchResultsComponent(props) {
   const [hasError, setErrors] = useState(false);
   const [samples, setSamples] = useState([]);
   const [showResults, setShowResults] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState(props.searchQuery);
   const [showEnterQueryMessage, setShowEnterQueryMessage] = useState(false);
 
   function querySamples(e, db) {
@@ -32,9 +32,14 @@ function SearchResultsComponent(props) {
     }
   }
 
-  function updateSearchQuery(e, v) {
-    setSearchQuery(v);
-  }
+  // Similar to componentDidMount and componentDidUpdate
+  useEffect(() => {
+    setSearchQuery(props.searchQuery);
+  });
+
+  // function updateSearchQuery(e, v) {
+  //   setSearchQuery(v);
+  // }
 
   return (
     <Col className="search-container-col m-3">
@@ -51,17 +56,18 @@ function SearchResultsComponent(props) {
               setSearchQuery(e.target.value)
             }}
           />
-          <Button className="mt-4" variant="info" size="lg" type="submit" onClick={e => {querySamples(e, props.db)}}>Search</Button>
-          <div className="examples">
-            <h5>Examples:</h5>
-            <ul>
-              {props.sampleQueries.map((item, index) => (
-                <li key={index}
-                    onClick={e => updateSearchQuery(e, props.sampleQueries[index])}>{item}</li>
-              ))}
-            </ul>
-
-          </div>
+          <Button className="mt-4" variant="info" size="lg" type="submit" onClick={e => {
+            querySamples(e, props.db)
+          }}>Search</Button>
+          {/*<div className="examples">*/}
+          {/*  <h5>Examples:</h5>*/}
+          {/*  <ul>*/}
+          {/*    {props.sampleQueries.map((item, index) => (*/}
+          {/*      <li key={index}*/}
+          {/*          onClick={e => updateSearchQuery(e, props.sampleQueries[index])}>{item}</li>*/}
+          {/*    ))}*/}
+          {/*  </ul>*/}
+          {/*</div>*/}
         </Form.Group>
       </Form>
       {showResults &&
