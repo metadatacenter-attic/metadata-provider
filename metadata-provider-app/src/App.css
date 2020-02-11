@@ -51,6 +51,11 @@ h1 sup {
   font-weight: 600;
   width: 100%;
   padding: 1vw;
+
+}
+
+.examples-container {
+
 }
 
 .instructions-container .btn {
@@ -76,14 +81,19 @@ h1 sup {
   background-color: #2e3032;
 }
 
+
 .example-selection, .queries-selection {
-  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: calc(5px + 1.2vmin);
   text-align: left;
   margin-top: 3vw;
 }
 
+.example-selection .form-control {
+  font-weight: bold;
+}
+
 .example-selection .form-control, .queries-selection .form-control {
+  font-size: calc(5px + 1.2vmin);
+  //font-family: Monaco, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
   background-color: #2e3032 !important;
   color: white !important;
 }
@@ -93,6 +103,16 @@ h1 sup {
   text-align: left;
   font-size: 16px;
   color: darkgray;
+}
+
+.results-container {
+  margin-top: 0vw;
+  background-color: #2e3032;
+  border-color: #5c5c5c;
+  border-width: 1px;
+  border-style: solid;
+  font-weight: 600;
+  width: 100%;
 }
 
 .results {

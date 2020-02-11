@@ -11,6 +11,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import {Form} from "react-bootstrap";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
+import Collapse from "react-bootstrap/Collapse";
 
 //import 'holderjs/holder.js'; // uninstall if not needed
 
@@ -83,81 +84,84 @@ export default function App() {
       <div className="App-content">
 
         <div className="instructions-container">
-
           <span>Enter a search query or
             <Button variant="link" onClick={() => setShowExamplesPanel(!showExamplesPanel)}>load an example</Button>
           </span>
-
-          {/*<Accordion defaultActiveKey="1">Enter a search query or*/}
-          {/*  <Accordion.Toggle as={Button} variant="link" eventKey="0">*/}
-          {/*    load an example*/}
-          {/*  </Accordion.Toggle>*/}
-          {/*  <Accordion.Collapse eventKey="0">*/}
-          {/*    <Form.Group className="example-selection" controlId="exampleSelectionForm">*/}
-          {/*      <Form.Control as="select" onChange={e => setSampleQueryIndex(e.target.value)}>*/}
-          {/*        {sampleQueries.map((item, index) => (*/}
-          {/*          <option key={index} value={index}>{index + 1}. {item.researchQuestionShort}</option>*/}
-          {/*        ))}*/}
-          {/*      </Form.Control>*/}
-          {/*    </Form.Group>*/}
-          {/*  </Accordion.Collapse>*/}
-          {/*</Accordion>*/}
         </div>
 
-        {showExamplesPanel &&
-        <div className="examples-container">
 
-          <Button type="button" className="close" aria-label="Close" onClick={() => setShowExamplesPanel(false)}>
-            <span aria-hidden="true">&times;</span>
-          </Button>
+        <Collapse in={showExamplesPanel}>
+          <div className="examples-container">
+            <Button type="button" className="close" aria-label="Close"
+                    onClick={() => setShowExamplesPanel(false)}>
+              <span aria-hidden="true">&times;</span>
+            </Button>
+            <Container>
+              <Row className="example-selection">
+                <Col md={1}></Col>
+                <Col md={10}>
+                  <Form.Group controlId="exampleSelectionForm">
+                    {/*<Form.Label>Select an example</Form.Label>*/}
+                    <Form.Control as="select" onChange={e => setSampleQueryIndex(e.target.value)}>
+                      {sampleQueries.map((item, index) => (
+                        <option key={index} value={index}>Example {index + 1}. {item.researchQuestion}</option>
+                      ))}
+                    </Form.Control>
+                  </Form.Group>
+                </Col>
+                <Col md={1}></Col>
+              </Row>
+              {/*<Row>*/}
+              {/*  <Col>Example: <i>"{sampleQueries[queryIndex].researchQuestion}"</i></Col>*/}
+              {/*</Row>*/}
+              <Row>
+                <Col md={1}></Col>
+                <Col md={3} className="queries-selection">
+                  <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Control as="select">
+                      <option key={0}>Choose a query on the original metadata...</option>
+                      {sampleQueries[queryIndex].queriesOriginalDB.map((item, index) => (
+                        <option key={index+1}
+                                onClick={e => updateSearchQuery(e, item, false)}>Query {index + 1}</option>
+                      ))}
+                    </Form.Control>
+                  </Form.Group>
+                </Col>
+                <Col md={4}></Col>
+                <Col md={3} className="queries-selection">
+                  <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Control as="select">
+                      <option key={0}>Choose a query on the curated metadata...</option>
+                      {sampleQueries[queryIndex].queriesAnnotatedDB.map((item, index) => (
+                        <option key={index}
+                                onClick={e => updateSearchQuery(e, item, true)}>Query {index + 1}</option>
+                      ))}
+                    </Form.Control>
+                  </Form.Group>
+                </Col>
+                <Col md={1}></Col>
+              </Row>
+            </Container>
+          </div>
+        </Collapse>
 
-          {queryIndex != null &&
+
+        <div className="results-container">
+
           <Container fluid>
-            <Row className="example-selection">
-              <Col>
-                <Form.Group controlId="exampleSelectionForm">
-                  <Form.Control as="select" onChange={e => setSampleQueryIndex(e.target.value)}>
-                    {sampleQueries.map((item, index) => (
-                      <option key={index} value={index}>{index + 1}. {item.researchQuestionShort}</option>
-                    ))}
-                  </Form.Control>
-                </Form.Group>
+            <Row>
+              <Col className="search-container-col m-3">
+                <SearchResultsComponent title="Original BioSample Metadata" searchQuery={searchQueryOriginal}
+                                        db="original"/>
+              </Col>
+              <Col className="search-container-col m-3">
+                <SearchResultsComponent title="Curated BioSample Metadata" searchQuery={searchQueryAnnotated}
+                                        db="annotated"/>
               </Col>
             </Row>
-            <Row>
-              <Col>Example: <i>"{sampleQueries[queryIndex].researchQuestion}"</i></Col>
-            </Row>
-            <Row>
-              <Col className="queries-selection">
-                <Form.Group controlId="exampleForm.ControlSelect1">
-                  <Form.Control as="select">
-                    {sampleQueries[queryIndex].queriesOriginalDB.map((item, index) => (
-                      <option key={index} onClick={e => updateSearchQuery(e, item, false)}>{index + 1}. {item}</option>
-                    ))}
-                  </Form.Control>
-                </Form.Group>
-              </Col>
-              <Col className="queries-selection">
-                <Form.Group controlId="exampleForm.ControlSelect1">
-                  <Form.Control as="select">
-                    {sampleQueries[queryIndex].queriesAnnotatedDB.map((item, index) => (
-                      <option key={index} onClick={e => updateSearchQuery(e, item, true)}>{index + 1}. {item}</option>
-                    ))}
-                  </Form.Control>
-                </Form.Group>
+          </Container>
 
-              </Col>
-            </Row>
-          </Container>}
         </div>
-        }
-
-        <Container fluid>
-          <Row>
-            <SearchResultsComponent title="Original BioSample" searchQuery={searchQueryOriginal} db="original"/>
-            <SearchResultsComponent title="Curated BioSample" searchQuery={searchQueryAnnotated} db="annotated"/>
-          </Row>
-        </Container>
       </div>
     </div>
   );

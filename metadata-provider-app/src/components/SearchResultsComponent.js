@@ -42,7 +42,7 @@ function SearchResultsComponent(props) {
   // }
 
   return (
-    <Col className="search-container-col m-3">
+    <>
       <h3 className="mt-4">{props.title}</h3>
       <Form className="mt-4">
         <Form.Group>
@@ -101,7 +101,7 @@ function SearchResultsComponent(props) {
       }
       {showEnterQueryMessage && <p>Enter a search query</p>}
       {hasError && <p>Search query error</p>}
-    </Col>
+    </>
   );
 
 }
