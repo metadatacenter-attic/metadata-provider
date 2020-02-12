@@ -4,31 +4,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import SearchResultsComponent from './components/SearchResultsComponent';
-import Button from "react-bootstrap/Button";
-import ExamplesModalComponent from "./components/ExamplesModalComponent";
 import Col from "react-bootstrap/Col";
-import ListGroup from "react-bootstrap/ListGroup";
 import {Form} from "react-bootstrap";
-import Accordion from "react-bootstrap/Accordion";
-import Card from "react-bootstrap/Card";
-import Collapse from "react-bootstrap/Collapse";
 
 //import 'holderjs/holder.js'; // uninstall if not needed
 
 export default function App() {
 
-  const [modalShow, setModalShow] = useState(false);
-  const [queryIndex, setQueryIndex] = useState(0);
-  const [showExamplesPanel, setShowExamplesPanel] = useState(false);
-
-  const [searchQueryOriginal, setSearchQueryOriginal] = useState('');
-  const [searchQueryAnnotated, setSearchQueryAnnotated] = useState('');
-
+  const [queryIndex, setQueryIndex] = useState();
 
   const sampleQueries = [
     {
       "researchQuestion": "Find all studies using liver tissue samples affected by liver cancer",
-      "researchQuestionShort": "Liver tissue; Liver cancer",
+      "researchQuestionShort": "liver cancer, liver",
       "queriesOriginalDB": [
         "disease=liver cancer AND tissue=liver",
         "disease=hepatoma AND tissue=liver",
@@ -62,17 +50,28 @@ export default function App() {
   ];
 
   function setSampleQueryIndex(selectedIndex) {
-    setQueryIndex(selectedIndex);
-    console.log(queryIndex)
+    if (selectedIndex) {
+      setQueryIndex(selectedIndex);
+    }
+    else { // when there is no example selected
+      setQueryIndex(null);
+    }
+
   };
 
-  function updateSearchQuery(e, query, isQueryAnnotatedDB) {
-    if (!isQueryAnnotatedDB) {
-      setSearchQueryOriginal(query);
-    } else {
-      setSearchQueryAnnotated(query);
+  function getSampleQueries(index, db) {
+    if (index) {
+      if (db === 'original') {
+        return sampleQueries[index].queriesOriginalDB;
+      }
+      else {
+        return sampleQueries[index].queriesAnnotatedDB;
+      }
     }
-  };
+    else {
+      return null;
+    }
+  }
 
   return (
     <div className="App">
@@ -84,84 +83,41 @@ export default function App() {
       <div className="App-content">
 
         <div className="instructions-container">
-          <span>Enter a search query or
-            <Button variant="link" onClick={() => setShowExamplesPanel(!showExamplesPanel)}>load an example</Button>
-          </span>
+          <div>Enter a search query or load an example:</div>
+          <Container>
+            <Row className="example-selection">
+              <Col md={4}></Col>
+              <Col md={4}>
+                <Form.Group controlId="exampleSelectionForm">
+                  <Form.Control as="select" onChange={e => setSampleQueryIndex(e.target.value)} defaultValue="bla">
+                    {!queryIndex && <option>Select an example...</option>}
+                    {sampleQueries.map((item, index) => (
+                      <option key={index} value={index}>Example {index + 1} ({item.researchQuestionShort})</option>
+                    ))}s
+                  </Form.Control>
+                </Form.Group>
+              </Col>
+              <Col md={4}></Col>
+            </Row>
+          </Container>
+          {queryIndex && <div className="goal"><p>Goal: <i>"{sampleQueries[queryIndex].researchQuestion}"</i></p></div>}
         </div>
 
-
-        <Collapse in={showExamplesPanel}>
-          <div className="examples-container">
-            <Button type="button" className="close" aria-label="Close"
-                    onClick={() => setShowExamplesPanel(false)}>
-              <span aria-hidden="true">&times;</span>
-            </Button>
-            <Container>
-              <Row className="example-selection">
-                <Col md={1}></Col>
-                <Col md={10}>
-                  <Form.Group controlId="exampleSelectionForm">
-                    {/*<Form.Label>Select an example</Form.Label>*/}
-                    <Form.Control as="select" onChange={e => setSampleQueryIndex(e.target.value)}>
-                      {sampleQueries.map((item, index) => (
-                        <option key={index} value={index}>Example {index + 1}. {item.researchQuestion}</option>
-                      ))}
-                    </Form.Control>
-                  </Form.Group>
-                </Col>
-                <Col md={1}></Col>
-              </Row>
-              {/*<Row>*/}
-              {/*  <Col>Example: <i>"{sampleQueries[queryIndex].researchQuestion}"</i></Col>*/}
-              {/*</Row>*/}
-              <Row>
-                <Col md={1}></Col>
-                <Col md={3} className="queries-selection">
-                  <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Control as="select">
-                      <option key={0}>Choose a query on the original metadata...</option>
-                      {sampleQueries[queryIndex].queriesOriginalDB.map((item, index) => (
-                        <option key={index+1}
-                                onClick={e => updateSearchQuery(e, item, false)}>Query {index + 1}</option>
-                      ))}
-                    </Form.Control>
-                  </Form.Group>
-                </Col>
-                <Col md={4}></Col>
-                <Col md={3} className="queries-selection">
-                  <Form.Group controlId="exampleForm.ControlSelect1">
-                    <Form.Control as="select">
-                      <option key={0}>Choose a query on the curated metadata...</option>
-                      {sampleQueries[queryIndex].queriesAnnotatedDB.map((item, index) => (
-                        <option key={index}
-                                onClick={e => updateSearchQuery(e, item, true)}>Query {index + 1}</option>
-                      ))}
-                    </Form.Control>
-                  </Form.Group>
-                </Col>
-                <Col md={1}></Col>
-              </Row>
-            </Container>
-          </div>
-        </Collapse>
-
-
-        <div className="results-container">
-
+        <div className="search-container">
           <Container fluid>
             <Row>
-              <Col className="search-container-col m-3">
-                <SearchResultsComponent title="Original BioSample Metadata" searchQuery={searchQueryOriginal}
-                                        db="original"/>
+              <Col md={6} className="search-container-col">
+                <SearchResultsComponent title="Original BioSample Metadata"
+                                        db="original" sampleQueries={getSampleQueries(queryIndex, 'original')}/>
               </Col>
-              <Col className="search-container-col m-3">
-                <SearchResultsComponent title="Curated BioSample Metadata" searchQuery={searchQueryAnnotated}
-                                        db="annotated"/>
+              <Col md={6} className="search-container-col">
+                <SearchResultsComponent title="Curated BioSample Metadata"
+                                        db="annotated" sampleQueries={getSampleQueries(queryIndex, 'annotated')}/>
               </Col>
             </Row>
           </Container>
-
         </div>
+
       </div>
     </div>
   );

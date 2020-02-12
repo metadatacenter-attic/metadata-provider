@@ -2,6 +2,10 @@ import React, {useEffect, useState} from 'react';
 import {Button, Form} from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import Col from "react-bootstrap/Col";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import Dropdown from "react-bootstrap/Dropdown";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 
 
 function SearchResultsComponent(props) {
@@ -10,6 +14,7 @@ function SearchResultsComponent(props) {
   const [samples, setSamples] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [sampleQueries, setSampleQueries] = useState([]);
   const [showEnterQueryMessage, setShowEnterQueryMessage] = useState(false);
 
   function querySamples(e, db) {
@@ -34,41 +39,53 @@ function SearchResultsComponent(props) {
 
   // Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
-    setSearchQuery(props.searchQuery);
-  }, [props.searchQuery]);
+    if (props.sampleQueries) {
+      setSampleQueries(props.sampleQueries);
+    } else {
+      setSampleQueries([]);
+    }
+  }, [props.sampleQueries]);
 
-  // function updateSearchQuery(e, v) {
-  //   setSearchQuery(v);
-  // }
+  function updateSearchQuery(e, v) {
+    setSearchQuery(v);
+  }
 
   return (
     <>
       <h3 className="mt-4">{props.title}</h3>
       <Form className="mt-4">
         <Form.Group>
-          <Form.Control
-            size="lg"
-            type="text"
-            placeholder="Enter your search query"
-            value={searchQuery}
-            onChange={e => {
-              setShowEnterQueryMessage(false);
-              setSearchQuery(e.target.value)
-            }}
-          />
+          <Container>
+            <Row>
+              <Col md={1}> <DropdownButton
+                className="search-dropdown-btn"
+                disabled={sampleQueries.length === 0}
+                flip="true"
+                title="">
+                {sampleQueries.map((item, index) => (
+                  <Dropdown.Item key={index}
+                                 onClick={e => updateSearchQuery(e, item)}>{item}</Dropdown.Item>
+                ))}
+              </DropdownButton></Col>
+              <Col md={11} className="search-col">
+                <Form.Control
+                  className="search-field"
+                  as="textarea"
+                  rows="1"
+                  placeholder="Enter your search query"
+                  value={searchQuery}
+                  onChange={e => {
+                    setShowEnterQueryMessage(false);
+                    setSearchQuery(e.target.value)
+                  }}/>
+              </Col>
+
+            </Row>
+          </Container>
 
           <Button className="mt-4" variant="info" size="lg" type="submit" onClick={e => {
             querySamples(e, props.db)
           }}>Search</Button>
-          {/*<div className="examples">*/}
-          {/*  <h5>Examples:</h5>*/}
-          {/*  <ul>*/}
-          {/*    {props.sampleQueries.map((item, index) => (*/}
-          {/*      <li key={index}*/}
-          {/*          onClick={e => updateSearchQuery(e, props.sampleQueries[index])}>{item}</li>*/}
-          {/*    ))}*/}
-          {/*  </ul>*/}
-          {/*</div>*/}
         </Form.Group>
       </Form>
       {showResults &&
