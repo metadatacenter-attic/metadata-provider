@@ -3,7 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import SearchResultsComponent from './components/SearchResultsComponent';
+import SearchComponent from './components/SearchComponent';
 import Col from "react-bootstrap/Col";
 import {Form} from "react-bootstrap";
 
@@ -107,12 +107,12 @@ export default function App() {
           <Container fluid>
             <Row>
               <Col md={6} className="search-container-col">
-                <SearchResultsComponent title="Original BioSample Metadata"
-                                        db="original" sampleQueries={getSampleQueries(queryIndex, 'original')}/>
+                <SearchComponent title="Original BioSample Metadata"
+                                 db="original" sampleQueries={getSampleQueries(queryIndex, 'original')}/>
               </Col>
               <Col md={6} className="search-container-col">
-                <SearchResultsComponent title="Curated BioSample Metadata"
-                                        db="annotated" sampleQueries={getSampleQueries(queryIndex, 'annotated')}/>
+                <SearchComponent title="Cleaned-up BioSample Metadata"
+                                 db="annotated" sampleQueries={getSampleQueries(queryIndex, 'annotated')}/>
               </Col>
             </Row>
           </Container>

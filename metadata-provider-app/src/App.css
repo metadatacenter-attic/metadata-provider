@@ -10,17 +10,22 @@
 .App-header {
   margin: 0vw 1vw;
   background-color: #2e3032;
-  min-height: 10vh;
+  //min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 1.4vmin);
   color: white;
   border-color: #5c5c5c;
   border-width: 1px;
   border-style: solid;
   padding-top: 1vw;
+}
+
+h1 {
+  font-size: calc(10px + 1.7vmin) !important;
+  font-weight: 600 !important;
 }
 
 h1 sup {
@@ -30,6 +35,11 @@ h1 sup {
   margin-left: 0.3em;
 }
 
+h2 {
+  font-size: calc(10px + 1.4vmin) !important;
+}
+
+
 .App-content {
   background-color: #000;
   min-height: 100vh;
@@ -37,48 +47,28 @@ h1 sup {
   flex-direction: column;
   align-items: center;
   //justify-content: center;
-  font-size: calc(8px + 1.8vmin);
   color: white;
   padding: 0vw 1vw;
 }
 
 .instructions-container {
-  margin-top: 1vw;
+  font-size: calc(10px + 1.5vmin);
+  margin-top: 0.5vw;
   background-color: #2e3032;
   border-color: #5c5c5c;
   border-width: 1px;
   border-style: solid;
   //font-weight: 600;
   width: 100%;
-  padding: 3vw 1vw 1vw 1vw;
+  padding: 1vw 1vw 1vw 1vw;
 }
 
 .instructions-container-col {
   background-color: #2e3032;
 }
 
-/*.instructions-container .btn {*/
-/*  font-size: calc(5px + 1.8vmin);*/
-/*  font-weight: 600;*/
-/*  color: #61dafb;*/
-/*}*/
-
-/*.instructions-container .btn:hover, .btn:focus, .btn:active, .btn.active, .open>.dropdown-toggle.btn {*/
-/*  color: aqua;*/
-/*  //background-color: #00b3db;*/
-/*  //border-color: #285e8e; !*set the color you want here*!*/
-/*}*/
-
-.goal {
-  font-weight: 600;
-  margin: 2vw auto;
-  font-size: calc(8px + 2vmin);
-}
-
 .example-selection {
-  margin-top: 2vw;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 1vw auto auto auto;
 }
 
 .example-selection .form-control {
@@ -86,25 +76,21 @@ h1 sup {
 }
 
 .example-selection .form-control {
-  font-size: calc(5px + 1.8vmin);
+  font-size: calc(10px + 0.6vmin) !important;
   //font-family: Monaco, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
   background-color: #2e3032 !important;
   color: white !important;
 }
 
-/*.examples {*/
-/*  margin-top: 2vh;*/
-/*  text-align: left;*/
-/*  font-size: 16px;*/
-/*  color: darkgray;*/
-/*}*/
+.goal {
+  font-weight: 600;
+  margin: 0vw auto;
+  font-size: calc(10px + 1.5vmin);
+}
 
 .search-container {
-  margin-top: 1vw;
+  margin-top: 0.5vw;
   background-color: #000;
-  /*border-color: #5c5c5c;*/
-  /*border-width: 1px;*/
-  /*border-style: solid;*/
   font-weight: 600;
   width: 100%;
   margin-left: 0;
@@ -119,22 +105,36 @@ h1 sup {
 }
 
 .search-dropdown-btn {
-  padding: 0px !important;
+  /*padding: auto 0px !important;*/
+}
+
+.search-btn {
+  width: 100%;
+  //padding: auto 0px !important;
 }
 
 .search-col {
-  padding: 0px !important;
+  //padding: 0px !important;
 }
 
 .search-field {
-  //font-size: calc(5px + 1.6vmin) !important;
+  font-size: calc(8px + 0.6vmin) !important;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+.search-field-dropdown {
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+.search-field-dropdown .item {
+  font-size: calc(8px + 0.6vmin) !important;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 .results {
-  margin-top: 2vw;
-  padding: 1vw;
-  font-size: calc(8px + 1vmin);
+  margin-top: 0vw;
+  padding: 0.5vw;
+  font-size: calc(8px + 0.8vmin);
 }
 
 .App-link {
@@ -160,9 +160,11 @@ h1 sup {
 /*}*/
 
 .btn-primary {
-  background-color: #2e3032 !important;
-  border-color: #5c5c5c !important;
-  color: white !important;
+  background-color: #205ffe !important;
+  border-width: 1px !important;
+  border-color: #205ffe !important;
+  /*background-color: #2e3032 !important;*/
+  /*color: white !important;*/
   /*border-radius: 0 !important;*/
 }
 
@@ -170,5 +172,54 @@ h1 sup {
   color: white !important;
 }
 
+.dropdown-toggle::after {
+  content: none !important;
+}
 
+.dropdown-menu {
+  color: white !important;
+  background-color: #2e3032 !important;
+  border-color: #5c5c5c !important;
+  border-width: 1px;
+  border-style: solid;
+}
+.dropdown .dropdown-menu a {
+  color: #000; text-decoration: none;
+}
+.dropdown .btn {
+  background-color: #2e3032 !important;
+  border-width: 1px !important;
+  border-color: #5c5c5c !important;
+}
+.dropdown .btn:hover {
+  background: #205ffe !important;
+  color:#fff !important;
+}
+.dropdown .btn:active, .dropdown .btn:focus {
+  background: #2e3032;
+  color: #fff;
+}
 
+.dropdown-menu .dropdown-item {
+  background-color: #2e3032 !important;
+  color: white !important;
+}
+.container .dropdown .dropdown-menu a:hover
+{
+  color: white !important;
+  background-color: #5c5c5c !important;
+  border-color: #5c5c5c;
+  border-width: 0px;
+  border-style: solid;
+}
+
+/* Modals */
+
+.modal-content {
+  font-size: calc(8px + 0.8vmin);
+  color: white !important;
+  background-color: #2e3032 !important;
+  border-color: #5c5c5c !important;;
+  border-width: 1px !important;
+  border-style: solid;
+}
