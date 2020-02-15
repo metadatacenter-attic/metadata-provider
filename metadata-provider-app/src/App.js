@@ -12,6 +12,7 @@ import {Form} from "react-bootstrap";
 export default function App() {
 
   const [queryIndex, setQueryIndex] = useState();
+  const [originalSamplesFoundIds, setOriginalSamplesFoundIds] = useState([]);
 
   const sampleQueries = [
     {
@@ -68,6 +69,10 @@ export default function App() {
     } else {
       return null;
     }
+  };
+
+  function saveOriginalSamplesFoundIds(ids) {
+    setOriginalSamplesFoundIds(ids);
   }
 
   return (
@@ -109,11 +114,17 @@ export default function App() {
             <Row>
               <Col md={6} className="search-container-col">
                 <SearchComponent title="Original Metadata"
-                                 db="original" sampleQueries={getSampleQueries(queryIndex, 'original')}/>
+                                 db="original"
+                                 sampleQueries={getSampleQueries(queryIndex, 'original')}
+                                 saveSampleIds={saveOriginalSamplesFoundIds}
+                />
               </Col>
               <Col md={6} className="search-container-col">
                 <SearchComponent title="Cleaned-Up Metadata"
-                                 db="annotated" sampleQueries={getSampleQueries(queryIndex, 'annotated')}/>
+                                 db="annotated"
+                                 sampleQueries={getSampleQueries(queryIndex, 'annotated')}
+                                 originalSamplesIds={originalSamplesFoundIds}
+                />
               </Col>
             </Row>
           </Container>

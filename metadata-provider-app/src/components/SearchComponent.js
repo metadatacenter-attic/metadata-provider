@@ -15,10 +15,13 @@ function SearchComponent(props) {
   const [hasError, setErrors] = useState(false);
   const [samples, setSamples] = useState([]);
   const [showResults, setShowResults] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('disease=liver cancer');
+  const [searchQuery, setSearchQuery] = useState(/*'disease=liver cancer'*/);
   const [sampleQueries, setSampleQueries] = useState([]);
   const [showEnterQueryMessage, setShowEnterQueryMessage] = useState(false);
   const [showSamplesOrProjects, setShowSamplesOrProjects] = useState('samples');
+  const [originalSamplesIds, setOriginalSamplesIds] = useState([]);
+  const [annotatedSamplesIds, setAnnotatedSamplesIds] = useState([]);
+  const [extraSampleIds, setExtraSampleIds] =  useState([]);
 
   function querySamples(e, db) {
     e.preventDefault();
@@ -33,12 +36,34 @@ function SearchComponent(props) {
         {method: "GET"})
         .then(response => response.json())
         .then(data => {
-          setSamples(data)
+          setSamples(data);
           setShowResults(true);
+          let sampleIds = getSampleIds(data);
+          if (props.db === 'original') {
+            // Pass the ids to the annotated samples component through the parent to compare them
+            props.saveSampleIds(sampleIds);
+          }
+          else if (props.db === 'annotated') {
+            setAnnotatedSamplesIds(sampleIds);
+            updateExtraSampleIds(originalSamplesIds, sampleIds);
+          }
         })
         .catch(err => setErrors(err));
     }
   };
+
+  function getSampleIds(samples) {
+    let ids = []
+    for (let i = 0; i < samples.length; i++) {
+      ids.push(samples[i]['biosampleAccession']);
+    }
+    return ids;
+  };
+
+  function updateExtraSampleIds(originalSamplesIds, annotatedSamplesIds) {
+    let difference = annotatedSamplesIds.filter(x => !originalSamplesIds.includes(x));
+    setExtraSampleIds(difference);
+  }
 
   // Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
@@ -46,8 +71,13 @@ function SearchComponent(props) {
       setSampleQueries(props.sampleQueries);
     } else {
       setSampleQueries([]);
-    }
-  }, [props.sampleQueries]);
+    };
+    if (props.originalSamplesIds) {
+      setOriginalSamplesIds(props.originalSamplesIds);
+    } else {
+      setOriginalSamplesIds([]);
+    };
+  }, [props.sampleQueries, props.originalSamplesIds]);
 
   function updateSearchQuery(e, v) {
     setSearchQuery(v);
@@ -59,6 +89,9 @@ function SearchComponent(props) {
 
   return (
     <>
+      {/*{originalSamplesIds.length} <br/>*/}
+      {/*{annotatedSamplesIds.length} <br/>*/}
+      {/*{extraSampleIds.length} <br/>*/}
       <h2 className="mt-4">{props.title}</h2>
       <Form className="mt-4">
         <Form.Group>
@@ -142,6 +175,9 @@ function SearchComponent(props) {
                     <tr>
                       <th>#</th>
                       <th>Sample ID</th>
+                      {props.db ==='annotated' && extraSampleIds.length > 0 &&
+                        <th>Extra</th>
+                      }
                     </tr>
                     </thead>
                     <tbody>
@@ -149,6 +185,9 @@ function SearchComponent(props) {
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td><a href={item.biosampleUrl}>{item.biosampleAccession}</a></td>
+                        {props.db ==='annotated' && extraSampleIds.length > 0 &&
+                        <td>{!extraSampleIds.includes(item.biosampleAccession)? "Extra" : ""}</td>
+                        }
                       </tr>
                     ))}
                     </tbody>
