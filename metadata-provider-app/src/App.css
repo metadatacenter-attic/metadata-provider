@@ -116,6 +116,7 @@ h2 {
   border-width: 1px;
   border-style: solid;
   background-color: #2e3032;
+  padding-bottom: 1vw;
 }
 
 .search-dropdown-btn {
@@ -149,10 +150,20 @@ h2 {
 
 .results-count {
   margin-top: 0.5vw;
-  padding: 0.3vw 0;
   border-color: #5c5c5c;
   border-width: 2px;
   border-style: solid;
+  padding: 0vw !important;
+  background-clip: padding-box;
+}
+
+.results-count-selected {
+  background-color: #5c5c5c !important;
+}
+
+.results-count :hover {
+  background-color: #5c5c5c;
+  cursor: pointer;
 }
 
 .results-count-left {
@@ -164,17 +175,20 @@ h2 {
 }
 
 .results-count .title {
+  padding-top: 0.5vw;
   font-size: calc(var(--font-size-theme) + 1vmin);
   font-weight: normal;
 }
 
 .count-left {
+  padding-bottom: 0.5vw;
   color: var(--color-font1);
   font-size: calc(var(--font-size-theme) + 4vmin);
   font-weight: 700;
 }
 
 .count-right {
+  padding-bottom: 0.5vw;
   color: var(--color-font2);
   font-size: calc(var(--font-size-theme) + 4vmin);
   font-weight: 700;
