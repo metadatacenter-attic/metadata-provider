@@ -47,7 +47,7 @@ function SearchComponent(props) {
   };
 
   function syncTextareaHeight() {
-    
+
   }
 
   // Similar to componentDidMount and componentDidUpdate

@@ -84,8 +84,8 @@ export default function App() {
           {/*<p>Enter a search query or load an example:</p>*/}
           <Container>
             <Row className="example-selection">
-              <Col md={4}></Col>
-              <Col md={4}>
+              <Col></Col>
+              <Col md={5}>
                 <Form.Group controlId="exampleSelectionForm">
                   <Form.Control as="select" onChange={e => setSampleQueryIndex(e.target.value)} defaultValue="bla">
                     {!queryIndex && <option>Select an example...</option>}
@@ -95,7 +95,7 @@ export default function App() {
                   </Form.Control>
                 </Form.Group>
               </Col>
-              <Col md={4}></Col>
+              <Col></Col>
             </Row>
           </Container>
           {queryIndex &&
@@ -108,11 +108,11 @@ export default function App() {
           <Container fluid>
             <Row>
               <Col md={6} className="search-container-col">
-                <SearchComponent title="Original BioSample Metadata"
+                <SearchComponent title="Original Metadata"
                                  db="original" sampleQueries={getSampleQueries(queryIndex, 'original')}/>
               </Col>
               <Col md={6} className="search-container-col">
-                <SearchComponent title="Cleaned-Up BioSample Metadata"
+                <SearchComponent title="Cleaned-Up Metadata"
                                  db="annotated" sampleQueries={getSampleQueries(queryIndex, 'annotated')}/>
               </Col>
             </Row>
