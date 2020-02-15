@@ -1,3 +1,13 @@
+/* Define a variable at the top level of the cascade */
+:root {
+  --theme-default-font-size: 10px;
+  --theme-presentation-font-size: 26px;
+  --font-size-theme: var(--theme-default-font-size);
+  /*--font-size-theme: var(--theme-presentation-font-size);*/
+  --color-buttons: #4392F1;
+  --color-font1: #3DB883;
+  --color-font2: #d74a6b;
+}
 
 .App {
   text-align: center;
@@ -9,22 +19,21 @@
 
 .App-header {
   margin: 0vw 1vw;
-  background-color: #2e3032;
+  background-color: #000;
   //min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 1.4vmin);
-  color: white;
+  color: #fff;
   border-color: #5c5c5c;
-  border-width: 1px;
+  border-width: 0px;
   border-style: solid;
   padding-top: 1vw;
 }
 
 h1 {
-  font-size: calc(10px + 1.7vmin) !important;
+  font-size: calc(var(--font-size-theme) + 1.7vmin) !important;
   font-weight: 600 !important;
 }
 
@@ -36,9 +45,8 @@ h1 sup {
 }
 
 h2 {
-  font-size: calc(10px + 1.4vmin) !important;
+  font-size: calc(var(--font-size-theme) + 1.4vmin) !important;
 }
-
 
 .App-content {
   background-color: #000;
@@ -52,7 +60,7 @@ h2 {
 }
 
 .instructions-container {
-  font-size: calc(10px + 1.5vmin);
+  font-size: calc(var(--font-size-theme) + 1.2vmin);
   margin-top: 0.5vw;
   background-color: #2e3032;
   border-color: #5c5c5c;
@@ -61,6 +69,11 @@ h2 {
   //font-weight: 600;
   width: 100%;
   padding: 1vw 1vw 1vw 1vw;
+}
+
+.database {
+  font-size: calc(var(--font-size-theme) + 1.5vmin);
+  font-weight: 600;
 }
 
 .instructions-container-col {
@@ -76,7 +89,7 @@ h2 {
 }
 
 .example-selection .form-control {
-  font-size: calc(10px + 0.6vmin) !important;
+  font-size: calc(var(--font-size-theme) + 0.6vmin) !important;
   //font-family: Monaco, Menlo, Consolas, "Liberation Mono", "Courier New", monospace;
   background-color: #2e3032 !important;
   color: white !important;
@@ -85,7 +98,7 @@ h2 {
 .goal {
   font-weight: 600;
   margin: 0vw auto;
-  font-size: calc(10px + 1.5vmin);
+  font-size: calc(var(--font-size-theme) + 1.5vmin);
 }
 
 .search-container {
@@ -110,6 +123,7 @@ h2 {
 
 .search-btn {
   width: 100%;
+  font-size: calc(var(--font-size-theme) + 0.6vmin) !important;
   //padding: auto 0px !important;
 }
 
@@ -118,7 +132,7 @@ h2 {
 }
 
 .search-field {
-  font-size: calc(8px + 0.6vmin) !important;
+  font-size: calc(var(--font-size-theme) + 0.5vmin) !important;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
@@ -127,14 +141,51 @@ h2 {
 }
 
 .search-field-dropdown .item {
-  font-size: calc(8px + 0.6vmin) !important;
+  font-size: calc(var(--font-size-theme) + 0.3vmin) !important;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
+.results-count {
+  margin-top: 1vw;
+  padding: 0.5vw 0;
+  border-color: #5c5c5c;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.results-count-left {
+  margin-right: 1vw;
+}
+
+.results-count-right {
+  margin-right: 1vw;
+}
+
+.results-count .title {
+  font-size: calc(var(--font-size-theme) + 1vmin);
+  font-weight: normal;
+}
+
+.count-left {
+  color: var(--color-font1);
+  font-size: calc(var(--font-size-theme) + 4vmin);
+  font-weight: 700;
+}
+
+.count-right {
+  color: var(--color-font2);
+  font-size: calc(var(--font-size-theme) + 4vmin);
+  font-weight: 700;
+}
+
 .results {
-  margin-top: 0vw;
-  padding: 0.5vw;
-  font-size: calc(8px + 0.8vmin);
+  display: flex;
+  flex-direction: row;
+  height: 60vh;
+  overflow-y: scroll;
+  margin-top: 1vw;
+  /*padding: 0.5vw;*/
+  /*font-size: calc(var(--font-size-theme) + 0.8vmin);*/
 }
 
 .App-link {
@@ -160,12 +211,12 @@ h2 {
 /*}*/
 
 .btn-primary {
-  background-color: #205ffe !important;
+  background-color: var(--color-buttons) !important;
+  //background-color: #ac6bfb !important;
+  //background-color: #25dac0 !important;
   border-width: 1px !important;
-  border-color: #205ffe !important;
-  /*background-color: #2e3032 !important;*/
-  /*color: white !important;*/
-  /*border-radius: 0 !important;*/
+  border-color: var(--color-buttons) !important;
+  //color: #000 !important;
 }
 
 .close {
@@ -187,12 +238,13 @@ h2 {
   color: #000; text-decoration: none;
 }
 .dropdown .btn {
+  font-size: calc(var(--font-size-theme) + 0.6vmin) !important;
   background-color: #2e3032 !important;
   border-width: 1px !important;
   border-color: #5c5c5c !important;
 }
 .dropdown .btn:hover {
-  background: #205ffe !important;
+  background: var(--color-buttons) !important;
   color:#fff !important;
 }
 .dropdown .btn:active, .dropdown .btn:focus {
@@ -216,7 +268,7 @@ h2 {
 /* Modals */
 
 .modal-content {
-  font-size: calc(8px + 0.8vmin);
+  font-size: calc(var(--font-size-theme) + 0.8vmin);
   color: white !important;
   background-color: #2e3032 !important;
   border-color: #5c5c5c !important;;

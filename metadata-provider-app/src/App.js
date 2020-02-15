@@ -16,7 +16,7 @@ export default function App() {
   const sampleQueries = [
     {
       "researchQuestion": "Find all studies using liver tissue samples affected by liver cancer",
-      "researchQuestionShort": "liver cancer, liver",
+      "researchQuestionShort": "liver cancer",
       "queriesOriginalDB": [
         "disease=liver cancer AND tissue=liver",
         "disease=hepatoma AND tissue=liver",
@@ -52,8 +52,7 @@ export default function App() {
   function setSampleQueryIndex(selectedIndex) {
     if (selectedIndex) {
       setQueryIndex(selectedIndex);
-    }
-    else { // when there is no example selected
+    } else { // when there is no example selected
       setQueryIndex(null);
     }
 
@@ -63,12 +62,10 @@ export default function App() {
     if (index) {
       if (db === 'original') {
         return sampleQueries[index].queriesOriginalDB;
-      }
-      else {
+      } else {
         return sampleQueries[index].queriesAnnotatedDB;
       }
-    }
-    else {
+    } else {
       return null;
     }
   }
@@ -77,13 +74,14 @@ export default function App() {
     <div className="App">
 
       <div className="App-header">
-        <h1>NCATS Metadata Provider<sup><i>alpha</i></sup></h1>
+        <h1>NCATS Translator - Metadata Provider<sup><i>alpha</i></sup></h1>
       </div>
 
       <div className="App-content">
 
         <div className="instructions-container">
-          <div>Enter a search query or load an example:</div>
+          <p className="database">Database: NCBI BioSample</p>
+          {/*<p>Enter a search query or load an example:</p>*/}
           <Container>
             <Row className="example-selection">
               <Col md={4}></Col>
@@ -100,7 +98,10 @@ export default function App() {
               <Col md={4}></Col>
             </Row>
           </Container>
-          {queryIndex && <div className="goal"><p>Goal: <i>"{sampleQueries[queryIndex].researchQuestion}"</i></p></div>}
+          {queryIndex &&
+          <div className="goal">
+            <p>Goal: <i>"{sampleQueries[queryIndex].researchQuestion}"</i></p>
+          </div>}
         </div>
 
         <div className="search-container">
@@ -111,7 +112,7 @@ export default function App() {
                                  db="original" sampleQueries={getSampleQueries(queryIndex, 'original')}/>
               </Col>
               <Col md={6} className="search-container-col">
-                <SearchComponent title="Cleaned-up BioSample Metadata"
+                <SearchComponent title="Cleaned-Up BioSample Metadata"
                                  db="annotated" sampleQueries={getSampleQueries(queryIndex, 'annotated')}/>
               </Col>
             </Row>

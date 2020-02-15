@@ -22,7 +22,7 @@ function SearchComponent(props) {
   const [hasError, setErrors] = useState(false);
   const [samples, setSamples] = useState([]);
   const [showResults, setShowResults] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('disease=liver cancer AND tissue=liver');
+  const [searchQuery, setSearchQuery] = useState('disease=liver cancer');
   const [sampleQueries, setSampleQueries] = useState([]);
   const [showEnterQueryMessage, setShowEnterQueryMessage] = useState(false);
 
@@ -44,6 +44,10 @@ function SearchComponent(props) {
         })
         .catch(err => setErrors(err));
     }
+  };
+
+  function syncTextareaHeight() {
+    
   }
 
   // Similar to componentDidMount and componentDidUpdate
@@ -77,7 +81,7 @@ function SearchComponent(props) {
                   title="Search">
                   {sampleQueries.map((item, index) => (
                     <Dropdown.Item className="search-field-dropdown item" key={index}
-                                   onClick={e => updateSearchQuery(e, item)}>{item}</Dropdown.Item>
+                                   onClick={e => updateSearchQuery(e, item)}>Query {index + 1}. {item}</Dropdown.Item>
                   ))}
                 </Dropdown.Menu>
               </Dropdown>}
@@ -102,34 +106,64 @@ function SearchComponent(props) {
       </Form>
       {showResults &&
       <>
-        {console.log(samples)}
-        <SearchResultsModalComponent samples={samples}/>
-        {/*<div className="results">*/}
+        {/*<SearchResultsModalComponent samples={samples}/>*/}
 
-        {/*  <p>Number of samples found: {samples.length}</p>*/}
+        <Container>
+          <Row>
+            <Col>
+              <Container>
+                <Row>
+                  <Col md={2}></Col>
+                  <Col md={4} className="results-count results-count-left">
+                    <Container>
+                      <Row><Col className="title">Samples</Col></Row>
+                      <Row><Col className="count-left">{samples.length}</Col></Row>
+                    </Container>
+                  </Col>
+                  <Col md={4} className="results-count results-count-right"> <Container>
+                    <Row><Col className="title">Projects</Col></Row>
+                    <Row><Col className="count-right">{samples.length}</Col></Row>
+                  </Container>
+                  </Col>
+                  <Col md={2}></Col>
+                </Row>
+              </Container>
+            </Col>
+          </Row>
 
-        {/*  <Table striped bordered hover variant="dark">*/}
-        {/*    <thead>*/}
-        {/*    <tr>*/}
-        {/*      <th>#</th>*/}
-        {/*      <th>BioSample ID</th>*/}
-        {/*      <th>Name</th>*/}
-        {/*      /!*<th>BioProject ID</th>*!/*/}
-        {/*    </tr>*/}
-        {/*    </thead>*/}
-        {/*    <tbody>*/}
-        {/*    {samples.map((item, index) => (*/}
-        {/*      <tr key={index}>*/}
-        {/*        <td>{index + 1}</td>*/}
-        {/*        <td><a href={item.biosampleUrl}>{item.biosampleAccession}</a></td>*/}
-        {/*        <td>{item.sampleName ? item.sampleName : 'NA'}</td>*/}
-        {/*        /!*<td>{item.bioprojectAccession}</td>*!/*/}
-        {/*      </tr>*/}
-        {/*    ))}*/}
-        {/*    </tbody>*/}
-        {/*  </Table>*/}
+          <Row>
+            <Col>
+              <Container>
+                <div className="results">
+                  <Table striped bordered hover variant="dark">
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>BioSample ID</th>
+                      <th>Name</th>
+                      {/*<th>BioProject ID</th>*/}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {samples.map((item, index) => (
+                      <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td><a href={item.biosampleUrl}>{item.biosampleAccession}</a></td>
+                        <td>{item.sampleName ? item.sampleName : 'NA'}</td>
+                        {/*<td>{item.bioprojectAccession}</td>*/}
+                      </tr>
+                    ))}
+                    </tbody>
+                  </Table>
+                </div>
+              </Container>
 
-        {/*</div>*/}
+            </Col>
+          </Row>
+
+        </Container>
+
+
       </>
       }
       {showEnterQueryMessage && <p>Enter a search query</p>}
