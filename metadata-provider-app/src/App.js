@@ -81,7 +81,7 @@ export default function App() {
 
         <div className="instructions-container">
           <p className="database">Database: NCBI BioSample</p>
-          {/*<p>Enter a search query or load an example:</p>*/}
+          <p className="label">Enter a search query or load an example:</p>
           <Container>
             <Row className="example-selection">
               <Col></Col>
@@ -100,7 +100,7 @@ export default function App() {
           </Container>
           {queryIndex &&
           <div className="goal">
-            <p>Goal: <i>"{sampleQueries[queryIndex].researchQuestion}"</i></p>
+            <p>Task: <i>"{sampleQueries[queryIndex].researchQuestion}"</i></p>
           </div>}
         </div>
 

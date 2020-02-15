@@ -72,9 +72,13 @@ h2 {
   padding: 1vw 1vw 1vw 1vw;
 }
 
-.database {
+.instructions-container .database {
   font-size: calc(var(--font-size-theme) + 1.5vmin);
   font-weight: 600;
+}
+
+.instructions-container .label {
+  font-size: calc(var(--font-size-theme) + 0.8vmin);
 }
 
 .instructions-container-col {
@@ -90,8 +94,7 @@ h2 {
 }
 
 .example-selection .form-control {
-  font-size: calc(var(--font-size-theme) + 0.6vmin) !important;
-  font-family: Verdana, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: calc(var(--font-size-theme) + 0.8vmin) !important;
   background-color: #2e3032 !important;
   color: white !important;
 }
@@ -196,10 +199,11 @@ h2 {
 
 .results {
   display: flex;
+  width: 80%;
   flex-direction: row;
   height: 47vh;
   overflow-y: scroll;
-  margin-top: 1.5vw;
+  margin: 1.5vw auto;
   padding: 0vw;
   font-size: calc(var(--font-size-theme) + 0.5vmin);
 }

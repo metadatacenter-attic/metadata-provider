@@ -141,9 +141,7 @@ function SearchComponent(props) {
                     <thead>
                     <tr>
                       <th>#</th>
-                      <th>BioSample ID</th>
-                      <th>Name</th>
-                      {/*<th>BioProject ID</th>*/}
+                      <th>Sample ID</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -151,8 +149,6 @@ function SearchComponent(props) {
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td><a href={item.biosampleUrl}>{item.biosampleAccession}</a></td>
-                        <td>{item.sampleName ? item.sampleName : 'NA'}</td>
-                        {/*<td>{item.bioprojectAccession}</td>*/}
                       </tr>
                     ))}
                     </tbody>
