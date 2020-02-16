@@ -3,7 +3,7 @@
   --theme-default-font-size: 10px;
   --theme-presentation-font-size: 20px;
   --font-size-theme: var(--theme-default-font-size);
-  /*--font-size-theme: var(--theme-presentation-font-size);*/
+  --font-size-theme: var(--theme-presentation-font-size);
   --color-buttons: #4392F1;
   --color-font1: #3DB883;
   --color-font2: #d74a6b;
@@ -46,7 +46,7 @@ h1 sup {
 }
 
 h2 {
-  font-size: calc(var(--font-size-theme) + 1.4vmin) !important;
+  font-size: calc(var(--font-size-theme) + 1.7vmin) !important;
 }
 
 .App-content {
@@ -294,4 +294,9 @@ h2 {
   border-color: #5c5c5c !important;;
   border-width: 1px !important;
   border-style: solid;
+}
+
+.popover {
+  width: 30% !important;
+  min-width: 30% !important;
 }

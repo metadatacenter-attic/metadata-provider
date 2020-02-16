@@ -117,6 +117,7 @@ export default function App() {
                                  db="original"
                                  sampleQueries={getSampleQueries(queryIndex, 'original')}
                                  saveSampleIds={saveOriginalSamplesFoundIds}
+                                 originalSamplesIds={originalSamplesFoundIds}
                 />
               </Col>
               <Col md={6} className="search-container-col">

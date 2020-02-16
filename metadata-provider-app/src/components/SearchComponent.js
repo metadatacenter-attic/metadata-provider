@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Form} from "react-bootstrap";
-import Table from "react-bootstrap/Table";
 import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown";
 import Row from "react-bootstrap/Row";
@@ -8,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import InputGroup from "react-bootstrap/InputGroup";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleDown, faSearch} from '@fortawesome/free-solid-svg-icons'
+import ResultsTableComponent from "./ResultsTableComponent";
 
 
 function SearchComponent(props) {
@@ -61,8 +61,13 @@ function SearchComponent(props) {
   };
 
   function updateExtraSampleIds(originalSamplesIds, annotatedSamplesIds) {
-    let difference = annotatedSamplesIds.filter(x => !originalSamplesIds.includes(x));
-    setExtraSampleIds(difference);
+    if (originalSamplesIds.length > 0 && annotatedSamplesIds.length > 0) {
+      let difference = annotatedSamplesIds.filter(x => !originalSamplesIds.includes(x));
+      setExtraSampleIds(difference);
+    }
+    else {
+      setExtraSampleIds([]);
+    }
   }
 
   // Similar to componentDidMount and componentDidUpdate
@@ -74,10 +79,11 @@ function SearchComponent(props) {
     };
     if (props.originalSamplesIds) {
       setOriginalSamplesIds(props.originalSamplesIds);
+      updateExtraSampleIds(props.originalSamplesIds, annotatedSamplesIds);
     } else {
       setOriginalSamplesIds([]);
     };
-  }, [props.sampleQueries, props.originalSamplesIds]);
+  }, [props.sampleQueries, props.originalSamplesIds, annotatedSamplesIds]);
 
   function updateSearchQuery(e, v) {
     setSearchQuery(v);
@@ -164,73 +170,11 @@ function SearchComponent(props) {
           </Row>
         </Container>
         }
-        {showResults && showSamplesOrProjects === 'samples' &&
-        <Container>
-          <Row>
-            <Col>
-              <Container>
-                <div className="results">
-                  <Table striped bordered hover variant="dark">
-                    <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Sample ID</th>
-                      {props.db ==='annotated' && extraSampleIds.length > 0 &&
-                        <th>Extra</th>
-                      }
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {samples.map((item, index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td><a href={item.biosampleUrl}>{item.biosampleAccession}</a></td>
-                        {props.db ==='annotated' && extraSampleIds.length > 0 &&
-                        <td>{!extraSampleIds.includes(item.biosampleAccession)? "Extra" : ""}</td>
-                        }
-                      </tr>
-                    ))}
-                    </tbody>
-                  </Table>
-                </div>
-              </Container>
-
-            </Col>
-          </Row>
-        </Container>
-        }
-        {showResults && showSamplesOrProjects === 'projects' &&
-        <Container>
-          <Row>
-            <Col>
-              <Container>
-                <div className="results">
-                  <Table striped bordered hover variant="dark">
-                    <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Project ID</th>
-                      <th>Title</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {/*{samples.map((item, index) => (*/}
-                    {/*  <tr key={index}>*/}
-                    {/*    <td>{index + 1}</td>*/}
-                    {/*    <td><a href={item.biosampleUrl}>{item.biosampleAccession}</a></td>*/}
-                    {/*    <td>{item.sampleName ? item.sampleName : 'NA'}</td>*/}
-                    {/*    /!*<td>{item.bioprojectAccession}</td>*!/*/}
-                    {/*  </tr>*/}
-                    {/*))}*/}
-                    </tbody>
-                  </Table>
-                </div>
-              </Container>
-
-            </Col>
-          </Row>
-        </Container>
-        }
+        <ResultsTableComponent showResults={showResults}
+                               showSamplesOrProjects={showSamplesOrProjects}
+        db={props.db}
+        extraSampleIds={extraSampleIds}
+        samples={samples}/>
       </>
     </>
   );
