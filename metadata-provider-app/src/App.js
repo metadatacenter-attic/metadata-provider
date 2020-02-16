@@ -18,6 +18,7 @@ export default function App() {
     {
       "researchQuestion": "Find all studies using liver tissue samples affected by liver cancer",
       "researchQuestionShort": "liver cancer",
+      "relevantAttributes": ["disease", "tissue"],
       "queriesOriginalDB": [
         "disease=liver cancer AND tissue=liver",
         "disease=hepatoma AND tissue=liver",
@@ -31,6 +32,7 @@ export default function App() {
     {
       "researchQuestion": "This is question 2",
       "researchQuestionShort": "This is question 2",
+      "relevantAttributes": ["disease", "tissue"],
       "queriesOriginalDB": [
         "bla=ble"
       ],
@@ -41,6 +43,7 @@ export default function App() {
     {
       "researchQuestion": "This is question 2",
       "researchQuestionShort": "This is question 2",
+      "relevantAttributes": ["disease", "tissue"],
       "queriesOriginalDB": [
         "bla=ble"
       ],
@@ -67,6 +70,15 @@ export default function App() {
         return sampleQueries[index].queriesAnnotatedDB;
       }
     } else {
+      return null;
+    }
+  };
+
+  function getRelevantAttributes(index) {
+    if (index && sampleQueries[index]) {
+      return sampleQueries[index].relevantAttributes;
+    }
+    else {
       return null;
     }
   };
@@ -115,6 +127,7 @@ export default function App() {
               <Col md={6} className="search-container-col">
                 <SearchComponent title="Original Metadata"
                                  db="original"
+                                 relevantAttributes={getRelevantAttributes(queryIndex)}
                                  sampleQueries={getSampleQueries(queryIndex, 'original')}
                                  saveSampleIds={saveOriginalSamplesFoundIds}
                                  originalSamplesIds={originalSamplesFoundIds}
@@ -123,6 +136,7 @@ export default function App() {
               <Col md={6} className="search-container-col">
                 <SearchComponent title="Cleaned-Up Metadata"
                                  db="annotated"
+                                 relevantAttributes={getRelevantAttributes(queryIndex)}
                                  sampleQueries={getSampleQueries(queryIndex, 'annotated')}
                                  originalSamplesIds={originalSamplesFoundIds}
                 />

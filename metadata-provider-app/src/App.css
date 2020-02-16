@@ -3,7 +3,11 @@
   --theme-default-font-size: 10px;
   --theme-presentation-font-size: 20px;
   --font-size-theme: var(--theme-default-font-size);
-  --font-size-theme: var(--theme-presentation-font-size);
+  /*--font-size-theme: var(--theme-presentation-font-size);*/
+  --color-dark0: #000;
+  --color-dark1: #2e3032;
+  --color-dark2: #5c5c5c;
+  --color-dark3: #777;
   --color-buttons: #4392F1;
   --color-font1: #3DB883;
   --color-font2: #d74a6b;
@@ -105,6 +109,10 @@ h2 {
   font-size: calc(var(--font-size-theme) + 1.5vmin);
 }
 
+.spinner {
+  margin: 10vw auto 30vw auto;
+}
+
 .search-container {
   margin-top: 0.5vw;
   background-color: #000;
@@ -199,13 +207,28 @@ h2 {
 
 .results {
   display: flex;
-  width: 80%;
+  width: 60%;
   flex-direction: row;
   height: 47vh;
   overflow-y: scroll;
   margin: 1.5vw auto;
   padding: 0vw;
   font-size: calc(var(--font-size-theme) + 0.5vmin);
+}
+
+.btn-sample {
+  background-color: var(--color-font1) !important;
+  border-width: 1px !important;
+  border-color: var(--color-font1) !important;
+}
+
+.result-details-modal {
+  font-size: calc(var(--font-size-theme) + 0.5vmin);
+}
+
+.highlighted-result {
+  background-color: var(--color-font1) !important;
+  //color: #000 !important;;
 }
 
 .App-link {
@@ -237,6 +260,14 @@ h2 {
   border-width: 1px !important;
   border-color: var(--color-buttons) !important;
   //color: #000 !important;
+}
+
+.btn-secondary {
+  background: var(--color-dark2) !important;
+  color:#fff !important;
+  border-width: 1px !important;
+  border-color: #fff !important;
+//font-weight: 600 !important;
 }
 
 .close {

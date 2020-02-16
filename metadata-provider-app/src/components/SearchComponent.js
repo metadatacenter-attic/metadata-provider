@@ -8,6 +8,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleDown, faSearch} from '@fortawesome/free-solid-svg-icons'
 import ResultsTableComponent from "./ResultsTableComponent";
+import Spinner from "react-bootstrap/Spinner";
 
 
 function SearchComponent(props) {
@@ -21,13 +22,15 @@ function SearchComponent(props) {
   const [showSamplesOrProjects, setShowSamplesOrProjects] = useState('samples');
   const [originalSamplesIds, setOriginalSamplesIds] = useState([]);
   const [annotatedSamplesIds, setAnnotatedSamplesIds] = useState([]);
-  const [extraSampleIds, setExtraSampleIds] =  useState([]);
+  const [extraSampleIds, setExtraSampleIds] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   function querySamples(e, db) {
     e.preventDefault();
     if (!searchQuery || searchQuery.length === 0) {
       setShowEnterQueryMessage(true);
     } else {
+      setLoading(true);
       setShowEnterQueryMessage(false);
       let preparedSearchQuery = searchQuery
       let url = "http://localhost:8080/biosample/search?q=" + preparedSearchQuery + "&db=" + db;
@@ -36,14 +39,14 @@ function SearchComponent(props) {
         {method: "GET"})
         .then(response => response.json())
         .then(data => {
+          setLoading(false);
           setSamples(data);
           setShowResults(true);
           let sampleIds = getSampleIds(data);
           if (props.db === 'original') {
             // Pass the ids to the annotated samples component through the parent to compare them
             props.saveSampleIds(sampleIds);
-          }
-          else if (props.db === 'annotated') {
+          } else if (props.db === 'annotated') {
             setAnnotatedSamplesIds(sampleIds);
             updateExtraSampleIds(originalSamplesIds, sampleIds);
           }
@@ -64,8 +67,7 @@ function SearchComponent(props) {
     if (originalSamplesIds.length > 0 && annotatedSamplesIds.length > 0) {
       let difference = annotatedSamplesIds.filter(x => !originalSamplesIds.includes(x));
       setExtraSampleIds(difference);
-    }
-    else {
+    } else {
       setExtraSampleIds([]);
     }
   }
@@ -76,13 +78,15 @@ function SearchComponent(props) {
       setSampleQueries(props.sampleQueries);
     } else {
       setSampleQueries([]);
-    };
+    }
+    ;
     if (props.originalSamplesIds) {
       setOriginalSamplesIds(props.originalSamplesIds);
       updateExtraSampleIds(props.originalSamplesIds, annotatedSamplesIds);
     } else {
       setOriginalSamplesIds([]);
-    };
+    }
+    ;
   }, [props.sampleQueries, props.originalSamplesIds, annotatedSamplesIds]);
 
   function updateSearchQuery(e, v) {
@@ -121,7 +125,7 @@ function SearchComponent(props) {
               <Form.Control
                 className="search-field"
                 as="textarea"
-                rows="1"
+                rows="2"
                 placeholder="Enter your search query"
                 value={searchQuery}
                 onChange={e => {
@@ -142,7 +146,12 @@ function SearchComponent(props) {
       {hasError && <p>Search query error</p>}
 
       <>
-        {showResults &&
+        {loading &&
+        <Spinner className="spinner" animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+        }
+        {!loading && showResults &&
         <Container>
           <Row>
             <Col>
@@ -151,14 +160,14 @@ function SearchComponent(props) {
                   <Col md={2}></Col>
                   <Col md={4} className={showSamplesOrProjects === "samples" ?
                     "results-count results-count-left results-count-selected" : "results-count results-count-left"}>
-                    <Container onClick={e => showContent(e,'samples')}>
+                    <Container onClick={e => showContent(e, 'samples')}>
                       <Row><Col className="title">Samples</Col></Row>
                       <Row><Col className="count-left">{samples.length}</Col></Row>
                     </Container>
                   </Col>
                   <Col md={4} className={showSamplesOrProjects === "projects" ?
                     "results-count results-count-right results-count-selected" : "results-count results-count-right"}>
-                    <Container onClick={e => showContent(e,'projects')}>
+                    <Container onClick={e => showContent(e, 'projects')}>
                       <Row><Col className="title">Projects</Col></Row>
                       <Row><Col className="count-right">{samples.length}</Col></Row>
                     </Container>
@@ -170,11 +179,15 @@ function SearchComponent(props) {
           </Row>
         </Container>
         }
-        <ResultsTableComponent showResults={showResults}
-                               showSamplesOrProjects={showSamplesOrProjects}
-        db={props.db}
-        extraSampleIds={extraSampleIds}
-        samples={samples}/>
+        {!loading && showResults &&
+        <ResultsTableComponent
+          showSamplesOrProjects={showSamplesOrProjects}
+          db={props.db}
+          extraSampleIds={extraSampleIds}
+          samples={samples}
+          relevantAttributes={props.relevantAttributes}
+        />
+        }
       </>
     </>
   );

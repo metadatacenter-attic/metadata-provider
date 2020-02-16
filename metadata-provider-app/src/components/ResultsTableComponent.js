@@ -10,47 +10,14 @@ import Overlay from "react-bootstrap/Overlay";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import Button from "react-bootstrap/Button";
+import SampleDetailsModal from "./SampleDetailsModal";
 
 
 export default function ResultsTableComponent(props) {
 
-  function popoverSample(sample) {
-    return (
-      <Popover id="popover-basic" outOfBoundaries='true'
-      >
-        <Popover.Title as="h3">Sample Attributes</Popover.Title>
-        <Popover.Content>
-          {/*<a target="_blank" href={sample.biosampleUrl}>Link to BioSample</a>*/}
-          <Table size={'sm'} striped bordered hover>
-            <tbody>
-            {/*<tr>*/}
-            {/*  <td>Sample ID</td>*/}
-            {/*  <td>{sample.biosampleAccession}</td>*/}
-            {/*</tr>*/}
-            {/*<tr>*/}
-            {/*  <td>Project ID</td>*/}
-            {/*  <td>{sample.bioprojectAccession ? sample.bioprojectAccession : "NA"}</td>*/}
-            {/*</tr>*/}
-            <tr>
-              <td>Organism</td>
-              <td>{sample.organism}</td>
-            </tr>
-            {sample.attributes.map((item, index) => (
-              <tr key={index}>
-                <td>{item.attributeName}</td>
-                <td>{item.attributeValue}</td>
-              </tr>
-            ))}
-            </tbody>
-          </Table>
-        </Popover.Content>
-      </Popover>
-    )
-  }
-
   return (
     <>
-      {props.showResults && props.showSamplesOrProjects === 'samples' &&
+      {props.showSamplesOrProjects === 'samples' &&
       <Container>
         <Row>
           <Col>
@@ -68,25 +35,13 @@ export default function ResultsTableComponent(props) {
                   </thead>
                   <tbody>
                   {props.samples.map((item, index) => (
-
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>
-                        <OverlayTrigger trigger='click'
-                                        rootClose='true'
-                                        placement='auto'
-                                        overlay={popoverSample(item)}
-                                        // popperConfig={{
-                                        //   modifiers: {
-                                        //     preventOverflow: {
-                                        //       enabled: false
-                                        //     },
-                                        //     hide: {enabled: false}
-                                        //   }
-                                        // }}
-                        >
-                          <Button variant="link">{item.biosampleAccession}</Button>
-                        </OverlayTrigger>
+                        <SampleDetailsModal
+                          sample={item}
+                          relevantAttributes={props.relevantAttributes}
+                        />
                       </td>
                       {props.db === 'annotated' && props.extraSampleIds.length > 0 &&
                       <td>{props.extraSampleIds.includes(item.biosampleAccession) &&
@@ -103,7 +58,7 @@ export default function ResultsTableComponent(props) {
         </Row>
       </Container>
       }
-      {props.showResults && props.showSamplesOrProjects === 'projects' &&
+      {props.showSamplesOrProjects === 'projects' &&
       <Container>
         <Row>
           <Col>
