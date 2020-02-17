@@ -5,10 +5,6 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import {faStar} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import Tooltip from "react-bootstrap/Tooltip";
-import Overlay from "react-bootstrap/Overlay";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
 import Button from "react-bootstrap/Button";
 import SampleDetailsModal from "./SampleDetailsModal";
 
@@ -28,8 +24,8 @@ export default function ResultsTableComponent(props) {
                   <tr>
                     <th>#</th>
                     <th>Sample ID</th>
-                    {props.db === 'annotated' && props.extraSampleIds.length > 0 &&
-                    <th></th>
+                    {props.db === 'annotated' && props.extraSampleIDs.length > 0 &&
+                    <th>New</th>
                     }
                   </tr>
                   </thead>
@@ -43,8 +39,8 @@ export default function ResultsTableComponent(props) {
                           relevantAttributes={props.relevantAttributes}
                         />
                       </td>
-                      {props.db === 'annotated' && props.extraSampleIds.length > 0 &&
-                      <td>{props.extraSampleIds.includes(item.biosampleAccession) &&
+                      {props.db === 'annotated' && props.extraSampleIDs.length > 0 &&
+                      <td>{props.extraSampleIDs.includes(item.biosampleAccession) &&
                       <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>}</td>
                       }
                     </tr>
@@ -69,18 +65,26 @@ export default function ResultsTableComponent(props) {
                   <tr>
                     <th>#</th>
                     <th>Project ID</th>
-                    <th>Title</th>
+                    {props.db === 'annotated' && props.extraProjectIDs.length > 0 &&
+                    <th>New</th>
+                    }
                   </tr>
                   </thead>
                   <tbody>
-                  {/*{samples.map((item, index) => (*/}
-                  {/*  <tr key={index}>*/}
-                  {/*    <td>{index + 1}</td>*/}
-                  {/*    <td><a href={item.biosampleUrl}>{item.biosampleAccession}</a></td>*/}
-                  {/*    <td>{item.sampleName ? item.sampleName : 'NA'}</td>*/}
-                  {/*    /!*<td>{item.bioprojectAccession}</td>*!/*/}
-                  {/*  </tr>*/}
-                  {/*))}*/}
+                  {props.projectIDs.map((item, index) => (
+                    <tr key={index}>
+                      <td>{index + 1}</td>
+                      <td>
+                        <Button size={'sm'} className="btn-secondary" target='_blank' href={'https://www.ncbi.nlm.nih.gov/bioproject/' + item}>
+                          PRJNA{item}
+                        </Button>
+                      </td>
+                      {props.db === 'annotated' && props.extraProjectIDs.length > 0 &&
+                      <td>{props.extraProjectIDs.includes(item) &&
+                      <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>}</td>
+                      }
+                    </tr>
+                  ))}
                   </tbody>
                 </Table>
               </div>

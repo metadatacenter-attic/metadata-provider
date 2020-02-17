@@ -15,14 +15,18 @@ function SearchComponent(props) {
 
   const [hasError, setErrors] = useState(false);
   const [samples, setSamples] = useState([]);
+  const [projectIDs, setProjectIDs] = useState([]);
   const [showResults, setShowResults] = useState(false);
   const [searchQuery, setSearchQuery] = useState(/*'disease=liver cancer'*/);
   const [sampleQueries, setSampleQueries] = useState([]);
   const [showEnterQueryMessage, setShowEnterQueryMessage] = useState(false);
   const [showSamplesOrProjects, setShowSamplesOrProjects] = useState('samples');
-  const [originalSamplesIds, setOriginalSamplesIds] = useState([]);
-  const [annotatedSamplesIds, setAnnotatedSamplesIds] = useState([]);
-  const [extraSampleIds, setExtraSampleIds] = useState([]);
+  const [originalSampleIDs, setOriginalSamplesIDs] = useState([]);
+  const [annotatedSamplesIDs, setAnnotatedSamplesIDs] = useState([]);
+  const [extraSampleIDs, setExtraSampleIDs] = useState([]);
+  const [originalProjectIDs, setOriginalProjectIDs] = useState([]);
+  const [annotatedProjectIDs, setAnnotatedProjectIDs] = useState([]);
+  const [extraProjectIDs, setExtraProjectIDs] = useState([]);
   const [loading, setLoading] = useState(false);
 
   function querySamples(e, db) {
@@ -42,35 +46,56 @@ function SearchComponent(props) {
           setLoading(false);
           setSamples(data);
           setShowResults(true);
-          let sampleIds = getSampleIds(data);
+          let sampleIDs = getSampleIDs(data);
+          let projectIDs = extractProjectIDs(data);
+          setProjectIDs(projectIDs);
           if (props.db === 'original') {
-            // Pass the ids to the annotated samples component through the parent to compare them
-            props.saveSampleIds(sampleIds);
+            // Pass the IDs to the annotated samples component through the parent to compare them
+            props.saveSampleIDs(sampleIDs);
+            props.saveProjectIDs(projectIDs);
           } else if (props.db === 'annotated') {
-            setAnnotatedSamplesIds(sampleIds);
-            updateExtraSampleIds(originalSamplesIds, sampleIds);
+            setAnnotatedSamplesIDs(sampleIDs);
+            setAnnotatedProjectIDs(projectIDs);
+            updateExtraSampleIDs(originalSampleIDs, sampleIDs);
+            updateExtraProjectIDs(originalProjectIDs, projectIDs);
           }
         })
         .catch(err => setErrors(err));
     }
   };
 
-  function getSampleIds(samples) {
-    let ids = []
-    for (let i = 0; i < samples.length; i++) {
-      ids.push(samples[i]['biosampleAccession']);
+  function extractProjectIDs(data) {
+    let projectIDs = [];
+    for (let i=0; i<data.length; i++) {
+      let projectID = data[i]['bioprojectAccession'];
+      if (projectID && !projectIDs.includes(projectID)) {
+        projectIDs.push(projectID);
+      }
     }
-    return ids;
+    return(projectIDs);
   };
 
-  function updateExtraSampleIds(originalSamplesIds, annotatedSamplesIds) {
-    if (originalSamplesIds.length > 0 && annotatedSamplesIds.length > 0) {
-      let difference = annotatedSamplesIds.filter(x => !originalSamplesIds.includes(x));
-      setExtraSampleIds(difference);
-    } else {
-      setExtraSampleIds([]);
+  function getSampleIDs(samples) {
+    let IDs = []
+    for (let i = 0; i < samples.length; i++) {
+      IDs.push(samples[i]['biosampleAccession']);
     }
-  }
+    return IDs;
+  };
+
+  function updateExtraSampleIDs(originalSampleIDs, annotatedSamplesIDs) {
+    if (originalSampleIDs.length > 0 && annotatedSamplesIDs.length > 0) {
+      let difference = annotatedSamplesIDs.filter(x => !originalSampleIDs.includes(x));
+      setExtraSampleIDs(difference);
+    } else {
+      setExtraSampleIDs([]);
+    }
+  };
+
+  function updateExtraProjectIDs(originalProjectIDs, annotatedProjectIDs) {
+    let difference = annotatedProjectIDs.filter(x => !originalProjectIDs.includes(x));
+    setExtraProjectIDs(difference);
+  };
 
   // Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
@@ -79,15 +104,19 @@ function SearchComponent(props) {
     } else {
       setSampleQueries([]);
     }
-    ;
-    if (props.originalSamplesIds) {
-      setOriginalSamplesIds(props.originalSamplesIds);
-      updateExtraSampleIds(props.originalSamplesIds, annotatedSamplesIds);
+    if (props.originalSampleIDs) {
+      setOriginalSamplesIDs(props.originalSampleIDs);
+      updateExtraSampleIDs(props.originalSampleIDs, annotatedSamplesIDs);
     } else {
-      setOriginalSamplesIds([]);
+      setOriginalSamplesIDs([]);
     }
-    ;
-  }, [props.sampleQueries, props.originalSamplesIds, annotatedSamplesIds]);
+    if (props.originalProjectIDs) {
+      setOriginalProjectIDs(props.originalProjectIDs);
+      updateExtraProjectIDs(props.originalProjectIDs, annotatedProjectIDs);
+    } else {
+      setOriginalSamplesIDs([]);
+    }
+  }, [props.sampleQueries, props.originalSampleIDs, props.originalProjectIDs, annotatedSamplesIDs]);
 
   function updateSearchQuery(e, v) {
     setSearchQuery(v);
@@ -99,9 +128,9 @@ function SearchComponent(props) {
 
   return (
     <>
-      {/*{originalSamplesIds.length} <br/>*/}
-      {/*{annotatedSamplesIds.length} <br/>*/}
-      {/*{extraSampleIds.length} <br/>*/}
+      {/*{originalSampleIDs.length} <br/>*/}
+      {/*{annotatedSamplesIDs.length} <br/>*/}
+      {/*{extraSampleIDs.length} <br/>*/}
       <h2 className="mt-4">{props.title}</h2>
       <Form className="mt-4">
         <Form.Group>
@@ -169,7 +198,7 @@ function SearchComponent(props) {
                     "results-count results-count-right results-count-selected" : "results-count results-count-right"}>
                     <Container onClick={e => showContent(e, 'projects')}>
                       <Row><Col className="title">Projects</Col></Row>
-                      <Row><Col className="count-right">{samples.length}</Col></Row>
+                      <Row><Col className="count-right">{projectIDs.length}</Col></Row>
                     </Container>
                   </Col>
                   <Col md={2}></Col>
@@ -183,8 +212,10 @@ function SearchComponent(props) {
         <ResultsTableComponent
           showSamplesOrProjects={showSamplesOrProjects}
           db={props.db}
-          extraSampleIds={extraSampleIds}
+          extraSampleIDs={extraSampleIDs}
+          extraProjectIDs={extraProjectIDs}
           samples={samples}
+          projectIDs={projectIDs}
           relevantAttributes={props.relevantAttributes}
         />
         }

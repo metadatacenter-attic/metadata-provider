@@ -12,11 +12,12 @@ import {Form} from "react-bootstrap";
 export default function App() {
 
   const [queryIndex, setQueryIndex] = useState();
-  const [originalSamplesFoundIds, setOriginalSamplesFoundIds] = useState([]);
+  const [originalSampleIDsFound, setOriginalSampleIDsFound] = useState([]);
+  const [originalProjectIDsFound, setOriginalProjectIDsFound] = useState([]);
 
   const sampleQueries = [
     {
-      "researchQuestion": "Find all studies using liver tissue samples affected by liver cancer",
+      "researchQuestion": "Find all liver tissue samples affected by liver cancer",
       "researchQuestionShort": "liver cancer",
       "relevantAttributes": ["disease", "tissue"],
       "queriesOriginalDB": [
@@ -83,9 +84,13 @@ export default function App() {
     }
   };
 
-  function saveOriginalSamplesFoundIds(ids) {
-    setOriginalSamplesFoundIds(ids);
-  }
+  function saveOriginalSampleIDsFound(ids) {
+    setOriginalSampleIDsFound(ids);
+  };
+
+  function saveOriginalProjectIDsFound(ids) {
+    setOriginalProjectIDsFound(ids);
+  };
 
   return (
     <div className="App">
@@ -129,8 +134,10 @@ export default function App() {
                                  db="original"
                                  relevantAttributes={getRelevantAttributes(queryIndex)}
                                  sampleQueries={getSampleQueries(queryIndex, 'original')}
-                                 saveSampleIds={saveOriginalSamplesFoundIds}
-                                 originalSamplesIds={originalSamplesFoundIds}
+                                 saveSampleIDs={saveOriginalSampleIDsFound}
+                                 saveProjectIDs={saveOriginalProjectIDsFound}
+                                 originalSampleIDs={originalSampleIDsFound}
+                                 originalProjectIDs={originalProjectIDsFound}
                 />
               </Col>
               <Col md={6} className="search-container-col">
@@ -138,7 +145,8 @@ export default function App() {
                                  db="annotated"
                                  relevantAttributes={getRelevantAttributes(queryIndex)}
                                  sampleQueries={getSampleQueries(queryIndex, 'annotated')}
-                                 originalSamplesIds={originalSamplesFoundIds}
+                                 originalSampleIDs={originalSampleIDsFound}
+                                 originalProjectIDs={originalProjectIDsFound}
                 />
               </Col>
             </Row>
