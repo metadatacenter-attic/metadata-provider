@@ -101,6 +101,7 @@ function SearchComponent(props) {
   useEffect(() => {
     if (props.sampleQueries) {
       setSampleQueries(props.sampleQueries);
+      setSearchQuery(props.sampleQueries[0]); // Pick the first sample query by default
     } else {
       setSampleQueries([]);
     }
