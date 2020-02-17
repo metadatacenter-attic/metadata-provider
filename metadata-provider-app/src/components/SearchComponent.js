@@ -116,7 +116,8 @@ function SearchComponent(props) {
     } else {
       setOriginalSamplesIDs([]);
     }
-  }, [props.sampleQueries, props.originalSampleIDs, props.originalProjectIDs, annotatedSamplesIDs]);
+  }, [props.sampleQueries, props.originalSampleIDs, props.originalProjectIDs,
+    annotatedSamplesIDs, annotatedProjectIDs]);
 
   function updateSearchQuery(e, v) {
     setSearchQuery(v);

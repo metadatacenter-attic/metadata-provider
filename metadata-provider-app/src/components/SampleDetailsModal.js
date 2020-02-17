@@ -37,7 +37,8 @@ export default function SampleDetailsModal(props) {
             <tbody>
             <tr>
               <td>Sample ID</td>
-              <td>{props.sample.biosampleAccession}</td>
+              <td>{props.sample.biosampleAccession}
+              <Button size="sm" variant="link" href={props.sample.biosampleUrl} target='blank'>See in BioSample</Button></td>
             </tr>
             <tr>
               <td>Project ID</td>

@@ -78,8 +78,7 @@ export default function App() {
   function getRelevantAttributes(index) {
     if (index && sampleQueries[index]) {
       return sampleQueries[index].relevantAttributes;
-    }
-    else {
+    } else {
       return null;
     }
   };
@@ -133,6 +132,9 @@ export default function App() {
                 <SearchComponent title="Original Metadata"
                                  db="original"
                                  relevantAttributes={getRelevantAttributes(queryIndex)}
+                  /* We use the key prop to tell React that the component identity has changed,
+                    forcing a full re-instantiation of that component */
+                                 key={queryIndex}
                                  sampleQueries={getSampleQueries(queryIndex, 'original')}
                                  saveSampleIDs={saveOriginalSampleIDsFound}
                                  saveProjectIDs={saveOriginalProjectIDsFound}
@@ -144,6 +146,7 @@ export default function App() {
                 <SearchComponent title="Cleaned-Up Metadata"
                                  db="annotated"
                                  relevantAttributes={getRelevantAttributes(queryIndex)}
+                                 key={queryIndex}
                                  sampleQueries={getSampleQueries(queryIndex, 'annotated')}
                                  originalSampleIDs={originalSampleIDsFound}
                                  originalProjectIDs={originalProjectIDsFound}
