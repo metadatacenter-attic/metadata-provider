@@ -159,6 +159,10 @@ h2 {
   font-family: Verdana, Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
+.search-msg {
+  margin-top: 2vw;
+}
+
 .results-count {
   margin-top: 0.5vw;
   border-color: #5c5c5c;

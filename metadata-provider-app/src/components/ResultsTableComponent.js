@@ -13,7 +13,7 @@ export default function ResultsTableComponent(props) {
 
   return (
     <>
-      {props.showSamplesOrProjects === 'samples' &&
+      {props.showSamplesOrProjects === 'samples' && props.samples.length > 0 &&
       <Container>
         <Row>
           <Col>
@@ -49,12 +49,13 @@ export default function ResultsTableComponent(props) {
                 </Table>
               </div>
             </Container>
-
           </Col>
         </Row>
       </Container>
       }
-      {props.showSamplesOrProjects === 'projects' &&
+      {props.samples.length === 0 && <div><p>No samples found</p></div>}
+
+      {props.showSamplesOrProjects === 'projects' && props.projectIDs.length > 0 &&
       <Container>
         <Row>
           <Col>
@@ -75,7 +76,8 @@ export default function ResultsTableComponent(props) {
                     <tr key={index}>
                       <td>{index + 1}</td>
                       <td>
-                        <Button size={'sm'} className="btn-secondary" target='_blank' href={'https://www.ncbi.nlm.nih.gov/bioproject/' + item}>
+                        <Button size={'sm'} className="btn-secondary" target='_blank'
+                                href={'https://www.ncbi.nlm.nih.gov/bioproject/' + item}>
                           PRJNA{item}
                         </Button>
                       </td>
@@ -92,7 +94,9 @@ export default function ResultsTableComponent(props) {
 
           </Col>
         </Row>
-      </Container>}
+      </Container>
+      }
+      {props.projectIDs.length === 0 && <div><p className="search-msg">No projects found</p></div>}
     </>
   );
 
