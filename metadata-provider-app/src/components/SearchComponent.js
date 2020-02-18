@@ -120,7 +120,7 @@ function SearchComponent(props) {
       setOriginalSamplesIDs([]);
     }
   }, [props.sampleQueries, props.originalSampleIDs, props.originalProjectIDs,
-    annotatedSamplesIDs, annotatedProjectIDs]);
+    annotatedSamplesIDs, annotatedProjectIDs, searchQuery]);
 
   function updateSearchQuery(e, v) {
     setSearchQuery(v);
