@@ -74,8 +74,9 @@ public class BiosampleService {
     for (String attributeName : attributesAndValuesFilter.keySet()) {
       String attributeValue = attributesAndValuesFilter.get(attributeName);
       attNameValueFilters.add(
-          elemMatch("attributes", and(eq(ATTRIBUTE_NAME_FIELD, attributeName), eq(ATTRIBUTE_VALUE_FIELD,
-              attributeValue))));
+          elemMatch("attributes",
+              and(eq(ATTRIBUTE_NAME_FIELD, attributeName),
+                  regex(ATTRIBUTE_VALUE_FIELD, "^" + attributeValue + "$", "i")))); // Exact match, case insensitive search
     }
     Bson searchFilter = and(attNameValueFilters);
     BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
