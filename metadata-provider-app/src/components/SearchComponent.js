@@ -140,7 +140,7 @@ function SearchComponent(props) {
         <Form.Group>
           <Container>
             <InputGroup className="mb-3">
-              {sampleQueries.length > 0 &&
+              {sampleQueries.length > 0 && props.db === "original" &&
               <Dropdown as={InputGroup.Prepend} className="search-dropdown-btn">
                 <Dropdown.Toggle>
                   <FontAwesomeIcon icon={faAngleDown}/>
