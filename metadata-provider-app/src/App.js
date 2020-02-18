@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import SearchComponent from './components/SearchComponent';
