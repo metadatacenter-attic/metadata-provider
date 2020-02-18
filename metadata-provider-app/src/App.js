@@ -19,7 +19,7 @@ export default function App() {
 
   const sampleQueries = [
     {
-      "researchQuestion": "Find all liver tissue samples affected by liver cancer",
+      "researchQuestion": "Can we find projects that used liver tissue samples affected by liver cancer?",
       "researchQuestionShort": "liver cancer",
       "relevantAttributes": ["disease", "tissue"],
       "queriesOriginalDB": [
@@ -123,7 +123,7 @@ export default function App() {
           </Container>
           {queryIndex &&
           <div className="goal">
-            <p>Task: <i>"{sampleQueries[queryIndex].researchQuestion}"</i></p>
+            <p><i>"{sampleQueries[queryIndex].researchQuestion}"</i></p>
           </div>}
         </div>
 
