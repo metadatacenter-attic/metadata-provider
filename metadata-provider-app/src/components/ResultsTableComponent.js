@@ -24,7 +24,7 @@ export default function ResultsTableComponent(props) {
                     <th>#</th>
                     <th>Sample ID</th>
                     {props.db === 'annotated' && props.extraSampleIDs.length > 0 &&
-                    <th>New</th>
+                    <th>Extra</th>
                     }
                   </tr>
                   </thead>
@@ -40,7 +40,7 @@ export default function ResultsTableComponent(props) {
                       </td>
                       {props.db === 'annotated' && props.extraSampleIDs.length > 0 &&
                       <td>{props.extraSampleIDs.includes(item.biosampleAccession) &&
-                      <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>}</td>
+                      <FontAwesomeIcon className="star" icon={faStar}></FontAwesomeIcon>}</td>
                       }
                     </tr>
                   ))}
@@ -67,7 +67,7 @@ export default function ResultsTableComponent(props) {
                     <th>#</th>
                     <th>Project ID</th>
                     {props.db === 'annotated' && props.extraProjectIDs.length > 0 &&
-                    <th>New</th>
+                    <th>Extra</th>
                     }
                   </tr>
                   </thead>
@@ -86,7 +86,7 @@ export default function ResultsTableComponent(props) {
                       </td>
                       {props.db === 'annotated' && props.extraProjectIDs.length > 0 &&
                       <td>{props.extraProjectIDs.includes(item) &&
-                      <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>}</td>
+                      <FontAwesomeIcon className="star" icon={faStar}></FontAwesomeIcon>}</td>
                       }
                     </tr>
                   ))}
