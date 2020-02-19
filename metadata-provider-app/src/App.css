@@ -105,7 +105,7 @@ h2 {
 
 .goal {
   font-weight: 600;
-  margin: 0vw auto;
+  margin: 1vw auto 0vw auto;
   font-size: calc(var(--font-size-theme) + 1.5vmin);
 }
 

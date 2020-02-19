@@ -19,7 +19,7 @@ export default function App() {
 
   const sampleQueries = [
     {
-      "researchQuestion": "Can we find projects that used liver tissue samples affected by liver cancer?",
+      "researchQuestion": "I need to find information about <u>biological samples</u> from <u>liver tissue</u> affected by <u>liver cancer</u>.<br/> I also want to find the <u>studies</u> where those samples were used.",
       "researchQuestionShort": "liver cancer",
       "relevantAttributes": ["disease", "tissue"],
       "queriesOriginalDB": [
@@ -104,7 +104,7 @@ export default function App() {
 
         <div className="instructions-container">
           <p className="database">Database: NCBI BioSample</p>
-          <p className="label">Enter a search query or load an example:</p>
+          {/*<p className="label">Enter a search query or load an example:</p>*/}
           <Container>
             <Row className="example-selection">
               <Col></Col>
@@ -123,7 +123,7 @@ export default function App() {
           </Container>
           {queryIndex &&
           <div className="goal">
-            <p><i>"{sampleQueries[queryIndex].researchQuestion}"</i></p>
+            <p variant={"info"}><i dangerouslySetInnerHTML={{__html: sampleQueries[queryIndex].researchQuestion}}/></p>
           </div>}
         </div>
 
