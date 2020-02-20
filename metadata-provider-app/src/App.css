@@ -8,6 +8,7 @@
   --color-dark1: #2e3032;
   --color-dark2: #5c5c5c;
   --color-dark3: #777;
+  --color-light: white;
   --color-buttons: #4392F1;
   --color-font1: #3DB883;
   --color-font2: #d74a6b;
@@ -207,6 +208,19 @@ h2 {
 .count-right {
   padding-bottom: 0.5vw;
   color: var(--color-font2);
+  font-size: calc(var(--font-size-theme) + 4vmin);
+  font-weight: 700;
+}
+
+.results-count .title-secondary {
+  padding-top: 0.5vw;
+  font-size: calc(var(--font-size-theme) + 0.5vmin);
+  font-weight: normal;
+}
+
+.count-secondary {
+  padding-bottom: 0.5vw;
+  color: var(--color-light);
   font-size: calc(var(--font-size-theme) + 4vmin);
   font-weight: 700;
 }

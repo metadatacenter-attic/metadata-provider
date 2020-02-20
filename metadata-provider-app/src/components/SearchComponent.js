@@ -23,12 +23,17 @@ function SearchComponent(props) {
   const [sampleQueries, setSampleQueries] = useState([]);
   const [showEnterQueryMessage, setShowEnterQueryMessage] = useState(false);
   const [showSamplesOrProjects, setShowSamplesOrProjects] = useState('samples');
+
   const [originalSampleIDs, setOriginalSamplesIDs] = useState([]);
   const [annotatedSamplesIDs, setAnnotatedSamplesIDs] = useState([]);
   const [extraSampleIDs, setExtraSampleIDs] = useState([]);
+
   const [originalProjectIDs, setOriginalProjectIDs] = useState([]);
   const [annotatedProjectIDs, setAnnotatedProjectIDs] = useState([]);
   const [extraProjectIDs, setExtraProjectIDs] = useState([]);
+
+
+
   const [loading, setLoading] = useState(false);
 
   function querySamples(e, db) {
@@ -50,6 +55,7 @@ function SearchComponent(props) {
           setShowResults(true);
           let sampleIDs = getSampleIDs(data);
           let projectIDs = extractProjectIDs(data);
+          //let cellTypes = extractCellTypes(data);
           setProjectIDs(projectIDs);
           if (props.db === 'original') {
             // Pass the IDs to the annotated samples component through the parent to compare them
@@ -76,6 +82,23 @@ function SearchComponent(props) {
     }
     return (projectIDs);
   };
+
+  // function extractCellTypes(data) {
+  //   let cellTypes = [];
+  //   for (let i = 0; i < data.length; i++) {
+  //     for (let j = 0; j < data[i].attributes.length; j++) {
+  //       if (data[i].attributes[j].attributeName === 'cell type') {
+  //         let cellType = data[i].attributes[j].attributeValue;
+  //         if (cellType && !cellTypes.includes(cellType)) {
+  //           cellTypes.push(cellType);
+  //           break;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   console.log(cellTypes);
+  //   return (cellTypes);
+  // };
 
   function getSampleIDs(samples) {
     let IDs = []
@@ -126,6 +149,7 @@ function SearchComponent(props) {
 
   function updateSearchQuery(e, v) {
     setSearchQuery(v);
+    setShowResults(false);
   };
 
   function showContent(e, content) {
@@ -214,14 +238,14 @@ function SearchComponent(props) {
               <Container>
                 <Row>
                   <Col md={2}></Col>
-                  <Col md={4} className={showSamplesOrProjects === "samples" ?
+                  <Col className={showSamplesOrProjects === "samples" ?
                     "results-count results-count-left results-count-selected" : "results-count results-count-left"}>
                     <Container onClick={e => showContent(e, 'samples')}>
                       <Row><Col className="title">Samples</Col></Row>
                       <Row><Col className="count-left">{samples.length}</Col></Row>
                     </Container>
                   </Col>
-                  <Col md={4} className={showSamplesOrProjects === "projects" ?
+                  <Col className={showSamplesOrProjects === "projects" ?
                     "results-count results-count-right results-count-selected" : "results-count results-count-right"}>
                     <Container onClick={e => showContent(e, 'projects')}>
                       <Row><Col className="title">Projects</Col></Row>
@@ -230,6 +254,34 @@ function SearchComponent(props) {
                   </Col>
                   <Col md={2}></Col>
                 </Row>
+                {/*<Row>*/}
+                {/*  <Col md={1}></Col>*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Cell Types</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">7</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Cell Lines</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">12</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Sex</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">M</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Age</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">56.4</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>*/}
+                {/*  <Col md={1}></Col>*/}
+                {/*</Row>*/}
               </Container>
             </Col>
           </Row>
