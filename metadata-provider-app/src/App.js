@@ -19,7 +19,7 @@ export default function App() {
 
   const sampleQueries = [
     {
-      "researchQuestion": "I need to find information about <u>biological samples</u> from <u>liver tissue</u> affected by <u>liver cancer</u>.<br/> I also want to find the <u>studies</u> where those samples were used.",
+      "researchQuestion": "I need to find information about <u>biological samples</u> from <u>liver tissue</u> affected by <u>liver cancer</u>.",
       "researchQuestionShort": "liver cancer",
       "relevantAttributes": ["disease", "tissue"],
       "queriesOriginalDB": [

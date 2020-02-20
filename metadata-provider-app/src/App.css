@@ -321,6 +321,7 @@ h2 {
   border-width: 1px !important;
   border-color: #5c5c5c !important;
 }
+
 .dropdown .btn:hover {
   background: var(--color-buttons) !important;
   color:#fff !important;

@@ -9,6 +9,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleDown, faSearch} from '@fortawesome/free-solid-svg-icons'
 import ResultsTableComponent from "./ResultsTableComponent";
 import Spinner from "react-bootstrap/Spinner";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 
 function SearchComponent(props) {
@@ -66,13 +68,13 @@ function SearchComponent(props) {
 
   function extractProjectIDs(data) {
     let projectIDs = [];
-    for (let i=0; i<data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
       let projectID = data[i]['bioprojectAccession'];
       if (projectID && !projectIDs.includes(projectID)) {
         projectIDs.push(projectID);
       }
     }
-    return(projectIDs);
+    return (projectIDs);
   };
 
   function getSampleIDs(samples) {
@@ -101,7 +103,7 @@ function SearchComponent(props) {
   useEffect(() => {
     if (props.sampleQueries) {
       setSampleQueries(props.sampleQueries);
-      if (!searchQuery || searchQuery==='') {
+      if (!searchQuery || searchQuery === '') {
         setSearchQuery(props.sampleQueries[0]); // Pick the first sample query by default
       }
     } else {
@@ -124,11 +126,11 @@ function SearchComponent(props) {
 
   function updateSearchQuery(e, v) {
     setSearchQuery(v);
-  }
+  };
 
   function showContent(e, content) {
     setShowSamplesOrProjects(content);
-  }
+  };
 
   return (
     <>
@@ -156,6 +158,7 @@ function SearchComponent(props) {
                 </Dropdown.Menu>
               </Dropdown>}
               <Form.Control
+                id={"searchField-" + props.db}
                 className="search-field"
                 as="textarea"
                 rows="2"
@@ -166,9 +169,29 @@ function SearchComponent(props) {
                   setSearchQuery(e.target.value);
                 }}/>
               <InputGroup.Append>
+
                 <Button className="search-btn" type="submit" onClick={e => {
                   querySamples(e, props.db)
-                }}><FontAwesomeIcon icon={faSearch}/></Button>
+                }}>
+                  <FontAwesomeIcon icon={faSearch}/>
+                </Button>
+
+                {/*<ButtonGroup>*/}
+                {/*  {sampleQueries.length > 0 && props.db === "original" &&*/}
+                {/*  <DropdownButton title="" as={ButtonGroup} className="search-dropdown-btn">*/}
+                {/*    {sampleQueries.map((item, index) => (*/}
+                {/*      <Dropdown.Item className="search-field-dropdown item" key={index}*/}
+                {/*                     onClick={e => {*/}
+                {/*                       updateSearchQuery(e, item);*/}
+                {/*                     }}>Query {index + 1}. {item}</Dropdown.Item>*/}
+                {/*    ))}*/}
+                {/*  </DropdownButton>}*/}
+                {/*  <Button className="search-btn" type="submit" onClick={e => {*/}
+                {/*    querySamples(e, props.db)*/}
+                {/*  }}>*/}
+                {/*    <FontAwesomeIcon icon={faSearch}/>*/}
+                {/*  </Button>*/}
+                {/*</ButtonGroup>*/}
               </InputGroup.Append>
             </InputGroup>
           </Container>
