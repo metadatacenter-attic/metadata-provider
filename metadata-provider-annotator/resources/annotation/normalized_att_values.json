@@ -10,5 +10,8 @@
   "hepatoma": "liver cancer",
   "malignant hepatoma": "liver cancer",
   "hepatocarcinoma": "liver cancer",
-  "cancer of the liver": "liver cancer"
+  "cancer of the liver": "liver cancer",
+
+  "liver": "liver tissue",
+  "non-cancerous liver tissue": "liver"
 }

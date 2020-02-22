@@ -26,7 +26,8 @@ export default function App() {
         "disease=liver cancer AND tissue=liver",
         "disease=hepatoma AND tissue=liver",
         "disease=hepatocellular carcinoma AND tissue=liver",
-        "disease=hepatocellular carcinoma AND tissue=cancerous liver tissue"
+        "disease=hepatocellular carcinoma AND tissue=cancerous liver tissue",
+        "disease=hepatocellular carcinoma AND tissue=non-cancerous liver tissue"
       ],
       "queriesAnnotatedDB": [
         "NCIT:C2991=NCIT:C7927 AND NCIT:C12801=NCIT:C12392"

@@ -3,7 +3,7 @@
   --theme-default-font-size: 10px;
   --theme-presentation-font-size: 20px;
   --font-size-theme: var(--theme-default-font-size);
-  /*--font-size-theme: var(--theme-presentation-font-size);*/
+  --font-size-theme: var(--theme-presentation-font-size);
   --color-dark0: #000;
   --color-dark1: #2e3032;
   --color-dark2: #5c5c5c;

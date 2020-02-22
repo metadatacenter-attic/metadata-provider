@@ -268,16 +268,28 @@ function SearchComponent(props) {
                 {/*      <Row><Col className="count-secondary">12</Col></Row>*/}
                 {/*    </Container>*/}
                 {/*  </Col>*/}
+                {/*  /!*<Col className="results-count results-count-left">*!/*/}
+                {/*  /!*  <Container>*!/*/}
+                {/*  /!*    <Row><Col className="title-secondary">Sex</Col></Row>*!/*/}
+                {/*  /!*    <Row><Col className="count-secondary">M</Col></Row>*!/*/}
+                {/*  /!*  </Container>*!/*/}
+                {/*  /!*</Col>*!/*/}
+                {/*  /!*<Col className="results-count results-count-left">*!/*/}
+                {/*  /!*  <Container>*!/*/}
+                {/*  /!*    <Row><Col className="title-secondary">Age</Col></Row>*!/*/}
+                {/*  /!*    <Row><Col className="count-secondary">56.4</Col></Row>*!/*/}
+                {/*  /!*  </Container>*!/*/}
+                {/*  /!*</Col>*!/*/}
                 {/*  <Col className="results-count results-count-left">*/}
                 {/*    <Container>*/}
-                {/*      <Row><Col className="title-secondary">Sex</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">M</Col></Row>*/}
+                {/*      <Row><Col className="title-secondary">Centers</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">4</Col></Row>*/}
                 {/*    </Container>*/}
                 {/*  </Col>*/}
                 {/*  <Col className="results-count results-count-left">*/}
                 {/*    <Container>*/}
-                {/*      <Row><Col className="title-secondary">Age</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">56.4</Col></Row>*/}
+                {/*      <Row><Col className="title-secondary">Investigators</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">5</Col></Row>*/}
                 {/*    </Container>*/}
                 {/*  </Col>*/}
                 {/*  <Col md={1}></Col>*/}
