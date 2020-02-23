@@ -42,9 +42,8 @@ NCBI_ANALYSIS_OUTPUT_FILE_ALL_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'all_n
 # Filter - homo sapiens and relevant attributes
 
 # Filtering by different attribute names
-NCBI_FILTER_1_SPECS = [{"att_name": "sex", "att_values": []},
-                       {"att_name": "tissue", "att_values": []},
-                       {"att_name": "disease", "att_values": []}]
+NCBI_FILTER_1_SPECS = [ {"att_name": "disease", "att_values": ["hepatocellular carcinoma"]},
+                       {"att_name": "tissue", "att_values": []}]
 NCBI_FILTER_2_SPECS = [{"att_name": "sex", "att_values": []},
                        {"att_name": "tissue", "att_values": []},
                        {"att_name": "disease", "att_values": []},
@@ -102,10 +101,8 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
         "att_name": "disease",
         "att_name_variations": [
             "disease",
-            "diseaseseverity",
-            "diseaseSeverity",
+            "disease severity",
             "disease staging",
-            "DiseaseStaging",
             "clincial information - disease outcome",
             "original disease abbreviation",
             "original disease annotation",
@@ -113,21 +110,14 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
         ],
         "att_values": [
             {
-                "att_value": "liver_cancer",
+                "att_value": "hepatocellular carcinoma",
                 "att_value_variations": [
-                    "liver_cancer",
-                    "liver cancer",
-                    "liver carcinoma"
-                    "hepatic cancer",
-                    "liver tumour",
-                    "liver tumor",
-                    "Liver and Intrahepatic bile duct carcinoma",
                     "hepatocellular carcinoma",
-                    "hcc",
+                    "HCC",
+                    "hepatocellular cancer",
+                    "hepatocellular adenocarcinoma",
                     "hepatoma",
-                    "malignant hepatoma",
-                    "hepatocarcinoma",
-                    "cancer of the liver"
+                    "hepatocarcinoma"
                 ]
             }
         ]
@@ -139,7 +129,7 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
             "tissue supergroup",
             "tissue source",
             "metastatic tissue",
-            "DiseaseLocation",
+            "disease location",
             "tissue subtype"
         ],
         "att_values": []

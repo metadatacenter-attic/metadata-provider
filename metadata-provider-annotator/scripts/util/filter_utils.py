@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import scripts.util.utils as utils
-import scripts.util.ncbi_utils as ncbi_utils
 import scripts.constants as constants
 import xml.etree.ElementTree as ET
 import os
@@ -25,22 +24,6 @@ def is_homo_sapiens(sample):
     return False
 
 
-def str_contained_in_list(str, str_list):
-    """
-    Checks if a string is contained in a list of strings
-    :return: boolean
-    """
-    if str is None or len(str) == 0 or str_list is None or len(str_list) == 0:
-        return False;
-    else:
-        str_norm = str.lower()
-        list_norm = [item.lower() for item in str_list]
-        if str_norm in list_norm:
-            return True
-        else:
-            return False
-
-
 def has_attributes(sample, required_attributes):
     """
     :param sample:
@@ -59,10 +42,18 @@ def has_attributes(sample, required_attributes):
                 display_name = sample_att.get('display_name')
                 harmonized_name = sample_att.get('harmonized_name')
 
+                # Avoid unnecessary comparisons
+                if utils.equal_norm_str(display_name, attribute_name):
+                    display_name = None
+                if utils.equal_norm_str(harmonized_name, attribute_name):
+                    harmonized_name = None
+                if utils.equal_norm_str(display_name, harmonized_name):
+                    display_name = None
+
                 # Check if the current sample attribute matches the required attribute
-                if str_contained_in_list(attribute_name, required_att['att_name_variations']) \
-                        or str_contained_in_list(display_name, required_att['att_name_variations']) \
-                        or str_contained_in_list(harmonized_name, required_att['att_name_variations']):
+                if utils.contained_in_list_norm_str(attribute_name, required_att['att_name_variations']) \
+                        or utils.contained_in_list_norm_str(display_name, required_att['att_name_variations']) \
+                        or utils.contained_in_list_norm_str(harmonized_name, required_att['att_name_variations']):
 
                     found = True  # Attribute name found
 
@@ -70,9 +61,14 @@ def has_attributes(sample, required_attributes):
                         found = False
                         sample_att_value = sample_att.text
                         for req_value_obj in required_att['att_values']:
-                            if sample_att_value in req_value_obj['att_value_variations']:
-                                found = True # Attribute value found
-                                break
+                            all_variations = []
+                            for variation in req_value_obj['att_value_variations']:
+                                # Add permutations
+                                all_variations.extend(utils.generate_str_permutations(variation))
+                            for v in all_variations:
+                                if utils.equal_norm_str(sample_att_value, v):
+                                    found = True  # Attribute value found
+                                    break
 
                         # Attribute value not found
                         if not found:

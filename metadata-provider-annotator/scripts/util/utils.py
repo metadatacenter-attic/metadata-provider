@@ -5,6 +5,7 @@ import xml.dom.pulldom as pulldom
 import gzip
 import csv
 import re
+from itertools import permutations
 
 
 def get_base_folder(expected_exec_folder):
@@ -113,7 +114,7 @@ def sort_dict_by_values(dct):
 
 
 def camel_case_to_space_delimited(term):
-    return re.sub("([a-z])([A-Z])","\g<1> \g<2>",term)
+    return re.sub("([a-z])([A-Z])", "\g<1> \g<2>", term)
     # matches = re.finditer('.+?(?:(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])|$)', term)
     # return [m.group(0) for m in matches]
 
@@ -121,17 +122,22 @@ def camel_case_to_space_delimited(term):
 def norm_str(input_str):
     """
     Normalizes a string by applying the following transformations:
-    1) Replaces special characters by a white space
-    2) Converts the string to lower case
-    3) Removes all leading and trailing whitespaces
+    1) Remove special characters
+    2) Transform to uppercase
+    3) Remove leading and trailing whitespaces
     :param input_str: input string
     :return: normalized string
     """
     import re
     if input_str is not None:
-        return re.sub('[^A-Za-z0-9]+', ' ', input_str).lower().strip()
+        input_str = re.sub('[^A-Za-z0-9]+', ' ', input_str)
+        input_str = re.sub(' +', ' ', input_str)
+        return input_str.strip().upper();
     else:
         return None
+
+    re.sub(' +', ' ', a)
+
 
 
 def equal_norm_str(str1, str2):
@@ -145,6 +151,53 @@ def equal_norm_str(str1, str2):
         return True
     else:
         return False
+
+
+# def ends_with_norm_str(str1, str2):
+#     """
+#     Checks if a normalized string str1 ends with a normalized string str2. The goal is to identify subtypes of a term
+#     (e.g., MALIGNANTHEPATOMA ends with HEPATOMA => malignant hepatoma is a subtype of hepatoma
+#     :param str1:
+#     :param str2:
+#     :return:
+#     """
+#     if norm_str(str1).endswith(norm_str(str2)):
+#         return True;
+#     else:
+#         return False;
+
+
+def contained_in_list_norm_str(str, str_list):
+    """
+    Checks if a string is contained in a list of strings. The comparisons are done using normalized strings
+    :return: boolean
+    """
+    if str is None or len(str) == 0 or str_list is None or len(str_list) == 0:
+        return False;
+    else:
+        str_norm = norm_str(str)
+        list_norm = [norm_str(item) for item in str_list]
+        if str_norm in list_norm:
+            return True
+        else:
+            return False
+
+
+def generate_str_permutations(str):
+    """
+    Generates all permutations of words in a multi-word terms. The result includes the original string. 
+    Example: "hepatocellular carcinoma" -> ["hepatocellular carcinoma", "carcinoma hepatocellular"]
+    :param str:
+    :return: list of permutations
+    """
+    result = []
+    terms = str.split()
+    if len(terms) <= 1:
+        result.append(str)
+    else:
+        for perm in permutations(terms, len(terms)):
+            result.append(" ".join(perm))
+    return result
 
 
 def read_xml_or_gz_file(input_file_path):
@@ -174,3 +227,11 @@ def add_timestamp_to_filename(file_path):
     base_path = file_path.rsplit('/', 1)[0]
     file_name = file_path.rsplit('/', 1)[1]
     return str(base_path) + '/' + str(time.strftime("%Y%m%d-%H%M%S_")) + str(file_name)
+
+
+# if __name__ == "__main__":
+#     print(norm_str("  hepatoceLLular, carcinoma    (Malignant)  "))
+#     print(norm_str("  (female:) bla  "))
+#     print(contained_in_list_norm_str("  (HCC) ", ["_Hcc,"]))
+#     print(generate_str_permutations("HCC"))
+#     print(generate_str_permutations("malignant hepatocellular carcinoma"))
