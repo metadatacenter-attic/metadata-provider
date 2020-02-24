@@ -42,8 +42,7 @@ NCBI_ANALYSIS_OUTPUT_FILE_ALL_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'all_n
 # Filter - homo sapiens and relevant attributes
 
 # Filtering by different attribute names
-NCBI_FILTER_1_SPECS = [ {"att_name": "disease", "att_values": ["hepatocellular carcinoma"]},
-                       {"att_name": "tissue", "att_values": []}]
+NCBI_FILTER_1_SPECS = [ {"att_name": "disease", "att_values": ["hepatocellular carcinoma"]}]
 NCBI_FILTER_2_SPECS = [{"att_name": "sex", "att_values": []},
                        {"att_name": "tissue", "att_values": []},
                        {"att_name": "disease", "att_values": []},

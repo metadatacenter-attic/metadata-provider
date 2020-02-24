@@ -20,6 +20,8 @@ def get_base_folder(expected_exec_folder):
         return '.'
     elif current_exec_folder != expected_exec_folder and current_exec_folder == 'scripts':
         return './..'
+    elif current_exec_folder != expected_exec_folder and current_exec_folder == 'test':
+        return './../..'
     else:
         print("Error: Cannot figure out the right execution folder\n")
         sys.exit(1)
@@ -123,8 +125,9 @@ def norm_str(input_str):
     """
     Normalizes a string by applying the following transformations:
     1) Remove special characters
-    2) Transform to uppercase
+    2) Replace multiple blanks by one
     3) Remove leading and trailing whitespaces
+    4) Transform to uppercase
     :param input_str: input string
     :return: normalized string
     """
@@ -135,9 +138,6 @@ def norm_str(input_str):
         return input_str.strip().upper();
     else:
         return None
-
-    re.sub(' +', ' ', a)
-
 
 
 def equal_norm_str(str1, str2):

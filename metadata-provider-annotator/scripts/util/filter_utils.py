@@ -30,13 +30,20 @@ def has_attributes(sample, required_attributes):
     :param required_attributes: list of relevant attribute names, values, and their variations
     :return: Boolean
     """
+    # print('------------------')
+    # print(sample)
     biosample_node = ET.fromstring(sample)
     sample_atts = biosample_node.find('Attributes')
     if sample_atts is not None:
 
         # Check if the sample contains all the required attribute names and values
         for required_att in required_attributes:
-            found = False
+            att_name_found = False
+            search_for_att_value = False
+            att_value_found = False
+            if len(required_att['att_values']) > 0:
+                search_for_att_value = True
+
             for sample_att in sample_atts:
                 attribute_name = sample_att.get('attribute_name')
                 display_name = sample_att.get('display_name')
@@ -55,11 +62,10 @@ def has_attributes(sample, required_attributes):
                         or utils.contained_in_list_norm_str(display_name, required_att['att_name_variations']) \
                         or utils.contained_in_list_norm_str(harmonized_name, required_att['att_name_variations']):
 
-                    found = True  # Attribute name found
+                    att_name_found = True  # Attribute name found
 
-                    if len(required_att['att_values']) > 0:
-                        found = False
-                        sample_att_value = sample_att.text
+                    if search_for_att_value:
+                        sample_att_value = sample_att.text  # attribute value
                         for req_value_obj in required_att['att_values']:
                             all_variations = []
                             for variation in req_value_obj['att_value_variations']:
@@ -67,24 +73,26 @@ def has_attributes(sample, required_attributes):
                                 all_variations.extend(utils.generate_str_permutations(variation))
                             for v in all_variations:
                                 if utils.equal_norm_str(sample_att_value, v):
-                                    found = True  # Attribute value found
+                                    att_value_found = True  # Attribute value found
                                     break
 
-                        # Attribute value not found
-                        if not found:
-                            return False
-                    else:
-                        break
+                            if att_value_found:  # Attribute value found, break outer look too
+                                break
 
-            # Attribute name not found
-            if not found:
+            # This if is done after evaluating all the sample attributes because some samples have the same attribute
+            # several times, using different variations, and the value that we are looking for is only in one of them
+            if search_for_att_value and not att_value_found:
                 return False
 
-        # All the required attribute names-values were found
-        # print('All required attributes were found!')
-        # print(sample)
-        # print('-------------------------')
+            # Attribute name not found
+            if not att_name_found:
+                return False
+
+        # The sample meets all the requirements
         return True
+
+    else:  # sample_atts is None
+        return False
 
 
 def filter_samples(input_file, output_file, is_homo_sapiens_filter, has_attributes_filter, required_attributes,
@@ -149,27 +157,36 @@ def filter_samples(input_file, output_file, is_homo_sapiens_filter, has_attribut
 
 def filter_atts_and_variations(filter_specs, atts_and_variations):
     """
-    Keeps only the attribute names and variations for the attribute names and values specified in filter_specs
+    Keeps only the attribute names and variations for the attribute names and values specified in filter_specs.
+    Note that if the users specifies an attribute name or value in the filter specs that is not in the object with
+    the attribute names/values variations, the method will throw an exception
     :param filter_specs: the attribute names and values that will be used for filtering
     :param atts_and_variations: Object with all the attribute names, values, and their variations
     :return: a new array of objects with only the relevant attributes names, values, and their variations
     """
     result = []
     for spec in filter_specs:
+        spec_att_name_found = False
+        spec_check_att_value = False
         for av in atts_and_variations:
             if av['att_name'] == spec['att_name']:
+                spec_att_name_found = True
                 new_av = av.copy()
                 new_av['att_values'] = []
-                if 'att_values' in spec:
+                if 'att_values' in spec and len(spec['att_values']) > 0:
+                    spec_att_value_found = False
+                    spec_check_att_value = True
                     for spec_att_value in spec['att_values']:
                         for att_values_item in av['att_values']:
                             if spec_att_value == att_values_item['att_value']:
+                                spec_att_value_found = True
                                 new_av['att_values'].append(att_values_item)
-                else:  # consider all values
-                    for att_values_item in av['att_values']:
-                        new_av['att_values'].append(att_values_item)
 
                 result.append(new_av)
+
+        if (not spec_att_name_found) or (spec_att_name_found and (spec_check_att_value and not spec_att_value_found)):
+            raise ValueError("Unknown attribute name or value in the spec filter")
+
     return result
 
 

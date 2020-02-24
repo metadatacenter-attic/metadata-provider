@@ -1,0 +1,43 @@
+<BioSample access="public" accession="SAMEA4969104" id="13753681" last_update="2020-01-11T14:35:18.657"
+           publication_date="2020-01-03T00:00:00.000" submission_date="2020-01-08T00:01:55.210">
+    <Ids>
+        <Id db="BioSample" is_primary="1">SAMEA4969104</Id>
+        <Id db="SRA">ERS2787320</Id>
+    </Ids>
+    <Description>
+        <Title>Sample from Homo sapiens</Title>
+        <Organism taxonomy_id="9606" taxonomy_name="Homo sapiens">
+            <OrganismName>Homo sapiens</OrganismName>
+        </Organism>
+        <Comment>
+            <Paragraph>Protocols: Fresh specimens...
+            </Paragraph>
+        </Comment>
+    </Description>
+    <Owner>
+        <Name>EBI</Name>
+    </Owner>
+    <Models>
+        <Model>Generic</Model>
+    </Models>
+    <Package display_name="Generic">Generic.1.0</Package>
+    <Attributes>
+        <Attribute attribute_name="Submitter Id">E-MTAB-7278:severe_exhaustion_3</Attribute>
+        <Attribute attribute_name="age" display_name="age" harmonized_name="age">47</Attribute>
+        <Attribute attribute_name="broker name">ArrayExpress</Attribute>
+        <Attribute attribute_name="cell type" display_name="cell type" harmonized_name="cell_type">T cell</Attribute>
+        <Attribute attribute_name="common name">human</Attribute>
+        <Attribute attribute_name="disease" display_name="disease" harmonized_name="disease">not reported</Attribute>
+        <Attribute attribute_name="disease stage" display_name="disease" harmonized_name="disease">hcc</Attribute>
+        <Attribute attribute_name="effector cytokine production">severe exhaustion</Attribute>
+        <Attribute attribute_name="individual">patient3</Attribute>
+        <Attribute attribute_name="organism">Homo sapiens</Attribute>
+        <Attribute attribute_name="organism part" display_name="tissue" harmonized_name="tissue">liver</Attribute>
+        <Attribute attribute_name="phenotype" display_name="phenotype" harmonized_name="phenotype">PD1hiTIM3+
+        </Attribute>
+        <Attribute attribute_name="sampling site">neoplasm</Attribute>
+        <Attribute attribute_name="sex" display_name="sex" harmonized_name="sex">male</Attribute>
+        <Attribute attribute_name="title">severe_exhaustion_3</Attribute>
+    </Attributes>
+    <Status status="live" when="2020-01-08T00:01:55.212"/>
+</BioSample>
