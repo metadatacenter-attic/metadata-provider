@@ -296,7 +296,6 @@ def transform_and_export_projects_to_json(input_file, output_file, log_frequency
 
                 if archive_id.get('archive') == 'NCBI':
                     ncbi_bio_project_id = archive_id.get('id')
-                    print(ncbi_bio_project_id)
 
                 if ncbi_bio_project_id is not None:
                     project.id = ncbi_bio_project_id
@@ -341,11 +340,54 @@ def transform_and_export_projects_to_json(input_file, output_file, log_frequency
 
                     project.organizations = project_organizations
 
+                    project_grants = project_description_node.findall('Grant')
+                    project_pis = {}
+
+                    if project_grants is not None:
+                        for grant_node in project_grants:
+                            pi_node = grant_node.find('PI')
+
+                            if pi_node is not None:
+                                pi_id = pi_node.get('userid')
+
+                                if pi_id in project_pis:
+                                    pi = project_pis.get(pi_id)
+                                    affiliations = pi.affiliation
+                                else:
+                                    pi = BioProjectPI()
+                                    pi.id = pi_id
+                                    affiliations = []
+
+                                pi_affiliation = pi_node.get('affil')
+                                pi_first = pi_node.find('First')
+                                pi_last = pi_node.find('Last')
+                                pi_middle = pi_node.find('Middle')
+                                pi_given = pi_node.find('Given')
+
+                                if pi_affiliation is not None:
+                                    affiliations.append(pi_affiliation)
+                                    pi.affiliation = affiliations
+
+                                if pi_first is not None:
+                                    pi.first = pi_first.text
+
+                                if pi_last is not None:
+                                    pi.last = pi_last.text
+
+                                if pi_middle is not None:
+                                    pi.middle = pi_middle.text
+
+                                if pi_given is not None:
+                                    pi.given = pi_given.text
+
+                                project_pis[pi_id] = pi
+
+                    project.pis = list(project_pis.values())
+
                     projects.append(project)
 
                 if processed_project_count % log_frequency == 0:
                     print('Processed projects: ' + str(processed_project_count))
-                    break
 
                 root.clear()
 
@@ -385,12 +427,13 @@ class NcbiBiosampleAttribute:
 
 
 class BioProject:
-    def __init__(self, id = None, name = None, title = None, description = None, organizations = None):
+    def __init__(self, id = None, name = None, title = None, description = None, organizations = None, pis = None):
         self.id = id
         self.name = name
         self.title = title
         self.description = description
         self.organizations = organizations
+        self.pis = pis
 
 
 class BioProjectOrganization:
@@ -399,3 +442,13 @@ class BioProjectOrganization:
         self.role = role
         self.type = type
         self.url = url
+
+
+class BioProjectPI:
+    def __init__(self, id=None, first=None, last=None, middle=None, given=None, affiliation=None):
+        self.id = id
+        self.first = first
+        self.last = last
+        self.middle = middle
+        self.given = given
+        self.affiliation = affiliation
