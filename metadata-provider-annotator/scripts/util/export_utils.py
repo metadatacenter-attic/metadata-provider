@@ -250,6 +250,117 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
         print('- Total samples exported: ' + str(len(biosamples)))
 
 
+def transform_and_export_projects_to_json(input_file, output_file, log_frequency=1000):
+    """
+       Parses an XML file with multiple NCBI biosamples and...
+
+    """
+    execute = True
+    if os.path.exists(output_file):
+        if not utils.confirm('The destination file already exist. Do you want to overwrite it [y/n]? '):
+            execute = False
+    if execute:
+        projects = []
+
+        if not os.path.exists(os.path.dirname(output_file)):
+            os.makedirs(os.path.dirname(output_file))
+
+        print('Input file: ' + input_file)
+        print('Output file: ' + output_file)
+        print('Processing projects...')
+
+        processed_project_count = 0
+
+        # Read projects from XML file
+        context = ET.iterparse(input_file, events=("start", "end"))
+
+        # turn it into an iterator
+        context = iter(context)
+        event, root = context.__next__()
+
+        for event, elem in context:
+            if event == "end" and elem.tag == "Package":
+                processed_project_count = processed_project_count + 1
+                project = BioProject()
+
+                details_node = elem.find('Project')
+                project_node = details_node.find('Project')
+                submission_node = details_node.find('Submission')
+                submission_description_node = submission_node.find('Description')
+
+                project_id = project_node.find('ProjectID')
+                archive_id = project_id.find('ArchiveID')
+                ncbi_bio_project_id = None
+
+                project_description_node = project_node.find('ProjectDescr')
+
+                if archive_id.get('archive') == 'NCBI':
+                    ncbi_bio_project_id = archive_id.get('id')
+                    print(ncbi_bio_project_id)
+
+                if ncbi_bio_project_id is not None:
+                    project.id = ncbi_bio_project_id
+
+                    project_name = project_description_node.find('Name')
+                    project_title = project_description_node.find('Title')
+                    project_description = project_description_node.find('Description')
+
+                    if project_name is not None:
+                        project.name = project_name.text
+
+                    if project_title is not None:
+                        project.title = project_title.text
+
+                    if project_description is not None:
+                        project.description = project_description.text
+
+                    project_organizations_nodes = submission_description_node.findall('Organization')
+                    project_organizations = []
+
+                    if project_organizations_nodes is not None:
+                        for organization_node in project_organizations_nodes:
+                            organization = BioProjectOrganization()
+                            organization_name = organization_node.find('Name')
+                            organization_role = organization_node.get('role')
+                            organization_type = organization_node.get('type')
+                            organization_url = organization_node.get('url')
+
+                            if organization_name is not None:
+                                organization.name = organization_name.text
+
+                            if organization_role is not None:
+                                organization.role = organization_role
+
+                            if organization_type is not None:
+                                organization.type = organization_type
+
+                            if organization_url is not None:
+                                organization.url = organization_url
+
+                            project_organizations.append(organization)
+
+                    project.organizations = project_organizations
+
+                    projects.append(project)
+
+                if processed_project_count % log_frequency == 0:
+                    print('Processed projects: ' + str(processed_project_count))
+                    break
+
+                root.clear()
+
+        print('- Total projects processed: ' + str(processed_project_count))
+
+        with open(output_file, 'w') as f:
+            # json_string = json.dumps(biosamples, default=obj_dict)
+            # print
+            json.dump(projects, f, default=obj_dict)
+
+        print('Finished processing projects')
+        print('- Total projects processed: ' + str(processed_project_count))
+        print('- Total projects exported: ' + str(len(projects)))
+
+
 def obj_dict(obj):
     return obj.__dict__
 
@@ -271,3 +382,20 @@ class NcbiBiosampleAttribute:
     def __init__(self, attribute_name=None, attribute_value=None):
         self.attributeName = attribute_name
         self.attributeValue = attribute_value
+
+
+class BioProject:
+    def __init__(self, id = None, name = None, title = None, description = None, organizations = None):
+        self.id = id
+        self.name = name
+        self.title = title
+        self.description = description
+        self.organizations = organizations
+
+
+class BioProjectOrganization:
+    def __init__(self, name=None, role=None, type=None, url=None):
+        self.name = name
+        self.role = role
+        self.type = type
+        self.url = url

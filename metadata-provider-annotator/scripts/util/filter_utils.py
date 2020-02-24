@@ -91,7 +91,7 @@ def has_attributes(sample, required_attributes):
         return True
 
 
-def filter_samples(input_file, output_file, is_homo_sapiens_filter, has_attributes_filter, required_attributes,
+def filter_samples(input_file, output_file, is_homo_sapiens_filter, has_attributes_filter, required_attributes=None,
                    log_frequency=100000):
     """
     Select the samples that have, at the minimum, a given list of attributes
@@ -103,6 +103,8 @@ def filter_samples(input_file, output_file, is_homo_sapiens_filter, has_attribut
     :param log_frequency:
     :return:
     """
+    if required_attributes is None:
+        required_attributes = []
     if is_homo_sapiens_filter:
         output_file = output_file
     if not os.path.exists(os.path.dirname(output_file)):
