@@ -24,7 +24,8 @@ def sample_to_json(sample, required_attributes):
     sample_atts = biosample_node.find('Attributes')
     if sample_atts is not None:
 
-        # Export only the required attributes and their values
+        # Export only the required attributes and their values.
+        # If a required attribute is not found in the sample, set it to None
         for required_att in required_attributes:
             found = False
             for sample_att in sample_atts:
@@ -36,15 +37,17 @@ def sample_to_json(sample, required_attributes):
                 if (attribute_name is not None and attribute_name in required_att['att_name_variations']) or \
                         (display_name is not None and display_name in required_att['att_name_variations']) or \
                         (harmonized_name is not None and harmonized_name in required_att['att_name_variations']):
-                    # Attribute found. Add it to the json object using the reference name in required_attributes
+
+                    # Attribute found.
                     # Note that we transform the value to lower case because BioSample search ignores case too
                     found = True
                     sample_json[required_att['att_name']] = sample_att.text.lower()
                     break
 
             if not found:
-                print('Error: attribute to be exported was not found in sample: ' + required_att['att_name'])
-                sys.exit(1)
+                sample_json[required_att['att_name']] = None
+                # print('Error: attribute to be exported was not found in sample: ' + required_att['att_name'])
+                # sys.exit(1)
 
         return sample_json
 

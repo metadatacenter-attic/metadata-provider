@@ -42,7 +42,8 @@ NCBI_ANALYSIS_OUTPUT_FILE_ALL_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'all_n
 # Filter - homo sapiens and relevant attributes
 
 # Filtering by different attribute names
-NCBI_FILTER_1_SPECS = [ {"att_name": "disease", "att_values": ["hepatocellular carcinoma"]}]
+NCBI_FILTER_1_SPECS = [{"att_name": "disease",
+                        "att_values": ["hepatocellular carcinoma", "myelodysplasia", "systemic lupus erythematosus"]}]
 NCBI_FILTER_2_SPECS = [{"att_name": "sex", "att_values": []},
                        {"att_name": "tissue", "att_values": []},
                        {"att_name": "disease", "att_values": []},
@@ -99,13 +100,7 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
     {
         "att_name": "disease",
         "att_name_variations": [
-            "disease",
-            "disease severity",
-            "disease staging",
-            "clincial information - disease outcome",
-            "original disease abbreviation",
-            "original disease annotation",
-            "disease group"
+            "disease"
         ],
         "att_values": [
             {
@@ -113,10 +108,35 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
                 "att_value_variations": [
                     "hepatocellular carcinoma",
                     "HCC",
+                    "liver cell cancer (hepatocellular carcinoma)",
                     "hepatocellular cancer",
                     "hepatocellular adenocarcinoma",
                     "hepatoma",
                     "hepatocarcinoma"
+                ]
+            },
+            {
+                "att_value": "myelodysplasia",
+                "att_value_variations": [
+                    "myelodysplasia",
+                    "MDS",
+                    "preleukemia",
+                    "smoldering leukemia",
+                    "myelodysplastic syndrome/neoplasm",
+                    "myelodysplastic neoplasm",
+                    "myelodysplastic syndromes",
+                    "myelodysplastic syndrome",
+                    "myelodysplastic syndrome; MDS",
+                    "dysmyelopoietic syndrome",
+                    "myelodysplastic syndrome, NOS"
+                ]
+            },
+            {
+                "att_value": "systemic lupus erythematosus",
+                "att_value_variations": [
+                    "systemic lupus erythematosus",
+                    "SLE",
+                    "SLE - lupus erythematosus systemic"
                 ]
             }
         ]
@@ -124,32 +144,22 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
     {
         "att_name": "tissue",
         "att_name_variations": [
-            "tissue",
-            "tissue supergroup",
-            "tissue source",
-            "metastatic tissue",
-            "disease location",
-            "tissue subtype"
+            "tissue"
         ],
         "att_values": []
     },
     {
-        "att_name": "cell_line",
+        "att_name": "cell line",
         "att_name_variations": [
-            "cell_line"
+            "cell line"
         ],
         "att_values": []
     },
     {
-        "att_name": "cell_type",
+        "att_name": "cell type",
         "att_name_variations": [
-            "cell_type"
+            "cell type"
         ],
-        "att_values": []
-    },
-    {
-        "att_name": "race",
-        "att_name_variations": [],
         "att_values": []
     },
     {
@@ -162,18 +172,20 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
 ]
 
 # Export samples to other formats #
-NCBI_EXPORT_INPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter6/' + '20200117-141930_biosample_filtered_834.xml'
+NCBI_EXPORT_INPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter1/' + '20200223-170630_biosample_filtered.xml'
 NCBI_EXPORT_CSV_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
 # export sex, tissue, and disease, with all their values. This is only used for the CSV export, to simplify analysis
-NCBI_EXPORT_FILTER_SPECS = [{"att_name": "sex", "att_values": []},
+NCBI_EXPORT_FILTER_SPECS = [{"att_name": "disease", "att_values": []},
                             {"att_name": "tissue", "att_values": []},
-                            {"att_name": "disease", "att_values": []}]
+                            {"att_name": "cell type", "att_values": []},
+                            {"att_name": "cell line", "att_values": []},
+                            {"att_name": "sex", "att_values": []}]
 
 # Export to JSON
 NCBI_EXPORT_JSON_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/json/' + 'biosample_exported.json'
 
 # Analysis of attribute values in the CSV
-NCBI_ANALYSIS_VALUES_INPUT_FILE = NCBI_EXPORT_CSV_OUTPUT_FILE
+NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + '20200224-133409_biosample_exported.csv'
 
 # Semantic annotation
 ANNOTATION_INPUT_FILE = NCBI_EXPORT_JSON_OUTPUT_FILE  # original (non-annotated) samples

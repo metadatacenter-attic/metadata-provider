@@ -22,7 +22,7 @@ def main():
         print('  Column name: ' + col_names[index])
         print('    Unique values (' + str(len(df[col].unique())) + '): ')
         for value in df[col].unique():
-            print('     - ' + value)
+            print('     - ' + str(value))
         index = index + 1
 
     # Generate plots with frequencies of unique values
@@ -33,7 +33,7 @@ def main():
         plt.show()
 
     # Count of different combinations
-    print(df.groupby(['disease', 'tissue', 'sex'], as_index=False).size())
+    print(df.groupby(['cell line','sex'], as_index=False).size())
 
 
 if __name__ == "__main__":

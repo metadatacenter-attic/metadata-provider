@@ -2,9 +2,10 @@
 
 import scripts.constants as constants
 import scripts.util.export_utils as export_utils
+import scripts.util.utils as utils
 
 INPUT_FILE = constants.NCBI_EXPORT_INPUT_FILE
-OUTPUT_FILE = constants.NCBI_EXPORT_CSV_OUTPUT_FILE
+OUTPUT_FILE = utils.add_timestamp_to_filename(constants.NCBI_EXPORT_CSV_OUTPUT_FILE)
 EXPORT_FILTER_SPECS = constants.NCBI_EXPORT_FILTER_SPECS
 
 
