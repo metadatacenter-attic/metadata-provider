@@ -1,123 +1,1125 @@
 {
   "att-names": {
     "disease": {
-      "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C2991",
-      "term-label": "Disease or Disorder",
-      "term-source": "NCIT"
+      "term-uri": "https://w3id.org/biolink/biolinkml/meta/Disease",
+      "term-label": "Disease",
+      "term-source": "BIOLINK"
     },
     "sex": {
-      "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C28421",
-      "term-label": "Sex",
-      "term-source": "NCIT"
+      "term-uri": "https://w3id.org/biolink/vocab/BiologicalSex",
+      "term-label": "Biological sex",
+      "term-source": "BIOLINK"
+    },
+    "cell line": {
+      "term-uri": "https://w3id.org/biolink/biolinkml/meta/CellLine",
+      "term-label": "Cell line",
+      "term-source": "BIOLINK"
     },
     "tissue": {
       "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12801",
       "term-label": "Tissue",
       "term-source": "NCIT"
     },
-    "tissue supergroup": {
-      "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12801",
-      "term-label": "Tissue",
-      "term-source": "NCIT"
+    "cell type": {
+      "term-uri": "https://w3id.org/biolink/biolinkml/meta/Cell",
+      "term-label": "Cell",
+      "term-source": "BIOLINK"
     }
   },
   "att-values": {
     "disease": {
       "hepatocellular carcinoma": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7927",
-        "term-label": "Liver and Intrahepatic Bile Duct Carcinoma",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007256",
+        "term-label": "hepatocellular carcinoma",
+        "term-source": "MONDO"
+      },
+      "MDS": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0018881",
+        "term-label": "myelodysplastic syndrome",
+        "term-source": "MONDO"
+      },
+      "myelodysplastic syndrome": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0018881",
+        "term-label": "myelodysplastic syndrome",
+        "term-source": "MONDO"
       },
       "hepatoma": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7927",
-        "term-label": "Liver and Intrahepatic Bile Duct Carcinoma",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007256",
+        "term-label": "hepatocellular carcinoma",
+        "term-source": "MONDO"
       },
-      "liver cancer": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7927",
-        "term-label": "Liver and Intrahepatic Bile Duct Carcinoma",
-        "term-source": "NCIT"
+      "myelodysplastic syndrome (MDS)": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0044873",
+        "term-label": "childhood myelodysplastic syndrome",
+        "term-source": "MONDO"
+      },
+      "HCC": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007256",
+        "term-label": "hepatocellular carcinoma",
+        "term-source": "MONDO"
+      },
+      "SLE": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007915",
+        "term-label": "systemic lupus erythematosus (disease)",
+        "term-source": "MONDO"
+      },
+      "myelodysplasia": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0018881",
+        "term-label": "myelodysplastic syndrome",
+        "term-source": "MONDO"
+      },
+      "carcinoma hepatocellular": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007256",
+        "term-label": "hepatocellular carcinoma",
+        "term-source": "MONDO"
+      },
+      "systemic lupus erythematosus (SLE)": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007915",
+        "term-label": "systemic lupus erythematosus (disease)",
+        "term-source": "MONDO"
+      },
+      "Myelodysplastic Syndrome": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0044873",
+        "term-label": "childhood myelodysplastic syndrome",
+        "term-source": "MONDO"
+      },
+      "Hepatocellular carcinoma": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007256",
+        "term-label": "hepatocellular carcinoma",
+        "term-source": "MONDO"
+      },
+      "systemic lupus erythematosus": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007915",
+        "term-label": "systemic lupus erythematosus (disease)",
+        "term-source": "MONDO"
+      },
+      "Systemic lupus erythematosus": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007915",
+        "term-label": "systemic lupus erythematosus (disease)",
+        "term-source": "MONDO"
+      },
+      "Hepatocellular Carcinoma": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007256",
+        "term-label": "hepatocellular carcinoma",
+        "term-source": "MONDO"
+      },
+      "hepatocellular carcinoma-non tumorous region": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0007256",
+        "term-label": "hepatocellular carcinoma",
+        "term-source": "MONDO"
+      },
+      "myelodysplastic syndromes": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0018881",
+        "term-label": "myelodysplastic syndrome",
+        "term-source": "MONDO"
+      },
+      "Myelodysplastic syndrome": {
+        "term-uri": "http://purl.obolibrary.org/obo/MONDO_0044873",
+        "term-label": "childhood myelodysplastic syndrome",
+        "term-source": "MONDO"
       }
     },
     "sex": {
       "male": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C46107",
-        "term-label": "Male, Self-Report",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/PATO_0000384",
+        "term-label": "male",
+        "term-source": "PATO"
       },
       "female": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C46113",
-        "term-label": "Female Phenotype",
-        "term-source": "NCIT"
-      },
-      "not available": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C126101",
-        "term-label": "Not Available",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/PATO_0000383",
+        "term-label": "female",
+        "term-source": "PATO"
       },
       "not applicable": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C159816",
-        "term-label": "Performance Status Scale Timing Not Applicable",
-        "term-source": "NCIT"
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "unknown": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
       },
       "not collected": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25453",
-        "term-label": "Collection",
-        "term-source": "NCIT"
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "not available": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "not determined": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "missing": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Not applicable": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "NA": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "mixed": {
+        "term-uri": "http://purl.obolibrary.org/obo/PATO_0002122",
+        "term-label": "mixed",
+        "term-source": "PATO"
+      }
+    },
+    "cell line": {
+      "Hep G2": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0050856",
+        "term-label": "RCB1648 cell",
+        "term-source": "CLO"
+      },
+      "HepG2": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0050856",
+        "term-label": "RCB1648 cell",
+        "term-source": "CLO"
+      },
+      "SKM-1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Li-7": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Huh-7": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "PLC/PRF/5": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU-475": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU-449": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU-387": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU-423": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HUH-7": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "JHH-7": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "GS-HepG2": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0050856",
+        "term-label": "RCB1648 cell",
+        "term-source": "CLO"
+      },
+      "HuH-7": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "JHH-6": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU-398": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "JHH-5": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Hep 3B2.1-7": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HLE": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009986",
+        "term-label": "HLE cell",
+        "term-source": "CLO"
+      },
+      "huH-1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "JHH-4": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU-182": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "JHH-1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "JHH-2": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HCCLM3": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0053045",
+        "term-label": "NICR662 cell",
+        "term-source": "CLO"
+      },
+      "HEPG2": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0003704",
+        "term-label": "Hep G2 cell",
+        "term-source": "CLO"
+      },
+      "HEPG3": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HEPG4": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HEPG5": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HEPG6": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HEPG7": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Huh7": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
+        "term-label": "Huh7 cell",
+        "term-source": "CLO"
+      },
+      "PLC8024": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HepaRG": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HG23": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Hep-3B": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0003702",
+        "term-label": "Hep 3B \u7ec6\u80de",
+        "term-source": "CLO"
+      },
+      "Huh7.5": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
+        "term-label": "Huh7 cell",
+        "term-source": "CLO"
+      },
+      "HepG2/C3A": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0050856",
+        "term-label": "RCB1648 cell",
+        "term-source": "CLO"
+      },
+      "PLC-PRL": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000013246",
+        "term-label": "prolactin",
+        "term-source": "CLO"
+      },
+      "HK-Hep1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Hep3B": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0054295",
+        "term-label": "NICR837 cell",
+        "term-source": "CLO"
+      },
+      "SNU182": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Tong-HCC": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "MZ-Hep1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Li7A": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "QGY-7703": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Li21": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HA59T-VGH": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "QGY-7701": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "FOCUS": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009985",
+        "term-label": "FOCUS cell",
+        "term-source": "CLO"
+      },
+      "HBG": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HLF": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009987",
+        "term-label": "HLF cell",
+        "term-source": "CLO"
+      },
+      "HCC9810": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU354": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU449": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "OCUCH16": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HuSp": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HCC36": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HT-17": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "PLC/PRF5": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Hep40": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HuH2.2": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HuH7": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Malhavu": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU368": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU398": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU423": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "FLC4": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU475": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SuHC1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HuH1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU387": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HA22T-VGH": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "NUK1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "NA": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SK-HEP-1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU-761": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU-878": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "F-36P": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SNU-886": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "MHCC97H": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SMCC7721": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "MDS-L": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "PLC/PRF-5": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Huh7.5.1-derived cells": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
+        "term-label": "Huh7 cell",
+        "term-source": "CLO"
+      },
+      "Bel-7402": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "SMMC-7721": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HUH-6-clone5": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "C3A": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0002119",
+        "term-label": "C3A cell",
+        "term-source": "CLO"
+      },
+      "MHCC97L": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HepG2 was derived from a liver hepatocellular carcinoma of a 15 year old Caucasian male.": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0050856",
+        "term-label": "RCB1648 cell",
+        "term-source": "CLO"
+      },
+      "lymphoblastoid cell lines (LCLs)": {
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CLO"
+      },
+      "HB-8065 (Hep G2) [HEPG2]": {
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0050856",
+        "term-label": "RCB1648 cell",
+        "term-source": "CLO"
+      },
+      "HKCI10": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HKCI11": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HKCI2": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HKCI4": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HKCI9": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HKCIC1": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HKCIC2": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HKCIC3": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HCC": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
       }
     },
     "tissue": {
       "liver": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
-        "term-label": "Liver",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
+        "term-label": "liver",
+        "term-source": "BTO"
       },
-      "Liver": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
-        "term-label": "Liver",
-        "term-source": "NCIT"
+      "bone marrow": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO"
+      },
+      "Bone marrow mononuclear cells": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO"
+      },
+      "T cells": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
       },
       "blood": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12434",
-        "term-label": "Blood",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000089",
+        "term-label": "blood",
+        "term-source": "BTO"
+      },
+      "Bone marrow": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO"
+      },
+      "Liver": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
+        "term-label": "liver",
+        "term-source": "BTO"
+      },
+      "PBMC": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0001025",
+        "term-label": "peripheral blood mononuclear cell",
+        "term-source": "BTO"
+      },
+      "HCC": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
       },
       "hepatocellular carcinoma": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7927",
-        "term-label": "Liver and Intrahepatic Bile Duct Carcinoma",
-        "term-source": "NCIT"
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "whole blood": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000089",
+        "term-label": "blood",
+        "term-source": "BTO"
+      },
+      "Bone Marrow": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO"
+      },
+      "venous blood": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0006187",
+        "term-label": "venous blood",
+        "term-source": "BTO"
       },
       "non-cancerous liver tissue": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25594",
-        "term-label": "Negation",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
+        "term-label": "liver",
+        "term-source": "BTO"
       },
       "cancerous liver tissue": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C32735",
-        "term-label": "Hepatic Tissue",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
+        "term-label": "liver",
+        "term-source": "BTO"
+      },
+      "tumor": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
       },
       "liver cell line": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
-        "term-label": "Liver",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000224",
+        "term-label": "liver cell line",
+        "term-source": "BTO"
+      },
+      "Liver tumor": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
+        "term-label": "liver",
+        "term-source": "BTO"
+      },
+      "peripheral blood": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000553",
+        "term-label": "peripheral blood",
+        "term-source": "BTO"
       },
       "plasma": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C13356",
-        "term-label": "Plasma",
-        "term-source": "NCIT"
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000131",
+        "term-label": "blood plasma",
+        "term-source": "BTO"
       },
-      "blood cell": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12434",
-        "term-label": "Blood",
-        "term-source": "NCIT"
+      "Blood": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000089",
+        "term-label": "blood",
+        "term-source": "BTO"
+      },
+      "blood plasma": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000131",
+        "term-label": "blood plasma",
+        "term-source": "BTO"
+      },
+      "missing": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "NA": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "non-tumor": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "peripherial blood": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000089",
+        "term-label": "blood",
+        "term-source": "BTO"
+      },
+      "Peripheral blood mononuclear cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0001025",
+        "term-label": "peripheral blood mononuclear cell",
+        "term-source": "BTO"
+      },
+      "plasma and serum": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000131",
+        "term-label": "blood plasma",
+        "term-source": "BTO"
+      },
+      "Peripheral blood Mononuclear cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0001025",
+        "term-label": "peripheral blood mononuclear cell",
+        "term-source": "BTO"
+      },
+      "Monocyte precursor cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000876",
+        "term-label": "monocyte",
+        "term-source": "BTO"
+      },
+      "CD3+ Tcell": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "CD34+ bone Marrow": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO"
+      },
+      "Peripheral blood": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000553",
+        "term-label": "peripheral blood",
+        "term-source": "BTO"
+      },
+      "Liver, Epithelial": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
+        "term-label": "liver",
+        "term-source": "BTO"
+      },
+      "Not applicable": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "lymphnode": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "ascites": {
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000091",
+        "term-label": "ascites",
+        "term-source": "BTO"
       }
     },
-    "tissue supergroup": {
-      "liver": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
-        "term-label": "Liver",
-        "term-source": "NCIT"
+    "cell type": {
+      "myeloid cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000763",
+        "term-label": "myeloid cell",
+        "term-source": "CL"
+      },
+      "hepatocyte": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000182",
+        "term-label": "hepatocyte",
+        "term-source": "CL"
+      },
+      "HCC": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "HCC cell line": {
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL"
+      },
+      "mononuclear cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000842",
+        "term-label": "mononuclear cell",
+        "term-source": "CL"
+      },
+      "CD8-positive, alpha-beta T cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/CHEBI_10545",
+        "term-label": "electron",
+        "term-source": "CL"
+      },
+      "hepatocellular carcinoma cells": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "CD14 monocyte": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001889",
+        "term-label": "CD14 molecule",
+        "term-source": "CL"
+      },
+      "CD16 neutrophil": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001483",
+        "term-label": "low affinity immunoglobulin gamma Fc region receptor III",
+        "term-source": "CL"
+      },
+      "hepatocellular carcinoma cell line": {
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL"
+      },
+      "blast": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "hepatoma cell line": {
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL"
+      },
+      "Norwalk virus replicon-bearing hepatoma cell line": {
+        "term-uri": "http://purl.obolibrary.org/obo/NCBITaxon_10239",
+        "term-label": "virus",
+        "term-source": "CL"
+      },
+      "myelodysplasia cell line": {
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL"
+      },
+      "erythrocyte": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000232",
+        "term-label": "erythrocyte",
+        "term-source": "CL"
+      },
+      "hepatocellular carcinoma cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL"
+      },
+      "NA": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "peripheral blood mononuclear cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000842",
+        "term-label": "mononuclear cell",
+        "term-source": "CL"
+      },
+      "CD4+ T-cells": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001004",
+        "term-label": "CD4 molecule",
+        "term-source": "CL"
+      },
+      "CD14+ monocytes": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001889",
+        "term-label": "CD14 molecule",
+        "term-source": "CL"
+      },
+      "CD8+ T-cells": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "CD16+ neutrophils": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001483",
+        "term-label": "low affinity immunoglobulin gamma Fc region receptor III",
+        "term-source": "CL"
+      },
+      "suspension": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "epithelial cells": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "immature T cell from tumor-infiltrating lymphocytes": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000084",
+        "term-label": "T cell",
+        "term-source": "CL"
+      },
+      "immature T cell from peripheral blood mononuclear cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000084",
+        "term-label": "T cell",
+        "term-source": "CL"
+      },
+      "CD34+ hematopoietic stem cells": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001003",
+        "term-label": "CD34 molecule",
+        "term-source": "CL"
+      },
+      "CD34+ hematopoietic stem/progenitor cells": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001003",
+        "term-label": "CD34 molecule",
+        "term-source": "CL"
+      },
+      "Erythroid precursor": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Monocytic precursor": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Granulocytic precursor": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Immune cells": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "PBMC": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Peripheral blood mononuclear cells (PBMCs)": {
+        "term-uri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "term-label": "blood",
+        "term-source": "CL"
+      },
+      "Primary cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL"
+      },
+      "epithelial cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000066",
+        "term-label": "epithelial cell",
+        "term-source": "CL"
+      },
+      "epithelial": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "CD1c": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000002027",
+        "term-label": "T-cell surface glycoprotein CD1c",
+        "term-source": "CL"
+      },
+      "CD141Hi": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "CD34": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001003",
+        "term-label": "CD34 molecule",
+        "term-source": "CL"
+      },
+      "Huh7": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "Mahlavu": {
+        "term-uri": null,
+        "term-label": null,
+        "term-source": null
+      },
+      "cDC2_CD5-CD163+CD14+": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000784",
+        "term-label": "plasmacytoid dendritic cell",
+        "term-source": "CL"
+      },
+      "cDC2_CD5-CD163+CD14-": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000784",
+        "term-label": "plasmacytoid dendritic cell",
+        "term-source": "CL"
+      },
+      "cDC2_CD5-CD163-": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000784",
+        "term-label": "plasmacytoid dendritic cell",
+        "term-source": "CL"
+      },
+      "cDC2_CD5+": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000784",
+        "term-label": "plasmacytoid dendritic cell",
+        "term-source": "CL"
+      },
+      "CD45+ cells": {
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001006",
+        "term-label": "receptor-type tyrosine-protein phosphatase C",
+        "term-source": "CL"
+      },
+      "blast cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000055",
+        "term-label": "non-terminally differentiated cell",
+        "term-source": "CL"
+      },
+      "T cell": {
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000084",
+        "term-label": "T cell",
+        "term-source": "CL"
       }
     }
   }

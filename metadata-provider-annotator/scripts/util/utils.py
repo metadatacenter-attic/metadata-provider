@@ -183,20 +183,27 @@ def contained_in_list_norm_str(str, str_list):
             return False
 
 
-def generate_str_permutations(str):
+def generate_str_permutations(term):
     """
     Generates all permutations of words in a multi-word terms. The result includes the original string. 
-    Example: "hepatocellular carcinoma" -> ["hepatocellular carcinoma", "carcinoma hepatocellular"]
+    Example: "hepatocellular carcinoma" -> ["hepatocellular carcinoma", "carcinoma hepatocellular"]. It also performs
+    basic normalization
     :param str:
     :return: list of permutations
     """
     result = []
-    terms = str.split()
+
+    term = re.sub('[^A-Za-z0-9]+', ' ', term)
+    term = re.sub(' +', ' ', term)
+    term = term.strip()
+
+    terms = term.split()
     if len(terms) <= 1:
-        result.append(str)
+        result.append(term)
     else:
         for perm in permutations(terms, len(terms)):
             result.append(" ".join(perm))
+
     return result
 
 

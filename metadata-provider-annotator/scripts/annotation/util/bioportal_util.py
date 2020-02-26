@@ -33,9 +33,7 @@ def annotate(api_key, text, ontologies=[], longest_only=False, expand_mappings=F
     }
 
     if len(text) > 0:
-        payload = {'text': text,
-                   'longest_only': longest_only,
-                   'expand_mappings': expand_mappings}
+        payload = {'text': text, 'longest_only': longest_only, 'expand_mappings': expand_mappings}
 
         if len(ontologies) > 0:
             payload['ontologies'] = ','.join(ontologies)

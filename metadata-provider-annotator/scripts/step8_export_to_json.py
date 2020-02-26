@@ -9,7 +9,6 @@ EXPORT_FILTER_SPECS = constants.NCBI_EXPORT_FILTER_SPECS
 
 
 def main():
-
     export_utils.transform_and_export_samples_to_json(constants.ROOT_FOLDER_NAME, INPUT_FILE, OUTPUT_FILE, 10000)
 
 

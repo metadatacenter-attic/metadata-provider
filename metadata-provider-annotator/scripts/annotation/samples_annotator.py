@@ -12,6 +12,7 @@ import scripts.annotation.util.bioportal_util as bioportal_util
 import scripts.constants as constants
 import scripts.util.filter_utils as filter_utils
 import time
+import copy
 
 ATT_NAME_TERM_URI = 'attributeNameTermUri'
 ATT_NAME_TERM_LABEL = 'attributeNameTermLabel'
@@ -58,7 +59,8 @@ def annotate_attribute_values(sample, annotation_cache, relevant_atts_and_variat
     return sample
 
 
-def annotate_sample(sample, annotation_cache, relevant_atts_and_variations, annotate_att_names=True, annotate_att_values=True):
+def annotate_sample(sample, annotation_cache, relevant_atts_and_variations, annotate_att_names=True,
+                    annotate_att_values=True):
     if annotate_att_names:
         sample = annotate_attribute_names(sample, annotation_cache, relevant_atts_and_variations)
     if annotate_att_values:
@@ -80,9 +82,12 @@ def generate_norm_att_names_file(file_path, att_names_values_variations):
 
     for att_var in att_names_values_variations:
         att_name_norm = annotator_util.normalize_term(att_var['att_name'])
+        all_variations = []
         for att_name_var in att_var['att_name_variations']:
-            if att_name_var not in att_norm_names:
-                att_norm_names[att_name_var] = att_name_norm
+            all_variations.extend(utils.generate_str_permutations(att_name_var))
+        for variation in all_variations:
+            if not annotator_util.contained_in_list_norm_str(variation, att_norm_names.keys()):
+                att_norm_names[variation] = att_name_norm
 
     with open(file_path, "w") as f:
         json.dump(att_norm_names, f, indent=2)
@@ -103,9 +108,12 @@ def generate_norm_att_values_file(file_path, att_names_values_variations):
     for att_var in att_names_values_variations:
         for att_values in att_var['att_values']:
             att_value_norm = annotator_util.normalize_term(att_values['att_value'])
+            all_variations = []
             for att_value_var in att_values['att_value_variations']:
-                if att_value_var not in att_norm_values:
-                    att_norm_values[att_value_var] = att_value_norm
+                all_variations.extend(utils.generate_str_permutations(att_value_var))
+            for variation in all_variations:
+                if not annotator_util.contained_in_list_norm_str(variation, att_norm_values.keys()):
+                    att_norm_values[variation] = att_value_norm
 
     with open(file_path, "w") as f:
         json.dump(att_norm_values, f, indent=2)
@@ -129,17 +137,19 @@ def extract_annotation(annotator_results):
         return None
 
 
-def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=None, norm_attribute_values=None):
+def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=None, norm_attribute_values=None,
+                   preferred_ontologies=None):
     if attribute_name is not None:
 
         if attribute_value is None:
             print('Annotating attribute name: ' + attribute_name)
             term = annotator_util.normalize_term(attribute_name, norm_attribute_names)
+
         else:
             print('Annotating attribute value: ' + attribute_value + ' (attribute name: ' + attribute_name + ')')
             term = annotator_util.normalize_term(attribute_value, norm_attribute_values)
 
-        annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term, ontologies=['NCIT'],
+        annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term, ontologies=preferred_ontologies,
                                                     longest_only=False,
                                                     expand_mappings=False, include=['prefLabel'])
 
@@ -154,7 +164,8 @@ def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=No
         sys.exit('Error: attribute name is None')
 
 
-def build_annotation_cache(samples, att_names_values_variations, annotation_cache_file_path):
+def build_annotation_cache(samples, att_names_values_variations, preferred_terms_for_att_names,
+                           preferred_ontologies_for_att_values, annotation_cache_file_path, evaluation_info_file_path):
     """
     Build annotation cache, according to the following structure:
     {
@@ -198,6 +209,11 @@ def build_annotation_cache(samples, att_names_values_variations, annotation_cach
         "att-values": {}
     }
 
+    # Info used to evaluate the annotations generated. Limited to attribute values
+    evaluation_info = {
+        "att-values": {}
+    }
+
     # Extract unique attribute names and values from samples. These unique values will be used to build the cache.
     # The annotation, and therefore the cache and the extraction of the unique terms, will be limited to the attributes
     # specified in att_names_values_variations
@@ -206,13 +222,18 @@ def build_annotation_cache(samples, att_names_values_variations, annotation_cach
     # Populate cache with annotations for attribute names
     for att_name in unique_att_names_values:
         if att_name not in annotation_cache['att-names']:
-            annotation_cache['att-names'][att_name] = get_annotation(attribute_name=att_name, attribute_value=None,
-                                                                     norm_attribute_names=norm_att_names,
-                                                                     norm_attribute_values=None)
+            if preferred_terms_for_att_names is not None:  # use specific terms
+                norm_att_name = norm_att_names[att_name]
+                annotation_cache['att-names'][att_name] = preferred_terms_for_att_names[norm_att_name]
+            else:
+                annotation_cache['att-names'][att_name] = get_annotation(attribute_name=att_name,
+                                                                         attribute_value=None,
+                                                                         norm_attribute_names=norm_att_names,
+                                                                         norm_attribute_values=None,
+                                                                         preferred_ontologies=None)
+                time.sleep(.100)  # wait between calls to the Annotator
         else:
             continue  # do nothing
-
-        time.sleep(.100)
 
     # Populate cache with annotations for attribute values
     for att_name in unique_att_names_values:
@@ -220,24 +241,52 @@ def build_annotation_cache(samples, att_names_values_variations, annotation_cach
             # Only first iteration
             if att_name not in annotation_cache['att-values']:
                 annotation_cache['att-values'][att_name] = {}
+                evaluation_info['att-values'][att_name] = {}
             # All iterations
             if att_value not in annotation_cache['att-values'][att_name]:
-                annotation_cache['att-values'][att_name][att_value] = get_annotation(attribute_name=att_name,
-                                                                                attribute_value=att_value,
-                                                                                norm_attribute_names=norm_att_names,
-                                                                                norm_attribute_values=norm_att_values)
+                norm_att_name = norm_att_names[att_name]
+                preferred_ontologies = preferred_ontologies_for_att_values[norm_att_name]
+
+                annotation_result = get_annotation(attribute_name=att_name, attribute_value=att_value,
+                                                   norm_attribute_names=norm_att_names,
+                                                   norm_attribute_values=norm_att_values,
+                                                   preferred_ontologies=preferred_ontologies)
+                if annotation_result is not None:
+                    annotation_cache['att-values'][att_name][att_value] = annotation_result
+                else:
+                    annotation_cache['att-values'][att_name][att_value] = {
+                        "term-uri": None,
+                        "term-label": None,
+                        "term-source": None,
+                    }
+
+                # Save the info that will be used for evaluation of the annotations generated
+                evaluation_info['att-values'][att_name][att_value] = \
+                    copy.deepcopy(annotation_cache['att-values'][att_name][att_value])
+                evaluation_info['att-values'][att_name][att_value]['count'] = \
+                    unique_att_names_values[att_name][att_value]
+
+                if annotation_cache['att-values'][att_name][att_value]['term-uri'] is not None:
+                    # We set 'is-correct' to None because we will have to manually evaluate correctness
+                    evaluation_info['att-values'][att_name][att_value]['is-correct'] = None
+                else:
+                    # If the Annotator was not able to find a term, we will assume that the annotation is wrong
+                    evaluation_info['att-values'][att_name][att_value]['is-correct'] = False
+
+                time.sleep(.100)  # wait between calls to the Annotator
             else:
                 continue  # do nothing
+
     print('Saving annotation cache to file: ' + annotation_cache_file_path)
 
     with open(annotation_cache_file_path, 'w') as f:
         json.dump(annotation_cache, f, indent=2)
 
-    print(annotation_cache)
+    with open(evaluation_info_file_path, 'w') as f:
+        json.dump(evaluation_info, f, indent=2)
 
 
 def get_cached_annotation(annotation_cache, attribute_name, attribute_value=None):
-
     if attribute_value is None:
         if attribute_name in annotation_cache['att-names']:
             return annotation_cache['att-names'][attribute_name]
@@ -247,11 +296,13 @@ def get_cached_annotation(annotation_cache, attribute_name, attribute_value=None
         if attribute_value in annotation_cache['att-values'][attribute_name]:
             return annotation_cache['att-values'][attribute_name][attribute_value]
         else:
-            print('Attribute value not found in cache: ' + attribute_value + ' (Attribute name: ' + attribute_name + ')')
+            print(
+                'Attribute value not found in cache: ' + attribute_value + ' (Attribute name: ' + attribute_name + ')')
 
 
 def annotate_samples(input_file, output_file, att_names_values_variations, annotation_filter_specs,
-                     annotation_cache_file_path, regenerate_annotation_cache=False):
+                     preferred_terms_for_att_names, preferred_ontologies_for_att_values,
+                     annotation_cache_file_path, evaluation_output_file, regenerate_annotation_cache=False):
     """
     Annotates a list of BioSample samples in JSON format
     :param input_file:
@@ -277,7 +328,9 @@ def annotate_samples(input_file, output_file, att_names_values_variations, annot
         # Generate it if needed
         if regenerate_annotation_cache or not os.path.exists(annotation_cache_file_path):
             print('Generating annotation cache. Path: ' + annotation_cache_file_path)
-            build_annotation_cache(original_samples, relevant_atts_and_variations, annotation_cache_file_path)
+            build_annotation_cache(original_samples, relevant_atts_and_variations,
+                                   preferred_terms_for_att_names, preferred_ontologies_for_att_values,
+                                   annotation_cache_file_path, evaluation_output_file)
 
         # Read annotation cache
         with open(annotation_cache_file_path) as f:

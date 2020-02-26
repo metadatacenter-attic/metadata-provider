@@ -172,7 +172,7 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
 ]
 
 # Export samples to other formats #
-NCBI_EXPORT_INPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter1/' + '20200223-170630_biosample_filtered.xml'
+NCBI_EXPORT_INPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter1/' + '20200224-141309_biosample_filtered_4346.xml'
 NCBI_EXPORT_CSV_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
 # export sex, tissue, and disease, with all their values. This is only used for the CSV export, to simplify analysis
 NCBI_EXPORT_FILTER_SPECS = [{"att_name": "disease", "att_values": []},
@@ -193,14 +193,65 @@ ANNOTATION_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTAT
                          + '/' + 'biosample_annotated.json'
 ANNOTATION_NORMALIZED_ATT_NAMES_FILE = RESOURCES_FOLDER + '/annotation/normalized_att_names.json'
 ANNOTATION_NORMALIZED_ATT_VALUES_FILE = RESOURCES_FOLDER + '/annotation/normalized_att_values.json'
+ANNOTATION_EVALUATION_INFO_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
+                         + '/' + 'annotation_evaluation_info.json'
+ANNOTATION_EVALUATION_RESULTS_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
+                         + '/' + 'annotation_evaluation_results.json'
 
 ANNOTATION_CACHE_FILE = RESOURCES_FOLDER + '/annotation/annotation_cache.json'
 
-ANNOTATION_FILTER_SPECS = [{"att_name": "sex"},
-                           {"att_name": "tissue"},
-                           {"att_name": "disease"},
-                           {"att_name": "cell_line"},
-                           {"att_name": "cell_type"}]
+ANNOTATION_FILTER_SPECS = [{"att_name": "disease",
+                            "att_values": ["hepatocellular carcinoma",
+                                           "myelodysplasia",
+                                           "systemic lupus erythematosus"]},
+                           {"att_name": "tissue", "att_values": []},
+                           {"att_name": "cell type", "att_values": []},
+                           {"att_name": "cell line", "att_values": []},
+                           {"att_name": "sex", "att_values": []}]
+
+ANNOTATION_PREFERRED_TERMS_FOR_ATT_NAMES = {
+    "disease": {
+        "term-uri": "https://w3id.org/biolink/biolinkml/meta/Disease",
+        "term-label": "Disease",
+        "term-source": "BIOLINK",
+    },
+    "tissue": {
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12801",
+        "term-label": "Tissue",
+        "term-source": "NCIT",
+    },
+    "cell type": {
+        "term-uri": "https://w3id.org/biolink/biolinkml/meta/Cell",
+        "term-label": "Cell",
+        "term-source": "BIOLINK",
+    },
+    "cell line": {
+        "term-uri": "https://w3id.org/biolink/biolinkml/meta/CellLine",
+        "term-label": "Cell line",
+        "term-source": "BIOLINK",
+    },
+    "sex": {
+        "term-uri": "https://w3id.org/biolink/vocab/BiologicalSex",
+        "term-label": "Biological sex",
+        "term-source": "BIOLINK",
+    }
+}
+
+ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES_1 = {
+    "disease": ["MONDO"],
+    "tissue": ["BTO"],
+    "cell type": ["CL"],
+    "cell line": ["CLO"],
+    "sex": ["PATO"]
+}
+
+ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES_2 = {
+    "disease": ["MONDO", "DOID"],
+    "tissue": ["BTO", "NCIT"],
+    "cell type": ["CL", "BTO"],
+    "cell line": ["CLO", "BTO"],
+    "sex": ["PATO"]
+}
 
 # Save samples to Mongo
 ORIGINAL_SAMPLES_FILE_PATH = NCBI_EXPORT_JSON_OUTPUT_FILE
@@ -210,16 +261,3 @@ MONGO_PORT = 27017
 MONGO_DB = "ncats-demo"
 MONGO_COLLECTION_BIOSAMPLE_ORIGINAL = "biosample-original"
 MONGO_COLLECTION_BIOSAMPLE_ANNOTATED = "biosample-annotated"
-
-# # Instances generation
-# NCBI_INSTANCES_TRAINING_SET_SIZE = 222797  # 85% of 262,114
-# NCBI_INSTANCES_TESTING_SET_SIZE = 39317  # 15% of 262,114
-# NCBI_INSTANCES_MAX_FILES_PER_FOLDER = 10000
-# # NCBI_INSTANCES_INPUT_PATH = NCBI_FILTER_OUTPUT_FILE
-# NCBI_INSTANCES_OUTPUT_BASE_PATH = WORKSPACE_FOLDER + '/cedar_instances/ncbi_cedar_instances'
-# NCBI_INSTANCES_TRAINING_BASE_PATH = NCBI_INSTANCES_OUTPUT_BASE_PATH + '/training'
-# NCBI_INSTANCES_TESTING_BASE_PATH = NCBI_INSTANCES_OUTPUT_BASE_PATH + '/testing'
-# NCBI_INSTANCES_EXCLUDE_IDS = False
-# NCBI_INSTANCES_EXCLUDED_IDS_FILE_PATH = RESOURCES_FOLDER + 'excluded_ids.txt'
-# NCBI_INSTANCES_OUTPUT_BASE_FILE_NAME = 'ncbi_biosample_instance'
-# NCBI_INSTANCES_EMPTY_BIOSAMPLE_INSTANCE_PATH = RESOURCES_FOLDER + '/cedar_artifacts/ncbi_biosample_empty_instance.json'
