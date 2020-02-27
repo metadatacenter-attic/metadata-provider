@@ -3,7 +3,7 @@
 import scripts.util.utils as utils
 import os
 
-ROOT_FOLDER_NAME = 'cedar-translator-annotator'
+ROOT_FOLDER_NAME = 'metadata-provider-annotator'
 BASE_FOLDER = utils.get_base_folder(ROOT_FOLDER_NAME)
 
 # Resources
