@@ -202,7 +202,7 @@ ANNOTATION_PREFERRED_TERMS_FOR_ATT_NAMES = {
         "term-source": "BIOLINK",
     },
     "sex": {
-        "term-uri": "https://w3id.org/biolink/vocab/BiologicalSex",
+        "term-uri": "https://w3id.org/biolink/biolinkml/meta/BiologicalSex",
         "term-label": "Biological sex",
         "term-source": "BIOLINK",
     }

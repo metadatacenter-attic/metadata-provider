@@ -51,7 +51,7 @@ public class BiosampleResource {
   @GET
   @Path("/search")
   @Timed
-  public Response search(@QueryParam("q") @NotEmpty String q, @QueryParam("db") @DefaultValue("original") BiosamplesDB db) {
+  public Response search(@QueryParam("q") @NotEmpty String q, @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db) {
     BiosampleService service;
     boolean isAnnotatedSamplesQuery;
     if (db.equals(BiosamplesDB.annotated)) {
