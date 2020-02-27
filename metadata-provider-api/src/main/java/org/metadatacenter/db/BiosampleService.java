@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import static com.mongodb.client.model.Filters.*;
 import static com.mongodb.client.model.Sorts.ascending;
@@ -73,10 +74,11 @@ public class BiosampleService {
 
     for (String attributeName : attributesAndValuesFilter.keySet()) {
       String attributeValue = attributesAndValuesFilter.get(attributeName);
+      String attributeValueForRegex =  "^" + escapeSpecialRegexChars(attributeValue) + "$";
       attNameValueFilters.add(
           elemMatch("attributes",
               and(eq(ATTRIBUTE_NAME_FIELD, attributeName),
-                  regex(ATTRIBUTE_VALUE_FIELD, "^" + attributeValue + "$", "i")))); // Exact match, case insensitive search
+                  regex(ATTRIBUTE_VALUE_FIELD, attributeValueForRegex, "i")))); // Exact match, case insensitive search
     }
     Bson searchFilter = and(attNameValueFilters);
     BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
@@ -93,6 +95,11 @@ public class BiosampleService {
       iterator.close();
     }
     return samples;
+  }
+
+  private String escapeSpecialRegexChars(String str) {
+    Pattern SPECIAL_REGEX_CHARS = Pattern.compile("[{}()\\[\\].+*?^$\\\\|]");
+    return SPECIAL_REGEX_CHARS.matcher(str).replaceAll("\\\\$0");
   }
 
 }
