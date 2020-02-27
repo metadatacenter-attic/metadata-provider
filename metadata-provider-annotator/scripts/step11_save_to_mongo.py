@@ -9,8 +9,8 @@ print("current directory is : " + dirpath)
 foldername = os.path.basename(dirpath)
 print("Directory name is : " + foldername)
 
-import util.mongo_utils as mongo_utils
-import constants
+import scripts.util.mongo_utils as mongo_utils
+import scripts.constants as constants
 import json
 
 

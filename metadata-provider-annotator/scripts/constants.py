@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import util.utils as utils
+import scripts.util.utils as utils
 import os
 
 ROOT_FOLDER_NAME = 'metadata-provider-annotator'
