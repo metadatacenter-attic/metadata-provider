@@ -2,8 +2,15 @@
 
 # Saves both the non-annotated samples and the annotated samples to two different collections in MongoDB
 
-import scripts.util.mongo_utils as mongo_utils
-import scripts.constants as constants
+import os
+
+dirpath = os.getcwd()
+print("current directory is : " + dirpath)
+foldername = os.path.basename(dirpath)
+print("Directory name is : " + foldername)
+
+import util.mongo_utils as mongo_utils
+import constants
 import json
 
 
