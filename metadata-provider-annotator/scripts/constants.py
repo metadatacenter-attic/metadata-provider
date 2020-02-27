@@ -18,6 +18,9 @@ SAMPLES_ANALYSIS_FOLDER = 'analysis'
 EXPORT_FOLDER = 'exported'
 ANNOTATED_SAMPLES_FOLDER = 'annotated'
 
+# Results folder
+RESULTS_FOLDER = BASE_FOLDER + '/' + 'results'
+
 # BioPortal Annotator
 BIOPORTAL_APIKEY = os.environ['NCATS_TRANSLATOR_BIOPORTAL_API_KEY']  # You need to define it in your local environment
 
@@ -41,47 +44,11 @@ NCBI_ANALYSIS_OUTPUT_FILE_ALL_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'all_n
 
 # Filter - homo sapiens and relevant attributes
 
-# Filtering by different attribute names
+# Filtering by different attribute names and values
 NCBI_FILTER_1_SPECS = [{"att_name": "disease",
                         "att_values": ["hepatocellular carcinoma", "myelodysplasia", "systemic lupus erythematosus"]}]
-NCBI_FILTER_2_SPECS = [{"att_name": "sex", "att_values": []},
-                       {"att_name": "tissue", "att_values": []},
-                       {"att_name": "disease", "att_values": []},
-                       {"att_name": "cell_type", "att_values": []},
-                       {"att_name": "cell_line", "att_values": []},
-                       {"att_name": "age", "att_values": []}]
-NCBI_FILTER_3_SPECS = [{"att_name": "sex", "att_values": []},
-                       {"att_name": "tissue", "att_values": []},
-                       {"att_name": "disease", "att_values": []},
-                       {"att_name": "cell_type", "att_values": []}]
-NCBI_FILTER_4_SPECS = [{"att_name": "sex", "att_values": []},
-                       {"att_name": "tissue", "att_values": []},
-                       {"att_name": "disease", "att_values": []},
-                       {"att_name": "cell_line", "att_values": []}]
-NCBI_FILTER_5_SPECS = [{"att_name": "sex", "att_values": []},
-                       {"att_name": "tissue", "att_values": []},
-                       {"att_name": "disease", "att_values": []},
-                       {"att_name": "age", "att_values": []}]
 
 NCBI_FILTER_1_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter1/' + 'biosample_filtered.xml'
-NCBI_FILTER_2_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter2/' + 'biosample_filtered.xml'
-NCBI_FILTER_3_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter3/' + 'biosample_filtered.xml'
-NCBI_FILTER_4_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter4/' + 'biosample_filtered.xml'
-NCBI_FILTER_5_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter5/' + 'biosample_filtered.xml'
-
-# Filtering by attribute names and values
-NCBI_FILTER_6_SPECS = [
-    {"att_name": "disease", "att_values": ["liver_cancer"]},
-    {"att_name": "sex", "att_values": []},
-    {"att_name": "tissue", "att_values": []}
-]
-NCBI_FILTER_7_SPECS = [
-    {"att_name": "disease", "att_values": ["liver_cancer"]},
-    {"att_name": "tissue", "att_values": []}
-]
-
-NCBI_FILTER_6_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter6/' + 'biosample_filtered.xml'
-NCBI_FILTER_7_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter7/' + 'biosample_filtered.xml'
 
 # The attribute name variations include the harmonized name for the attribute (first item in the array) plus all the
 # non-harmonized variations. Harmonized variations (e.g., 'gender' for the attribute 'sex') don't need to be included
@@ -188,6 +155,8 @@ NCBI_EXPORT_JSON_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + E
 NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + '20200224-133409_biosample_exported.csv'
 
 # Semantic annotation
+ANNOTATION_IGNORE_VALUES = ['missing', 'unknown', 'not available', 'NA',
+                             'not applicable', 'not determined', 'not collected']
 ANNOTATION_INPUT_FILE = NCBI_EXPORT_JSON_OUTPUT_FILE  # original (non-annotated) samples
 ANNOTATION_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
                          + '/' + 'biosample_annotated.json'
@@ -195,8 +164,10 @@ ANNOTATION_NORMALIZED_ATT_NAMES_FILE = RESOURCES_FOLDER + '/annotation/normalize
 ANNOTATION_NORMALIZED_ATT_VALUES_FILE = RESOURCES_FOLDER + '/annotation/normalized_att_values.json'
 ANNOTATION_EVALUATION_INFO_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
                          + '/' + 'annotation_evaluation_info.json'
+ANNOTATION_EVALUATION_INFO_FILE_REVIEWED = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
+                         + '/' + 'annotation_evaluation_info_reviewed.json'
 ANNOTATION_EVALUATION_RESULTS_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
-                         + '/' + 'annotation_evaluation_results.json'
+                         + '/' + 'annotation_evaluation_results.txt'
 
 ANNOTATION_CACHE_FILE = RESOURCES_FOLDER + '/annotation/annotation_cache.json'
 
@@ -246,7 +217,7 @@ ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES_1 = {
 }
 
 ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES_2 = {
-    "disease": ["MONDO", "DOID"],
+    "disease": ["MONDO"],
     "tissue": ["BTO", "NCIT"],
     "cell type": ["CL", "BTO"],
     "cell line": ["CLO", "BTO"],

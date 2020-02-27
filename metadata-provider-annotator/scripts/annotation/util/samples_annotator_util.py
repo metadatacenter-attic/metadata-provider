@@ -52,8 +52,9 @@ def normalize_term(term, norm_terms = None):
     if norm_terms is not None and term in norm_terms and len(norm_terms[term]) > 0:
         return norm_terms[term]
     else:
-        term = utils.camel_case_to_space_delimited(term)
-        term = re.sub('([^A-Za-z0-9]+)|(uberon:)', ' ', term)
+        # term = utils.camel_case_to_space_delimited(term)  # We removed this transformation because it's a source of mistakes
+        # term = re.sub('([^A-Za-z0-9]+)|(uberon:)', ' ', term) # Errors when normalizing F-36P to F 36p
+        term = re.sub('uberon:', ' ', term)
         term = re.sub(' +', ' ', term)
         term = term.lower().strip()
         return term

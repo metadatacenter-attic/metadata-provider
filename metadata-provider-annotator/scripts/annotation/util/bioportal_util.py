@@ -32,6 +32,9 @@ def annotate(api_key, text, ontologies=[], longest_only=False, expand_mappings=F
         'authorization': "apikey token=" + api_key
     }
 
+    if ontologies is None:
+        ontologies=[]
+
     if len(text) > 0:
         payload = {'text': text, 'longest_only': longest_only, 'expand_mappings': expand_mappings}
 

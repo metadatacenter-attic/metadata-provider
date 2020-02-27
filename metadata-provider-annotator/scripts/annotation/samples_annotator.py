@@ -119,26 +119,47 @@ def generate_norm_att_values_file(file_path, att_names_values_variations):
         json.dump(att_norm_values, f, indent=2)
 
 
-def extract_annotation(annotator_results):
+def extract_annotation(annotator_results, prioritize_pref):
     """
     Get the first annotation returned and generates an annotation object with the fields needed
     :param annotator_results:
+    :param prioritize_pref: If it's True and there is a PREF and several SYN annotations for the same input text
+    fragment, it returns the PREF annotation. This should be the expected behavior implemented by default by the
+    Annotator
     :return:
     """
     if len(annotator_results) > 0:
-        annotation = {}
-        selected_result = annotator_results[0]
-        annotation['term-uri'] = selected_result['annotatedClass']['@id']
-        annotation['term-label'] = selected_result['annotatedClass']['prefLabel']
-        annotation['term-source'] = bioportal_util.get_ontology_id(selected_result)
-        return annotation
+        first_result = annotator_results[0]
+        if not prioritize_pref:
+            return annotation_result_to_custom_annotation(first_result)
+        else:
+            matched_text_first_result = first_result['annotations'][0]['text']
+            for result in annotator_results:
+                annotation_details = result['annotations'][0]
+                match_type = annotation_details['matchType']
+                matched_text = annotation_details['text']
+                if match_type == 'PREF' and matched_text == matched_text_first_result:
+                    return annotation_result_to_custom_annotation(result)
+
+            # If it didn't return anything at this point, just return the first result
+            return annotation_result_to_custom_annotation(first_result)
+
     else:
         print('Error: The annotation results are empty')
         return None
 
 
+def annotation_result_to_custom_annotation(result):
+    return {
+        'term-uri': result['annotatedClass']['@id'],
+        'term-label': result['annotatedClass']['prefLabel'],
+        'term-source': bioportal_util.get_ontology_id(result)
+    }
+
+
 def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=None, norm_attribute_values=None,
-                   preferred_ontologies=None):
+                   preferred_ontologies=None, prioritize_pref=False, use_any_ontology_if_no_results=False,
+                   ignore_values=None):
     if attribute_name is not None:
 
         if attribute_value is None:
@@ -149,23 +170,48 @@ def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=No
             print('Annotating attribute value: ' + attribute_value + ' (attribute name: ' + attribute_name + ')')
             term = annotator_util.normalize_term(attribute_value, norm_attribute_values)
 
+            # Check if the value is in the list of values to ignore
+            if ignore_values is not None and len(ignore_values) > 0 \
+                    and annotator_util.contained_in_list_norm_str(term, ignore_values):
+                print('Ignoring value: ' + term)
+                return {
+                    'term-uri': None,
+                    'term-label': None,
+                    'term-source': None
+                }
+
         annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term, ontologies=preferred_ontologies,
                                                     longest_only=False,
                                                     expand_mappings=False, include=['prefLabel'])
 
         if len(annotator_results) > 0:
-            annotation = extract_annotation(annotator_results)
+            annotation = extract_annotation(annotator_results, prioritize_pref)
             print('  Annotation:' + str(annotation));
             return annotation
         else:
-            print('  No annotations found. Term: ' + term)
-            return None
+            if preferred_ontologies is None:
+                print('  No annotations found. Term: ' + term)
+                return None
+            else:
+                if not use_any_ontology_if_no_results:
+                    print('  No annotations found. Term: ' + term)
+                    return None
+                else:
+                    preferred_ontologies = None
+                    # Call the annotator with no preferred ontologies
+                    print('  Calling the annotator with no preferred ontologies')
+                    return get_annotation(attribute_name, attribute_value, norm_attribute_names, norm_attribute_values,
+                                          preferred_ontologies, prioritize_pref, use_any_ontology_if_no_results)
+
     else:
         sys.exit('Error: attribute name is None')
 
 
 def build_annotation_cache(samples, att_names_values_variations, preferred_terms_for_att_names,
-                           preferred_ontologies_for_att_values, annotation_cache_file_path, evaluation_info_file_path):
+                           preferred_ontologies_for_att_values, prioritize_pref, use_any_ontology_if_no_results,
+                           ignore_values,
+                           annotation_cache_file_path,
+                           evaluation_info_file_path):
     """
     Build annotation cache, according to the following structure:
     {
@@ -230,7 +276,10 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                                                                          attribute_value=None,
                                                                          norm_attribute_names=norm_att_names,
                                                                          norm_attribute_values=None,
-                                                                         preferred_ontologies=None)
+                                                                         preferred_ontologies=None,
+                                                                         prioritize_pref=prioritize_pref,
+                                                                         use_any_ontology_if_no_results=use_any_ontology_if_no_results,
+                                                                         ignore_values=ignore_values)
                 time.sleep(.100)  # wait between calls to the Annotator
         else:
             continue  # do nothing
@@ -250,7 +299,10 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                 annotation_result = get_annotation(attribute_name=att_name, attribute_value=att_value,
                                                    norm_attribute_names=norm_att_names,
                                                    norm_attribute_values=norm_att_values,
-                                                   preferred_ontologies=preferred_ontologies)
+                                                   preferred_ontologies=preferred_ontologies,
+                                                   prioritize_pref=prioritize_pref,
+                                                   use_any_ontology_if_no_results=use_any_ontology_if_no_results,
+                                                   ignore_values=ignore_values)
                 if annotation_result is not None:
                     annotation_cache['att-values'][att_name][att_value] = annotation_result
                 else:
@@ -300,7 +352,8 @@ def get_cached_annotation(annotation_cache, attribute_name, attribute_value=None
                 'Attribute value not found in cache: ' + attribute_value + ' (Attribute name: ' + attribute_name + ')')
 
 
-def annotate_samples(input_file, output_file, att_names_values_variations, annotation_filter_specs,
+def annotate_samples(input_file, output_file, prioritize_pref, use_any_ontology_if_no_results, ignore_values,
+                     att_names_values_variations, annotation_filter_specs,
                      preferred_terms_for_att_names, preferred_ontologies_for_att_values,
                      annotation_cache_file_path, evaluation_output_file, regenerate_annotation_cache=False):
     """
@@ -330,6 +383,7 @@ def annotate_samples(input_file, output_file, att_names_values_variations, annot
             print('Generating annotation cache. Path: ' + annotation_cache_file_path)
             build_annotation_cache(original_samples, relevant_atts_and_variations,
                                    preferred_terms_for_att_names, preferred_ontologies_for_att_values,
+                                   prioritize_pref, use_any_ontology_if_no_results, ignore_values,
                                    annotation_cache_file_path, evaluation_output_file)
 
         # Read annotation cache
