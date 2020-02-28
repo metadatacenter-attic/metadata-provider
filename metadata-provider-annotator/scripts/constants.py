@@ -47,8 +47,19 @@ NCBI_ANALYSIS_OUTPUT_FILE_ALL_NAMES = NCBI_ANALYSIS_OUTPUT_FOLDER + '/' + 'all_n
 # Filtering by different attribute names and values
 NCBI_FILTER_1_SPECS = [{"att_name": "disease",
                         "att_values": ["hepatocellular carcinoma", "myelodysplasia", "systemic lupus erythematosus"]}]
-
 NCBI_FILTER_1_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter1/' + 'biosample_filtered.xml'
+
+# Filter 2: HCC
+NCBI_FILTER_2_SPECS = [{"att_name": "disease", "att_values": ["hepatocellular carcinoma"]}]
+NCBI_FILTER_2_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filters_2_3_4/' + 'biosample_filtered_HCC.xml'
+
+# Filter 3: MDS
+NCBI_FILTER_3_SPECS = [{"att_name": "disease", "att_values": ["myelodysplasia"]}]
+NCBI_FILTER_3_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filters_2_3_4/' + 'biosample_filtered_MDS.xml'
+
+# Filter 4: SLE
+NCBI_FILTER_4_SPECS = [{"att_name": "disease", "att_values": ["systemic lupus erythematosus"]}]
+NCBI_FILTER_4_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filters_2_3_4/' + 'biosample_filtered_SLE.xml'
 
 # The attribute name variations include the harmonized name for the attribute (first item in the array) plus all the
 # non-harmonized variations. Harmonized variations (e.g., 'gender' for the attribute 'sex') don't need to be included
@@ -139,7 +150,7 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
 ]
 
 # Export samples to other formats #
-NCBI_EXPORT_INPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter1/' + '20200224-141309_biosample_filtered_4346.xml'
+NCBI_EXPORT_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + 'filtered/filters_2_3_4/biosample_filtered.xml'
 NCBI_EXPORT_CSV_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
 # export sex, tissue, and disease, with all their values. This is only used for the CSV export, to simplify analysis
 NCBI_EXPORT_FILTER_SPECS = [{"att_name": "disease", "att_values": []},
@@ -152,11 +163,14 @@ NCBI_EXPORT_FILTER_SPECS = [{"att_name": "disease", "att_values": []},
 NCBI_EXPORT_JSON_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/json/' + 'biosample_exported.json'
 
 # Analysis of attribute values in the CSV
-NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + '20200224-133409_biosample_exported.csv'
+#NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
+#NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported_MDS.csv'
+NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported_HCC.csv'
+#NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported_SLE.csv'
 
 # Semantic annotation
 ANNOTATION_IGNORE_VALUES = ['missing', 'unknown', 'not available', 'NA',
-                             'not applicable', 'not determined', 'not collected']
+                             'not applicable', 'not determined', 'not collected', 'NaN']
 ANNOTATION_INPUT_FILE = NCBI_EXPORT_JSON_OUTPUT_FILE  # original (non-annotated) samples
 ANNOTATION_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
                          + '/' + 'biosample_annotated.json'
@@ -164,8 +178,8 @@ ANNOTATION_NORMALIZED_ATT_NAMES_FILE = RESOURCES_FOLDER + '/annotation/normalize
 ANNOTATION_NORMALIZED_ATT_VALUES_FILE = RESOURCES_FOLDER + '/annotation/normalized_att_values.json'
 ANNOTATION_EVALUATION_INFO_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
                          + '/' + 'annotation_evaluation_info.json'
-ANNOTATION_EVALUATION_INFO_FILE_REVIEWED = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
-                         + '/' + 'annotation_evaluation_info_reviewed.json'
+#ANNOTATION_EVALUATION_INFO_FILE_REVIEWED = RESULTS_FOLDER + '/2020-02-26_0920/3-annotations_evaluation/annotation_evaluation_info_reviewed.json'
+ANNOTATION_EVALUATION_INFO_FILE_REVIEWED = RESULTS_FOLDER + '/2020-02-26_1535/3-annotations_evaluation/annotation_evaluation_info_reviewed.json'
 ANNOTATION_EVALUATION_RESULTS_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
                          + '/' + 'annotation_evaluation_results.txt'
 

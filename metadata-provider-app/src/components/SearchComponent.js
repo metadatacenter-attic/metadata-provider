@@ -9,8 +9,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleDown, faSearch} from '@fortawesome/free-solid-svg-icons'
 import ResultsTableComponent from "./ResultsTableComponent";
 import Spinner from "react-bootstrap/Spinner";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 
 function SearchComponent(props) {
@@ -31,8 +29,6 @@ function SearchComponent(props) {
   const [originalProjectIDs, setOriginalProjectIDs] = useState([]);
   const [annotatedProjectIDs, setAnnotatedProjectIDs] = useState([]);
   const [extraProjectIDs, setExtraProjectIDs] = useState([]);
-
-
 
   const [loading, setLoading] = useState(false);
 
@@ -156,6 +152,10 @@ function SearchComponent(props) {
     setShowSamplesOrProjects(content);
   };
 
+  function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  };
+
   return (
     <>
       {/*{originalSampleIDs.length} <br/>*/}
@@ -237,63 +237,67 @@ function SearchComponent(props) {
             <Col>
               <Container>
                 <Row>
-                  <Col md={2}></Col>
+                  {projectIDs.length == 0 && <Col md={4}></Col>}
+                  {projectIDs.length > 0 && <Col md={2}></Col>}
                   <Col className={showSamplesOrProjects === "samples" ?
                     "results-count results-count-left results-count-selected" : "results-count results-count-left"}>
                     <Container onClick={e => showContent(e, 'samples')}>
                       <Row><Col className="title">Samples</Col></Row>
-                      <Row><Col className="count-left">{samples.length}</Col></Row>
+                      <Row><Col className="count-left">{formatNumber(samples.length)}</Col></Row>
                     </Container>
                   </Col>
+                  {projectIDs.length > 0 &&
                   <Col className={showSamplesOrProjects === "projects" ?
                     "results-count results-count-right results-count-selected" : "results-count results-count-right"}>
                     <Container onClick={e => showContent(e, 'projects')}>
                       <Row><Col className="title">Projects</Col></Row>
-                      <Row><Col className="count-right">{projectIDs.length}</Col></Row>
+                      <Row><Col className="count-right">{formatNumber(projectIDs.length)}</Col></Row>
                     </Container>
                   </Col>
-                  <Col md={2}></Col>
+                    }
+                  {projectIDs.length == 0 && <Col md={4}></Col>}
+                  {projectIDs.length > 0 && <Col md={2}></Col>}
                 </Row>
-                <Row>
-                  <Col md={1}></Col>
-                  <Col className="results-count results-count-left">
-                    <Container>
-                      <Row><Col className="title-secondary">Cell Types</Col></Row>
-                      <Row><Col className="count-secondary">7</Col></Row>
-                    </Container>
-                  </Col>
-                  <Col className="results-count results-count-left">
-                    <Container>
-                      <Row><Col className="title-secondary">Cell Lines</Col></Row>
-                      <Row><Col className="count-secondary">12</Col></Row>
-                    </Container>
-                  </Col>
-                  {/*<Col className="results-count results-count-left">*/}
-                  {/*  <Container>*/}
-                  {/*    <Row><Col className="title-secondary">Sex</Col></Row>*/}
-                  {/*    <Row><Col className="count-secondary">M</Col></Row>*/}
-                  {/*  </Container>*/}
-                  {/*</Col>*/}
-                  {/*<Col className="results-count results-count-left">*/}
-                  {/*  <Container>*/}
-                  {/*    <Row><Col className="title-secondary">Age</Col></Row>*/}
-                  {/*    <Row><Col className="count-secondary">56.4</Col></Row>*/}
-                  {/*  </Container>*/}
-                  {/*</Col>*/}
-                  <Col className="results-count results-count-left">
-                    <Container>
-                      <Row><Col className="title-secondary">Centers</Col></Row>
-                      <Row><Col className="count-secondary">4</Col></Row>
-                    </Container>
-                  </Col>
-                  <Col className="results-count results-count-left">
-                    <Container>
-                      <Row><Col className="title-secondary">Investigators</Col></Row>
-                      <Row><Col className="count-secondary">5</Col></Row>
-                    </Container>
-                  </Col>
-                  <Col md={1}></Col>
-                </Row>
+                {/*<Row>*/}
+                {/*  <Col md={1}></Col>*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Cell Types</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">7</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Cell Lines</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">12</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>*/}
+                {/*  /!*<Col className="results-count results-count-left">*!/*/}
+                {/*  /!*  <Container>*!/*/}
+                {/*  /!*    <Row><Col className="title-secondary">Sex</Col></Row>*!/*/}
+                {/*  /!*    <Row><Col className="count-secondary">M</Col></Row>*!/*/}
+                {/*  /!*  </Container>*!/*/}
+                {/*  /!*</Col>*!/*/}
+                {/*  /!*<Col className="results-count results-count-left">*!/*/}
+                {/*  /!*  <Container>*!/*/}
+                {/*  /!*    <Row><Col className="title-secondary">Age</Col></Row>*!/*/}
+                {/*  /!*    <Row><Col className="count-secondary">56.4</Col></Row>*!/*/}
+                {/*  /!*  </Container>*!/*/}
+                {/*  /!*</Col>*!/*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Centers</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">4</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Investigators</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">5</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>*/}
+                {/*  <Col md={1}></Col>*/}
+                {/*</Row>*/}
               </Container>
             </Col>
           </Row>

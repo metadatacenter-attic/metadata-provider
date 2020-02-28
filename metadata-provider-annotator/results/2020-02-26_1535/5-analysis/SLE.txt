@@ -1,0 +1,57 @@
+GENERAL DESCRIPTION OF THE DATASET:
+                             disease  ...     sex
+count                            770  ...     398
+unique                             3  ...       3
+top     systemic lupus erythematosus  ...  female
+freq                             518  ...     315
+
+[4 rows x 5 columns]
+
+UNIQUE VALUES PER COLUMN:
+  Column name: disease
+    Unique values (3):
+     - sle
+     - systemic lupus erythematosus (sle)
+     - systemic lupus erythematosus
+  Column name: tissue
+    Unique values (5):
+     - pbmc
+     - whole blood
+     - venous blood
+     - nan
+     - blood
+  Column name: cell type
+    Unique values (17):
+     - nan
+     - mononuclear cell
+     - cd8-positive, alpha-beta t cell
+     - cd14 monocyte
+     - peripheral blood mononuclear cell
+     - cd4+ t-cells
+     - cd14+ monocytes
+     - cd8+ t-cells
+     - cd16+ neutrophils
+     - pbmc
+     - peripheral blood mononuclear cells (pbmcs)
+     - primary cell
+     - cdc2_cd5-cd163+cd14+
+     - cdc2_cd5-cd163+cd14-
+     - cdc2_cd5-cd163-
+     - cdc2_cd5+
+     - na
+  Column name: cell line
+    Unique values (3):
+     - nan
+     - lymphoblastoid cell lines (lcls)
+     - na
+  Column name: sex
+    Unique values (4):
+     - female
+     - nan
+     - male
+     - na
+disease
+sle                                   153
+systemic lupus erythematosus          518
+systemic lupus erythematosus (sle)     99
+dtype: int64

@@ -23,9 +23,9 @@ export default function ResultsTableComponent(props) {
                   <tr>
                     <th>#</th>
                     <th>Sample ID</th>
-                    {props.db === 'annotated' && props.extraSampleIDs.length > 0 &&
-                    <th>Extra</th>
-                    }
+                    {/*{props.db === 'annotated' && props.extraSampleIDs.length > 0 &&*/}
+                    {/*<th>Extra</th>*/}
+                    {/*}*/}
                   </tr>
                   </thead>
                   <tbody>
@@ -36,12 +36,13 @@ export default function ResultsTableComponent(props) {
                         <SampleDetailsModal
                           sample={item}
                           relevantAttributes={props.relevantAttributes}
+                          highlighted={props.extraSampleIDs.includes(item.biosampleAccession)}
                         />
                       </td>
-                      {props.db === 'annotated' && props.extraSampleIDs.length > 0 &&
-                      <td>{props.extraSampleIDs.includes(item.biosampleAccession) &&
-                      <FontAwesomeIcon className="star" icon={faStar}></FontAwesomeIcon>}</td>
-                      }
+                      {/*{props.db === 'annotated' && props.extraSampleIDs.length > 0 &&*/}
+                      {/*<td>{props.extraSampleIDs.includes(item.biosampleAccession) &&*/}
+                      {/*<FontAwesomeIcon className="star" icon={faStar}></FontAwesomeIcon>}</td>*/}
+                      {/*}*/}
                     </tr>
                   ))}
                   </tbody>
@@ -66,9 +67,9 @@ export default function ResultsTableComponent(props) {
                   <tr>
                     <th>#</th>
                     <th>Project ID</th>
-                    {props.db === 'annotated' && props.extraProjectIDs.length > 0 &&
-                    <th>Extra</th>
-                    }
+                    {/*{props.db === 'annotated' && props.extraProjectIDs.length > 0 &&*/}
+                    {/*<th>Extra</th>*/}
+                    {/*}*/}
                   </tr>
                   </thead>
                   <tbody>
@@ -78,16 +79,17 @@ export default function ResultsTableComponent(props) {
                       <td>
                         <ProjectDetailsModal
                           projectID={item}
+                          highlighted={props.extraProjectIDs.includes(item)}
                         />
                         {/*<Button size={'sm'} className="btn-secondary" target='_blank'*/}
                         {/*        href={'https://www.ncbi.nlm.nih.gov/bioproject/' + item}>*/}
                         {/*  PRJNA{item}*/}
                         {/*</Button>*/}
                       </td>
-                      {props.db === 'annotated' && props.extraProjectIDs.length > 0 &&
-                      <td>{props.extraProjectIDs.includes(item) &&
-                      <FontAwesomeIcon className="star" icon={faStar}></FontAwesomeIcon>}</td>
-                      }
+                      {/*{props.db === 'annotated' && props.extraProjectIDs.length > 0 &&*/}
+                      {/*<td>{props.extraProjectIDs.includes(item) &&*/}
+                      {/*<FontAwesomeIcon className="star" icon={faStar}></FontAwesomeIcon>}</td>*/}
+                      {/*}*/}
                     </tr>
                   ))}
                   </tbody>

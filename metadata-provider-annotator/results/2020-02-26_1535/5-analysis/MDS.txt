@@ -1,0 +1,69 @@
+GENERAL DESCRIPTION OF THE DATASET:
+       disease       tissue  ... cell line             sex
+count     1206         1118  ...        12             758
+unique       5            9  ...         3               6
+top        mds  bone marrow  ...     skm-1  not determined
+freq       698          594  ...         8             537
+
+[4 rows x 5 columns]
+
+UNIQUE VALUES PER COLUMN:
+  Column name: disease
+    Unique values (5):
+     - mds
+     - myelodysplastic syndrome
+     - myelodysplastic syndrome (mds)
+     - myelodysplasia
+     - myelodysplastic syndromes
+  Column name: tissue
+    Unique values (10):
+     - bone marrow
+     - bone marrow mononuclear cells
+     - t cells
+     - blood
+     - nan
+     - missing
+     - peripheral blood mononuclear cell
+     - monocyte precursor cell
+     - cd3+ tcell
+     - cd34+ bone marrow
+  Column name: cell type
+    Unique values (16):
+     - nan
+     - myeloid cell
+     - blast
+     - myelodysplasia cell line
+     - erythrocyte
+     - suspension
+     - cd34+ hematopoietic stem cells
+     - cd34+ hematopoietic stem/progenitor cells
+     - erythroid precursor
+     - monocytic precursor
+     - granulocytic precursor
+     - cd1c
+     - cd141hi
+     - cd34
+     - blast cell
+     - t cell
+  Column name: cell line
+    Unique values (4):
+     - nan
+     - skm-1
+     - f-36p
+     - mds-l
+  Column name: sex
+    Unique values (7):
+     - female
+     - male
+     - not collected
+     - nan
+     - not available
+     - not determined
+     - mixed
+disease
+mds                               698
+myelodysplasia                     45
+myelodysplastic syndrome          448
+myelodysplastic syndrome (mds)     12
+myelodysplastic syndromes           3
+dtype: int64

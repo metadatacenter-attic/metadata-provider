@@ -19,40 +19,44 @@ export default function App() {
 
   const sampleQueries = [
     {
-      "researchQuestion": "I need to find information about <u>biological samples</u> from <u>liver tissue</u> affected by <u>liver cancer</u>.",
-      "researchQuestionShort": "liver cancer",
-      "relevantAttributes": ["disease", "tissue"],
+      "researchQuestion": "I need to find information about <u>biological samples</u> affected by <u>myelodysplasia</u>.",
+      "researchQuestionShort": "Myelodysplasia",
+      "relevantAttributes": ["disease"],
       "queriesOriginalDB": [
-        "disease=liver cancer AND tissue=liver",
-        "disease=hepatoma AND tissue=liver",
-        "disease=hepatocellular carcinoma AND tissue=liver",
-        "disease=hepatocellular carcinoma AND tissue=cancerous liver tissue",
-        "disease=hepatocellular carcinoma AND tissue=non-cancerous liver tissue"
+        "disease=myelodysplasia",
+        "disease=myelodysplastic syndrome",
+        "disease=myelodysplastic syndrome (mds)",
+        "disease=myelodysplastic syndromes",
+        "disease=mds"
       ],
       "queriesAnnotatedDB": [
-        "NCIT:C2991=NCIT:C7927 AND NCIT:C12801=NCIT:C12392"
+        "biolink:Disease=mondo:0018881"
       ]
     },
     {
-      "researchQuestion": "This is question 2",
-      "researchQuestionShort": "This is question 2",
-      "relevantAttributes": ["disease", "tissue"],
+      "researchQuestion": "I need to find information about <u>hepatocellular carcinoma</u> samples from the <u>HepaRG cell line</u>.",
+      "researchQuestionShort": "Hepatocellular carcinoma, HepaRG cell line",
+      "relevantAttributes": ["disease", "cell line"],
       "queriesOriginalDB": [
-        "bla=ble"
+        "disease=hepatocellular carcinoma AND cell line=HepaRG",
+        "disease=hcc AND cell line=HepaRG",
+        "disease=hepatoma AND cell line=HepaRG"
       ],
       "queriesAnnotatedDB": [
-        "bli=blo"
+        "biolink:Disease=mondo:0007256 AND biolink:CellLine=efo:0001186"
       ]
     },
     {
-      "researchQuestion": "This is question 2",
-      "researchQuestionShort": "This is question 2",
-      "relevantAttributes": ["disease", "tissue"],
+      "researchQuestion": "I need to find information about <u>biological samples</u> affected by <u>systemic lupus erythematosus</u>.",
+      "researchQuestionShort": "Systemic lupus erythematosus",
+      "relevantAttributes": ["disease"],
       "queriesOriginalDB": [
-        "bla=ble"
+        "disease=systemic lupus erythematosus",
+        "disease=sle",
+        "disease=systemic lupus erythematosus (SLE)"
       ],
       "queriesAnnotatedDB": [
-        "bli=blo"
+        "biolink:Disease=mondo:0007915"
       ]
     }
   ];
@@ -79,10 +83,11 @@ export default function App() {
   };
 
   function getRelevantAttributes(index) {
+    console.log('Index: ' + index)
     if (index && sampleQueries[index]) {
       return sampleQueries[index].relevantAttributes;
     } else {
-      return null;
+      return [];
     }
   };
 

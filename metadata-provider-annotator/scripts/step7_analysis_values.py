@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 
 
 INPUT_FILE = constants.NCBI_ANALYSIS_VALUES_INPUT_FILE
+GROUP_BY_ATTS = ['disease', 'cell line']
 
 
 def main():
@@ -33,7 +34,7 @@ def main():
         plt.show()
 
     # Count of different combinations
-    print(df.groupby(['cell line','sex'], as_index=False).size())
+    print(df.groupby(GROUP_BY_ATTS, as_index=False).size())
 
 
 if __name__ == "__main__":

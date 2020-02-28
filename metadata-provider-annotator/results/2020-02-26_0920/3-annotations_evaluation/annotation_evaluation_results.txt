@@ -1,0 +1,27 @@
+GENERAL INFO:
+- Current date: 2020-02-27 10:44:50.926566
+- Input file: /Users/marcosmr/Development/CEDAR/cedar-translator-demo/metadata-provider-annotator/results/2020-02-26_0920/3-annotations_evaluation/annotation_evaluation_info_reviewed.json
+
+ANNOTATION RESULTS: 
+All values:
+- Attribute values: 12,407
+- Annotated values: 10,363 (83.53%)
+- Values with no annotations: 2,044 (16.47%)
+- Total True Positives: 9,572.00
+- Annotation accuracy (total): 0.77
+Unique values:
+- Unique attribute values: 217
+- Unique annotated values: 100 (46.08%)
+- Unique values with no annotations: 117 (53.92%)
+- Unique True Positives: 87.00
+- Annotation accuracy (unique values): 0.40
+
+TP = 9572
+TN = 0
+FP = 10363-TP = 791
+FN = 2044
+
+Precision = TP / TP+FP = 9572 / 10363 = 0.92
+Recall = TP / TP+FN = 9572 / 9572+2044 = 0.82
+Accuracy = TP + TN / TP+TN+FP+FN = 9572 / 9572+791+2044 = 0.77
+

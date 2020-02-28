@@ -11,7 +11,8 @@ export default function ProjectDetailsModal(props) {
 
   return (
     <>
-      <Button size={'sm'} className="btn-secondary" onClick={handleShow}>
+      <Button size={'sm'}
+              className={props.highlighted? "btn-secondary btn-secondary-fixed-width btn-projects-highlighted" : "btn-secondary btn-secondary-fixed-width"} onClick={handleShow}>
         PRJNA{props.projectID}
       </Button>
 

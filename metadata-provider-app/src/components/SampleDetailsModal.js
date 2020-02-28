@@ -18,9 +18,12 @@ export default function SampleDetailsModal(props) {
 
   return (
     <>
-      <Button size={'sm'} className="btn-secondary" onClick={handleShow}>
+      <Button size={'sm'}
+              className={props.highlighted? "btn-secondary btn-secondary-fixed-width btn-samples-highlighted" : "btn-secondary btn-secondary-fixed-width"} onClick={handleShow}>
         {props.sample.biosampleAccession}
       </Button>
+
+
 
       <Modal
         show={show}
