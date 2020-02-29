@@ -19,7 +19,7 @@ export default function App() {
 
   const sampleQueries = [
     {
-      "researchQuestion": "I need to find information about <u>biological samples</u> affected by <u>myelodysplasia</u>.",
+      "researchQuestion": "I need to find information about <u>biological samples</u> in the setting of <u>myelodysplasia</u>.",
       "researchQuestionShort": "Myelodysplasia",
       "relevantAttributes": ["disease"],
       "queriesOriginalDB": [
@@ -47,7 +47,7 @@ export default function App() {
       ]
     },
     {
-      "researchQuestion": "I need to find information about <u>biological samples</u> affected by <u>systemic lupus erythematosus</u>.",
+      "researchQuestion": "I need to find information about <u>biological samples</u> in the setting of <u>systemic lupus erythematosus</u>.",
       "researchQuestionShort": "Systemic lupus erythematosus",
       "relevantAttributes": ["disease"],
       "queriesOriginalDB": [

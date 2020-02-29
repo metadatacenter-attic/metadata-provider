@@ -61,6 +61,10 @@ NCBI_FILTER_3_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filters_2_3_4/' + 'bio
 NCBI_FILTER_4_SPECS = [{"att_name": "disease", "att_values": ["systemic lupus erythematosus"]}]
 NCBI_FILTER_4_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filters_2_3_4/' + 'biosample_filtered_SLE.xml'
 
+# Analysis of attribute names after applying filter 1
+NCBI_ANALYSIS_ATT_NAMES_FILTER_1_INPUT_FILE = NCBI_FILTER_1_OUTPUT_FILE
+
+
 # The attribute name variations include the harmonized name for the attribute (first item in the array) plus all the
 # non-harmonized variations. Harmonized variations (e.g., 'gender' for the attribute 'sex') don't need to be included
 # because we will perform a comparison against the harmonized attribute name (that is, 'sex' in the previous example)
@@ -150,7 +154,7 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
 ]
 
 # Export samples to other formats #
-NCBI_EXPORT_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + 'filtered/filters_2_3_4/biosample_filtered.xml'
+NCBI_EXPORT_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + 'filtered/filter1/biosample_filtered.xml'
 NCBI_EXPORT_CSV_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
 # export sex, tissue, and disease, with all their values. This is only used for the CSV export, to simplify analysis
 NCBI_EXPORT_FILTER_SPECS = [{"att_name": "disease", "att_values": []},
@@ -163,9 +167,9 @@ NCBI_EXPORT_FILTER_SPECS = [{"att_name": "disease", "att_values": []},
 NCBI_EXPORT_JSON_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/json/' + 'biosample_exported.json'
 
 # Analysis of attribute values in the CSV
-#NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
+NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
 #NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported_MDS.csv'
-NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported_HCC.csv'
+#NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported_HCC.csv'
 #NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported_SLE.csv'
 
 # Semantic annotation
@@ -198,26 +202,31 @@ ANNOTATION_PREFERRED_TERMS_FOR_ATT_NAMES = {
     "disease": {
         "term-uri": "https://w3id.org/biolink/biolinkml/meta/Disease",
         "term-label": "Disease",
+        "term-alt-labels": ["disease status", "disease state"],
         "term-source": "BIOLINK",
     },
     "tissue": {
         "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12801",
         "term-label": "Tissue",
+        "term-alt-labels": ["body site", "organism part", "tissue type", "source tissue", "tissue origin", "tissue source"],
         "term-source": "NCIT",
     },
     "cell type": {
         "term-uri": "https://w3id.org/biolink/biolinkml/meta/Cell",
         "term-label": "Cell",
+        "term-alt-labels": [],
         "term-source": "BIOLINK",
     },
     "cell line": {
         "term-uri": "https://w3id.org/biolink/biolinkml/meta/CellLine",
         "term-label": "Cell line",
+        "term-alt-labels": ["cell line name"],
         "term-source": "BIOLINK",
     },
     "sex": {
         "term-uri": "https://w3id.org/biolink/biolinkml/meta/BiologicalSex",
         "term-label": "Biological sex",
+        "term-alt-labels": ["gender", "sex", "cell sex", "patient gender", "donor gender"],
         "term-source": "BIOLINK",
     }
 }
@@ -241,8 +250,8 @@ ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES_2 = {
 # Save samples to Mongo
 # ORIGINAL_SAMPLES_FILE_PATH = NCBI_EXPORT_JSON_OUTPUT_FILE
 # ANNOTATED_SAMPLES_FILE_PATH = ANNOTATION_OUTPUT_FILE
-ORIGINAL_SAMPLES_FILE_PATH = RESULTS_FOLDER + "/2020-02-26_1535/1-samples/biosample_exported.json"
-ANNOTATED_SAMPLES_FILE_PATH = RESULTS_FOLDER + "/2020-02-26_1535/2-annotated_samples/biosample_annotated.json"
+ORIGINAL_SAMPLES_FILE_PATH = RESULTS_FOLDER + "/2020-02-28_1311/1-samples/biosample_exported.json"
+ANNOTATED_SAMPLES_FILE_PATH = RESULTS_FOLDER + "/2020-02-28_1311/2-annotated_samples/biosample_annotated.json"
 
 MONGO_HOST = "localhost"
 MONGO_PORT = 27017

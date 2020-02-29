@@ -6,13 +6,16 @@ import scripts.constants as constants
 import scripts.annotation.samples_annotator as annotator
 import time
 
+# General settings
 INPUT_FILE = constants.ANNOTATION_INPUT_FILE
 OUTPUT_FILE = constants.ANNOTATION_OUTPUT_FILE
+
+# Annotation settings - preferred terms and ontologies
 PREFERRED_TERMS_FOR_ATT_NAMES = constants.ANNOTATION_PREFERRED_TERMS_FOR_ATT_NAMES
 PREFERRED_ONTOLOGIES_FOR_ATT_VALUES = constants.ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES_2
 
+# Annotation settings
 REGENERATE_ANNOTATION_CACHE = False
-
 ANNOTATOR_PRIORITIZE_PREF_ANNOTATION = True
 USE_ANY_ONTOLOGY_IF_NO_RESULTS = True
 IGNORE_VALUES = constants.ANNOTATION_IGNORE_VALUES

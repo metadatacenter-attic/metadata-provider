@@ -1,0 +1,19 @@
+Annotation approach used: 2nd approach
+
+Improvements with respect to the 1st approach:
+
+1. Make normalization more flexible (not remove special characters. Not separate CamlCase terms)
+2. Enhance our annotation method to pick the 'PREF' annotation instead of 'SYN' when there are several SYN and a PREF annotation for the same text
+3. Extend the list of ontologies as follows:
+
+```json
+ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES_2 = {
+    "disease": ["MONDO"],
+    "tissue": ["BTO", "NCIT"],
+    "cell type": ["CL", "BTO"],
+    "cell line": ["CLO", "BTO"],
+    "sex": ["PATO"]
+}
+```
+4. When there are no annotations found with those ontologies, return any other annotation with any other BioPortal ontology
+5. Ignore 'missing value' terms (['missing', 'unknown', 'not available', 'NA', 'not applicable', 'not determined', 'not collected'])

@@ -1,0 +1,2371 @@
+disease,tissue,cell type,cell line,sex
+hepatocellular carcinoma,liver,,hep g2,male
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatoma,liver,hepatocyte,li-7,male
+hepatocellular carcinoma,,,hepg2,male
+hepatocellular carcinoma,,,hepg2,male
+hcc,liver,hcc,huh-7,not applicable
+hcc,liver,hcc,huh-7,not applicable
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+carcinoma hepatocellular,liver,,plc/prf/5,unknown
+carcinoma hepatocellular,liver,,snu-475,male
+carcinoma hepatocellular,liver,,snu-449,male
+carcinoma hepatocellular,liver,,snu-387,female
+carcinoma hepatocellular,liver,,snu-423,male
+carcinoma hepatocellular,liver,,huh-7,male
+carcinoma hepatocellular,liver,,jhh-7,male
+carcinoma hepatocellular,liver,,gs-hepg2,male
+carcinoma hepatocellular,liver,,huh-7,male
+carcinoma hepatocellular,liver,,hep g2,male
+carcinoma hepatocellular,liver,,jhh-6,female
+carcinoma hepatocellular,liver,,snu-423,male
+carcinoma hepatocellular,liver,,snu-449,male
+carcinoma hepatocellular,liver,,snu-475,male
+carcinoma hepatocellular,liver,,snu-387,female
+carcinoma hepatocellular,liver,,snu-398,male
+carcinoma hepatocellular,liver,,jhh-5,male
+carcinoma hepatocellular,liver,,hep 3b2.1-7,male
+carcinoma hepatocellular,liver,,hle,male
+carcinoma hepatocellular,liver,,huh-1,male
+carcinoma hepatocellular,liver,,jhh-4,male
+carcinoma hepatocellular,liver,,snu-182,male
+carcinoma hepatocellular,liver,,plc/prf/5,unknown
+carcinoma hepatocellular,liver,,jhh-1,female
+carcinoma hepatocellular,liver,,jhh-2,male
+hcc,hcc,hcc cell line,hcclm3,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg3,male
+hepatocellular carcinoma,liver,,hepg4,male
+hepatocellular carcinoma,liver,,hepg5,male
+hepatocellular carcinoma,liver,,hepg6,male
+hepatocellular carcinoma,liver,,hepg7,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,blood,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,blood,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,blood,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,blood,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,blood,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,blood,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,hepatocellular carcinoma,,hepg2,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,hepatocellular carcinoma cells,,
+hepatocellular carcinoma,,hepatocellular carcinoma cells,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,hepatocellular carcinoma cells,,
+hepatocellular carcinoma,,hepatocellular carcinoma cells,,
+hepatocellular carcinoma,,hepatocellular carcinoma cells,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,liver,hepatocyte,,
+hepatocellular carcinoma,liver,hepatocyte,,
+hepatocellular carcinoma,liver,hepatocyte,,
+hepatocellular carcinoma,liver,hepatocyte,,
+hepatocellular carcinoma,liver,hepatocyte,,
+hepatocellular carcinoma,liver,hepatocyte,,
+hepatoma,,,,male
+hepatoma,,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma-non tumorous region,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,liver,,snu-398,not available
+hepatocellular carcinoma,liver,,jhh-7,not available
+hepatocellular carcinoma,liver,,jhh-5,male
+hepatocellular carcinoma,liver,,huh-7,male
+hepatocellular carcinoma,liver,,snu-449,not available
+hepatocellular carcinoma,liver,,jhh-2,not available
+hepatocellular carcinoma,liver,,hep g2,male
+hepatocellular carcinoma,liver,,jhh-1,not available
+hepatocellular carcinoma,liver,,snu-387,not available
+hepatocellular carcinoma,liver,,jhh-4,not available
+hepatocellular carcinoma,liver,,snu-182,not available
+hepatocellular carcinoma,liver,,snu-475,not available
+hepatocellular carcinoma,liver,,snu-423,not available
+hepatocellular carcinoma,liver,,plc/prf/5,not available
+hepatocellular carcinoma,liver,,huh-1,male
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatoma cell line,plc/prf/5,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,plc8024,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,,,
+hepatoma,liver,norwalk virus replicon-bearing hepatoma cell line,hg23,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatoma,liver,norwalk virus replicon-bearing hepatoma cell line,hg23,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatoma cell line,plc/prf/5,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatoma cell line,plc/prf/5,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,plc8024,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hep-3b,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,huh7.5,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2/c3a,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hep-3b,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatoma cell line,plc/prf/5,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocyte,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatoma cell line,plc/prf/5,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2/c3a,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2/c3a,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2/c3a,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatoma,liver,hepatoma cell line,huh7.5,
+hepatocellular carcinoma,liver,hepatoma cell line,plc/prf/5,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hep-3b,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hep-3b,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,plc-prl,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,huh7.5,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hep-3b,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hep-3b,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hep-3b,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocyte,,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2/c3a,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2/c3a,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hep-3b,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatoma,liver,norwalk virus replicon-bearing hepatoma cell line,hg23,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hk-hep1,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatoma,liver,hepatoma cell line,heparg,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,huh7,
+hepatocellular carcinoma,liver,hepatocellular carcinoma cell line,hepg2,
+hepatocellular carcinoma,,hepatocyte,hepg2,
+hepatocellular carcinoma,,hepatocyte,hepg2,
+hepatocellular carcinoma,,hepatocyte,huh7,
+hepatocellular carcinoma,,hepatocyte,huh7,
+hepatocellular carcinoma,liver cell line,hepatocyte,hepg2,male
+hepatocellular carcinoma,liver cell line,hepatocyte,hepg2,male
+hepatocellular carcinoma,liver cell line,hepatocyte,huh7,male
+hepatocellular carcinoma,liver cell line,hepatocyte,huh7,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,,hepg2,
+hepatocellular carcinoma,,hepatocyte,hep3b,male
+hepatocellular carcinoma,,hepatocyte,hep3b,male
+hepatocellular carcinoma,,hepatocyte,hep3b,male
+hepatocellular carcinoma,,hepatocyte,hep3b,male
+hepatocellular carcinoma,,hepatocyte,hep3b,male
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,snu182,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,tong-hcc,
+hepatocellular carcinoma,,,mz-hep1,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,li7a,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,hep3b,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,qgy-7703,
+hepatocellular carcinoma,,,li21,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,ha59t-vgh,
+hepatocellular carcinoma,,,qgy-7701,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,hle,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,focus,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,hbg,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,hlf,
+hepatocellular carcinoma,,,hcc9810,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,snu354,
+hepatocellular carcinoma,,,snu449,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,ocuch16,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,husp,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,hcc36,
+hepatocellular carcinoma,,,ht-17,
+hepatocellular carcinoma,,,plc/prf5,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,hep40,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,huh2.2,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,huh7,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,malhavu,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,snu368,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,snu398,
+hepatocellular carcinoma,,,snu423,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,flc4,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,snu475,
+hepatocellular carcinoma,,,suhc1,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,huh1,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,snu387,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,ha22t-vgh,
+hepatocellular carcinoma,,,nuk1,
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,hepatocellular carcinoma cell,hepg2,male
+hepatocellular carcinoma,,hepatocellular carcinoma cell,hepg2,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,female
+hepatocellular carcinoma,liver tumor,na,na,female
+hepatocellular carcinoma,liver tumor,na,na,female
+hepatocellular carcinoma,liver tumor,na,na,female
+hepatocellular carcinoma,liver tumor,na,na,female
+hepatocellular carcinoma,peripheral blood,na,na,female
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,peripheral blood,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,liver tumor,na,na,male
+hepatocellular carcinoma,plasma,,,female
+hepatocellular carcinoma,plasma,,,male
+hepatocellular carcinoma,plasma,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,hepatocyte,,male
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,male
+hcc,blood,,,male
+hcc,liver,,,male
+hcc,liver,,,male
+hcc,liver,,,male
+hcc,blood,,,male
+hcc,liver,,,male
+hcc,liver,,,female
+hcc,liver,,,female
+hcc,blood,,,female
+hepatocellular carcinoma,liver cell line,hepatocyte,hepg2,male
+hepatocellular carcinoma,liver cell line,hepatocyte,huh7,male
+hepatocellular carcinoma,liver cell line,hepatocyte,huh7,male
+hepatocellular carcinoma,liver cell line,hepatocyte,hepg2,male
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,blood plasma,,,
+hepatocellular carcinoma,,,jhh-6,
+hepatocellular carcinoma,,,hep 3b2.1-7,
+hepatocellular carcinoma,,,snu-423,
+hepatocellular carcinoma,,,sk-hep-1,
+hepatocellular carcinoma,,,snu-761,
+hepatocellular carcinoma,,,huh-1,
+hepatocellular carcinoma,,,jhh-5,
+hepatocellular carcinoma,,,huh-7,
+hepatocellular carcinoma,,,snu-878,
+hepatocellular carcinoma,,,snu-398,
+hepatocellular carcinoma,,,plc/prf/5,
+hepatocellular carcinoma,,,jhh-2,
+hepatocellular carcinoma,,,snu-886,
+hepatocellular carcinoma,,,hlf,
+hepatocellular carcinoma,,,snu-182,
+hepatocellular carcinoma,,,snu-387,
+hepatocellular carcinoma,,,jhh-7,
+hepatocellular carcinoma,,,snu-475,
+hepatocellular carcinoma,,,jhh-4,
+hepatocellular carcinoma,,,li-7,
+hepatocellular carcinoma,,,snu-449,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,male
+hepatocellular carcinoma,,,mhcc97h,
+hepatocellular carcinoma,,,smcc7721,
+hepatocellular carcinoma,,,smcc7721,
+hepatocellular carcinoma,,,smcc7721,
+hepatocellular carcinoma,,,mhcc97h,
+hcc,liver,,,female
+hcc,liver,,,female
+hcc,liver,,,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hepatocellular carcinoma,,,,
+hcc,liver,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,female
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,female
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,,,hepg2,male
+hepatocellular carcinoma,,,hepg2,male
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,,,hepg2,male
+hepatocellular carcinoma,,,hepg2,male
+hepatocellular carcinoma,,hepatocellular carcinoma cells,plc/prf-5,
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,female
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,tumor,,,
+hepatocellular carcinoma,,hepatocellular carcinoma cells,snu-449,
+hepatocellular carcinoma,,hepatocellular carcinoma cells,snu-182,
+hepatocellular carcinoma,,hepatocellular carcinoma cells,hepg2,
+hepatocellular carcinoma,,hepatocellular carcinoma cells,sk-hep-1,
+hepatocellular carcinoma,,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,cancerous liver tissue,,,female
+hepatocellular carcinoma,non-cancerous liver tissue,,,male
+hepatoma,,,huh7.5.1-derived cells,male
+hepatoma,,,huh7.5.1-derived cells,male
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,,hep3b,
+hepatocellular carcinoma,liver,,hep3b,
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver tumor,,hepg2,
+hepatocellular carcinoma,liver tumor,,hepg2,
+hepatocellular carcinoma,liver tumor,,hepg2,
+hepatocellular carcinoma,liver tumor,,hepg2,
+hepatocellular carcinoma,liver tumor,,hepg2,
+hepatocellular carcinoma,liver tumor,,hepg2,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,blood,,,
+hepatocellular carcinoma,,immature t cell from tumor-infiltrating lymphocytes,,
+hepatocellular carcinoma,,immature t cell from peripheral blood mononuclear cell,,
+hepatocellular carcinoma,,immature t cell from tumor-infiltrating lymphocytes,,
+hepatocellular carcinoma,,immature t cell from peripheral blood mononuclear cell,,
+hepatocellular carcinoma,,immature t cell from tumor-infiltrating lymphocytes,,
+hepatocellular carcinoma,,immature t cell from peripheral blood mononuclear cell,,
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,na,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,na,,,missing
+hepatocellular carcinoma,na,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,na,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,na,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hcc,liver,hcc,bel-7402,not applicable
+hcc,liver,hcc,bel-7402,not applicable
+hcc,liver,hcc,smmc-7721,not applicable
+hcc,liver,hcc,smmc-7721,not applicable
+carcinoma hepatocellular,liver,,plc/prf/5,not collected
+hcc,non-tumor,,,
+hcc,tumor,,,
+hcc,non-tumor,,,
+hcc,tumor,,,
+hcc,tumor,,,
+hcc,tumor,,,
+hcc,non-tumor,,,
+hcc,tumor,,,
+hcc,non-tumor,,,
+hcc,tumor,,,
+hcc,non-tumor,,,
+hcc,tumor,,,
+hcc,tumor,,,
+hcc,tumor,,,
+hcc,non-tumor,,,
+hcc,tumor,,,
+hcc,non-tumor,,,
+hcc,tumor,,,
+hcc,non-tumor,,,
+hcc,tumor,,,
+hepatocellular carcinoma,liver,,huh-6-clone5,male
+hepatocellular carcinoma,liver,,c3a,male
+hepatocellular carcinoma,liver,,hle,not available
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,liver,,hepg2,not applicable
+hepatocellular carcinoma,peripherial blood,,,missing
+hepatocellular carcinoma,peripherial blood,,,missing
+hepatocellular carcinoma,peripherial blood,,,missing
+hepatocellular carcinoma,peripherial blood,,,missing
+hepatocellular carcinoma,peripherial blood,,,missing
+hepatocellular carcinoma,peripherial blood,,,missing
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,epithelial cells,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hep3b,
+hepatocellular carcinoma,liver,,hep3b,
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,mhcc97l,male
+hepatocellular carcinoma,liver,,mhcc97l,male
+hepatocellular carcinoma,liver,,hcclm3,male
+hepatocellular carcinoma,liver,,hcclm3,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,hepg2,male
+hepatocellular carcinoma,liver,,mhcc97l,male
+hepatocellular carcinoma,liver,,mhcc97l,male
+hepatocellular carcinoma,liver,,hcclm3,male
+hepatocellular carcinoma,liver,,hcclm3,male
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hepatocellular carcinoma,liver,,,missing
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hcc,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,peripheral blood mononuclear cell,,,
+hepatocellular carcinoma,peripheral blood mononuclear cell,,,
+hepatocellular carcinoma,peripheral blood mononuclear cell,,,
+hepatocellular carcinoma,peripheral blood mononuclear cell,,,
+hepatocellular carcinoma,peripheral blood mononuclear cell,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,peripheral blood mononuclear cell,,,
+hepatocellular carcinoma,peripheral blood mononuclear cell,,,
+hepatocellular carcinoma,peripheral blood mononuclear cell,,,
+hepatocellular carcinoma,plasma and serum,,,
+hepatocellular carcinoma,plasma and serum,,,
+hepatocellular carcinoma,plasma and serum,,,
+hepatocellular carcinoma,plasma and serum,,,
+hepatocellular carcinoma,plasma and serum,,,
+hepatocellular carcinoma,plasma and serum,,,
+hepatocellular carcinoma,plasma and serum,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,plasma and serum,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,snu-387,
+hepatocellular carcinoma,liver,,snu-387,
+hepatocellular carcinoma,liver,,snu-387,
+hepatocellular carcinoma,liver,,snu-387,
+hepatocellular carcinoma,liver,,snu-387,
+hepatocellular carcinoma,liver,,hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male.,
+hepatocellular carcinoma,liver,,hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male.,
+hepatocellular carcinoma,liver,hepatocyte,hep3b,
+hepatocellular carcinoma,liver,hepatocyte,hep3b,
+hepatocellular carcinoma,liver,hepatocyte,hep3b,
+hepatocellular carcinoma,liver,hepatocyte,hep3b,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,huh-7,
+hepatocellular carcinoma,liver,hepatocyte,huh-7,
+hepatocellular carcinoma,liver,hepatocyte,huh-7,
+hepatocellular carcinoma,liver,hepatocyte,huh-7,
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,not collected
+hcc,,immune cells,,
+hcc,,immune cells,,
+hcc,,immune cells,,
+hcc,,immune cells,,
+hcc,,immune cells,,
+hcc,,immune cells,,
+hcc,,immune cells,,
+hcc,,immune cells,,
+hcc,,immune cells,,
+hcc,,immune cells,,
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,peripheral blood,,,
+hepatocellular carcinoma,peripheral blood,,,
+hepatocellular carcinoma,peripheral blood,,,
+hepatocellular carcinoma,peripheral blood,,,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,,hepg2,
+hepatocellular carcinoma,liver,,hepg2,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,,
+hepatocellular carcinoma,liver,,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial cell,hepg2,
+hepatocellular carcinoma,liver,epithelial,hepg2,male
+hepatocellular carcinoma,liver,epithelial,hepg2,male
+hepatocellular carcinoma,liver,epithelial,hepg2,male
+hepatocellular carcinoma,liver,epithelial,hepg2,male
+hepatocellular carcinoma,liver,epithelial,hepg2,male
+hepatocellular carcinoma,liver,epithelial,hepg2,male
+hepatocellular carcinoma,liver,epithelial,hepg2,male
+hepatocellular carcinoma,liver,epithelial,hepg2,male
+carcinoma hepatocellular,liver,,plc/prf/5,unknown
+carcinoma hepatocellular,liver,,plc/prf/5,unknown
+hepatocellular carcinoma,,epithelial cell,huh-7,
+hepatocellular carcinoma,,epithelial cell,huh-7,
+hepatocellular carcinoma,,epithelial cell,huh-7,
+hepatocellular carcinoma,,epithelial cell,huh-7,
+hepatocellular carcinoma,,epithelial cell,huh-7,
+hepatocellular carcinoma,,epithelial cell,huh-7,
+hepatocellular carcinoma,,epithelial cell,huh-7,
+hepatocellular carcinoma,,epithelial cell,huh-7,
+hepatocellular carcinoma,,epithelial cell,huh-7,
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,"liver, epithelial",,hb-8065 (hep g2) [hepg2],male
+hepatocellular carcinoma,not applicable,,hkci10,not applicable
+hepatocellular carcinoma,not applicable,,hkci10,not applicable
+hepatocellular carcinoma,not applicable,,hkci11,not applicable
+hepatocellular carcinoma,not applicable,,hkci11,not applicable
+hepatocellular carcinoma,not applicable,,hkci2,not applicable
+hepatocellular carcinoma,not applicable,,hkci2,not applicable
+hepatocellular carcinoma,not applicable,,hkci4,not applicable
+hepatocellular carcinoma,not applicable,,hkci4,not applicable
+hepatocellular carcinoma,not applicable,,hkci9,not applicable
+hepatocellular carcinoma,not applicable,,hkci9,not applicable
+hepatocellular carcinoma,not applicable,,hkcic1,not applicable
+hepatocellular carcinoma,not applicable,,hkcic1,not applicable
+hepatocellular carcinoma,not applicable,,hkcic2,not applicable
+hepatocellular carcinoma,not applicable,,hkcic2,not applicable
+hepatocellular carcinoma,not applicable,,hkcic3,not applicable
+hepatocellular carcinoma,not applicable,,hkcic3,not applicable
+hepatocellular carcinoma,liver,,huh-7,male
+hepatocellular carcinoma,liver,,huh-7,male
+hepatocellular carcinoma,liver,,huh-7,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,female
+hcc,hcc,huh7,hcc,unknown
+hcc,hcc,huh7,hcc,unknown
+hcc,hcc,huh7,hcc,unknown
+hcc,hcc,huh7,hcc,unknown
+hcc,hcc,huh7,hcc,unknown
+hcc,hcc,huh7,hcc,unknown
+hcc,hcc,mahlavu,hcc,unknown
+hcc,hcc,mahlavu,hcc,unknown
+hcc,hcc,mahlavu,hcc,unknown
+hcc,hcc,mahlavu,hcc,unknown
+hcc,hcc,mahlavu,hcc,unknown
+hcc,hcc,mahlavu,hcc,unknown
+hcc,liver,,mhcc97l,male
+hcc,liver,,mhcc97l,male
+hcc,liver,,mhcc97l,male
+hcc,liver,,mhcc97l,male
+hcc,liver,,mhcc97l,male
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,hepatocyte,hepg2,
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,hepg2,
+hepatocellular carcinoma,liver,,hepg2,
+hepatocellular carcinoma,liver,,hepg2,
+hepatocellular carcinoma,liver,,hepg2,
+hepatocellular carcinoma,liver,,hepg2,
+hepatocellular carcinoma,liver,,hepg2,
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hcc,blood,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,liver,cd45+ cells,,
+hcc,blood,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,liver,cd45+ cells,,
+hcc,blood,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,blood,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,blood,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,liver,cd45+ cells,,
+hcc,blood,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,liver,cd45+ cells,,
+hcc,lymphnode,cd45+ cells,,
+hcc,ascites,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,liver,cd45+ cells,,
+hcc,ascites,cd45+ cells,,
+hcc,liver,cd45+ cells,,
+hcc,blood,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,liver,cd45+ cells,,
+hcc,lymphnode,cd45+ cells,,
+hcc,ascites,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,blood,cd45+ cells,,
+hcc,blood,cd45+ cells,,
+hcc,tumor,cd45+ cells,,
+hcc,liver,cd45+ cells,,
+hcc,lymphnode,cd45+ cells,,
+hcc,ascites,cd45+ cells,,
+hcc,liver,cd45+ cells,,
+hcc,lymphnode,cd45+ cells,,
+hcc,ascites,cd45+ cells,,
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,female
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,,,male
+hepatocellular carcinoma,liver,t cell,,male
+hepatocellular carcinoma,liver,t cell,,female
+hepatocellular carcinoma,liver,t cell,,male
+hepatocellular carcinoma,liver,t cell,,male
+hepatocellular carcinoma,liver,t cell,,female
+hepatocellular carcinoma,liver,t cell,,male
+hepatocellular carcinoma,liver,t cell,,male
+hepatocellular carcinoma,liver,t cell,,male
+hepatocellular carcinoma,liver,t cell,,female
+hepatocellular carcinoma,liver,t cell,,male

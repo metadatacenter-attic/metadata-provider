@@ -16,9 +16,11 @@ import copy
 
 ATT_NAME_TERM_URI = 'attributeNameTermUri'
 ATT_NAME_TERM_LABEL = 'attributeNameTermLabel'
+ATT_NAME_TERM_ALT_LABELS = 'attributeNameTermAltLabels'
 ATT_NAME_TERM_SOURCE = 'attributeNameTermSource'
 ATT_VALUE_TERM_URI = 'attributeValueTermUri'
 ATT_VALUE_TERM_LABEL = 'attributeValueTermLabel'
+ATT_VALUE_TERM_ALT_LABELS = 'attributeValueTermAltLabels'
 ATT_VALUE_TERM_SOURCE = 'attributeValueTermSource'
 
 
@@ -36,6 +38,7 @@ def annotate_attribute_names(sample, annotation_cache, relevant_atts_and_variati
             if annotation is not None:
                 att[ATT_NAME_TERM_URI] = annotation['term-uri']
                 att[ATT_NAME_TERM_LABEL] = annotation['term-label']
+                att[ATT_NAME_TERM_ALT_LABELS] = annotation['term-alt-labels']
                 att[ATT_NAME_TERM_SOURCE] = annotation['term-source']
     return sample
 
@@ -55,6 +58,7 @@ def annotate_attribute_values(sample, annotation_cache, relevant_atts_and_variat
             if annotation is not None:
                 att[ATT_VALUE_TERM_URI] = annotation['term-uri']
                 att[ATT_VALUE_TERM_LABEL] = annotation['term-label']
+                att[ATT_VALUE_TERM_ALT_LABELS] = annotation['term-alt-labels']
                 att[ATT_VALUE_TERM_SOURCE] = annotation['term-source']
     return sample
 
@@ -177,6 +181,7 @@ def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=No
                 return {
                     'term-uri': None,
                     'term-label': None,
+                    'term-alt-labels': [],
                     'term-source': None
                 }
 
@@ -206,6 +211,24 @@ def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=No
     else:
         sys.exit('Error: attribute name is None')
 
+
+def save_alt_label(term_alt_labels, term_uri, term_pref_label, term_new_label):
+    """
+    Saves a label to a dict term-uri -> term_alt-labels. This dictionary will be used later as part of the annotation cache generation
+    :param term_uri:
+    :param term_alt_labels:
+    :param term_pref_label:
+    :param term_new_label:
+    :return:
+    """
+    if term_uri is not None:
+        if term_uri not in term_alt_labels:
+            term_alt_labels[term_uri] = []
+        pref_label_basic_norm = annotator_util.normalize_term(term_pref_label)
+        term_new_label_basic_norm = annotator_util.normalize_term(term_new_label)
+        if term_new_label_basic_norm != pref_label_basic_norm and term_new_label_basic_norm not in term_alt_labels[term_uri]:
+            term_alt_labels[term_uri].append(term_new_label_basic_norm)
+    return term_alt_labels
 
 def build_annotation_cache(samples, att_names_values_variations, preferred_terms_for_att_names,
                            preferred_ontologies_for_att_values, prioritize_pref, use_any_ontology_if_no_results,
@@ -260,6 +283,9 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
         "att-values": {}
     }
 
+    # Dict with alt labels for the term uris used
+    term_alt_labels = {}
+
     # Extract unique attribute names and values from samples. These unique values will be used to build the cache.
     # The annotation, and therefore the cache and the extraction of the unique terms, will be limited to the attributes
     # specified in att_names_values_variations
@@ -270,6 +296,7 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
         if att_name not in annotation_cache['att-names']:
             if preferred_terms_for_att_names is not None:  # use specific terms
                 norm_att_name = norm_att_names[att_name]
+                # in this case, we the alt labels come as part of preferred_terms_for_att_names
                 annotation_cache['att-names'][att_name] = preferred_terms_for_att_names[norm_att_name]
             else:
                 annotation_cache['att-names'][att_name] = get_annotation(attribute_name=att_name,
@@ -280,7 +307,14 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                                                                          prioritize_pref=prioritize_pref,
                                                                          use_any_ontology_if_no_results=use_any_ontology_if_no_results,
                                                                          ignore_values=ignore_values)
-                time.sleep(.100)  # wait between calls to the Annotator
+
+                # Save label to alt labels
+                att_name_term_uri = annotation_cache['att-names'][att_name]['term-uri']
+                att_name_term_pref_label = annotation_cache['att-names'][att_name]['term-label']
+                att_name_term_new_label = att_name
+                term_alt_labels = save_alt_label(term_alt_labels, att_name_term_uri, att_name_term_pref_label, att_name_term_new_label)
+
+            time.sleep(.100)  # wait between calls to the Annotator
         else:
             continue  # do nothing
 
@@ -305,11 +339,20 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                                                    ignore_values=ignore_values)
                 if annotation_result is not None:
                     annotation_cache['att-values'][att_name][att_value] = annotation_result
+
+                    # Save label to alt labels
+                    att_value_term_uri = annotation_cache['att-values'][att_name][att_value]['term-uri']
+                    att_value_term_pref_label = annotation_cache['att-values'][att_name][att_value]['term-label']
+                    att_value_term_new_label = att_value
+                    term_alt_labels = save_alt_label(term_alt_labels, att_value_term_uri, att_value_term_pref_label,
+                                                     att_value_term_new_label)
+
                 else:
                     annotation_cache['att-values'][att_name][att_value] = {
                         "term-uri": None,
                         "term-label": None,
-                        "term-source": None,
+                        "term-alt-labels": None,
+                        "term-source": None
                     }
 
                 # Save the info that will be used for evaluation of the annotations generated
@@ -328,6 +371,19 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                 time.sleep(.100)  # wait between calls to the Annotator
             else:
                 continue  # do nothing
+
+        # Integrate alt labels into cache file - Attribute names
+        for att_name_key in annotation_cache['att-names']:
+            uri = annotation_cache['att-names'][att_name_key]['term-uri']
+            if uri is not None and 'term-alt-labels' not in annotation_cache['att-names'][att_name_key]:
+                annotation_cache['att-names'][att_name_key]['term-alt-labels'] = copy.deepcopy(term_alt_labels[uri])
+
+        # Integrate alt labels into cache file - Attribute values
+        for att_name_key in annotation_cache['att-values']:
+            for att_value_key in annotation_cache['att-values'][att_name_key]:
+                uri = annotation_cache['att-values'][att_name_key][att_value_key]['term-uri']
+                if uri is not None and 'term-alt-labels' not in annotation_cache['att-values'][att_name_key][att_value_key]:
+                    annotation_cache['att-values'][att_name_key][att_value_key]['term-alt-labels'] = copy.deepcopy(term_alt_labels[uri])
 
     print('Saving annotation cache to file: ' + annotation_cache_file_path)
 

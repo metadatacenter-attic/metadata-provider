@@ -1,0 +1,200 @@
+GENERAL DESCRIPTION OF THE DATASET:
+                         disease tissue  ... cell line   sex
+count                       2370   2010  ...       881  1115
+unique                         5     21  ...        94     7
+top     hepatocellular carcinoma  liver  ...     hepg2  male
+freq                        2167   1445  ...       415   889
+
+[4 rows x 5 columns]
+
+UNIQUE VALUES PER COLUMN:
+  Column name: disease
+    Unique values (5):
+     - hepatocellular carcinoma
+     - hepatoma
+     - hcc
+     - carcinoma hepatocellular
+     - hepatocellular carcinoma-non tumorous region
+  Column name: tissue
+    Unique values (22):
+     - liver
+     - nan
+     - hcc
+     - blood
+     - hepatocellular carcinoma
+     - non-cancerous liver tissue
+     - cancerous liver tissue
+     - tumor
+     - liver cell line
+     - liver tumor
+     - peripheral blood
+     - plasma
+     - blood plasma
+     - na
+     - non-tumor
+     - peripherial blood
+     - peripheral blood mononuclear cell
+     - plasma and serum
+     - liver, epithelial
+     - not applicable
+     - lymphnode
+     - ascites
+  Column name: cell type
+    Unique values (20):
+     - nan
+     - hepatocyte
+     - hcc
+     - hcc cell line
+     - hepatocellular carcinoma cells
+     - hepatocellular carcinoma cell line
+     - hepatoma cell line
+     - norwalk virus replicon-bearing hepatoma cell line
+     - hepatocellular carcinoma cell
+     - na
+     - epithelial cells
+     - immature t cell from tumor-infiltrating lymphocytes
+     - immature t cell from peripheral blood mononuclear cell
+     - immune cells
+     - epithelial cell
+     - epithelial
+     - huh7
+     - mahlavu
+     - cd45+ cells
+     - t cell
+  Column name: cell line
+    Unique values (95):
+     - hep g2
+     - hepg2
+     - li-7
+     - huh-7
+     - nan
+     - plc/prf/5
+     - snu-475
+     - snu-449
+     - snu-387
+     - snu-423
+     - jhh-7
+     - gs-hepg2
+     - jhh-6
+     - snu-398
+     - jhh-5
+     - hep 3b2.1-7
+     - hle
+     - huh-1
+     - jhh-4
+     - snu-182
+     - jhh-1
+     - jhh-2
+     - hcclm3
+     - hepg3
+     - hepg4
+     - hepg5
+     - hepg6
+     - hepg7
+     - huh7
+     - plc8024
+     - heparg
+     - hg23
+     - hep-3b
+     - huh7.5
+     - hepg2/c3a
+     - plc-prl
+     - hk-hep1
+     - hep3b
+     - snu182
+     - tong-hcc
+     - mz-hep1
+     - li7a
+     - qgy-7703
+     - li21
+     - ha59t-vgh
+     - qgy-7701
+     - focus
+     - hbg
+     - hlf
+     - hcc9810
+     - snu354
+     - snu449
+     - ocuch16
+     - husp
+     - hcc36
+     - ht-17
+     - plc/prf5
+     - hep40
+     - huh2.2
+     - malhavu
+     - snu368
+     - snu398
+     - snu423
+     - flc4
+     - snu475
+     - suhc1
+     - huh1
+     - snu387
+     - ha22t-vgh
+     - nuk1
+     - na
+     - sk-hep-1
+     - snu-761
+     - snu-878
+     - snu-886
+     - mhcc97h
+     - smcc7721
+     - plc/prf-5
+     - huh7.5.1-derived cells
+     - bel-7402
+     - smmc-7721
+     - huh-6-clone5
+     - c3a
+     - mhcc97l
+     - hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male.
+     - hb-8065 (hep g2) [hepg2]
+     - hkci10
+     - hkci11
+     - hkci2
+     - hkci4
+     - hkci9
+     - hkcic1
+     - hkcic2
+     - hkcic3
+     - hcc
+  Column name: sex
+    Unique values (8):
+     - male
+     - nan
+     - not applicable
+     - unknown
+     - female
+     - not available
+     - missing
+     - not collected
+/Applications/PyCharm.app/Contents/helpers/pycharm_matplotlib_backend/backend_interagg.py:64: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all axes decorations.
+  self.figure.tight_layout()
+disease
+carcinoma hepatocellular                          28
+hcc                                              130
+hepatocellular carcinoma                        2167
+hepatocellular carcinoma-non tumorous region       1
+hepatoma                                          44
+dtype: int64
+
+Analysis on disease and sex:
+
+disease                                       sex
+carcinoma hepatocellular                      female              4
+                                              male               19
+                                              not collected       1
+                                              unknown             4
+hcc                                           female              5
+                                              male               14
+                                              not applicable      6
+                                              unknown            12
+hepatocellular carcinoma                      female            107
+                                              male              850
+                                              missing            34
+                                              not applicable     40
+                                              not available      12
+                                              not collected       1
+hepatocellular carcinoma-non tumorous region  male                1
+hepatoma                                      male                5
+dtype: int64
