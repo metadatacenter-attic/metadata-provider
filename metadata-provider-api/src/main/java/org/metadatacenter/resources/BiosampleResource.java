@@ -3,6 +3,7 @@ package org.metadatacenter.resources;
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.metadatacenter.api.Biosample;
+import org.metadatacenter.api.BiosampleSearchResult;
 import org.metadatacenter.db.BiosampleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +49,7 @@ public class BiosampleResource {
     }
   }
 
+  /* Deprecated */
   @GET
   @Path("/search")
   @Timed
@@ -66,8 +68,41 @@ public class BiosampleResource {
     }
     try {
       Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q, isAnnotatedSamplesQuery);
-      final List<Biosample> samplesFound = service.search(attributeNameValuePairs);
+      final List<Biosample> samplesFound = service.searchDeprecated(attributeNameValuePairs);
       logger.info(samplesFound.size() + " samples found");
+      return Response.ok(samplesFound).build();
+    }
+    catch (BadRequestException e) {
+      logger.error(e.getMessage());
+      return Response.status(Response.Status.BAD_REQUEST).build();
+    }
+    catch (JsonProcessingException e) {
+      logger.error(e.getMessage());
+      return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+    }
+  }
+
+  @GET
+  @Path("/query")
+  @Timed
+  public Response query(@QueryParam("q") @NotEmpty String q, @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db,
+                         @QueryParam("includeDetails") @DefaultValue("false") boolean includeDetails) {
+    BiosampleService service;
+    boolean isAnnotatedSamplesQuery;
+    if (db.equals(BiosamplesDB.annotated)) {
+      logger.info("Selected DB: " + BiosamplesDB.annotated);
+      service = annotatedSamplesService;
+      isAnnotatedSamplesQuery = true;
+    }
+    else {
+      logger.info("Selected DB: " + BiosamplesDB.original);
+      service = originalSamplesService;
+      isAnnotatedSamplesQuery = false;
+    }
+    try {
+      Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q, isAnnotatedSamplesQuery);
+      final BiosampleSearchResult samplesFound = service.search(attributeNameValuePairs, includeDetails);
+      logger.info(samplesFound.getBiosamples().size() + " samples found");
       return Response.ok(samplesFound).build();
     }
     catch (BadRequestException e) {

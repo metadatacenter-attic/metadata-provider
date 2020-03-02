@@ -75,4 +75,23 @@ public class BiosampleAttribute {
   public String getAttributeValueTermSource() {
     return attributeValueTermSource;
   }
+
+  // Custom methods to return the attribute value
+  public BiosampleAttributeValue getAttributeValueObject(boolean annotated) {
+    if (annotated) {
+      return getAnnotatedAttributeValueObject();
+    }
+    else {
+      return getOriginalAttributeValueObject();
+    }
+  }
+
+  public BiosampleAttributeValue getOriginalAttributeValueObject() {
+    return new BiosampleAttributeValue(getAttributeValue());
+  }
+
+  public BiosampleAttributeValue getAnnotatedAttributeValueObject() {
+    return new BiosampleAttributeValue(getAttributeValueTermUri(),
+        getAttributeValueTermLabel(), getAttributeValueTermSource());
+  }
 }

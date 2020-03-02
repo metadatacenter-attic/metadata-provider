@@ -56,4 +56,14 @@ public class Biosample {
   public String getBiosampleUrl() {
     return "https://www.ncbi.nlm.nih.gov/biosample/" + getBiosampleAccession();
   }
+
+  public BiosampleAttribute extractAttribute(String attributeName) {
+    for (BiosampleAttribute attribute : attributes) {
+      if (attribute.getAttributeName().toLowerCase().equals(attributeName.toLowerCase())) {
+        return attribute;
+      }
+    }
+    return null;
+  }
+
 }
