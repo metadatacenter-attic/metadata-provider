@@ -30,6 +30,11 @@ export default function App() {
         "disease=mds"
       ],
       "queriesAnnotatedDB": [
+        "disease=myelodysplasia",
+        "disease=myelodysplastic syndrome",
+        "disease=myelodysplastic syndrome (mds)",
+        "disease=myelodysplastic syndromes",
+        "disease=mds",
         "biolink:Disease=mondo:0018881"
       ]
     },
@@ -43,6 +48,9 @@ export default function App() {
         "disease=hepatoma AND cell line=HepaRG"
       ],
       "queriesAnnotatedDB": [
+        "disease=hepatocellular carcinoma AND cell line=HepaRG",
+        "disease=hcc AND cell line=HepaRG",
+        "disease=hepatoma AND cell line=HepaRG",
         "biolink:Disease=mondo:0007256 AND biolink:CellLine=efo:0001186"
       ]
     },
@@ -56,6 +64,9 @@ export default function App() {
         "disease=systemic lupus erythematosus (SLE)"
       ],
       "queriesAnnotatedDB": [
+        "disease=systemic lupus erythematosus",
+        "disease=sle",
+        "disease=systemic lupus erythematosus (SLE)",
         "biolink:Disease=mondo:0007915"
       ]
     }

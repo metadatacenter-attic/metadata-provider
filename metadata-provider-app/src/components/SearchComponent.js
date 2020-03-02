@@ -228,7 +228,7 @@ function SearchComponent(props) {
           <Container>
             <Row>
               <InputGroup className="mb-3">
-                {sampleQueries.length > 0 && props.db === "original" &&
+                {sampleQueries.length > 0 &&
                 <Dropdown as={InputGroup.Prepend} className="search-dropdown-btn">
                   <Dropdown.Toggle>
                     <FontAwesomeIcon icon={faAngleDown}/>

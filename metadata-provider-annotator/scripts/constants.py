@@ -61,6 +61,10 @@ NCBI_FILTER_3_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filters_2_3_4/' + 'bio
 NCBI_FILTER_4_SPECS = [{"att_name": "disease", "att_values": ["systemic lupus erythematosus"]}]
 NCBI_FILTER_4_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filters_2_3_4/' + 'biosample_filtered_SLE.xml'
 
+# Filter 5: all records with cell lines and disease
+NCBI_FILTER_5_SPECS = [{"att_name": "disease", "att_values": []}, {"att_name": "cell line", "att_values": []}]
+NCBI_FILTER_5_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter5/' + 'biosample_filtered.xml'
+
 # Analysis of attribute names after applying filter 1
 NCBI_ANALYSIS_ATT_NAMES_FILTER_1_INPUT_FILE = NCBI_FILTER_1_OUTPUT_FILE
 
