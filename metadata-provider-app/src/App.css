@@ -165,6 +165,12 @@ h2 {
   margin-top: 2vw;
 }
 
+.biosample-link {
+  margin-top: -1.4vw;
+  margin-right: -1.4vw;
+  text-align: right;
+}
+
 .results-count {
   margin-top: 0.5vw;
   border-color: #5c5c5c;
@@ -285,6 +291,7 @@ h2 {
 .btn-link {
   color: var(--color-buttons) !important;
   text-decoration: underline !important;
+  /*font-size: calc(var(--font-size-theme) + 0vmin) !important;*/
 }
 
 .btn-link:hover {

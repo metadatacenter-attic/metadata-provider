@@ -34,7 +34,7 @@ export default function ProjectDetailsModal(props) {
               <td>PRJNA{props.projectID}
                 <Button size="sm" variant="link"
                         href={'https://www.ncbi.nlm.nih.gov/bioproject/' + props.projectID}
-                        target='blank'>See in BioProject</Button></td>
+                        target='blank'>View in BioProject</Button></td>
             </tr>
             </tbody>
           </Table>

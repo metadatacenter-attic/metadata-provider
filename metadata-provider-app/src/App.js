@@ -83,7 +83,6 @@ export default function App() {
   };
 
   function getRelevantAttributes(index) {
-    console.log('Index: ' + index)
     if (index && sampleQueries[index]) {
       return sampleQueries[index].relevantAttributes;
     } else {
@@ -109,18 +108,18 @@ export default function App() {
       <div className="App-content">
 
         <div className="instructions-container">
-          <p className="database">Database: NCBI BioSample</p>
+          <p><span className="database">Database: NCBI BioSample </span><span>(4,346 samples from Homo sapiens)</span></p>
           {/*<p className="label">Enter a search query or load an example:</p>*/}
           <Container>
             <Row className="example-selection">
               <Col></Col>
               <Col md={5}>
                 <Form.Group controlId="exampleSelectionForm">
-                  <Form.Control as="select" onChange={e => setSampleQueryIndex(e.target.value)} defaultValue="bla">
-                    {!queryIndex && <option>Select an example...</option>}
+                  <Form.Control as="select" onChange={e => setSampleQueryIndex(e.target.value)}>
+                    {!queryIndex && <option>Load an example...</option>}
                     {sampleQueries.map((item, index) => (
                       <option key={index} value={index}>Example {index + 1} ({item.researchQuestionShort})</option>
-                    ))}s
+                    ))}
                   </Form.Control>
                 </Form.Group>
               </Col>

@@ -156,6 +156,67 @@ function SearchComponent(props) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   };
 
+  /* Extracts the attribute name and value from a string in the form attributeName=attributeValue and returns them in
+   an array [attributeName, attributeValue] */
+  function parseAttributeValuePair(attributeValuePair) {
+    if (attributeValuePair.includes('=')) {
+      let splitArray = attributeValuePair.split('=');
+      let attributeName = splitArray[0].trim();
+      let attributeValue = splitArray[1].trim();
+      if (attributeName.length > 0 && attributeValue.length > 0) {
+        return [attributeName, attributeValue];
+      } else {
+        throw("Couldn't parse attribute-value pair. Attribute name or attribute value are empty: " + attributeValuePair);
+      }
+    } else {
+      throw("Couldn't parse attribute-value pair. Invalid format: " + attributeValuePair);
+    }
+  };
+
+  function generateBiosampleSearchUrl(query) {
+    if (query) {
+      try {
+        console.log(query)
+        let andRegex = new RegExp('^.* AND .*$', "i");
+        let attributeValuePairs = {};
+        if (query.match(andRegex)) { // The query contains AND operators
+          let queryParts = query.split(new RegExp('AND', "i"));
+          queryParts.forEach(item => {
+            let attributeNameAndValueArray = parseAttributeValuePair(item);
+            attributeValuePairs[attributeNameAndValueArray[0]] = attributeNameAndValueArray[1];
+          });
+        } else { // The query is just an attribute-value pair
+          let attributeNameAndValueArray = parseAttributeValuePair(query);
+          attributeValuePairs[attributeNameAndValueArray[0]] = attributeNameAndValueArray[1];
+        }
+        // Generate search url
+        let baseUrl = 'https://www.ncbi.nlm.nih.gov/biosample/?term='
+        let biosampleQuery = '';
+        let hasOrganismFilter = false;
+        for (let attName in attributeValuePairs) {
+          let attValue = attributeValuePairs[attName];
+          if (attName.toLowerCase() === 'organism') {
+            biosampleQuery += attValue + '[Organism]'
+            hasOrganismFilter = true;
+          } else {
+            biosampleQuery += '"' + attName + '=' + attValue + '"[attr]';
+          }
+          biosampleQuery += ' AND ';
+        }
+        if (!hasOrganismFilter) {
+          biosampleQuery += '"Homo sapiens"[Organism]'
+        } else { // remove the last 'AND'
+          biosampleQuery = biosampleQuery.substring(0, biosampleQuery.length - 5).trim();
+        }
+        let biosampleSearchUrl = encodeURI(baseUrl + biosampleQuery);
+        console.log(biosampleSearchUrl);
+        return biosampleSearchUrl;
+      } catch (err) {
+        console.warn(err);
+      }
+    }
+  };
+
   return (
     <>
       {/*{originalSampleIDs.length} <br/>*/}
@@ -165,62 +226,75 @@ function SearchComponent(props) {
       <Form className="mt-4">
         <Form.Group>
           <Container>
-            <InputGroup className="mb-3">
-              {sampleQueries.length > 0 && props.db === "original" &&
-              <Dropdown as={InputGroup.Prepend} className="search-dropdown-btn">
-                <Dropdown.Toggle>
-                  <FontAwesomeIcon icon={faAngleDown}/>
-                </Dropdown.Toggle>
-                <Dropdown.Menu
-                  className="search-field-dropdown"
-                  flip="true"
-                  title="Search">
-                  {sampleQueries.map((item, index) => (
-                    <Dropdown.Item className="search-field-dropdown item" key={index}
-                                   onClick={e => updateSearchQuery(e, item)}>Query {index + 1}. {item}</Dropdown.Item>
-                  ))}
-                </Dropdown.Menu>
-              </Dropdown>}
-              <Form.Control
-                id={"searchField-" + props.db}
-                className="search-field"
-                as="textarea"
-                rows="2"
-                placeholder="Enter your search query"
-                value={searchQuery}
-                onChange={e => {
-                  setShowEnterQueryMessage(false);
-                  setSearchQuery(e.target.value);
-                }}/>
-              <InputGroup.Append>
+            <Row>
+              <InputGroup className="mb-3">
+                {sampleQueries.length > 0 && props.db === "original" &&
+                <Dropdown as={InputGroup.Prepend} className="search-dropdown-btn">
+                  <Dropdown.Toggle>
+                    <FontAwesomeIcon icon={faAngleDown}/>
+                  </Dropdown.Toggle>
+                  <Dropdown.Menu
+                    className="search-field-dropdown"
+                    flip="true"
+                    title="Search">
+                    {sampleQueries.map((item, index) => (
+                      <Dropdown.Item className="search-field-dropdown item" key={index}
+                                     onClick={e => updateSearchQuery(e, item)}>Query {index + 1}. {item}</Dropdown.Item>
+                    ))}
+                  </Dropdown.Menu>
+                </Dropdown>}
+                <Form.Control
+                  id={"searchField-" + props.db}
+                  className="search-field"
+                  as="textarea"
+                  rows="2"
+                  placeholder="Enter your search query"
+                  value={searchQuery}
+                  onChange={e => {
+                    setShowEnterQueryMessage(false);
+                    setSearchQuery(e.target.value);
+                  }}/>
 
-                <Button className="search-btn" type="submit" onClick={e => {
-                  querySamples(e, props.db)
-                }}>
-                  <FontAwesomeIcon icon={faSearch}/>
-                </Button>
+                <InputGroup.Append>
+                  <Button className="search-btn" type="submit" onClick={e => {
+                    querySamples(e, props.db)
+                  }}>
+                    <FontAwesomeIcon icon={faSearch}/>
+                  </Button>
 
-                {/*<ButtonGroup>*/}
-                {/*  {sampleQueries.length > 0 && props.db === "original" &&*/}
-                {/*  <DropdownButton title="" as={ButtonGroup} className="search-dropdown-btn">*/}
-                {/*    {sampleQueries.map((item, index) => (*/}
-                {/*      <Dropdown.Item className="search-field-dropdown item" key={index}*/}
-                {/*                     onClick={e => {*/}
-                {/*                       updateSearchQuery(e, item);*/}
-                {/*                     }}>Query {index + 1}. {item}</Dropdown.Item>*/}
-                {/*    ))}*/}
-                {/*  </DropdownButton>}*/}
-                {/*  <Button className="search-btn" type="submit" onClick={e => {*/}
-                {/*    querySamples(e, props.db)*/}
-                {/*  }}>*/}
-                {/*    <FontAwesomeIcon icon={faSearch}/>*/}
-                {/*  </Button>*/}
-                {/*</ButtonGroup>*/}
-              </InputGroup.Append>
-            </InputGroup>
+                  {/*<ButtonGroup>*/}
+                  {/*  {sampleQueries.length > 0 && props.db === "original" &&*/}
+                  {/*  <DropdownButton title="" as={ButtonGroup} className="search-dropdown-btn">*/}
+                  {/*    {sampleQueries.map((item, index) => (*/}
+                  {/*      <Dropdown.Item className="search-field-dropdown item" key={index}*/}
+                  {/*                     onClick={e => {*/}
+                  {/*                       updateSearchQuery(e, item);*/}
+                  {/*                     }}>Query {index + 1}. {item}</Dropdown.Item>*/}
+                  {/*    ))}*/}
+                  {/*  </DropdownButton>}*/}
+                  {/*  <Button className="search-btn" type="submit" onClick={e => {*/}
+                  {/*    querySamples(e, props.db)*/}
+                  {/*  }}>*/}
+                  {/*    <FontAwesomeIcon icon={faSearch}/>*/}
+                  {/*  </Button>*/}
+                  {/*</ButtonGroup>*/}
+                </InputGroup.Append>
+              </InputGroup>
+            </Row>
+            {props.db === "original" && searchQuery &&
+            <Row>
+              <Col md={12}>
+                <div className="biosample-link">
+                  <Button size="sm" variant="link" href={generateBiosampleSearchUrl(searchQuery)} target="blank">Search
+                    in BioSample's website</Button>
+                </div>
+              </Col>
+            </Row>
+            }
           </Container>
         </Form.Group>
       </Form>
+
 
       {showEnterQueryMessage && <p>Enter a search query</p>}
       {hasError && <p>Search query error</p>}
@@ -237,7 +311,7 @@ function SearchComponent(props) {
             <Col>
               <Container>
                 <Row>
-                  {projectIDs.length == 0 && <Col md={4}></Col>}
+                  {projectIDs.length === 0 && <Col md={4}></Col>}
                   {projectIDs.length > 0 && <Col md={2}></Col>}
                   <Col className={showSamplesOrProjects === "samples" ?
                     "results-count results-count-left results-count-selected" : "results-count results-count-left"}>
@@ -254,8 +328,8 @@ function SearchComponent(props) {
                       <Row><Col className="count-right">{formatNumber(projectIDs.length)}</Col></Row>
                     </Container>
                   </Col>
-                    }
-                  {projectIDs.length == 0 && <Col md={4}></Col>}
+                  }
+                  {projectIDs.length === 0 && <Col md={4}></Col>}
                   {projectIDs.length > 0 && <Col md={2}></Col>}
                 </Row>
                 {/*<Row>*/}
