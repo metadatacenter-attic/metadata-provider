@@ -61,12 +61,12 @@ NCBI_FILTER_3_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filters_2_3_4/' + 'bio
 NCBI_FILTER_4_SPECS = [{"att_name": "disease", "att_values": ["systemic lupus erythematosus"]}]
 NCBI_FILTER_4_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filters_2_3_4/' + 'biosample_filtered_SLE.xml'
 
+# Analysis of attribute names after applying filter 1
+NCBI_ANALYSIS_ATT_NAMES_FILTER_1_INPUT_FILE = NCBI_FILTER_1_OUTPUT_FILE
+
 # Filter 5: all records with cell lines and disease
 NCBI_FILTER_5_SPECS = [{"att_name": "disease", "att_values": []}, {"att_name": "cell line", "att_values": []}]
 NCBI_FILTER_5_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/filter5/' + 'biosample_filtered.xml'
-
-# Analysis of attribute names after applying filter 1
-NCBI_ANALYSIS_ATT_NAMES_FILTER_1_INPUT_FILE = NCBI_FILTER_1_OUTPUT_FILE
 
 
 # The attribute name variations include the harmonized name for the attribute (first item in the array) plus all the
@@ -158,7 +158,7 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
 ]
 
 # Export samples to other formats #
-NCBI_EXPORT_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + 'filtered/filter1/biosample_filtered.xml'
+NCBI_EXPORT_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + 'filtered/filter5/biosample_filtered.xml'
 NCBI_EXPORT_CSV_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
 # export sex, tissue, and disease, with all their values. This is only used for the CSV export, to simplify analysis
 NCBI_EXPORT_FILTER_SPECS = [{"att_name": "disease", "att_values": []},

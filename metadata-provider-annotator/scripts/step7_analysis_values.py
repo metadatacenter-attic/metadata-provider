@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 INPUT_FILE = constants.NCBI_ANALYSIS_VALUES_INPUT_FILE
-GROUP_BY_ATTS = ['disease']
+GROUP_BY_ATTS = ['cell line', 'disease']
 
 
 def main():

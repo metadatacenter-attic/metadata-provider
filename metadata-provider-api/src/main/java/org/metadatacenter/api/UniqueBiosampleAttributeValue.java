@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class BiosampleAttributeValue {
+public class UniqueBiosampleAttributeValue implements Comparable<UniqueBiosampleAttributeValue> {
 
   @JsonProperty("attributeValue")
   private String attributeValue;
@@ -14,22 +14,26 @@ public class BiosampleAttributeValue {
   private String attributeValueTermLabel;
   @JsonProperty("attributeValueTermSource")
   private String attributeValueTermSource;
+  @JsonProperty("count")
+  private int count;
 
-  public BiosampleAttributeValue() {
+  public UniqueBiosampleAttributeValue() {
     // Jackson deserialization
   }
 
   // Original value
-  public BiosampleAttributeValue(String attributeValue) {
+  public UniqueBiosampleAttributeValue(String attributeValue, int count) {
     this.attributeValue = attributeValue;
+    this.count = count;
   }
 
   // Annotated value
-  public BiosampleAttributeValue(String attributeValueTermUri, String attributeValueTermLabel,
-                                 String attributeValueTermSource) {
+  public UniqueBiosampleAttributeValue(String attributeValueTermUri, String attributeValueTermLabel,
+                                       String attributeValueTermSource, int count) {
     this.attributeValueTermUri = attributeValueTermUri;
     this.attributeValueTermLabel = attributeValueTermLabel;
     this.attributeValueTermSource = attributeValueTermSource;
+    this.count = count;
   }
 
   public String getAttributeValue() {
@@ -48,12 +52,16 @@ public class BiosampleAttributeValue {
     return attributeValueTermSource;
   }
 
-  public boolean isValid() {
-    if (attributeValue != null || attributeValueTermUri != null) {
-      return true;
-    }
-    else {
-      return false;
-    }
+  public int getCount() {
+    return count;
+  }
+
+  public void setCount(int count) {
+    this.count = count;
+  }
+
+  @Override
+  public int compareTo(UniqueBiosampleAttributeValue obj) {
+    return Integer.compare(this.count, obj.getCount());
   }
 }

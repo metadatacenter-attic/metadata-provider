@@ -1,6 +1,5 @@
 package org.metadatacenter.db;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClientSettings;
@@ -13,9 +12,7 @@ import org.metadatacenter.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Pattern;
 
 import static com.mongodb.client.model.Filters.*;
@@ -89,60 +86,52 @@ public class BiosampleService {
       return new BiosampleSearchResult(biosamples);
     } else {
       // Extract unique values for project IDs and attributes
-      List<Bioproject> bioprojects = new ArrayList<>();
-      List<BiosampleAttributeValue> diseaseValues = new ArrayList<>();
-      List<BiosampleAttributeValue> tissueValues = new ArrayList<>();
-      List<BiosampleAttributeValue> cellTypeValues = new ArrayList<>();
-      List<BiosampleAttributeValue> cellLineValues = new ArrayList<>();
-      List<BiosampleAttributeValue> sexValues = new ArrayList<>();
+      List<UniqueBioproject> bioprojects = new ArrayList<>();
+      List<UniqueBiosampleAttributeValue> diseaseValues = new ArrayList<>();
+      List<UniqueBiosampleAttributeValue> tissueValues = new ArrayList<>();
+      List<UniqueBiosampleAttributeValue> cellTypeValues = new ArrayList<>();
+      List<UniqueBiosampleAttributeValue> cellLineValues = new ArrayList<>();
+      List<UniqueBiosampleAttributeValue> sexValues = new ArrayList<>();
 
       // Extract unique values for project IDs and attributes
       for (Biosample sample : biosamples) {
 
-        if (sample.getBioprojectAccession() != null && !containsBioproject(sample.getBioprojectAccession(),
-            bioprojects)) {
-          bioprojects.add(new Bioproject(sample.getBioprojectAccession()));
+        if (sample.getBioprojectAccession() != null) {
+
+          int index = indexOfBioproject(sample.getBioprojectAccession(), bioprojects);
+
+          if (index != -1) { // Update count
+            UniqueBioproject found = bioprojects.get(index);
+            found.setCount(found.getCount() + 1);
+            bioprojects.set(index, found);
+          } else { // Add new bioproject
+            bioprojects.add(new UniqueBioproject(sample.getBioprojectAccession(), 1));
+          }
         }
 
         BiosampleAttribute diseaseAttribute = sample.extractAttribute(DISEASE_ATTRIBUTE_NAME);
-        if (diseaseAttribute != null && !containsAttributeValue(diseaseAttribute, diseaseValues,
-            isAnnotatedSamplesCollection)) {
-          if (diseaseAttribute.getAttributeValueObject(isAnnotatedSamplesCollection).isValid()) {
-            diseaseValues.add(diseaseAttribute.getAttributeValueObject(isAnnotatedSamplesCollection));
-          }
-        }
+        addToListOfUniqueValues(diseaseValues, diseaseAttribute, isAnnotatedSamplesCollection);
 
         BiosampleAttribute tissueAttribute = sample.extractAttribute(TISSUE_ATTRIBUTE_NAME);
-        if (tissueAttribute != null && !containsAttributeValue(tissueAttribute, tissueValues,
-            isAnnotatedSamplesCollection)) {
-          if (tissueAttribute.getAttributeValueObject(isAnnotatedSamplesCollection).isValid()) {
-            tissueValues.add(tissueAttribute.getAttributeValueObject(isAnnotatedSamplesCollection));
-          }
-        }
+        addToListOfUniqueValues(tissueValues, tissueAttribute, isAnnotatedSamplesCollection);
 
         BiosampleAttribute cellTypeAttribute = sample.extractAttribute(CELL_TYPE_ATTRIBUTE_NAME);
-        if (cellTypeAttribute != null && !containsAttributeValue(cellTypeAttribute, cellTypeValues,
-            isAnnotatedSamplesCollection)) {
-          if (cellTypeAttribute.getAttributeValueObject(isAnnotatedSamplesCollection).isValid()) {
-            cellTypeValues.add(cellTypeAttribute.getAttributeValueObject(isAnnotatedSamplesCollection));
-          }
-        }
+        addToListOfUniqueValues(cellTypeValues, cellTypeAttribute, isAnnotatedSamplesCollection);
 
         BiosampleAttribute cellLineAttribute = sample.extractAttribute(CELL_LINE_ATTRIBUTE_NAME);
-        if (cellLineAttribute != null && !containsAttributeValue(cellLineAttribute, cellLineValues,
-            isAnnotatedSamplesCollection)) {
-          if (cellLineAttribute.getAttributeValueObject(isAnnotatedSamplesCollection).isValid()) {
-            cellLineValues.add(cellLineAttribute.getAttributeValueObject(isAnnotatedSamplesCollection));
-          }
-        }
+        addToListOfUniqueValues(cellLineValues, cellLineAttribute, isAnnotatedSamplesCollection);
 
         BiosampleAttribute sexAttribute = sample.extractAttribute(SEX_ATTRIBUTE_NAME);
-        if (sexAttribute != null && !containsAttributeValue(sexAttribute, sexValues, isAnnotatedSamplesCollection)) {
-          if (sexAttribute.getAttributeValueObject(isAnnotatedSamplesCollection).isValid()) {
-            sexValues.add(sexAttribute.getAttributeValueObject(isAnnotatedSamplesCollection));
-          }
-        }
+        addToListOfUniqueValues(sexValues, sexAttribute, isAnnotatedSamplesCollection);
       }
+
+      // sort by count
+      Collections.sort(bioprojects, Collections.reverseOrder());
+      Collections.sort(diseaseValues, Collections.reverseOrder());
+      Collections.sort(tissueValues, Collections.reverseOrder());
+      Collections.sort(cellTypeValues, Collections.reverseOrder());
+      Collections.sort(cellLineValues, Collections.reverseOrder());
+      Collections.sort(sexValues, Collections.reverseOrder());
 
       return new BiosampleSearchResult(biosamples, bioprojects, diseaseValues, tissueValues, cellTypeValues,
           cellLineValues, sexValues);
@@ -224,31 +213,80 @@ public class BiosampleService {
     return SPECIAL_REGEX_CHARS.matcher(str).replaceAll("\\\\$0");
   }
 
-  private boolean containsAttributeValue(BiosampleAttribute attribute,
-                                         List<BiosampleAttributeValue> attributeValuesList, boolean searchAnnotated) {
-    for (BiosampleAttributeValue attributeValueObject : attributeValuesList) {
+  /**
+   * Returns the index of the value in the list, or -1 if not found
+   * @param attribute
+   * @param attributeValuesList
+   * @param searchAnnotated
+   * @return
+   */
+  private int indexOfAttributeValue(BiosampleAttribute attribute,
+                                         List<UniqueBiosampleAttributeValue> attributeValuesList,
+                                         boolean searchAnnotated) {
+    int index = 0;
+    for (UniqueBiosampleAttributeValue attributeValueObject : attributeValuesList) {
       if (!searchAnnotated) {
         if (attribute.getAttributeValue().toLowerCase().equals(attributeValueObject.getAttributeValue().toLowerCase())) {
-          return true;
+          return index;
         }
       } else {
         if (attribute.getAttributeValueTermUri() != null && attributeValueObject.getAttributeValueTermUri() != null) {
           if (attribute.getAttributeValueTermUri().toLowerCase().equals(attributeValueObject.getAttributeValueTermUri().toLowerCase())) {
-            return true;
+            return index;
           }
         }
       }
+      index++;
     }
-    return false; // not found
+    return -1; // not found
   }
 
-  private boolean containsBioproject(String bioprojectAccession, List<Bioproject> bioprojects) {
-    for (Bioproject bioproject : bioprojects) {
+  private int indexOfBioproject(String bioprojectAccession, List<UniqueBioproject> bioprojects) {
+    int index = 0;
+    for (UniqueBioproject bioproject : bioprojects) {
       if (bioproject.getBioprojectAccession().equals(bioprojectAccession)) {
-        return true;
+        return index;
+      }
+      index++;
+    }
+    return -1; // not found
+  }
+
+  private boolean isValidValue(BiosampleAttribute attribute, boolean isAnnotated) {
+    if (isAnnotated) {
+      return (attribute.getAttributeValueTermUri() != null ? true: false);
+    }
+    else {
+      return (attribute.getAttributeValue() != null ? true: false);
+    }
+  }
+
+  private List<UniqueBiosampleAttributeValue> addToListOfUniqueValues(
+      List<UniqueBiosampleAttributeValue> listOfUniqueValuesForAttribute,
+      BiosampleAttribute attribute, boolean isAnnotatedSamplesCollection) {
+
+    if (attribute != null && isValidValue(attribute, isAnnotatedSamplesCollection)) {
+
+      int index = indexOfAttributeValue(attribute, listOfUniqueValuesForAttribute, isAnnotatedSamplesCollection);
+
+      if (index != -1) { // Update count in existing value
+        UniqueBiosampleAttributeValue foundValue = listOfUniqueValuesForAttribute.get(index);
+        foundValue.setCount(foundValue.getCount() + 1);
+        listOfUniqueValuesForAttribute.set(index, foundValue);
+      } else { // Add new value
+
+        UniqueBiosampleAttributeValue result;
+        if (!isAnnotatedSamplesCollection) {
+          result = new UniqueBiosampleAttributeValue(attribute.getAttributeValue(), 1);
+        } else {
+          result = new UniqueBiosampleAttributeValue(attribute.getAttributeValueTermUri(),
+              attribute.getAttributeValueTermLabel(), attribute.getAttributeValueTermSource(), 1);
+        }
+        listOfUniqueValuesForAttribute.add(result);
+
       }
     }
-    return false; // not found
+    return listOfUniqueValuesForAttribute;
   }
 
 }

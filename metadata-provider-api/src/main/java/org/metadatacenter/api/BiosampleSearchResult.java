@@ -11,18 +11,18 @@ public class BiosampleSearchResult {
   @JsonProperty("biosamples")
   private List<Biosample> biosamples;
   @JsonProperty("bioprojects")
-  private List<Bioproject> bioprojects;
+  private List<UniqueBioproject> bioprojects;
 
   @JsonProperty("diseaseValues")
-  private List<BiosampleAttributeValue> diseaseValues;
+  private List<UniqueBiosampleAttributeValue> diseaseValues;
   @JsonProperty("tissueValues")
-  private List<BiosampleAttributeValue> tissueValues;
+  private List<UniqueBiosampleAttributeValue> tissueValues;
   @JsonProperty("cellTypeValues")
-  private List<BiosampleAttributeValue> cellTypeValues;
+  private List<UniqueBiosampleAttributeValue> cellTypeValues;
   @JsonProperty("cellLineValues")
-  private List<BiosampleAttributeValue> cellLineValues;
+  private List<UniqueBiosampleAttributeValue> cellLineValues;
   @JsonProperty("sexValues")
-  private List<BiosampleAttributeValue> sexValues;
+  private List<UniqueBiosampleAttributeValue> sexValues;
 
   public BiosampleSearchResult() { }
 
@@ -30,11 +30,11 @@ public class BiosampleSearchResult {
     this.biosamples = biosamples;
   }
 
-  public BiosampleSearchResult(List<Biosample> biosamples, List<Bioproject> bioprojects,
-                               List<BiosampleAttributeValue> diseaseValues,
-                               List<BiosampleAttributeValue> tissueValues,
-                               List<BiosampleAttributeValue> cellTypeValues,
-                               List<BiosampleAttributeValue> cellLineValues, List<BiosampleAttributeValue> sexValues) {
+  public BiosampleSearchResult(List<Biosample> biosamples, List<UniqueBioproject> bioprojects,
+                               List<UniqueBiosampleAttributeValue> diseaseValues,
+                               List<UniqueBiosampleAttributeValue> tissueValues,
+                               List<UniqueBiosampleAttributeValue> cellTypeValues,
+                               List<UniqueBiosampleAttributeValue> cellLineValues, List<UniqueBiosampleAttributeValue> sexValues) {
     this.biosamples = biosamples;
     this.bioprojects = bioprojects;
     this.diseaseValues = diseaseValues;
@@ -48,27 +48,27 @@ public class BiosampleSearchResult {
     return biosamples;
   }
 
-  public List<Bioproject> getBioprojects() {
+  public List<UniqueBioproject> getBioprojects() {
     return bioprojects;
   }
 
-  public List<BiosampleAttributeValue> getDiseaseValues() {
+  public List<UniqueBiosampleAttributeValue> getDiseaseValues() {
     return diseaseValues;
   }
 
-  public List<BiosampleAttributeValue> getTissueValues() {
+  public List<UniqueBiosampleAttributeValue> getTissueValues() {
     return tissueValues;
   }
 
-  public List<BiosampleAttributeValue> getCellTypeValues() {
+  public List<UniqueBiosampleAttributeValue> getCellTypeValues() {
     return cellTypeValues;
   }
 
-  public List<BiosampleAttributeValue> getCellLineValues() {
+  public List<UniqueBiosampleAttributeValue> getCellLineValues() {
     return cellLineValues;
   }
 
-  public List<BiosampleAttributeValue> getSexValues() {
+  public List<UniqueBiosampleAttributeValue> getSexValues() {
     return sexValues;
   }
 
