@@ -147,7 +147,7 @@ export default function App() {
           <Container fluid>
             <Row>
               <Col md={6} className="search-container-col">
-                <SearchComponent title="Original Metadata"
+                <SearchComponent title="Original BioSample Metadata"
                                  db="original"
                                  relevantAttributes={getRelevantAttributes(queryIndex)}
                   /* We use the key prop to tell React that the component identity has changed,
@@ -161,7 +161,7 @@ export default function App() {
                 />
               </Col>
               <Col md={6} className="search-container-col">
-                <SearchComponent title="Cleaned-Up Metadata"
+                <SearchComponent title="Processed Metadata"
                                  db="annotated"
                                  relevantAttributes={getRelevantAttributes(queryIndex)}
                                  key={queryIndex}

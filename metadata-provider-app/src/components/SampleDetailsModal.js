@@ -35,13 +35,13 @@ export default function SampleDetailsModal(props) {
     return termUri.substring(termUri.lastIndexOf(separator) + 1);
   };
 
-  function getValueInCurieFormat(attribute) {
-    if (attribute.attributeValueTermUri) {
-      return attribute.attributeValueTermSource + ':' + extractTermID(attribute.attributeValueTermUri);
+  function generateCurie(termSource, termUri) {
+    if (termUri) {
+      return termSource.toLowerCase() + ':' + extractTermID(termUri);
     }
   };
 
-  function renderPopOver(attribute) {
+  function renderPopOver(termUri, termLabel, termSource) {
     return (
       <Popover id="popover-basic">
         <Popover.Title as="h3">Term details</Popover.Title>
@@ -50,15 +50,15 @@ export default function SampleDetailsModal(props) {
             <tbody>
             <tr>
               <td>Label</td>
-              <td><strong>{attribute.attributeValueTermLabel}</strong></td>
+              <td><strong>{termLabel}</strong></td>
             </tr>
             <tr>
               <td>URI</td>
-              <td><a href={attribute.attributeValueTermUri} target='_blank'>{attribute.attributeValueTermUri}</a></td>
+              <td><a href={termUri} target='_blank'>{termUri}</a></td>
             </tr>
             <tr>
               <td>Source</td>
-              <td>{attribute.attributeValueTermSource}</td>
+              <td>{termSource}</td>
             </tr>
             </tbody>
           </Table>
@@ -84,7 +84,7 @@ export default function SampleDetailsModal(props) {
           <Modal.Title>Sample Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Table className="result-details-modal" size={'sm'} striped bordered hover variant={'dark'}>
+          <Table className="result-details-modal" size={'md'} striped bordered hover variant={'dark'}>
             <tbody>
             <tr>
               <td>Sample ID</td>
@@ -101,17 +101,30 @@ export default function SampleDetailsModal(props) {
             </tr>
             {props.sample.attributes.map((item, index) => (
               <tr key={index} className={props.relevantAttributes.includes(item.attributeName) ? 'highlighted-result' : ''}>
-              {/*<tr key={index} className={props.relevantAttributes.includes(item.attributeName? 'highlighted-result' : 'ble')}>*/}
-                <td>{item.attributeName}</td>
+                <td>{item.attributeName}
+                  {item.attributeNameTermUri &&
+                  <OverlayTrigger
+                    trigger="click"
+                    placement="auto"
+                    rootClose={true}
+                    overlay={renderPopOver(item.attributeNameTermUri, item.attributeNameTermLabel,
+                      item.attributeNameTermSource)}>
+                    <Button className='ml-2 btn-secondary btn-secondary-smaller-font' size={'sm'} variant="secondary">
+                      {generateCurie(item.attributeNameTermSource, item.attributeNameTermUri)}
+                    </Button>
+                  </OverlayTrigger>
+                  }
+                </td>
                 <td>{truncateString(item.attributeValue, 200)}
                   {item.attributeValueTermUri &&
                   <OverlayTrigger
                     trigger="click"
                     placement="auto"
                     rootClose={true}
-                    overlay={renderPopOver(item)}>
+                    overlay={renderPopOver(item.attributeValueTermUri, item.attributeValueTermLabel,
+                      item.attributeValueTermSource)}>
                     <Button className='ml-2 btn-secondary btn-secondary-smaller-font' size={'sm'} variant="secondary">
-                      {getValueInCurieFormat(item)}
+                      {generateCurie(item.attributeValueTermSource, item.attributeValueTermUri)}
                     </Button>
                   </OverlayTrigger>
                   }

@@ -19,7 +19,7 @@ public class BiosampleAttribute {
   private String attributeNameTermUri;
   @JsonProperty("attributeNameTermLabel")
   private String attributeNameTermLabel;
-  @JsonIgnore
+  //@JsonIgnore
   private List<String> attributeNameTermAltLabels;
   @JsonProperty("attributeNameTermSource")
   private String attributeNameTermSource;
@@ -27,7 +27,7 @@ public class BiosampleAttribute {
   private String attributeValueTermUri;
   @JsonProperty("attributeValueTermLabel")
   private String attributeValueTermLabel;
-  @JsonIgnore
+  //@JsonIgnore
   private List<String> attributeValueTermAltLabels;
   @JsonProperty("attributeValueTermSource")
   private String attributeValueTermSource;

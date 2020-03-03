@@ -52,5 +52,5 @@ public class BiosampleSearchResult {
   public List<Biosample> getBiosamples() {
     return biosamples;
   }
-  
+
 }
