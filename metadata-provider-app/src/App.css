@@ -3,7 +3,7 @@
   --theme-default-font-size: 10px;
   --theme-presentation-font-size: 18px;
   --font-size-theme: var(--theme-default-font-size);
-  /*--font-size-theme: var(--theme-presentation-font-size);*/
+  --font-size-theme: var(--theme-presentation-font-size);
   --color-dark0: #000;
   --color-dark1: #2e3032;
   --color-dark2: #5c5c5c;
@@ -317,7 +317,7 @@ h2 {
 }
 
 .btn-secondary-fixed-width {
-  width: 9.5em;
+  min-width: 10em;
 }
 
 .btn-samples-highlighted {
@@ -391,8 +391,10 @@ h2 {
 }
 
 .popover {
-  width: 30% !important;
+  /*width: 30% !important;*/
   min-width: 30% !important;
+  max-width: 100% !important;
+  font-size: calc(var(--font-size-theme) + 0.4vmin) !important;
 }
 
 /* Icons */

@@ -21,9 +21,6 @@ export default function ResultsTableComponent(props) {
                   <tr>
                     <th>#</th>
                     <th>Sample ID</th>
-                    {/*{props.db === 'annotated' && props.extraSampleIDs.length > 0 &&*/}
-                    {/*<th>Extra</th>*/}
-                    {/*}*/}
                   </tr>
                   </thead>
                   <tbody>
@@ -37,10 +34,6 @@ export default function ResultsTableComponent(props) {
                           highlighted={props.extraSampleIDs.includes(item.biosampleAccession)}
                         />
                       </td>
-                      {/*{props.db === 'annotated' && props.extraSampleIDs.length > 0 &&*/}
-                      {/*<td>{props.extraSampleIDs.includes(item.biosampleAccession) &&*/}
-                      {/*<FontAwesomeIcon className="star" icon={faStar}></FontAwesomeIcon>}</td>*/}
-                      {/*}*/}
                     </tr>
                   ))}
                   </tbody>

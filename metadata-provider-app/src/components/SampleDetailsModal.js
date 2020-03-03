@@ -2,6 +2,8 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import React, {useState} from 'react';
 import Table from "react-bootstrap/Table";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Popover from "react-bootstrap/Popover";
 
 export default function SampleDetailsModal(props) {
   const [show, setShow] = useState(false);
@@ -14,7 +16,55 @@ export default function SampleDetailsModal(props) {
       return str
     }
     return str.slice(0, num) + '...'
-  }
+  };
+
+  function extractTermID(termUri) {
+    let separator;
+    if (termUri.includes('_')) {
+      separator = '_';
+    }
+    else if (termUri.includes('#')) {
+      separator = '#';
+    }
+    else if (termUri.includes('/')) {
+      separator = '/';
+    }
+    else {
+      console.error('Invalid term uri: ' + termUri);
+    }
+    return termUri.substring(termUri.lastIndexOf(separator) + 1);
+  };
+
+  function getValueInCurieFormat(attribute) {
+    if (attribute.attributeValueTermUri) {
+      return attribute.attributeValueTermSource + ':' + extractTermID(attribute.attributeValueTermUri);
+    }
+  };
+
+  function renderPopOver(attribute) {
+    return (
+      <Popover id="popover-basic">
+        <Popover.Title as="h3">Term details</Popover.Title>
+        <Popover.Content>
+          <Table size={'sm'} striped bordered>
+            <tbody>
+            <tr>
+              <td>Label</td>
+              <td><strong>{attribute.attributeValueTermLabel}</strong></td>
+            </tr>
+            <tr>
+              <td>URI</td>
+              <td><a href={attribute.attributeValueTermUri} target='_blank'>{attribute.attributeValueTermUri}</a></td>
+            </tr>
+            <tr>
+              <td>Source</td>
+              <td>{attribute.attributeValueTermSource}</td>
+            </tr>
+            </tbody>
+          </Table>
+        </Popover.Content>
+      </Popover>);
+  };
 
   return (
     <>
@@ -23,12 +73,10 @@ export default function SampleDetailsModal(props) {
         {props.sample.biosampleAccession}
       </Button>
 
-
-
       <Modal
         show={show}
         onHide={handleClose}
-        size="lg"
+        size="xl"
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
@@ -55,7 +103,19 @@ export default function SampleDetailsModal(props) {
               <tr key={index} className={props.relevantAttributes.includes(item.attributeName) ? 'highlighted-result' : ''}>
               {/*<tr key={index} className={props.relevantAttributes.includes(item.attributeName? 'highlighted-result' : 'ble')}>*/}
                 <td>{item.attributeName}</td>
-                <td>{truncateString(item.attributeValue, 200)}</td>
+                <td>{truncateString(item.attributeValue, 200)}
+                  {item.attributeValueTermUri &&
+                  <OverlayTrigger
+                    trigger="click"
+                    placement="auto"
+                    rootClose={true}
+                    overlay={renderPopOver(item)}>
+                    <Button className='ml-2' size={'sm'} variant="secondary">
+                      {getValueInCurieFormat(item)}
+                    </Button>
+                  </OverlayTrigger>
+                  }
+                </td>
               </tr>
             ))}
             </tbody>

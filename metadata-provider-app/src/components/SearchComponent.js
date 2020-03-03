@@ -260,16 +260,19 @@ function SearchComponent(props) {
                 </InputGroup.Append>
               </InputGroup>
             </Row>
-            {props.db === "original" && searchQuery &&
             <Row>
               <Col md={12}>
                 <div className="biosample-link">
+                  {props.db === "original" && searchQuery &&
                   <Button size="sm" variant="link" href={generateBiosampleSearchUrl(searchQuery)} target="blank">Search
                     on BioSample's website</Button>
+                  }
+                  {props.db === "annotated" && searchQuery &&
+                  <p>&nbsp;</p>
+                  }
                 </div>
               </Col>
             </Row>
-            }
           </Container>
         </Form.Group>
       </Form>
