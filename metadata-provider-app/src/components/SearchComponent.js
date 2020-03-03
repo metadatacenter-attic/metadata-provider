@@ -15,7 +15,16 @@ function SearchComponent(props) {
 
   const [hasError, setErrors] = useState(false);
   const [samples, setSamples] = useState([]);
+  const [sampleIDs, setSampleIDs] = useState([]);
   const [projectIDs, setProjectIDs] = useState([]);
+
+  // Maps with unique attribute values
+  // const [diseases, setDiseases] = useState({});
+  // const [tissues, setTissues] = useState({});
+  // const [cellTypes, setCellTypes] = useState({});
+  // const [cellLines, setCellLines] = useState({});
+  // const [sexs, setSexs] = useState({});
+
   const [showResults, setShowResults] = useState(false);
   const [searchQuery, setSearchQuery] = useState(/*'disease=liver cancer'*/);
   const [sampleQueries, setSampleQueries] = useState([]);
@@ -47,14 +56,20 @@ function SearchComponent(props) {
         {method: "GET"})
         .then(response => response.json())
         .then(data => {
-          console.log(data);
           setLoading(false);
+          // Save results
           setSamples(data["biosamples"]);
-          setShowResults(true);
-          //let sampleIDs = getSampleIDs();
-          let projectIDs = extractProjectIDs(data["biosamples"]);
-          //let cellTypes = extractCellTypes(data);
+          let sampleIDs = data["biosampleAccessions"];
+          let projectIDs = Object.keys(data["bioprojects"]);
+
           setProjectIDs(projectIDs);
+          // setDiseases(data["diseaseValues"]);
+          // setTissues(data["tissueValues"]);
+          // setCellTypes(data["cellTypeValues"]);
+          // setCellLines(data["cellLineValues"]);
+          // setSexs(data["sexValues"]);
+          setShowResults(true);
+
           if (props.db === 'original') {
             // Pass the IDs to the annotated samples component through the parent to compare them
             props.saveSampleIDs(sampleIDs);
@@ -68,42 +83,6 @@ function SearchComponent(props) {
         })
         .catch(err => setErrors(err));
     }
-  };
-
-  function extractProjectIDs(data) {
-    let projectIDs = [];
-    for (let i = 0; i < data.length; i++) {
-      let projectID = data[i]['bioprojectAccession'];
-      if (projectID && !projectIDs.includes(projectID)) {
-        projectIDs.push(projectID);
-      }
-    }
-    return (projectIDs);
-  };
-
-  // function extractCellTypes(data) {
-  //   let cellTypes = [];
-  //   for (let i = 0; i < data.length; i++) {
-  //     for (let j = 0; j < data[i].attributes.length; j++) {
-  //       if (data[i].attributes[j].attributeName === 'cell type') {
-  //         let cellType = data[i].attributes[j].attributeValue;
-  //         if (cellType && !cellTypes.includes(cellType)) {
-  //           cellTypes.push(cellType);
-  //           break;
-  //         }
-  //       }
-  //     }
-  //   }
-  //   console.log(cellTypes);
-  //   return (cellTypes);
-  // };
-
-  function getSampleIDs(samples) {
-    let IDs = []
-    for (let i = 0; i < samples.length; i++) {
-      IDs.push(samples[i]['biosampleAccession']);
-    }
-    return IDs;
   };
 
   function updateExtraSampleIDs(originalSampleIDs, annotatedSamplesIDs) {
@@ -168,17 +147,16 @@ function SearchComponent(props) {
       if (attributeName.length > 0 && attributeValue.length > 0) {
         return [attributeName, attributeValue];
       } else {
-        throw("Couldn't parse attribute-value pair. Attribute name or attribute value are empty: " + attributeValuePair);
+        throw Error("Couldn't parse attribute-value pair. Attribute name or attribute value are empty: " + attributeValuePair);
       }
     } else {
-      throw("Couldn't parse attribute-value pair. Invalid format: " + attributeValuePair);
+      throw Error("Couldn't parse attribute-value pair. Invalid format: " + attributeValuePair);
     }
   };
 
   function generateBiosampleSearchUrl(query) {
     if (query) {
       try {
-        console.log(query)
         let andRegex = new RegExp('^.* AND .*$', "i");
         let attributeValuePairs = {};
         if (query.match(andRegex)) { // The query contains AND operators
@@ -211,7 +189,6 @@ function SearchComponent(props) {
           biosampleQuery = biosampleQuery.substring(0, biosampleQuery.length - 5).trim();
         }
         let biosampleSearchUrl = encodeURI(baseUrl + biosampleQuery);
-        console.log(biosampleSearchUrl);
         return biosampleSearchUrl;
       } catch (err) {
         console.warn(err);
@@ -336,42 +313,48 @@ function SearchComponent(props) {
                 </Row>
                 {/*<Row>*/}
                 {/*  <Col md={1}></Col>*/}
+                {/*  {!props.relevantAttributes.includes("disease") &&*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Diseases</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(diseases).length)}</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>}*/}
+                {/*  {!props.relevantAttributes.includes("tissue") &&*/}
+                {/*  <Col className="results-count results-count-left">*/}
+                {/*    <Container>*/}
+                {/*      <Row><Col className="title-secondary">Tissues</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(tissues).length)}</Col></Row>*/}
+                {/*    </Container>*/}
+                {/*  </Col>}*/}
+                {/*  {!props.relevantAttributes.includes("cell type") &&*/}
                 {/*  <Col className="results-count results-count-left">*/}
                 {/*    <Container>*/}
                 {/*      <Row><Col className="title-secondary">Cell Types</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">7</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(cellTypes).length)}</Col></Row>*/}
                 {/*    </Container>*/}
-                {/*  </Col>*/}
+                {/*  </Col>}*/}
+                {/*  {!props.relevantAttributes.includes("cell line") &&*/}
                 {/*  <Col className="results-count results-count-left">*/}
                 {/*    <Container>*/}
                 {/*      <Row><Col className="title-secondary">Cell Lines</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">12</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(cellLines).length)}</Col></Row>*/}
                 {/*    </Container>*/}
-                {/*  </Col>*/}
-                {/*  /!*<Col className="results-count results-count-left">*!/*/}
-                {/*  /!*  <Container>*!/*/}
-                {/*  /!*    <Row><Col className="title-secondary">Sex</Col></Row>*!/*/}
-                {/*  /!*    <Row><Col className="count-secondary">M</Col></Row>*!/*/}
-                {/*  /!*  </Container>*!/*/}
-                {/*  /!*</Col>*!/*/}
-                {/*  /!*<Col className="results-count results-count-left">*!/*/}
-                {/*  /!*  <Container>*!/*/}
-                {/*  /!*    <Row><Col className="title-secondary">Age</Col></Row>*!/*/}
-                {/*  /!*    <Row><Col className="count-secondary">56.4</Col></Row>*!/*/}
-                {/*  /!*  </Container>*!/*/}
-                {/*  /!*</Col>*!/*/}
+                {/*  </Col>}*/}
+                {/*  {!props.relevantAttributes.includes("sex") &&*/}
                 {/*  <Col className="results-count results-count-left">*/}
                 {/*    <Container>*/}
-                {/*      <Row><Col className="title-secondary">Centers</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">4</Col></Row>*/}
+                {/*      <Row><Col className="title-secondary">Sex</Col></Row>*/}
+                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(sexs).length)}</Col></Row>*/}
                 {/*    </Container>*/}
-                {/*  </Col>*/}
+                {/*  </Col>}*/}
+                {/*  {!props.relevantAttributes.includes("investigator") &&*/}
                 {/*  <Col className="results-count results-count-left">*/}
                 {/*    <Container>*/}
                 {/*      <Row><Col className="title-secondary">Investigators</Col></Row>*/}
                 {/*      <Row><Col className="count-secondary">5</Col></Row>*/}
                 {/*    </Container>*/}
-                {/*  </Col>*/}
+                {/*  </Col>}*/}
                 {/*  <Col md={1}></Col>*/}
                 {/*</Row>*/}
               </Container>
@@ -387,6 +370,11 @@ function SearchComponent(props) {
           extraProjectIDs={extraProjectIDs}
           samples={samples}
           projectIDs={projectIDs}
+          // diseases={diseases}
+          // tissues={tissues}
+          // cellTypes={cellTypes}
+          // cellLines={cellLines}
+          // sexs={sexs}
           relevantAttributes={props.relevantAttributes}
         />
         }

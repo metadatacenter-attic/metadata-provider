@@ -3,8 +3,6 @@ import Table from "react-bootstrap/Table";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import {faStar} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import SampleDetailsModal from "./SampleDetailsModal";
 import ProjectDetailsModal from "./ProjectDetailsModal";
 
