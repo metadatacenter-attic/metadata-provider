@@ -110,7 +110,7 @@ export default function SampleDetailsModal(props) {
                     placement="auto"
                     rootClose={true}
                     overlay={renderPopOver(item)}>
-                    <Button className='ml-2' size={'sm'} variant="secondary">
+                    <Button className='ml-2 btn-secondary btn-secondary-smaller-font' size={'sm'} variant="secondary">
                       {getValueInCurieFormat(item)}
                     </Button>
                   </OverlayTrigger>

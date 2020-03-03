@@ -1,7 +1,7 @@
 /* Define a variable at the top level of the cascade */
 :root {
   --theme-default-font-size: 10px;
-  --theme-presentation-font-size: 18px;
+  --theme-presentation-font-size: 15px;
   --font-size-theme: var(--theme-default-font-size);
   --font-size-theme: var(--theme-presentation-font-size);
   --color-dark0: #000;
@@ -318,6 +318,10 @@ h2 {
 
 .btn-secondary-fixed-width {
   min-width: 10em;
+}
+
+.btn-secondary-smaller-font {
+  font-size: calc(var(--font-size-theme) + 0.2vmin) !important;
 }
 
 .btn-samples-highlighted {
