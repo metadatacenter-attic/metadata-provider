@@ -40,17 +40,19 @@ function SearchComponent(props) {
       setLoading(true);
       setShowEnterQueryMessage(false);
       let preparedSearchQuery = searchQuery
-      let url = "http://localhost:8080/biosample/search?q=" + preparedSearchQuery + "&db=" + db;
+      //let url = "http://localhost:8080/biosample/search?q=" + preparedSearchQuery + "&db=" + db;
+      let url = "http://localhost:8080/biosample/query?q=" + preparedSearchQuery + "&db=" + db + "&includeDetails=true";
 
       fetch(url,
         {method: "GET"})
         .then(response => response.json())
         .then(data => {
+          console.log(data);
           setLoading(false);
-          setSamples(data);
+          setSamples(data["biosamples"]);
           setShowResults(true);
-          let sampleIDs = getSampleIDs(data);
-          let projectIDs = extractProjectIDs(data);
+          //let sampleIDs = getSampleIDs();
+          let projectIDs = extractProjectIDs(data["biosamples"]);
           //let cellTypes = extractCellTypes(data);
           setProjectIDs(projectIDs);
           if (props.db === 'original') {
@@ -58,7 +60,7 @@ function SearchComponent(props) {
             props.saveSampleIDs(sampleIDs);
             props.saveProjectIDs(projectIDs);
           } else if (props.db === 'annotated') {
-            setAnnotatedSamplesIDs(sampleIDs);
+            setAnnotatedSamplesIDs(data["biosampleAccessions"]);
             setAnnotatedProjectIDs(projectIDs);
             updateExtraSampleIDs(originalSampleIDs, sampleIDs);
             updateExtraProjectIDs(originalProjectIDs, projectIDs);
@@ -286,7 +288,7 @@ function SearchComponent(props) {
               <Col md={12}>
                 <div className="biosample-link">
                   <Button size="sm" variant="link" href={generateBiosampleSearchUrl(searchQuery)} target="blank">Search
-                    in BioSample's website</Button>
+                    on BioSample's website</Button>
                 </div>
               </Col>
             </Row>

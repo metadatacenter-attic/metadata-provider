@@ -4,25 +4,27 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class BiosampleSearchResult {
 
   @JsonProperty("biosamples")
   private List<Biosample> biosamples;
+  @JsonProperty("biosampleAccessions")
+  private List<String> biosampleAccessions;
   @JsonProperty("bioprojects")
-  private List<UniqueBioproject> bioprojects;
-
+  private Map<String, UniqueBioproject> bioprojects;
   @JsonProperty("diseaseValues")
-  private List<UniqueBiosampleAttributeValue> diseaseValues;
+  Map<String, UniqueBiosampleAttributeValue> diseaseValues;
   @JsonProperty("tissueValues")
-  private List<UniqueBiosampleAttributeValue> tissueValues;
+  Map<String, UniqueBiosampleAttributeValue> tissueValues;
   @JsonProperty("cellTypeValues")
-  private List<UniqueBiosampleAttributeValue> cellTypeValues;
+  Map<String, UniqueBiosampleAttributeValue> cellTypeValues;
   @JsonProperty("cellLineValues")
-  private List<UniqueBiosampleAttributeValue> cellLineValues;
+  Map<String, UniqueBiosampleAttributeValue> cellLineValues;
   @JsonProperty("sexValues")
-  private List<UniqueBiosampleAttributeValue> sexValues;
+  Map<String, UniqueBiosampleAttributeValue> sexValues;
 
   public BiosampleSearchResult() { }
 
@@ -30,12 +32,15 @@ public class BiosampleSearchResult {
     this.biosamples = biosamples;
   }
 
-  public BiosampleSearchResult(List<Biosample> biosamples, List<UniqueBioproject> bioprojects,
-                               List<UniqueBiosampleAttributeValue> diseaseValues,
-                               List<UniqueBiosampleAttributeValue> tissueValues,
-                               List<UniqueBiosampleAttributeValue> cellTypeValues,
-                               List<UniqueBiosampleAttributeValue> cellLineValues, List<UniqueBiosampleAttributeValue> sexValues) {
+  public BiosampleSearchResult(List<Biosample> biosamples, List<String> biosampleAccessions,
+                               Map<String, UniqueBioproject> bioprojects,
+                               Map<String, UniqueBiosampleAttributeValue> diseaseValues,
+                               Map<String, UniqueBiosampleAttributeValue> tissueValues,
+                               Map<String, UniqueBiosampleAttributeValue> cellTypeValues,
+                               Map<String, UniqueBiosampleAttributeValue> cellLineValues,
+                               Map<String, UniqueBiosampleAttributeValue> sexValues) {
     this.biosamples = biosamples;
+    this.biosampleAccessions = biosampleAccessions;
     this.bioprojects = bioprojects;
     this.diseaseValues = diseaseValues;
     this.tissueValues = tissueValues;
@@ -47,29 +52,5 @@ public class BiosampleSearchResult {
   public List<Biosample> getBiosamples() {
     return biosamples;
   }
-
-  public List<UniqueBioproject> getBioprojects() {
-    return bioprojects;
-  }
-
-  public List<UniqueBiosampleAttributeValue> getDiseaseValues() {
-    return diseaseValues;
-  }
-
-  public List<UniqueBiosampleAttributeValue> getTissueValues() {
-    return tissueValues;
-  }
-
-  public List<UniqueBiosampleAttributeValue> getCellTypeValues() {
-    return cellTypeValues;
-  }
-
-  public List<UniqueBiosampleAttributeValue> getCellLineValues() {
-    return cellLineValues;
-  }
-
-  public List<UniqueBiosampleAttributeValue> getSexValues() {
-    return sexValues;
-  }
-
+  
 }
