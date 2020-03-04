@@ -1,4 +1,4 @@
-package org.metadatacenter.db.util;
+package org.metadatacenter.metadataprovider.db.util;
 
 import com.mongodb.client.MongoClient;
 import io.dropwizard.lifecycle.Managed;

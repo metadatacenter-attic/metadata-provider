@@ -1,4 +1,4 @@
-package org.metadatacenter.resources;
+package org.metadatacenter.metadataprovider.resources;
 
 
 import org.apache.commons.lang3.tuple.Pair;

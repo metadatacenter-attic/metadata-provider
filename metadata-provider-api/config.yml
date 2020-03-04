@@ -13,5 +13,7 @@ mongoDBConnection:
     originalSamples: "biosample-original"
     annotatedSamples: "biosample-annotated"
 
-
+# the only required property is resourcePackage, for more config options see below
+swagger:
+  resourcePackage: org.metadatacenter.metadataprovider
 

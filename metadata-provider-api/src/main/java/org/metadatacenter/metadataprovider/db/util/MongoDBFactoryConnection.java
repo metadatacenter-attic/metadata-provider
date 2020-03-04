@@ -1,8 +1,8 @@
-package org.metadatacenter.db.util;
+package org.metadatacenter.metadataprovider.db.util;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
-import org.metadatacenter.db.configuration.MongoDBConnection;
+import org.metadatacenter.metadataprovider.db.configuration.MongoDBConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,23 +1,24 @@
-package org.metadatacenter.resources;
+package org.metadatacenter.metadataprovider.resources;
 
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.metadatacenter.api.Biosample;
-import org.metadatacenter.api.BiosampleSearchResult;
-import org.metadatacenter.db.BiosampleService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.metadatacenter.metadataprovider.api.Biosample;
+import org.metadatacenter.metadataprovider.api.BiosampleSearchResult;
+import org.metadatacenter.metadataprovider.db.BiosampleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Path("/biosample")
+@Api("/biosample")
 @Produces(MediaType.APPLICATION_JSON)
 public class BiosampleResource {
 
@@ -37,6 +38,7 @@ public class BiosampleResource {
   }
 
   @GET
+  @ApiOperation("Get all samples")
   @Path("/all")
   @Timed
   public Response getAll() {

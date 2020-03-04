@@ -1,4 +1,4 @@
-package org.metadatacenter.db.configuration;
+package org.metadatacenter.metadataprovider.db.configuration;
 
 public class MongoDBConnection {
 

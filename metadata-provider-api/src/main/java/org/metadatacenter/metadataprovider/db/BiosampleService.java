@@ -1,4 +1,4 @@
-package org.metadatacenter.db;
+package org.metadatacenter.metadataprovider.db;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,7 +8,7 @@ import com.mongodb.client.MongoCursor;
 import org.bson.BsonDocument;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.metadatacenter.api.*;
+import org.metadatacenter.metadataprovider.api.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

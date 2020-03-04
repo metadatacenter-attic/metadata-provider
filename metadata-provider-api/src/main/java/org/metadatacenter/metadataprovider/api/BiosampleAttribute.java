@@ -1,4 +1,4 @@
-package org.metadatacenter.api;
+package org.metadatacenter.metadataprovider.api;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;

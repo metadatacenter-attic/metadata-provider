@@ -1,13 +1,15 @@
-package org.metadatacenter;
+package org.metadatacenter.metadataprovider;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+import io.federecio.dropwizard.swagger.SwaggerBundle;
+import io.federecio.dropwizard.swagger.SwaggerBundleConfiguration;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
-import org.metadatacenter.db.BiosampleService;
-import org.metadatacenter.db.util.MongoDBFactoryConnection;
-import org.metadatacenter.db.util.MongoDBManaged;
-import org.metadatacenter.resources.BiosampleResource;
+import org.metadatacenter.metadataprovider.db.BiosampleService;
+import org.metadatacenter.metadataprovider.db.util.MongoDBFactoryConnection;
+import org.metadatacenter.metadataprovider.db.util.MongoDBManaged;
+import org.metadatacenter.metadataprovider.resources.BiosampleResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +33,13 @@ public class MetadataProviderApiApplication extends Application<MetadataProvider
 
   @Override
   public void initialize(final Bootstrap<MetadataProviderApiConfiguration> bootstrap) {
-    // TODO: application initialization
+    // Swagger initialization
+    bootstrap.addBundle(new SwaggerBundle<MetadataProviderApiConfiguration>() {
+      @Override
+      protected SwaggerBundleConfiguration getSwaggerBundleConfiguration(MetadataProviderApiConfiguration configuration) {
+        return configuration.swaggerBundleConfiguration;
+      }
+    });
   }
 
   @Override
