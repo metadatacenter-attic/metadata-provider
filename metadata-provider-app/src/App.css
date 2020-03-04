@@ -2,7 +2,7 @@
 :root {
   --theme-default-font-size: 10px;
   --theme-presentation-font-size: 15px;
-  /*--font-size-theme: var(--theme-default-font-size);*/ /* Optimized for regular use */
+  --font-size-theme: var(--theme-default-font-size); /* Optimized for regular use */
   --font-size-theme: var(--theme-presentation-font-size); /* Optimized for demos */
   --color-dark0: #000;
   --color-dark1: #2e3032;
@@ -277,6 +277,10 @@ h2 {
   }
 }
 
+.sampleid-col {
+  width: 30%;
+}
+
 /****************************/
 /* Bootstrap customizations */
 /****************************/
@@ -316,8 +320,14 @@ h2 {
 }
 
 .btn-secondary-smaller-font {
-  font-size: calc(var(--font-size-theme) + 0.2vmin) !important;
+  padding: 0 auto !important;
+  margin: 0 !important;
+  font-size: calc(var(--font-size-theme) + 0.3vmin) !important;
+  height: 1.7em !important;
+  line-height: 1em !important;
+  font-family: Barlow Semi Condensed, Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
 }
+
 
 .btn-samples-highlighted {
   border-color: #ffcc00 !important;

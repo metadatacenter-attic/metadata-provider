@@ -87,7 +87,7 @@ export default function SampleDetailsModal(props) {
           <Table className="result-details-modal" size={'md'} striped bordered hover variant={'dark'}>
             <tbody>
             <tr>
-              <td>Sample ID</td>
+              <td className="sampleid-col">Sample ID</td>
               <td>{props.sample.biosampleAccession}
               <Button size="sm" variant="link" href={props.sample.biosampleUrl} target='blank'>View in BioSample</Button></td>
             </tr>
