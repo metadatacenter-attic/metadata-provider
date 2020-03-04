@@ -37,7 +37,6 @@ def sample_to_json(sample, required_attributes):
                 if (attribute_name is not None and attribute_name in required_att['att_name_variations']) or \
                         (display_name is not None and display_name in required_att['att_name_variations']) or \
                         (harmonized_name is not None and harmonized_name in required_att['att_name_variations']):
-
                     # Attribute found.
                     # Note that we transform the value to lower case because BioSample search ignores case too
                     found = True
@@ -156,7 +155,7 @@ def export_samples_to_json(root_folder_name, input_file, output_file, log_freque
 
 def transform_and_export_samples_to_json(root_folder_name, input_file, output_file, log_frequency=1000):
     """
-       Parses an XML file with multiple NCBI biosamples and...
+       Parses an XML file with multiple NCBI biosamples and exports them to JSON
 
     """
     constants.BASE_FOLDER = utils.get_base_folder(root_folder_name)
@@ -255,8 +254,11 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
 
 def transform_and_export_projects_to_json(input_file, output_file, log_frequency=1000):
     """
-       Parses an XML file with multiple NCBI biosamples and...
-
+    Parses an XML file with multiple NCBI bioprojects and exports them to JSON
+    :param input_file:
+    :param output_file:
+    :param log_frequency:
+    :return:
     """
     execute = True
     if os.path.exists(output_file):
@@ -277,7 +279,7 @@ def transform_and_export_projects_to_json(input_file, output_file, log_frequency
         # Read projects from XML file
         context = ET.iterparse(input_file, events=("start", "end"))
 
-        # turn it into an iterator
+        # Turn it into an iterator
         context = iter(context)
         event, root = context.__next__()
 
@@ -409,6 +411,7 @@ def transform_and_export_projects_to_json(input_file, output_file, log_frequency
 def obj_dict(obj):
     return obj.__dict__
 
+
 # Class that represents a biological sample for the NCBI's BioSample Human Package 1.0
 # https://submit.ncbi.nlm.nih.gov/biosample/template/?package=Human.1.0&action=definition
 class NcbiBiosample:
@@ -430,7 +433,7 @@ class NcbiBiosampleAttribute:
 
 
 class BioProject:
-    def __init__(self, id = None, name = None, title = None, description = None, organizations = None, pis = None):
+    def __init__(self, id=None, name=None, title=None, description=None, organizations=None, pis=None):
         self.id = id
         self.name = name
         self.title = title
