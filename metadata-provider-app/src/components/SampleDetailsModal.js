@@ -109,7 +109,7 @@ export default function SampleDetailsModal(props) {
                     rootClose={true}
                     overlay={renderPopOver(item.attributeNameTermUri, item.attributeNameTermLabel,
                       item.attributeNameTermSource)}>
-                    <Button className='ml-2 btn-secondary btn-secondary-smaller-font' size={'sm'} variant="secondary">
+                    <Button className='ml-2 btn-secondary btn-secondary-curie' size={'sm'} variant="secondary">
                       {generateCurie(item.attributeNameTermSource, item.attributeNameTermUri)}
                     </Button>
                   </OverlayTrigger>
@@ -123,7 +123,7 @@ export default function SampleDetailsModal(props) {
                     rootClose={true}
                     overlay={renderPopOver(item.attributeValueTermUri, item.attributeValueTermLabel,
                       item.attributeValueTermSource)}>
-                    <Button className='ml-2 btn-secondary btn-secondary-smaller-font' size={'sm'} variant="secondary">
+                    <Button className='ml-2 btn-secondary btn-secondary-curie' size={'sm'} variant="secondary">
                       {generateCurie(item.attributeValueTermSource, item.attributeValueTermUri)}
                     </Button>
                   </OverlayTrigger>
