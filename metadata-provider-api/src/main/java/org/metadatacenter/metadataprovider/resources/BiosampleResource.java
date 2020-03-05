@@ -16,24 +16,24 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Map;
 
+@SwaggerDefinition(
+    info = @Info(
+        title = "Metadata Provider",
+        version = "prototype",
+        description = "Prototype utilities to query a subset of NCBI BioSample metadata records that were processed " +
+            "using semantic technology to increase their value.\n\nThe current database contains " +
+            "<strong>4,346 records</strong> for three diseases: <i>hepatocellular carcinoma</i>, <i>myelodysplasia</i>, " +
+            "and <i>systemic lupus erythematosus</i>. The original records were downloaded on " +
+            "February 2, 2020 from the NCBI's FTP server (https://ftp.ncbi.nih.gov/biosample).",
+        termsOfService = "http://localhost:8080/biosample/tos",
+        // license = @License(name = "Apache 2.0", url = "http://foo.bar"),
+        contact = @Contact(name = " ", email = "marcosmr@stanford.edu")
+    )
+)
 
 @Path("/biosample")
 @Api("/biosample")
 @Produces(MediaType.APPLICATION_JSON)
-@SwaggerDefinition(
-    info = @Info(
-        title = "Metadata Provider",
-        version = "0.1",
-        description = "Utilities to query a subset of NCBI BioSample metadata records that were processed using " +
-            "semantic technology to increase their findability. The current database contains 4,346 records for three" +
-            " diseases: hepatocellular carcinoma, myelodysplasia, and systemic lupus erythematosus. The original " +
-            "BioSample records were downloaded on February 2, 2020 from the NCBI's FTP server (https://ftp.ncbi.nih" +
-            ".gov/biosample).",
-        termsOfService = "http://localhost:8080/biosample/tos",
-        // license = @License(name = "Apache 2.0", url = "http://foo.bar"),
-        contact = @Contact(name = "the developers", email = "marcosmr@stanford.edu")
-    )
-)
 public class BiosampleResource {
 
   private static final Logger logger = LoggerFactory.getLogger(BiosampleResource.class);
@@ -93,8 +93,9 @@ public class BiosampleResource {
   @ApiOperation("Search biosamples by attribute name and value")
   @Path("/search")
   @Timed
-  public Response search(@ApiParam(value = "Search query in the format: 'attributeName1=attributeValue1 AND " +
-      "attributeName2=attributeValue2 AND ... AND attributeNameN=attributeValueN'",
+  public Response search(@ApiParam(value = "Search query in the format: <i>attributeName1=attributeValue1 AND " +
+      "attributeName2=attributeValue2 AND ... AND attributeNameN=attributeValueN</i>. Note that the attribute names and " +
+      "values can be expressed using either free text (e.g., <i>disease=HCC</i>) or CURIEs (e.g., <i>biolink:Disease=mondo:0007256</i>)",
       example = "disease=HCC AND tissue=liver") @QueryParam("q") @NotEmpty String q,
                          @ApiParam(value = "Target database") @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db,
                          @ApiParam(value = "Returns a list with all the biosample accessions that match the query") @QueryParam("include_accessions") @DefaultValue("false") boolean includeAccessions,

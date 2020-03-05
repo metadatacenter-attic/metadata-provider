@@ -113,7 +113,7 @@ export default function App() {
     <div className="App">
 
       <div className="App-header">
-        <h1>NCATS Translator - Metadata Provider<sup><i>alpha</i></sup></h1>
+        <h1>Metadata Provider<sup><i>prototype</i></sup></h1>
       </div>
 
       <div className="App-content">

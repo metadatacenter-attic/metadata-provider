@@ -222,10 +222,12 @@ public class BiosampleService {
             elemMatch("attributes",
                 and(
                     or(
+                        regex(ATTRIBUTE_NAME_FIELD, attributeNameForRegex, "i"),
                         eq(ATTRIBUTE_NAME_TERM_URI_FIELD, attributeName),
                         regex(ATTRIBUTE_NAME_TERM_LABEL_FIELD, attributeNameForRegex, "i"),
                         in(ATTRIBUTE_NAME_TERM_ALT_LABELS_FIELD, attributeName.toLowerCase())),
                     or(
+                        regex(ATTRIBUTE_VALUE_FIELD, attributeValueForRegex, "i"),
                         eq(ATTRIBUTE_VALUE_TERM_URI_FIELD, attributeValue),
                         regex(ATTRIBUTE_VALUE_TERM_LABEL_FIELD, attributeValueForRegex, "i"),
                         in(ATTRIBUTE_VALUE_TERM_ALT_LABELS_FIELD, attributeValue.toLowerCase())))));
