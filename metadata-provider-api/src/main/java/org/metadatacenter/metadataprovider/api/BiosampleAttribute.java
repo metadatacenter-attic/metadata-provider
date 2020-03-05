@@ -1,34 +1,29 @@
 package org.metadatacenter.metadataprovider.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+@JsonPropertyOrder({"attributeName", "attributeValue", "attributeNameTermUri", "attributeNameTermLabel",
+    "attributeNameTermAltLabels", "attributeNameTermSource", "attributeValueTermUri", "attributeValueTermLabel",
+    "attributeValueTermAltLabels", "attributeValueTermSource"})
 public class BiosampleAttribute {
 
   // Properties shared by original and annotated samples
-  @JsonProperty("attributeName")
   private String attributeName;
-  @JsonProperty("attributeValue")
   private String attributeValue;
+
   // Properties for annotated samples
-  @JsonProperty("attributeNameTermUri")
   private String attributeNameTermUri;
-  @JsonProperty("attributeNameTermLabel")
   private String attributeNameTermLabel;
-  //@JsonIgnore
   private List<String> attributeNameTermAltLabels;
-  @JsonProperty("attributeNameTermSource")
   private String attributeNameTermSource;
-  @JsonProperty("attributeValueTermUri")
+
   private String attributeValueTermUri;
-  @JsonProperty("attributeValueTermLabel")
   private String attributeValueTermLabel;
-  //@JsonIgnore
   private List<String> attributeValueTermAltLabels;
-  @JsonProperty("attributeValueTermSource")
   private String attributeValueTermSource;
 
   public BiosampleAttribute() {

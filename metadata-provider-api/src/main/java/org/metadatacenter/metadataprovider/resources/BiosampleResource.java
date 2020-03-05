@@ -47,41 +47,27 @@ public class BiosampleResource {
   }
 
   @GET
-  @ApiOperation("Get all samples")
-  @Path("/all")
+  @ApiOperation("Find biosample by accession number")
+  @Path("{accession}")
   @Timed
-  public Response getAll() {
-    try {
-      final List<Biosample> samplesFound = originalSamplesService.getAll();
-      return Response.ok(samplesFound).build();
-    } catch (JsonProcessingException e) {
-      logger.error(e.getMessage());
-      return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-    }
-  }
-
-  /* Deprecated */
-  @GET
-  @Path("/search")
-  @Timed
-  public Response search(@QueryParam("q") @NotEmpty String q, @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db) {
+  public Response findBiosampleByAccession(@PathParam("accession") String accession,
+                                            @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db) {
     BiosampleService service;
     boolean isAnnotatedSamplesQuery;
     if (db.equals(BiosamplesDB.annotated)) {
-      logger.info("Selected DB: " + BiosamplesDB.annotated);
       service = annotatedSamplesService;
-      isAnnotatedSamplesQuery = true;
     }
     else {
-      logger.info("Selected DB: " + BiosamplesDB.original);
       service = originalSamplesService;
-      isAnnotatedSamplesQuery = false;
     }
     try {
-      Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q, isAnnotatedSamplesQuery);
-      final List<Biosample> samplesFound = service.searchDeprecated(attributeNameValuePairs);
-      logger.info(samplesFound.size() + " samples found");
-      return Response.ok(samplesFound).build();
+      Biosample sample = service.findByAccession(accession);
+      if (sample != null) {
+        return Response.ok(sample).build();
+      }
+      else {
+        return Response.status(Response.Status.NOT_FOUND).build();
+      }
     }
     catch (BadRequestException e) {
       logger.error(e.getMessage());
@@ -94,14 +80,15 @@ public class BiosampleResource {
   }
 
   @GET
-  @Path("/query")
+  @ApiOperation("Search biosamples by attribute name and value")
+  @Path("/search")
   @Timed
   public Response search(@QueryParam("q") @NotEmpty String q,
                             @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db,
                             @QueryParam("include_accessions") @DefaultValue("false") boolean includeAccessions,
                             @QueryParam("aggregations") List<Aggregation> aggregations,
                             @QueryParam("offset") @DefaultValue("0") int offset,
-                            @QueryParam("limit") @DefaultValue("3") int limit) {
+                            @QueryParam("limit") @DefaultValue("25") int limit) {
     BiosampleService service;
     boolean isAnnotatedSamplesQuery;
     if (db.equals(BiosamplesDB.annotated)) {
@@ -115,51 +102,24 @@ public class BiosampleResource {
       isAnnotatedSamplesQuery = false;
     }
     try {
-      Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q, isAnnotatedSamplesQuery);
-      final ApiOutput samplesFound = service.search(attributeNameValuePairs, includeAccessions, aggregations, offset, limit);
+      ApiOutput samplesFound;
+      if (q.equals("*")) { // Retrieve all documents. Note that in this case we don't include accessions or allow aggregations
+        samplesFound = service.findAll(offset, limit);
+      }
+      else {
+        Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q, isAnnotatedSamplesQuery);
+        samplesFound = service.search(attributeNameValuePairs, includeAccessions, aggregations, offset, limit);
+      }
       return Response.ok(samplesFound).build();
     }
     catch (BadRequestException e) {
       logger.error(e.getMessage());
-      return Response.status(Response.Status.BAD_REQUEST).build();
+      return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).type(MediaType.TEXT_PLAIN_TYPE).build();
     }
     catch (JsonProcessingException e) {
       logger.error(e.getMessage());
       return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
     }
   }
-
-//  @GET
-//  @Path("/query")
-//  @Timed
-//  public Response query(@QueryParam("q") @NotEmpty String q, @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db,
-//                         @QueryParam("includeDetails") @DefaultValue("false") boolean includeDetails) {
-//    BiosampleService service;
-//    boolean isAnnotatedSamplesQuery;
-//    if (db.equals(BiosamplesDB.annotated)) {
-//      logger.info("Selected DB: " + BiosamplesDB.annotated);
-//      service = annotatedSamplesService;
-//      isAnnotatedSamplesQuery = true;
-//    }
-//    else {
-//      logger.info("Selected DB: " + BiosamplesDB.original);
-//      service = originalSamplesService;
-//      isAnnotatedSamplesQuery = false;
-//    }
-//    try {
-//      Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q, isAnnotatedSamplesQuery);
-//      final BiosampleSearchResult samplesFound = service.search(attributeNameValuePairs, includeDetails);
-//      logger.info(samplesFound.getBiosamples().size() + " samples found");
-//      return Response.ok(samplesFound).build();
-//    }
-//    catch (BadRequestException e) {
-//      logger.error(e.getMessage());
-//      return Response.status(Response.Status.BAD_REQUEST).build();
-//    }
-//    catch (JsonProcessingException e) {
-//      logger.error(e.getMessage());
-//      return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
-//    }
-//  }
 
 }

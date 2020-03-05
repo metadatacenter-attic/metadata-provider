@@ -84,7 +84,9 @@ public class QueryUtils {
       }
       return Pair.of(attributeName, attributeValue);
     } else {
-      throw new BadRequestException("Malformed attribute name and value pair: " + attNameValue);
+      throw new BadRequestException("Malformed  attribute name and value pair: " + attNameValue +
+          "\nYour query should use the following syntax: attributeName1=attributeValue1 AND " +
+          "attributeName2=attributeValue2 AND ... AND attributeNameN=attributeValueN.\nExample: disease=HCC AND tissue=liver");
     }
   }
 

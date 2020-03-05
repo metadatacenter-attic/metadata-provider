@@ -31,7 +31,7 @@ public class BiosampleService {
   private final boolean isAnnotatedSamplesCollection;
   private final ObjectMapper mapper = new ObjectMapper();
 
-  private final String SAMPLE_ID_FIELD = "biosampleAccession";
+  private final String SAMPLE_ACCESSION_FIELD = "biosampleAccession";
   final String ATTRIBUTE_NAME_FIELD = "attributeName";
   final String ATTRIBUTE_NAME_TERM_URI_FIELD = "attributeNameTermUri";
   final String ATTRIBUTE_NAME_TERM_LABEL_FIELD = "attributeNameTermLabel";
@@ -46,10 +46,9 @@ public class BiosampleService {
     this.isAnnotatedSamplesCollection = isAnnotatedSamplesCollection;
   }
 
+  public ApiOutput findAll(int offset, int limit) throws JsonProcessingException {
 
-  public List<Biosample> getAll() throws JsonProcessingException {
-
-    final MongoCursor<Document> iterator = samplesCollection.find().iterator();
+    final MongoCursor<Document> iterator = samplesCollection.find().skip(offset).limit(limit).iterator();
     final List<Biosample> samples = new ArrayList<>();
     try {
       while (iterator.hasNext()) {
@@ -59,15 +58,21 @@ public class BiosampleService {
     } finally {
       iterator.close();
     }
-    return samples;
+
+    int total = (int) samplesCollection.countDocuments();
+    Pagination pagination = new Pagination(offset, limit, total);
+    ApiOutput output = new ApiOutput(pagination, samples);
+
+    return output;
   }
 
-  /* Deprecated */
-  public List<Biosample> searchDeprecated(Map<String, String> attributesAndValuesFilter) throws JsonProcessingException {
-    if (this.isAnnotatedSamplesCollection) {
-      return searchAnnotatedSamplesDeprecated(attributesAndValuesFilter);
-    } else {
-      return searchOriginalSamplesDeprecated(attributesAndValuesFilter);
+  public Biosample findByAccession(String accession) throws JsonProcessingException {
+    Document sampleDocument = samplesCollection.find(eq(SAMPLE_ACCESSION_FIELD, accession)).first();
+    if (sampleDocument != null) {
+      return mapper.readValue(sampleDocument.toJson(), Biosample.class);
+    }
+    else {
+      return null;
     }
   }
 
@@ -159,79 +164,6 @@ public class BiosampleService {
 
   }
 
-  private List<Biosample> searchOriginalSamplesDeprecated(Map<String, String> attributesAndValuesFilter)
-      throws JsonProcessingException {
-    final List<Biosample> samples = new ArrayList<>();
-
-    List<Bson> attNameValueFilters = new ArrayList<>();
-
-    for (String attributeName : attributesAndValuesFilter.keySet()) {
-      String attributeValue = attributesAndValuesFilter.get(attributeName);
-      String attributeValueForRegex = "^" + escapeSpecialRegexChars(attributeValue) + "$";
-      attNameValueFilters.add(
-          elemMatch("attributes",
-              and(eq(ATTRIBUTE_NAME_FIELD, attributeName),
-                  regex(ATTRIBUTE_VALUE_FIELD, attributeValueForRegex, "i"))));
-    }
-    Bson searchFilter = and(attNameValueFilters);
-    BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
-        MongoClientSettings.getDefaultCodecRegistry());
-    logger.info("Search filter: " + bsonDocument.toJson());
-
-    MongoCursor<Document> iterator =
-        samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ID_FIELD))).iterator();
-
-    try {
-      while (iterator.hasNext()) {
-        final Document sampleDoc = iterator.next();
-        samples.add(mapper.readValue(sampleDoc.toJson(), Biosample.class));
-      }
-    } finally {
-      iterator.close();
-    }
-    return samples;
-  }
-
-  private List<Biosample> searchAnnotatedSamplesDeprecated(Map<String, String> attributesAndValuesFilter) throws JsonProcessingException {
-    final List<Biosample> samples = new ArrayList<>();
-
-    List<Bson> attNameValueFilters = new ArrayList<>();
-
-    for (String attributeName : attributesAndValuesFilter.keySet()) {
-      String attributeValue = attributesAndValuesFilter.get(attributeName);
-      String attributeNameForRegex = "^" + escapeSpecialRegexChars(attributeName) + "$";
-      String attributeValueForRegex = "^" + escapeSpecialRegexChars(attributeValue) + "$";
-      attNameValueFilters.add(
-          elemMatch("attributes",
-              and(
-                  or(
-                      eq(ATTRIBUTE_NAME_TERM_URI_FIELD, attributeName),
-                      regex(ATTRIBUTE_NAME_TERM_LABEL_FIELD, attributeNameForRegex, "i"),
-                      in(ATTRIBUTE_NAME_TERM_ALT_LABELS_FIELD, attributeName.toLowerCase())),
-                  or(
-                      eq(ATTRIBUTE_VALUE_TERM_URI_FIELD, attributeValue),
-                      regex(ATTRIBUTE_VALUE_TERM_LABEL_FIELD, attributeValueForRegex, "i"),
-                      in(ATTRIBUTE_VALUE_TERM_ALT_LABELS_FIELD, attributeValue.toLowerCase())))));
-    }
-    Bson searchFilter = and(attNameValueFilters);
-    BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
-        MongoClientSettings.getDefaultCodecRegistry());
-    logger.info("Search filter: " + bsonDocument.toJson());
-
-    MongoCursor<Document> iterator =
-        samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ID_FIELD))).iterator();
-
-    try {
-      while (iterator.hasNext()) {
-        final Document sampleDoc = iterator.next();
-        samples.add(mapper.readValue(sampleDoc.toJson(), Biosample.class));
-      }
-    } finally {
-      iterator.close();
-    }
-    return samples;
-  }
-
   private ApiOutput searchSamples(Map<String, String> attributesAndValuesFilter, Integer offset, Integer limit,
                                   boolean searchAnnotated)
       throws JsonProcessingException {
@@ -248,10 +180,10 @@ public class BiosampleService {
 
     MongoCursor<Document> iterator;
     if (offset == null || limit == null) {
-      iterator = samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ID_FIELD))).iterator();
+      iterator = samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ACCESSION_FIELD))).iterator();
     } else {
       iterator =
-          samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ID_FIELD))).skip(offset).limit(limit).iterator();
+          samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ACCESSION_FIELD))).skip(offset).limit(limit).iterator();
     }
 
     try {

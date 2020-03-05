@@ -49,7 +49,7 @@ function SearchComponent(props) {
       setLoading(true);
       setShowEnterQueryMessage(false);
       let preparedSearchQuery = searchQuery
-      let url = "http://localhost:8080/biosample/query?q=" + preparedSearchQuery + "&db=" +
+      let url = "http://localhost:8080/biosample/search?q=" + preparedSearchQuery + "&db=" +
         db + "&include_accessions=true&aggregations=project&offset=0&limit=5000";
       //http://localhost:8080/biosample/query?q=disease=mds&db=annotated&include_accessions=true&aggregations=project&aggregations=tissue&offset=0&limit=2
 
