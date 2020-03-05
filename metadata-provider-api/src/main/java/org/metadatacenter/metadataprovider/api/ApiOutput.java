@@ -1,11 +1,8 @@
 package org.metadatacenter.metadataprovider.api;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
 import java.util.List;
 import java.util.Map;
 
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ApiOutput {
 
   private Pagination pagination;
