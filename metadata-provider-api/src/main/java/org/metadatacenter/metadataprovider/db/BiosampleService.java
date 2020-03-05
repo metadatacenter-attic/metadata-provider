@@ -9,10 +9,14 @@ import org.bson.BsonDocument;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.metadatacenter.metadataprovider.api.*;
+import org.metadatacenter.metadataprovider.resources.BiosampleResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import static com.mongodb.client.model.Filters.*;
@@ -61,13 +65,15 @@ public class BiosampleService {
   /* Deprecated */
   public List<Biosample> searchDeprecated(Map<String, String> attributesAndValuesFilter) throws JsonProcessingException {
     if (this.isAnnotatedSamplesCollection) {
-      return searchAnnotatedSamples(attributesAndValuesFilter);
+      return searchAnnotatedSamplesDeprecated(attributesAndValuesFilter);
     } else {
-      return searchOriginalSamples(attributesAndValuesFilter);
+      return searchOriginalSamplesDeprecated(attributesAndValuesFilter);
     }
   }
 
-  public BiosampleSearchResult search(Map<String, String> attributesAndValuesFilter, boolean includeDetails) throws JsonProcessingException {
+  public ApiOutput search(Map<String, String> attributesAndValuesFilter, boolean includeAccessions,
+                          List<BiosampleResource.Aggregation> aggregations, int offset, int limit)
+      throws JsonProcessingException {
 
     final String DISEASE_ATTRIBUTE_NAME = "disease";
     final String TISSUE_ATTRIBUTE_NAME = "tissue";
@@ -75,39 +81,36 @@ public class BiosampleService {
     final String CELL_LINE_ATTRIBUTE_NAME = "cell line";
     final String SEX_ATTRIBUTE_NAME = "sex";
 
-    List<Biosample> biosamples = null;
-    if (this.isAnnotatedSamplesCollection) {
-      biosamples = searchAnnotatedSamples(attributesAndValuesFilter);
-    } else {
-      biosamples = searchOriginalSamples(attributesAndValuesFilter);
-    }
+    // Retrieve the requested samples
+    ApiOutput output =
+        searchSamples(attributesAndValuesFilter, offset, limit, this.isAnnotatedSamplesCollection);
 
-    if (!includeDetails) {
+    // For all the samples that match the query, extract unique biosample accessions and unique values
+    // for project IDs and attributes
+    // TODO: we are making two calls to the DB in total, and this call is especially heavy. Optimize it.
+    List<Biosample> allSamples =
+        searchSamples(attributesAndValuesFilter, 0, Integer.MAX_VALUE, this.isAnnotatedSamplesCollection).getData();
 
-      return new BiosampleSearchResult(biosamples);
+    List<String> biosampleAccessions = new ArrayList<>();
+    Map<String, UniqueBioproject> bioprojectsMap = new HashMap<>();
+    Map<String, UniqueBiosampleAttributeValue> diseaseValues = new HashMap<>();
+    Map<String, UniqueBiosampleAttributeValue> tissueValues = new HashMap<>();
+    Map<String, UniqueBiosampleAttributeValue> cellTypeValues = new HashMap<>();
+    Map<String, UniqueBiosampleAttributeValue> cellLineValues = new HashMap<>();
+    Map<String, UniqueBiosampleAttributeValue> sexValues = new HashMap<>();
 
-    } else {
+    // Extract unique values for project IDs and attributes
+    for (Biosample sample : allSamples) {
 
-      // Extract unique biosample accessions and unique values for project IDs and attributes
-      List<String> biosampleAccessions = new ArrayList<>();
-      Map<String, UniqueBioproject> bioprojectsMap = new HashMap<>();
-      Map<String, UniqueBiosampleAttributeValue> diseaseValues = new HashMap<>();
-      Map<String, UniqueBiosampleAttributeValue> tissueValues = new HashMap<>();
-      Map<String, UniqueBiosampleAttributeValue> cellTypeValues = new HashMap<>();
-      Map<String, UniqueBiosampleAttributeValue> cellLineValues = new HashMap<>();
-      Map<String, UniqueBiosampleAttributeValue> sexValues = new HashMap<>();
-
-      // Extract unique values for project IDs and attributes
-      for (Biosample sample : biosamples) {
-
-        // Biosample Accessions
-        if (sample.getBiosampleAccession() != null) {
-          if (!biosampleAccessions.contains(sample.getBiosampleAccession())) {
-            biosampleAccessions.add(sample.getBiosampleAccession());
-          }
+      // Biosample Accessions
+      if (includeAccessions) {
+        if (!biosampleAccessions.contains(sample.getBiosampleAccession())) {
+          biosampleAccessions.add(sample.getBiosampleAccession());
         }
+      }
 
-        // Bioproject Accessions
+      // Bioproject Accessions
+      if (aggregations.contains(BiosampleResource.Aggregation.project)) {
         if (sample.getBioprojectAccession() != null) {
           if (bioprojectsMap.containsKey(sample.getBioprojectAccession())) { // Update count
             UniqueBioproject found = bioprojectsMap.get(sample.getBioprojectAccession());
@@ -118,29 +121,46 @@ public class BiosampleService {
                 new UniqueBioproject(sample.getBioprojectAccession(), 1));
           }
         }
+      }
 
+      if (aggregations.contains(BiosampleResource.Aggregation.disease)) {
         BiosampleAttribute diseaseAttribute = sample.extractAttribute(DISEASE_ATTRIBUTE_NAME);
         addToUniqueAttributeValuesMap(diseaseValues, diseaseAttribute, isAnnotatedSamplesCollection);
+      }
 
+      if (aggregations.contains(BiosampleResource.Aggregation.tissue)) {
         BiosampleAttribute tissueAttribute = sample.extractAttribute(TISSUE_ATTRIBUTE_NAME);
         addToUniqueAttributeValuesMap(tissueValues, tissueAttribute, isAnnotatedSamplesCollection);
+      }
 
+      if (aggregations.contains(BiosampleResource.Aggregation.cellType)) {
         BiosampleAttribute cellTypeAttribute = sample.extractAttribute(CELL_TYPE_ATTRIBUTE_NAME);
         addToUniqueAttributeValuesMap(cellTypeValues, cellTypeAttribute, isAnnotatedSamplesCollection);
+      }
 
+      if (aggregations.contains(BiosampleResource.Aggregation.cellLine)) {
         BiosampleAttribute cellLineAttribute = sample.extractAttribute(CELL_LINE_ATTRIBUTE_NAME);
         addToUniqueAttributeValuesMap(cellLineValues, cellLineAttribute, isAnnotatedSamplesCollection);
+      }
 
+      if (aggregations.contains(BiosampleResource.Aggregation.sex)) {
         BiosampleAttribute sexAttribute = sample.extractAttribute(SEX_ATTRIBUTE_NAME);
         addToUniqueAttributeValuesMap(sexValues, sexAttribute, isAnnotatedSamplesCollection);
       }
-
-      return new BiosampleSearchResult(biosamples, biosampleAccessions, bioprojectsMap, diseaseValues, tissueValues,
-          cellTypeValues, cellLineValues, sexValues);
     }
+
+    output.setBiosampleAccessions(biosampleAccessions);
+    output.setBioprojectsAgg(bioprojectsMap);
+    AttributeAggregations attAggregations =
+        new AttributeAggregations(diseaseValues, tissueValues, cellTypeValues, cellLineValues, sexValues);
+    output.setAttributesAgg(attAggregations);
+
+    return output;
+
   }
 
-  private List<Biosample> searchOriginalSamples(Map<String, String> attributesAndValuesFilter) throws JsonProcessingException {
+  private List<Biosample> searchOriginalSamplesDeprecated(Map<String, String> attributesAndValuesFilter)
+      throws JsonProcessingException {
     final List<Biosample> samples = new ArrayList<>();
 
     List<Bson> attNameValueFilters = new ArrayList<>();
@@ -157,6 +177,7 @@ public class BiosampleService {
     BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
         MongoClientSettings.getDefaultCodecRegistry());
     logger.info("Search filter: " + bsonDocument.toJson());
+
     MongoCursor<Document> iterator =
         samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ID_FIELD))).iterator();
 
@@ -171,7 +192,7 @@ public class BiosampleService {
     return samples;
   }
 
-  private List<Biosample> searchAnnotatedSamples(Map<String, String> attributesAndValuesFilter) throws JsonProcessingException {
+  private List<Biosample> searchAnnotatedSamplesDeprecated(Map<String, String> attributesAndValuesFilter) throws JsonProcessingException {
     final List<Biosample> samples = new ArrayList<>();
 
     List<Bson> attNameValueFilters = new ArrayList<>();
@@ -196,6 +217,7 @@ public class BiosampleService {
     BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
         MongoClientSettings.getDefaultCodecRegistry());
     logger.info("Search filter: " + bsonDocument.toJson());
+
     MongoCursor<Document> iterator =
         samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ID_FIELD))).iterator();
 
@@ -210,38 +232,79 @@ public class BiosampleService {
     return samples;
   }
 
+  private ApiOutput searchSamples(Map<String, String> attributesAndValuesFilter, Integer offset, Integer limit,
+                                  boolean searchAnnotated)
+      throws JsonProcessingException {
+
+    final List<Biosample> samples = new ArrayList<>();
+
+    Bson searchFilter = buildSearchFilter(attributesAndValuesFilter, searchAnnotated);
+    BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
+        MongoClientSettings.getDefaultCodecRegistry());
+
+    logger.info("Search filter: " + bsonDocument.toJson());
+
+    int total = (int) samplesCollection.countDocuments(searchFilter);
+
+    MongoCursor<Document> iterator;
+    if (offset == null || limit == null) {
+      iterator = samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ID_FIELD))).iterator();
+    } else {
+      iterator =
+          samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ID_FIELD))).skip(offset).limit(limit).iterator();
+    }
+
+    try {
+      while (iterator.hasNext()) {
+        final Document sampleDoc = iterator.next();
+        samples.add(mapper.readValue(sampleDoc.toJson(), Biosample.class));
+      }
+    } finally {
+      iterator.close();
+    }
+    Pagination pagination = new Pagination(offset, limit, total);
+    ApiOutput output = new ApiOutput(pagination, samples);
+
+    return output;
+  }
+
+  private Bson buildSearchFilter(Map<String, String> attributesAndValuesFilter, boolean searchAnnotated) {
+    List<Bson> attNameValueFilters = new ArrayList<>();
+
+    if (!searchAnnotated) { // original samples
+      for (String attributeName : attributesAndValuesFilter.keySet()) {
+        String attributeValue = attributesAndValuesFilter.get(attributeName);
+        String attributeValueForRegex = "^" + escapeSpecialRegexChars(attributeValue) + "$";
+        attNameValueFilters.add(
+            elemMatch("attributes",
+                and(eq(ATTRIBUTE_NAME_FIELD, attributeName),
+                    regex(ATTRIBUTE_VALUE_FIELD, attributeValueForRegex, "i"))));
+      }
+    } else { // annotated samples
+
+      for (String attributeName : attributesAndValuesFilter.keySet()) {
+        String attributeValue = attributesAndValuesFilter.get(attributeName);
+        String attributeNameForRegex = "^" + escapeSpecialRegexChars(attributeName) + "$";
+        String attributeValueForRegex = "^" + escapeSpecialRegexChars(attributeValue) + "$";
+        attNameValueFilters.add(
+            elemMatch("attributes",
+                and(
+                    or(
+                        eq(ATTRIBUTE_NAME_TERM_URI_FIELD, attributeName),
+                        regex(ATTRIBUTE_NAME_TERM_LABEL_FIELD, attributeNameForRegex, "i"),
+                        in(ATTRIBUTE_NAME_TERM_ALT_LABELS_FIELD, attributeName.toLowerCase())),
+                    or(
+                        eq(ATTRIBUTE_VALUE_TERM_URI_FIELD, attributeValue),
+                        regex(ATTRIBUTE_VALUE_TERM_LABEL_FIELD, attributeValueForRegex, "i"),
+                        in(ATTRIBUTE_VALUE_TERM_ALT_LABELS_FIELD, attributeValue.toLowerCase())))));
+      }
+    }
+    return and(attNameValueFilters);
+  }
+
   private String escapeSpecialRegexChars(String str) {
     Pattern SPECIAL_REGEX_CHARS = Pattern.compile("[{}()\\[\\].+*?^$\\\\|]");
     return SPECIAL_REGEX_CHARS.matcher(str).replaceAll("\\\\$0");
-  }
-
-  /**
-   * Returns the index of the value in the list, or -1 if not found
-   *
-   * @param attribute
-   * @param attributeValuesList
-   * @param searchAnnotated
-   * @return
-   */
-  private int indexOfAttributeValue(BiosampleAttribute attribute,
-                                    List<UniqueBiosampleAttributeValue> attributeValuesList,
-                                    boolean searchAnnotated) {
-    int index = 0;
-    for (UniqueBiosampleAttributeValue attributeValueObject : attributeValuesList) {
-      if (!searchAnnotated) {
-        if (attribute.getAttributeValue().toLowerCase().equals(attributeValueObject.getAttributeValue().toLowerCase())) {
-          return index;
-        }
-      } else {
-        if (attribute.getAttributeValueTermUri() != null && attributeValueObject.getAttributeValueTermUri() != null) {
-          if (attribute.getAttributeValueTermUri().toLowerCase().equals(attributeValueObject.getAttributeValueTermUri().toLowerCase())) {
-            return index;
-          }
-        }
-      }
-      index++;
-    }
-    return -1; // not found
   }
 
   private boolean isValidValue(BiosampleAttribute attribute, boolean isAnnotated) {
