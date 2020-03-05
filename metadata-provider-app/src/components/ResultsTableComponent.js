@@ -1,12 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Table from "react-bootstrap/Table";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import SampleDetailsModal from "./SampleDetailsModal";
 import ProjectDetailsModal from "./ProjectDetailsModal";
+import InfiniteScroll from 'react-infinite-scroller';
 
 export default function ResultsTableComponent(props) {
+
+  // Similar to componentDidMount and componentDidUpdate
+  useEffect(() => {
+    console.log("Samples length " + props.samples.length);
+  }, [props.samples]);
+
 
   return (
     <>
@@ -16,6 +23,17 @@ export default function ResultsTableComponent(props) {
           <Col>
             <Container>
               <div className="results">
+
+                {/*<div style="height:700px;overflow:auto;">*/}
+                <InfiniteScroll
+                  pageStart={0}
+                  loadMore={props.loadMore}
+                  hasMore={true || false}
+                  loader={<div className="loader" key={0}>Loading ...</div>}
+                  useWindow={false}
+                >
+
+
                 <Table size={'sm'} striped bordered hover variant="dark">
                   <thead>
                   <tr>
@@ -24,6 +42,7 @@ export default function ResultsTableComponent(props) {
                   </tr>
                   </thead>
                   <tbody>
+
                   {props.samples.map((item, index) => (
                     <tr key={index}>
                       <td>{index + 1}</td>
@@ -36,8 +55,16 @@ export default function ResultsTableComponent(props) {
                       </td>
                     </tr>
                   ))}
+
+
+
                   </tbody>
                 </Table>
+
+
+                </InfiniteScroll>
+                {/*</div>*/}
+
               </div>
             </Container>
           </Col>

@@ -17,6 +17,7 @@ function SearchComponent(props) {
   const [samples, setSamples] = useState([]);
   const [sampleIDs, setSampleIDs] = useState([]);
   const [projectIDs, setProjectIDs] = useState([]);
+  const [totalSamplesCount, setTotalSamplesCount] = useState();
 
   // Maps with unique attribute values
   // const [diseases, setDiseases] = useState({});
@@ -41,6 +42,9 @@ function SearchComponent(props) {
 
   const [loading, setLoading] = useState(false);
 
+  const [currentOffset, setCurrentOffset] = useState(0);
+
+
   function querySamples(e, db) {
     e.preventDefault();
     if (!searchQuery || searchQuery.length === 0) {
@@ -48,11 +52,13 @@ function SearchComponent(props) {
     } else {
       setLoading(true);
       setShowEnterQueryMessage(false);
-      let preparedSearchQuery = searchQuery
+      let preparedSearchQuery = searchQuery;
+      let limit = 20;
       let url = "http://localhost:8080/biosample/query?q=" + preparedSearchQuery + "&db=" +
-        db + "&include_accessions=true&aggregations=project&offset=0&limit=5000";
+        db + "&include_accessions=true&aggregations=project&offset=0&limit=" + limit;
       //http://localhost:8080/biosample/query?q=disease=mds&db=annotated&include_accessions=true&aggregations=project&aggregations=tissue&offset=0&limit=2
-
+      console.log('first call');
+      console.log(url);
       fetch(url,
         {method: "GET"})
         .then(response => response.json())
@@ -61,6 +67,7 @@ function SearchComponent(props) {
           // Save results
           setSamples(data["data"]);
           let sampleIDs = data["biosampleAccessions"];
+          setTotalSamplesCount(sampleIDs.length);
           let projectIDs = Object.keys(data["bioprojectsAgg"]);
 
           setProjectIDs(projectIDs);
@@ -83,6 +90,24 @@ function SearchComponent(props) {
           }
         })
         .catch(err => setErrors(err));
+    }
+  };
+
+  function loadMore() {
+    console.log("Loading more");
+    let limit = 20;
+    let offset = currentOffset + limit;
+    if (offset < totalSamplesCount) {
+      setCurrentOffset(offset);
+      let url = "http://localhost:8080/biosample/query?q=" + searchQuery + "&db=" + props.db + "&include_accessions=true&aggregations=project&offset=" + offset + "&limit=" + limit;
+      console.log(url);
+      setTimeout(() => {
+        fetch(url,
+          {method: "GET"}).then(response => response.json()).then(data => {
+          console.log(data);
+          setSamples(data["data"]);
+        }).catch(err => setErrors(err));
+      }, 1500);
     }
   };
 
@@ -300,7 +325,7 @@ function SearchComponent(props) {
                     "results-count results-count-left results-count-selected" : "results-count results-count-left"}>
                     <Container onClick={e => showContent(e, 'samples')}>
                       <Row><Col className="title">Samples</Col></Row>
-                      <Row><Col className="count-left">{formatNumber(samples.length)}</Col></Row>
+                      <Row><Col className="count-left">{formatNumber(totalSamplesCount)}</Col></Row>
                     </Container>
                   </Col>
                   {projectIDs.length > 0 &&
@@ -380,6 +405,7 @@ function SearchComponent(props) {
           // cellLines={cellLines}
           // sexs={sexs}
           relevantAttributes={props.relevantAttributes}
+          loadMore={loadMore}
         />
         }
       </>

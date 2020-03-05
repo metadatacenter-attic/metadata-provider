@@ -234,7 +234,8 @@ h2 {
   width: 70%;
   flex-direction: row;
   height: 47vh;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
+  overflow: auto;
   margin: 1.5vw auto;
   padding: 0;
   font-size: calc(var(--font-size-theme) + 0.5vmin);
