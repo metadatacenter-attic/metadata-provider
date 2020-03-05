@@ -323,10 +323,10 @@ h2 {
 .btn-secondary-curie {
   padding: 0 auto !important;
   margin: 0 !important;
-  font-size: calc(var(--font-size-theme) + 0.3vmin) !important;
+  font-size: calc(var(--font-size-theme) + 0.2vmin) !important;
   height: 1.7em !important;
   line-height: 1em !important;
-  font-family: Barlow Semi Condensed, Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+  font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
   border-width: 0 !important;
   background-color: var(--color-buttons2) !important;
 }

@@ -49,8 +49,9 @@ function SearchComponent(props) {
       setLoading(true);
       setShowEnterQueryMessage(false);
       let preparedSearchQuery = searchQuery
-      //let url = "http://localhost:8080/biosample/search?q=" + preparedSearchQuery + "&db=" + db;
-      let url = "http://localhost:8080/biosample/query?q=" + preparedSearchQuery + "&db=" + db + "&includeDetails=true";
+      let url = "http://localhost:8080/biosample/query?q=" + preparedSearchQuery + "&db=" +
+        db + "&include_accessions=true&aggregations=project&offset=0&limit=5000";
+      //http://localhost:8080/biosample/query?q=disease=mds&db=annotated&include_accessions=true&aggregations=project&aggregations=tissue&offset=0&limit=2
 
       fetch(url,
         {method: "GET"})
@@ -58,9 +59,9 @@ function SearchComponent(props) {
         .then(data => {
           setLoading(false);
           // Save results
-          setSamples(data["biosamples"]);
+          setSamples(data["data"]);
           let sampleIDs = data["biosampleAccessions"];
-          let projectIDs = Object.keys(data["bioprojects"]);
+          let projectIDs = Object.keys(data["bioprojectsAgg"]);
 
           setProjectIDs(projectIDs);
           // setDiseases(data["diseaseValues"]);

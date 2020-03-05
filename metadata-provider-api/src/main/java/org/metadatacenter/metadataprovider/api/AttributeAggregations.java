@@ -1,7 +1,10 @@
 package org.metadatacenter.metadataprovider.api;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.Map;
 
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class AttributeAggregations {
   Map<String, UniqueBiosampleAttributeValue> disease;
   Map<String, UniqueBiosampleAttributeValue> tissue;
