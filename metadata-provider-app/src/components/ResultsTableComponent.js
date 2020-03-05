@@ -10,9 +10,9 @@ import InfiniteScroll from 'react-infinite-scroller';
 export default function ResultsTableComponent(props) {
 
   // Similar to componentDidMount and componentDidUpdate
-  useEffect(() => {
-    console.log("Samples length " + props.samples.length);
-  }, [props.samples]);
+  // useEffect(() => {
+  //   console.log("Samples length " + props.samples.length);
+  // }, [props.samples]);
 
 
   return (
@@ -28,11 +28,10 @@ export default function ResultsTableComponent(props) {
                 <InfiniteScroll
                   pageStart={0}
                   loadMore={props.loadMore}
-                  hasMore={true || false}
+                  hasMore={props.hasMore}
                   loader={<div className="loader" key={0}>Loading ...</div>}
                   useWindow={false}
                 >
-
 
                 <Table size={'sm'} striped bordered hover variant="dark">
                   <thead>
@@ -60,9 +59,9 @@ export default function ResultsTableComponent(props) {
 
                   </tbody>
                 </Table>
-
-
                 </InfiniteScroll>
+
+
                 {/*</div>*/}
 
               </div>

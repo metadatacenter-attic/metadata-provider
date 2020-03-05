@@ -42,7 +42,10 @@ function SearchComponent(props) {
 
   const [loading, setLoading] = useState(false);
 
+  const [limit, setLimit] = useState(200);
   const [currentOffset, setCurrentOffset] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
+
 
 
   function querySamples(e, db) {
@@ -53,7 +56,6 @@ function SearchComponent(props) {
       setLoading(true);
       setShowEnterQueryMessage(false);
       let preparedSearchQuery = searchQuery;
-      let limit = 20;
       let url = "http://localhost:8080/biosample/query?q=" + preparedSearchQuery + "&db=" +
         db + "&include_accessions=true&aggregations=project&offset=0&limit=" + limit;
       //http://localhost:8080/biosample/query?q=disease=mds&db=annotated&include_accessions=true&aggregations=project&aggregations=tissue&offset=0&limit=2
@@ -95,19 +97,21 @@ function SearchComponent(props) {
 
   function loadMore() {
     console.log("Loading more");
-    let limit = 20;
     let offset = currentOffset + limit;
-    if (offset < totalSamplesCount) {
+    if (offset <= totalSamplesCount) {
       setCurrentOffset(offset);
       let url = "http://localhost:8080/biosample/query?q=" + searchQuery + "&db=" + props.db + "&include_accessions=true&aggregations=project&offset=" + offset + "&limit=" + limit;
       console.log(url);
-      setTimeout(() => {
+      // setTimeout(() => {
         fetch(url,
           {method: "GET"}).then(response => response.json()).then(data => {
           console.log(data);
-          setSamples(data["data"]);
+          setSamples(samples.concat(data["data"]));
         }).catch(err => setErrors(err));
-      }, 1500);
+      // }, 1500);
+    }
+    else {
+      setHasMore(false);
     }
   };
 
@@ -406,6 +410,7 @@ function SearchComponent(props) {
           // sexs={sexs}
           relevantAttributes={props.relevantAttributes}
           loadMore={loadMore}
+          hasMore={hasMore}
         />
         }
       </>
