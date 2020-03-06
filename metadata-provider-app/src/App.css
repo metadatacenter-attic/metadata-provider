@@ -3,7 +3,7 @@
   --theme-default-font-size: 10px;
   --theme-presentation-font-size: 15px;
   --font-size-theme: var(--theme-default-font-size); /* Optimized for regular use */
-  --font-size-theme: var(--theme-presentation-font-size); /* Optimized for demos */
+  /*--font-size-theme: var(--theme-presentation-font-size); !* Optimized for demos *!*/
   --color-dark0: #000;
   --color-dark1: #2e3032;
   --color-dark2: #5c5c5c;
@@ -267,7 +267,7 @@ h2 {
 }
 
 .unrecognized-att-message {
-  font-size: calc(var(--font-size-theme) + 0.2vmin);
+  font-size: calc(var(--font-size-theme) + 0.3vmin);
   color: var(--color-dark4);
 }
 
