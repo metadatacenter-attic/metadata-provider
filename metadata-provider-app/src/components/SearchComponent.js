@@ -15,7 +15,7 @@ function SearchComponent(props) {
 
   const [hasError, setErrors] = useState(false);
   const [samples, setSamples] = useState([]);
-  const [sampleIDs, setSampleIDs] = useState([]);
+  // const [sampleIDs, setSampleIDs] = useState([]);
   const [projectIDs, setProjectIDs] = useState([]);
 
   // Maps with unique attribute values

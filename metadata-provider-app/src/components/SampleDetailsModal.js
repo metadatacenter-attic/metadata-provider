@@ -4,10 +4,10 @@ import React, {useState} from 'react';
 import Table from "react-bootstrap/Table";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
+import {REGCOGNIZED_BIOSAMPLE_ATT_NAMES} from "../constants"
 
 export default function SampleDetailsModal(props) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -22,14 +22,11 @@ export default function SampleDetailsModal(props) {
     let separator;
     if (termUri.includes('_')) {
       separator = '_';
-    }
-    else if (termUri.includes('#')) {
+    } else if (termUri.includes('#')) {
       separator = '#';
-    }
-    else if (termUri.includes('/')) {
+    } else if (termUri.includes('/')) {
       separator = '/';
-    }
-    else {
+    } else {
       console.error('Invalid term uri: ' + termUri);
     }
     return termUri.substring(termUri.lastIndexOf(separator) + 1);
@@ -54,7 +51,7 @@ export default function SampleDetailsModal(props) {
             </tr>
             <tr>
               <td>URI</td>
-              <td><a href={termUri} target='_blank'>{termUri}</a></td>
+              <td><a href={termUri} target='_blank' rel="noopener noreferrer">{termUri}</a></td>
             </tr>
             <tr>
               <td>Source</td>
@@ -69,7 +66,8 @@ export default function SampleDetailsModal(props) {
   return (
     <>
       <Button size={'sm'}
-              className={props.highlighted? "btn-secondary btn-secondary-fixed-width btn-samples-highlighted" : "btn-secondary btn-secondary-fixed-width"} onClick={handleShow}>
+              className={props.highlighted ? "btn-secondary btn-secondary-fixed-width btn-samples-highlighted" : "btn-secondary btn-secondary-fixed-width"}
+              onClick={handleShow}>
         {props.sample.biosampleAccession}
       </Button>
 
@@ -87,21 +85,26 @@ export default function SampleDetailsModal(props) {
           <Table className="result-details-modal" size={'md'} striped bordered hover variant={'dark'}>
             <tbody>
             <tr>
-              <td className="sampleid-col">Sample ID</td>
+              <td className="sampleid-col"><strong>Sample Accession</strong></td>
               <td>{props.sample.biosampleAccession}
-              <Button size="sm" variant="link" href={props.sample.biosampleUrl} target='blank'>View in BioSample</Button></td>
+                <Button size="sm" variant="link" href={props.sample.biosampleUrl} target='blank'>View in
+                  BioSample</Button></td>
             </tr>
             <tr>
-              <td>Project ID</td>
+              <td><strong>Project Accession</strong></td>
               <td>{props.sample.bioprojectAccession ? props.sample.bioprojectAccession : "NA"}</td>
             </tr>
             <tr>
-              <td>Organism</td>
+              <td><strong>Organism</strong></td>
               <td>{props.sample.organism}</td>
             </tr>
             {props.sample.attributes.map((item, index) => (
-              <tr key={index} className={props.relevantAttributes.includes(item.attributeName) ? 'highlighted-result' : ''}>
-                <td>{item.attributeName}
+              <tr key={index}
+                  className={props.relevantAttributes.includes(item.attributeName) ? 'highlighted-result' : ''}>
+                <td><strong>{item.attributeName}</strong>
+                  {!REGCOGNIZED_BIOSAMPLE_ATT_NAMES.includes(item.attributeName) &&
+                  <sup> *</sup>
+                  }
                   {item.attributeNameTermUri &&
                   <OverlayTrigger
                     trigger="click"
@@ -133,6 +136,9 @@ export default function SampleDetailsModal(props) {
             ))}
             </tbody>
           </Table>
+        <p className="unrecognized-att-message">(*) Unrecognized BioSample attribute (view <a href="https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/"
+                                                         target="_blank" rel="noopener noreferrer">list of recognized attributes</a>)</p>
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

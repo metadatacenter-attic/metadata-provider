@@ -8,6 +8,7 @@
   --color-dark1: #2e3032;
   --color-dark2: #5c5c5c;
   --color-dark3: #777;
+  --color-dark4: #acacac;
   --color-light: white;
   --color-buttons: #4392F1;
   /*--color-buttons2: #548aba;*/
@@ -263,6 +264,11 @@ h2 {
 .highlighted-result {
   background-color: var(--color-font1) !important;
   /*color: #000 !important;;*/
+}
+
+.unrecognized-att-message {
+  font-size: calc(var(--font-size-theme) + 0.2vmin);
+  color: var(--color-dark4);
 }
 
 .App-link {

@@ -180,6 +180,7 @@ NCBI_EXPORT_FILTER_SPECS = [{"att_name": "disease", "att_values": []},
 # Export to JSON
 NCBI_EXPORT_JSON_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/json/' + 'biosample_exported.json'
 
+
 # Analysis of attribute values in the CSV
 NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
 #NCBI_ANALYSIS_VALUES_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported_MDS.csv'
