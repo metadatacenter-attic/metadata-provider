@@ -52,23 +52,30 @@ public class QueryUtils {
    */
   static Map<String, String> parseQuery(String query, boolean isAnnotatedSamplesQuery) {
 
-    final String AND_SEPARATOR = "AND";
-    final String ATT_VALUE_SEPARATOR = "=";
+    if (query.equals("*")) { // Retrieve all documents
+      return null;
+    }
 
-    Map<String, String> attNamesValuesMap = new HashMap<>();
-    if (query.contains(AND_SEPARATOR)) {
-      String[] separated = query.split(AND_SEPARATOR);
-      for (String attNameValue : separated) {
-        Pair<String, String> attributeNameValuePair = parseAttributeNameValueString(attNameValue,
-            ATT_VALUE_SEPARATOR, isAnnotatedSamplesQuery);
+    else {
+
+      final String AND_SEPARATOR = "AND";
+      final String ATT_VALUE_SEPARATOR = "=";
+
+      Map<String, String> attNamesValuesMap = new HashMap<>();
+      if (query.contains(AND_SEPARATOR)) {
+        String[] separated = query.split(AND_SEPARATOR);
+        for (String attNameValue : separated) {
+          Pair<String, String> attributeNameValuePair = parseAttributeNameValueString(attNameValue,
+              ATT_VALUE_SEPARATOR, isAnnotatedSamplesQuery);
+          attNamesValuesMap.put(attributeNameValuePair.getKey(), attributeNameValuePair.getValue());
+        }
+      } else {
+        Pair<String, String> attributeNameValuePair = parseAttributeNameValueString(query, ATT_VALUE_SEPARATOR,
+            isAnnotatedSamplesQuery);
         attNamesValuesMap.put(attributeNameValuePair.getKey(), attributeNameValuePair.getValue());
       }
-    } else {
-      Pair<String, String> attributeNameValuePair = parseAttributeNameValueString(query, ATT_VALUE_SEPARATOR,
-          isAnnotatedSamplesQuery);
-      attNamesValuesMap.put(attributeNameValuePair.getKey(), attributeNameValuePair.getValue());
+      return attNamesValuesMap;
     }
-    return attNamesValuesMap;
   }
 
   private static Pair<String, String> parseAttributeNameValueString(String attNameValue, String separator,

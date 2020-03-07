@@ -46,26 +46,6 @@ public class BiosampleService {
     this.isAnnotatedSamplesCollection = isAnnotatedSamplesCollection;
   }
 
-  public ApiOutput findAll(int offset, int limit) throws JsonProcessingException {
-
-    final MongoCursor<Document> iterator = samplesCollection.find().skip(offset).limit(limit).iterator();
-    final List<Biosample> samples = new ArrayList<>();
-    try {
-      while (iterator.hasNext()) {
-        final Document sampleDoc = iterator.next();
-        samples.add(mapper.readValue(sampleDoc.toJson(), Biosample.class));
-      }
-    } finally {
-      iterator.close();
-    }
-
-    int total = (int) samplesCollection.countDocuments();
-    Pagination pagination = new Pagination(offset, limit, total);
-    ApiOutput output = new ApiOutput(pagination, samples);
-
-    return output;
-  }
-
   public Biosample findByAccession(String accession) throws JsonProcessingException {
     Document sampleDocument = samplesCollection.find(eq(SAMPLE_ACCESSION_FIELD, accession)).first();
     if (sampleDocument != null) {
@@ -77,7 +57,8 @@ public class BiosampleService {
   }
 
   public ApiOutput search(Map<String, String> attributesAndValuesFilter, boolean includeAccessions,
-                          List<BiosampleResource.Aggregation> aggregations, int offset, int limit)
+                          boolean includeBioprojectDetails, List<BiosampleResource.Aggregation> aggregations,
+                          int offset, int limit)
       throws JsonProcessingException {
 
     final String DISEASE_ATTRIBUTE_NAME = "disease";
@@ -122,8 +103,14 @@ public class BiosampleService {
             found.setCount(found.getCount() + 1);
             bioprojectsMap.replace(sample.getBioprojectAccession(), found);
           } else { // Add new bioproject
-            bioprojectsMap.put(sample.getBioprojectAccession(),
-                new UniqueBioproject(sample.getBioprojectAccession(), 1));
+            if (sample.getBioproject() != null) {
+              bioprojectsMap.put(sample.getBioprojectAccession(),
+                  new UniqueBioproject(sample.getBioprojectAccession(), sample.getBioproject().getProjectName(),
+                      sample.getBioproject().getProjectTitle(), sample.getBioproject().getOrganizations(), 1));
+            }
+            else {
+              throw new NullPointerException("Null Bioproject: " + sample.getBioprojectAccession());
+            }
           }
         }
       }
@@ -160,31 +147,38 @@ public class BiosampleService {
         new AttributeAggregations(diseaseValues, tissueValues, cellTypeValues, cellLineValues, sexValues);
     output.setAttributesAgg(attAggregations);
 
+    // Remove bioproject details at the sample level if they were not requested
+    if (!includeBioprojectDetails) {
+      for (Biosample sample : output.getData()) {
+        sample.setBioproject(null);
+      }
+    }
+
     return output;
 
   }
 
-  private ApiOutput searchSamples(Map<String, String> attributesAndValuesFilter, Integer offset, Integer limit,
-                                  boolean searchAnnotated)
-      throws JsonProcessingException {
-
-    final List<Biosample> samples = new ArrayList<>();
-
-    Bson searchFilter = buildSearchFilter(attributesAndValuesFilter, searchAnnotated);
-    BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
-        MongoClientSettings.getDefaultCodecRegistry());
-
-    logger.info("Search filter: " + bsonDocument.toJson());
-
-    int total = (int) samplesCollection.countDocuments(searchFilter);
+  private ApiOutput searchSamples(Map<String, String> attributesAndValuesFilter, int offset, int limit,
+                                  boolean searchAnnotated) throws JsonProcessingException {
 
     MongoCursor<Document> iterator;
-    if (offset == null || limit == null) {
-      iterator = samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ACCESSION_FIELD))).iterator();
-    } else {
-      iterator =
-          samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ACCESSION_FIELD))).skip(offset).limit(limit).iterator();
+    int total;
+
+    if (attributesAndValuesFilter == null || attributesAndValuesFilter.size() == 0) { // Find all
+      iterator = samplesCollection.find().skip(offset).limit(limit).iterator();
+      total = (int) samplesCollection.countDocuments();
     }
+    else { // Filtered search
+      Bson searchFilter = buildSearchFilter(attributesAndValuesFilter, searchAnnotated);
+      BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
+          MongoClientSettings.getDefaultCodecRegistry());
+      logger.info("Search filter: " + bsonDocument.toJson());
+      iterator = samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ACCESSION_FIELD)))
+          .skip(offset).limit(limit).iterator();
+      total = (int) samplesCollection.countDocuments(searchFilter);
+    }
+
+    final List<Biosample> samples = new ArrayList<>();
 
     try {
       while (iterator.hasNext()) {
@@ -201,6 +195,7 @@ public class BiosampleService {
   }
 
   private Bson buildSearchFilter(Map<String, String> attributesAndValuesFilter, boolean searchAnnotated) {
+
     List<Bson> attNameValueFilters = new ArrayList<>();
 
     if (!searchAnnotated) { // original samples

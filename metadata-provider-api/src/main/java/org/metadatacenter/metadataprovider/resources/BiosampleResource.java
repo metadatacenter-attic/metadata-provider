@@ -65,9 +65,9 @@ public class BiosampleResource {
   @Path("{accession}")
   @Timed
   public Response findBiosampleByAccession(@ApiParam(example = "SAMEA104169478") @PathParam("accession") String accession,
+                                           @ApiParam(value = "Return BioProject details") @QueryParam("include_bioproject") @DefaultValue("false") boolean includeBioprojectDetails,
                                            @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db) {
     BiosampleService service;
-    boolean isAnnotatedSamplesQuery;
     if (db.equals(BiosamplesDB.annotated)) {
       service = annotatedSamplesService;
     } else {
@@ -75,6 +75,11 @@ public class BiosampleResource {
     }
     try {
       Biosample sample = service.findByAccession(accession);
+
+      if (!includeBioprojectDetails) {
+        sample.setBioproject(null);
+      }
+
       if (sample != null) {
         return Response.ok(sample).build();
       } else {
@@ -98,8 +103,9 @@ public class BiosampleResource {
       "values can be expressed using either free text (e.g., <i>disease=HCC</i>) or CURIEs (e.g., <i>biolink:Disease=mondo:0007256</i>)",
       example = "disease=HCC AND tissue=liver") @QueryParam("q") @NotEmpty String q,
                          @ApiParam(value = "Target database") @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db,
-                         @ApiParam(value = "Returns a list with all the biosample accessions that match the query") @QueryParam("include_accessions") @DefaultValue("false") boolean includeAccessions,
-                         @ApiParam(value = "Returns aggregated results for bioprojects or biosample attributes") @QueryParam("aggregations") List<Aggregation> aggregations,
+                         @ApiParam(value = "Return a list with all the biosample accessions that match the query") @QueryParam("include_accessions") @DefaultValue("false") boolean includeAccessions,
+                         @ApiParam(value = "Return BioProject details") @QueryParam("include_bioproject") @DefaultValue("false") boolean includeBioprojectDetails,
+                         @ApiParam(value = "Return aggregated results for bioprojects or biosample attributes") @QueryParam("aggregations") List<Aggregation> aggregations,
                          @QueryParam("offset") @DefaultValue("0") int offset,
                          @QueryParam("limit") @DefaultValue("25") int limit) {
     BiosampleService service;
@@ -114,14 +120,9 @@ public class BiosampleResource {
       isAnnotatedSamplesQuery = false;
     }
     try {
-      ApiOutput samplesFound;
-      if (q.equals("*")) { // Retrieve all documents. Note that in this case we don't include accessions or allow
-        // aggregations
-        samplesFound = service.findAll(offset, limit);
-      } else {
-        Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q, isAnnotatedSamplesQuery);
-        samplesFound = service.search(attributeNameValuePairs, includeAccessions, aggregations, offset, limit);
-      }
+      Map<String, String> attributeNameValuePairs = QueryUtils.parseQuery(q, isAnnotatedSamplesQuery);
+      ApiOutput samplesFound = service.search(attributeNameValuePairs, includeAccessions, includeBioprojectDetails, aggregations, offset, limit);
+      service.search(attributeNameValuePairs, includeAccessions, includeBioprojectDetails, aggregations, offset, limit);
       return Response.ok(samplesFound).build();
     } catch (BadRequestException e) {
       logger.error(e.getMessage());
