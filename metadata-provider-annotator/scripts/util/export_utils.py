@@ -190,10 +190,8 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
 
         print('Extracting all samples from file (no. samples: ' + str(num_biosamples) + ')')
         for child in root:
-            if insert_bioproject_info:
-                biosample = NcbiBiosampleWithBioproject()
-            else:
-                biosample = NcbiBiosample()
+
+            biosample = NcbiBiosample()
 
             description_node = child.find('Description')
             attributes_node = child.find('Attributes')
@@ -222,13 +220,12 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
                 for link in links:
                     if link.get('target') == 'bioproject':
                         prj_accession = link.get('label')
-                        if insert_bioproject_info:
-                            if prj_accession in projects.keys():
-                                biosample.bioproject = copy.deepcopy(projects.get(prj_accession))
-                            else:
-                                print('Bioproject not found: ' + prj_accession)
-                        else:
+
+                        if prj_accession in projects.keys():
                             biosample.bioprojectAccession = prj_accession
+                            biosample.bioproject = copy.deepcopy(projects.get(prj_accession))
+                        else:
+                            print('Bioproject not found: ' + prj_accession)
 
             # organism
             if description_node is not None:
@@ -336,7 +333,7 @@ def transform_and_export_projects_to_json(input_file, output_file, generate_dict
 
                     project_name = project_description_node.find('Name')
                     project_title = project_description_node.find('Title')
-                    #project_description = project_description_node.find('Description')
+                    # project_description = project_description_node.find('Description')
 
                     if project_name is not None:
                         project.projectName = project_name.text
@@ -451,27 +448,15 @@ def obj_dict(obj):
 # https://submit.ncbi.nlm.nih.gov/biosample/template/?package=Human.1.0&action=definition
 class NcbiBiosample:
     def __init__(self, biosample_accession=None, sample_name=None, sample_title=None,
-                 bioproject_accession=None,
+                 bioproject_accession=None, bioproject=None,
                  organism=None, attributes=None):
         self.biosampleAccession = biosample_accession
         self.sampleName = sample_name
         self.sampleTitle = sample_title
         self.bioprojectAccession = bioproject_accession
+        self.bioproject = bioproject  # We keep an attribute for the bioproject accession and other for the full BioProject, which will be optional at the API level
         self.organism = organism
         self.attributes = attributes
-
-
-class NcbiBiosampleWithBioproject:
-    def __init__(self, biosample_accession=None, sample_name=None, sample_title=None,
-                 bioproject=None,
-                 organism=None, attributes=None):
-        self.biosampleAccession = biosample_accession
-        self.sampleName = sample_name
-        self.sampleTitle = sample_title
-        self.bioproject = bioproject
-        self.organism = organism
-        self.attributes = attributes
-
 
 class NcbiBiosampleAttribute:
     def __init__(self, attribute_name=None, attribute_value=None):
