@@ -43,6 +43,7 @@ NCBI_FILTER_HOMO_SAPIENS_OUTPUT_FILE = NCBI_FILTER_OUTPUT_FOLDER + '/homo_sapien
 BIOPROJECT_INPUT_FILE = BIOPROJECT_FOLDER_DEST + '/' + BIOPROJECT_FILE_DEST
 BIOPROJECT_OUTPUT_FOLDER = WORKSPACE_FOLDER + '/' + PROJECTS_FOLDER + '/' + EXPORT_FOLDER
 BIOPROJECT_OUTPUT_FILE = BIOPROJECT_OUTPUT_FOLDER + '/' + 'bioproject.json'
+BIOPROJECT_OUTPUT_FILE_DICT = BIOPROJECT_OUTPUT_FOLDER + '/' + 'bioproject_dict.json'
 
 # Analysis of attribute names in homo sapiens samples
 NCBI_ANALYSIS_INPUT_FILE = NCBI_FILTER_HOMO_SAPIENS_OUTPUT_FILE
@@ -168,7 +169,7 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
 ]
 
 # Export samples to other formats #
-NCBI_EXPORT_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + 'filtered/filter5/biosample_filtered.xml'
+NCBI_EXPORT_INPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + 'filtered/filter1/biosample_filtered.xml'
 NCBI_EXPORT_CSV_OUTPUT_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + EXPORT_FOLDER + '/csv/' + 'biosample_exported.csv'
 # export sex, tissue, and disease, with all their values. This is only used for the CSV export, to simplify analysis
 NCBI_EXPORT_FILTER_SPECS = [{"att_name": "disease", "att_values": []},
@@ -246,27 +247,17 @@ ANNOTATION_PREFERRED_TERMS_FOR_ATT_NAMES = {
     }
 }
 
-ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES_1 = {
+ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES = {
     "disease": ["MONDO"],
-    "tissue": ["BTO"],
-    "cell type": ["CL"],
+    "tissue": ["BTO", "UPHENO", "NCIT"],
+    "cell type": ["CL", "BTO", "UPHENO"],
     "cell line": ["CLO"],
     "sex": ["PATO"]
 }
 
-ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES_2 = {
-    "disease": ["MONDO"],
-    "tissue": ["BTO", "NCIT"],
-    "cell type": ["CL", "BTO"],
-    "cell line": ["CLO", "BTO"],
-    "sex": ["PATO"]
-}
-
 # Save samples to Mongo
-# ORIGINAL_SAMPLES_FILE_PATH = NCBI_EXPORT_JSON_OUTPUT_FILE
-# ANNOTATED_SAMPLES_FILE_PATH = ANNOTATION_OUTPUT_FILE
-ORIGINAL_SAMPLES_FILE_PATH = RESULTS_FOLDER + "/2020-02-28_1311/1-samples/biosample_exported.json"
-ANNOTATED_SAMPLES_FILE_PATH = RESULTS_FOLDER + "/2020-02-28_1311/2-annotated_samples/biosample_annotated.json"
+ORIGINAL_SAMPLES_FILE_PATH = NCBI_EXPORT_JSON_OUTPUT_FILE
+ANNOTATED_SAMPLES_FILE_PATH = ANNOTATION_OUTPUT_FILE
 
 MONGO_HOST = "localhost"
 MONGO_PORT = 27017

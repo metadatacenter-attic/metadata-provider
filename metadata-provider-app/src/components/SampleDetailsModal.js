@@ -103,8 +103,7 @@ export default function SampleDetailsModal(props) {
                   className={props.relevantAttributes.includes(item.attributeName) ? 'highlighted-result' : ''}>
                 <td><strong>{item.attributeName}</strong>
                   {!REGCOGNIZED_BIOSAMPLE_ATT_NAMES.includes(item.attributeName) &&
-                  <sup> *</sup>
-                  }
+                  <span><strong>{item.attributeName}</strong> (*)</span>}
                   {item.attributeNameTermUri &&
                   <OverlayTrigger
                     trigger="click"

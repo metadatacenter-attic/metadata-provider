@@ -335,10 +335,10 @@
         ]
       },
       "SKM-1": {
-        "term-uri": "http://www.semanticweb.org/pallabi.d/ontologies/2014/2/untitled-ontology-11#SKM-1",
-        "term-label": "SKM-1",
-        "term-source": "MCCL",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Li-7": {
         "term-uri": "http://purl.obolibrary.org/obo/CLO_0050854",
@@ -445,10 +445,10 @@
         ]
       },
       "JHH-5": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0006602",
-        "term-label": "JHH-5",
-        "term-source": "CCONT",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Hep 3B2.1-7": {
         "term-uri": "http://purl.obolibrary.org/obo/CLO_0054293",
@@ -525,10 +525,10 @@
         ]
       },
       "HEPG3": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0005382",
-        "term-label": "HepG3",
-        "term-source": "CCONT",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "HEPG4": {
         "term-uri": null,
@@ -537,12 +537,10 @@
         "term-source": null
       },
       "HEPG5": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_Q9HCE0",
-        "term-label": "ectopic P granules protein 5 homolog (human)",
-        "term-source": "PR",
-        "term-alt-labels": [
-          "hepg5"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "HEPG6": {
         "term-uri": null,
@@ -573,18 +571,16 @@
         "term-source": null
       },
       "HepaRG": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0001186",
-        "term-label": "HepaRG",
-        "term-source": "CCONT",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "HG23": {
-        "term-uri": "http://purl.obolibrary.org/obo/OGG_3000026737",
-        "term-label": "OR1L1",
-        "term-source": "OGG",
-        "term-alt-labels": [
-          "hg23"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Hep-3B": {
         "term-uri": "http://purl.obolibrary.org/obo/CLO_0003710",
@@ -623,13 +619,10 @@
         ]
       },
       "HK-Hep1": {
-        "term-uri": "http://identifiers.org/ncbigene/52838",
-        "term-label": "Dnlz",
-        "term-source": "GEXO",
-        "term-alt-labels": [
-          "hk-hep1",
-          "mz-hep1"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Hep3B": {
         "term-uri": "http://purl.obolibrary.org/obo/CLO_0054295",
@@ -640,27 +633,22 @@
         ]
       },
       "SNU182": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002345",
-        "term-label": "SNU182",
-        "term-source": "CCONT",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Tong-HCC": {
-        "term-uri": "http://purl.bioontology.org/ontology/SNOMEDCT/55986002",
-        "term-label": "Tong",
-        "term-source": "SNOMEDCT",
-        "term-alt-labels": [
-          "tong-hcc"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "MZ-Hep1": {
-        "term-uri": "http://identifiers.org/ncbigene/52838",
-        "term-label": "Dnlz",
-        "term-source": "GEXO",
-        "term-alt-labels": [
-          "hk-hep1",
-          "mz-hep1"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Li7A": {
         "term-uri": null,
@@ -683,13 +671,10 @@
         "term-source": null
       },
       "HA59T-VGH": {
-        "term-uri": "http://purl.obolibrary.org/obo/ARO_3001307",
-        "term-label": "vgbA",
-        "term-source": "ARO",
-        "term-alt-labels": [
-          "ha59t-vgh",
-          "ha22t-vgh"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "QGY-7701": {
         "term-uri": null,
@@ -732,10 +717,10 @@
         "term-source": null
       },
       "SNU449": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002349",
-        "term-label": "SNU449",
-        "term-source": "CCONT",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "OCUCH16": {
         "term-uri": null,
@@ -762,13 +747,10 @@
         "term-source": null
       },
       "PLC/PRF5": {
-        "term-uri": "http://purl.obolibrary.org/obo/OGG_3004205371",
-        "term-label": "plc",
-        "term-source": "OHPI",
-        "term-alt-labels": [
-          "plc/prf5",
-          "plc/prf-5"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Hep40": {
         "term-uri": null,
@@ -805,16 +787,16 @@
         "term-source": null
       },
       "SNU398": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002347",
-        "term-label": "SNU398",
-        "term-source": "CCONT",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "SNU423": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002348",
-        "term-label": "SNU423",
-        "term-source": "CCONT",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "FLC4": {
         "term-uri": null,
@@ -823,10 +805,10 @@
         "term-source": null
       },
       "SNU475": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002350",
-        "term-label": "SNU475",
-        "term-source": "CCONT",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "SuHC1": {
         "term-uri": null,
@@ -835,27 +817,22 @@
         "term-source": null
       },
       "HuH1": {
-        "term-uri": "http://purl.obolibrary.org/obo/OGG_3000025932",
-        "term-label": "CLIC4",
-        "term-source": "OGG",
-        "term-alt-labels": [
-          "huh1"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "SNU387": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002346",
-        "term-label": "SNU387",
-        "term-source": "CCONT",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "HA22T-VGH": {
-        "term-uri": "http://purl.obolibrary.org/obo/ARO_3001307",
-        "term-label": "vgbA",
-        "term-source": "ARO",
-        "term-alt-labels": [
-          "ha59t-vgh",
-          "ha22t-vgh"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "NUK1": {
         "term-uri": null,
@@ -916,21 +893,16 @@
         "term-source": null
       },
       "MDS-L": {
-        "term-uri": "http://purl.bioontology.org/ontology/LNC/LP76084-0",
-        "term-label": "MDS",
-        "term-source": "LOINC",
-        "term-alt-labels": [
-          "mds-l"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "PLC/PRF-5": {
-        "term-uri": "http://purl.obolibrary.org/obo/OGG_3004205371",
-        "term-label": "plc",
-        "term-source": "OHPI",
-        "term-alt-labels": [
-          "plc/prf5",
-          "plc/prf-5"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Huh7.5.1-derived cells": {
         "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
@@ -991,9 +963,9 @@
         ]
       },
       "lymphoblastoid cell lines (LCLs)": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000773",
-        "term-label": "lymphoblastoid cell line",
-        "term-source": "BTO",
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CLO",
         "term-alt-labels": [
           "lymphoblastoid cell lines (lcls)"
         ]
@@ -1056,36 +1028,33 @@
         "term-source": null
       },
       "HCC": {
-        "term-uri": "http://www.semanticweb.org/david/ontologies/2013/0/pathLex.owl#1.3.6.1.4.1.19376.1.8.2.1.898",
-        "term-label": "Hepatocellular carcinoma",
-        "term-source": "PATHLEX",
-        "term-alt-labels": [
-          "hcc"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       }
     },
     "tissue": {
       "liver": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
-        "term-label": "Liver",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0000123",
+        "term-label": "liver",
+        "term-source": "UPHENO",
         "term-alt-labels": [
-          "liver tumor",
           "liver, epithelial"
         ]
       },
       "bone marrow": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12431",
-        "term-label": "Bone Marrow",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO",
         "term-alt-labels": [
           "bone marrow mononuclear cells"
         ]
       },
       "Bone marrow mononuclear cells": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12431",
-        "term-label": "Bone Marrow",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO",
         "term-alt-labels": [
           "bone marrow mononuclear cells"
         ]
@@ -1099,27 +1068,26 @@
         ]
       },
       "blood": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12434",
-        "term-label": "Blood",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "term-label": "blood",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "peripherial blood"
         ]
       },
       "Bone marrow": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12431",
-        "term-label": "Bone Marrow",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO",
         "term-alt-labels": [
           "bone marrow mononuclear cells"
         ]
       },
       "Liver": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
-        "term-label": "Liver",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0000123",
+        "term-label": "liver",
+        "term-source": "UPHENO",
         "term-alt-labels": [
-          "liver tumor",
           "liver, epithelial"
         ]
       },
@@ -1132,17 +1100,17 @@
         ]
       },
       "HCC": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C3099",
-        "term-label": "Hepatocellular Carcinoma",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/HP_0001402",
+        "term-label": "Hepatocellular carcinoma",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "hcc"
         ]
       },
       "hepatocellular carcinoma": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C3099",
-        "term-label": "Hepatocellular Carcinoma",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/HP_0001402",
+        "term-label": "Hepatocellular carcinoma",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "hcc"
         ]
@@ -1154,9 +1122,9 @@
         "term-alt-labels": []
       },
       "Bone Marrow": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12431",
-        "term-label": "Bone Marrow",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO",
         "term-alt-labels": [
           "bone marrow mononuclear cells"
         ]
@@ -1199,12 +1167,11 @@
         "term-alt-labels": []
       },
       "Liver tumor": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
-        "term-label": "Liver",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/HP_0002896",
+        "term-label": "Neoplasm of the liver",
+        "term-source": "UPHENO",
         "term-alt-labels": [
-          "liver tumor",
-          "liver, epithelial"
+          "liver tumor"
         ]
       },
       "peripheral blood": {
@@ -1222,17 +1189,17 @@
         ]
       },
       "Blood": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12434",
-        "term-label": "Blood",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "term-label": "blood",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "peripherial blood"
         ]
       },
       "blood plasma": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000131",
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0005654",
         "term-label": "blood plasma",
-        "term-source": "BTO",
+        "term-source": "UPHENO",
         "term-alt-labels": []
       },
       "missing": {
@@ -1257,9 +1224,9 @@
         ]
       },
       "peripherial blood": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12434",
-        "term-label": "Blood",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "term-label": "blood",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "peripherial blood"
         ]
@@ -1315,11 +1282,10 @@
         "term-alt-labels": []
       },
       "Liver, Epithelial": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12392",
-        "term-label": "Liver",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0000123",
+        "term-label": "liver",
+        "term-source": "UPHENO",
         "term-alt-labels": [
-          "liver tumor",
           "liver, epithelial"
         ]
       },
@@ -1330,10 +1296,10 @@
         "term-source": null
       },
       "lymphnode": {
-        "term-uri": "http://sig.biostr.washington.edu/fma3.0#LymphNode",
-        "term-label": "LymphNode",
-        "term-source": "MCBCC",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "ascites": {
         "term-uri": "http://purl.obolibrary.org/obo/BTO_0000091",
@@ -1356,9 +1322,9 @@
         "term-alt-labels": []
       },
       "HCC": {
-        "term-uri": "http://www.semanticweb.org/david/ontologies/2013/0/pathLex.owl#1.3.6.1.4.1.19376.1.8.2.1.898",
+        "term-uri": "http://purl.obolibrary.org/obo/HP_0001402",
         "term-label": "Hepatocellular carcinoma",
-        "term-source": "PATHLEX",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "hcc",
           "hepatocellular carcinoma cells"
@@ -1374,9 +1340,9 @@
         ]
       },
       "mononuclear cell": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000878",
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0009357",
         "term-label": "mononuclear cell",
-        "term-source": "BTO",
+        "term-source": "UPHENO",
         "term-alt-labels": []
       },
       "CD8-positive, alpha-beta T cell": {
@@ -1386,9 +1352,9 @@
         "term-alt-labels": []
       },
       "hepatocellular carcinoma cells": {
-        "term-uri": "http://www.semanticweb.org/david/ontologies/2013/0/pathLex.owl#1.3.6.1.4.1.19376.1.8.2.1.898",
+        "term-uri": "http://purl.obolibrary.org/obo/HP_0001402",
         "term-label": "Hepatocellular carcinoma",
-        "term-source": "PATHLEX",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "hcc",
           "hepatocellular carcinoma cells"
@@ -1447,9 +1413,9 @@
         ]
       },
       "myelodysplasia cell line": {
-        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
-        "term-label": "cell",
-        "term-source": "CL",
+        "term-uri": "http://purl.obolibrary.org/obo/HP_0002863",
+        "term-label": "Myelodysplasia",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "myelodysplasia cell line"
         ]
@@ -1481,9 +1447,9 @@
         "term-alt-labels": []
       },
       "CD4+ T-cells": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_000001004",
-        "term-label": "CD4 molecule",
-        "term-source": "CL",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_P06332",
+        "term-label": "T-cell surface glycoprotein CD4 (mouse)",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "cd4+ t-cells"
         ]
@@ -1498,11 +1464,12 @@
         ]
       },
       "CD8+ T-cells": {
-        "term-uri": "http://www.projecthalo.com/aura#CD8",
-        "term-label": "CD8",
-        "term-source": "AURA",
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0009000",
+        "term-label": "cell",
+        "term-source": "UPHENO",
         "term-alt-labels": [
-          "cd8+ t-cells"
+          "cd8+ t-cells",
+          "immune cells"
         ]
       },
       "CD16+ neutrophils": {
@@ -1515,16 +1482,18 @@
         ]
       },
       "suspension": {
-        "term-uri": "http://purl.obolibrary.org/obo/sep_00116",
-        "term-label": "suspension",
-        "term-source": "SEP",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "epithelial cells": {
-        "term-uri": "http://purl.bioontology.org/ontology/LNC/MTHU003158",
-        "term-label": "Epithelial cells",
-        "term-source": "LOINC",
-        "term-alt-labels": []
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0009034",
+        "term-label": "epithelial cell",
+        "term-source": "UPHENO",
+        "term-alt-labels": [
+          "epithelial cells"
+        ]
       },
       "immature T cell from tumor-infiltrating lymphocytes": {
         "term-uri": "http://purl.obolibrary.org/obo/CL_0002420",
@@ -1565,34 +1534,31 @@
         ]
       },
       "Erythroid precursor": {
-        "term-uri": "http://purl.jp/bio/4/id/200906027986663110",
-        "term-label": "Erythroid Progenitor Cells",
-        "term-source": "IOBC",
-        "term-alt-labels": [
-          "erythroid precursor"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Monocytic precursor": {
-        "term-uri": "http://scai.fraunhofer.de/CSEO#CSEO_00000372",
-        "term-label": "Monocytic",
-        "term-source": "CSEO",
-        "term-alt-labels": [
-          "monocytic precursor"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Granulocytic precursor": {
-        "term-uri": "http://scai.fraunhofer.de/CSEO#CSEO_00000364",
-        "term-label": "Granulocytic",
-        "term-source": "CSEO",
-        "term-alt-labels": [
-          "granulocytic precursor"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Immune cells": {
-        "term-uri": "http://localhost/plosthes.2017-1#5059",
-        "term-label": "Immune cells",
-        "term-source": "PLOSTHES",
-        "term-alt-labels": []
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0009000",
+        "term-label": "cell",
+        "term-source": "UPHENO",
+        "term-alt-labels": [
+          "cd8+ t-cells",
+          "immune cells"
+        ]
       },
       "PBMC": {
         "term-uri": "http://purl.obolibrary.org/obo/BTO_0001025",
@@ -1623,10 +1589,10 @@
         "term-alt-labels": []
       },
       "epithelial": {
-        "term-uri": "http://www.owl-ontologies.com/unnamed.owl#RID16657",
-        "term-label": "EPITHELIAL",
-        "term-source": "DERMLEX",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "CD1c": {
         "term-uri": "http://purl.obolibrary.org/obo/PR_000002027",
@@ -1653,23 +1619,21 @@
         ]
       },
       "Huh7": {
-        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0005384",
-        "term-label": "HuH-7",
-        "term-source": "CCONT",
-        "term-alt-labels": [
-          "huh7"
-        ]
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "Mahlavu": {
-        "term-uri": "http://purl.bioontology.org/ontology/MCCL/MCC_0000299",
-        "term-label": "MAHLAVU",
-        "term-source": "SYN",
-        "term-alt-labels": []
+        "term-uri": null,
+        "term-label": null,
+        "term-alt-labels": null,
+        "term-source": null
       },
       "cDC2_CD5-CD163+CD14+": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_000001839",
-        "term-label": "T-cell surface glycoprotein CD5",
-        "term-source": "CL",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_P06127",
+        "term-label": "T-cell surface glycoprotein CD5 (human)",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "cdc2_cd5-cd163+cd14+",
           "cdc2_cd5-cd163+cd14-",
@@ -1678,9 +1642,9 @@
         ]
       },
       "cDC2_CD5-CD163+CD14-": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_000001839",
-        "term-label": "T-cell surface glycoprotein CD5",
-        "term-source": "CL",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_P06127",
+        "term-label": "T-cell surface glycoprotein CD5 (human)",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "cdc2_cd5-cd163+cd14+",
           "cdc2_cd5-cd163+cd14-",
@@ -1689,9 +1653,9 @@
         ]
       },
       "cDC2_CD5-CD163-": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_000001839",
-        "term-label": "T-cell surface glycoprotein CD5",
-        "term-source": "CL",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_P06127",
+        "term-label": "T-cell surface glycoprotein CD5 (human)",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "cdc2_cd5-cd163+cd14+",
           "cdc2_cd5-cd163+cd14-",
@@ -1700,9 +1664,9 @@
         ]
       },
       "cDC2_CD5+": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_000001839",
-        "term-label": "T-cell surface glycoprotein CD5",
-        "term-source": "CL",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_P06127",
+        "term-label": "T-cell surface glycoprotein CD5 (human)",
+        "term-source": "UPHENO",
         "term-alt-labels": [
           "cdc2_cd5-cd163+cd14+",
           "cdc2_cd5-cd163+cd14-",
@@ -1719,17 +1683,15 @@
         ]
       },
       "blast cell": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000125",
+        "term-uri": "http://purl.obolibrary.org/obo/WBbt_0006783",
         "term-label": "blast cell",
-        "term-source": "BTO",
-        "term-alt-labels": [
-          "blast"
-        ]
+        "term-source": "UPHENO",
+        "term-alt-labels": []
       },
       "T cell": {
-        "term-uri": "http://purl.obolibrary.org/obo/CL_0000084",
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0009046",
         "term-label": "T cell",
-        "term-source": "CL",
+        "term-source": "UPHENO",
         "term-alt-labels": []
       }
     }

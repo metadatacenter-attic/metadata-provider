@@ -1,0 +1,241 @@
+GENERAL DESCRIPTION OF THE DATASET:
+                         disease tissue  ... cell line   sex
+count                       4346   3326  ...      1051  2271
+unique                        13     31  ...        98    10
+top     hepatocellular carcinoma  liver  ...     hepg2  male
+freq                        2167   1445  ...       415  1052
+
+[4 rows x 5 columns]
+
+UNIQUE VALUES PER COLUMN:
+  Column name: disease
+    Unique values (13):
+     - hepatocellular carcinoma
+     - mds
+     - myelodysplastic syndrome
+     - hepatoma
+     - myelodysplastic syndrome (mds)
+     - hcc
+     - sle
+     - myelodysplasia
+     - carcinoma hepatocellular
+     - systemic lupus erythematosus (sle)
+     - systemic lupus erythematosus
+     - hepatocellular carcinoma-non tumorous region
+     - myelodysplastic syndromes
+  Column name: tissue
+    Unique values (32):
+     - liver
+     - bone marrow
+     - nan
+     - bone marrow mononuclear cells
+     - t cells
+     - blood
+     - pbmc
+     - hcc
+     - hepatocellular carcinoma
+     - whole blood
+     - venous blood
+     - non-cancerous liver tissue
+     - cancerous liver tissue
+     - tumor
+     - liver cell line
+     - liver tumor
+     - peripheral blood
+     - plasma
+     - blood plasma
+     - missing
+     - na
+     - non-tumor
+     - peripherial blood
+     - peripheral blood mononuclear cell
+     - plasma and serum
+     - monocyte precursor cell
+     - cd3+ tcell
+     - cd34+ bone marrow
+     - liver, epithelial
+     - not applicable
+     - lymphnode
+     - ascites
+  Column name: cell type
+    Unique values (49):
+     - nan
+     - myeloid cell
+     - hepatocyte
+     - hcc
+     - hcc cell line
+     - mononuclear cell
+     - cd8-positive, alpha-beta t cell
+     - hepatocellular carcinoma cells
+     - cd14 monocyte
+     - hepatocellular carcinoma cell line
+     - blast
+     - hepatoma cell line
+     - norwalk virus replicon-bearing hepatoma cell line
+     - myelodysplasia cell line
+     - erythrocyte
+     - hepatocellular carcinoma cell
+     - na
+     - peripheral blood mononuclear cell
+     - cd4+ t-cells
+     - cd14+ monocytes
+     - cd8+ t-cells
+     - cd16+ neutrophils
+     - suspension
+     - epithelial cells
+     - immature t cell from tumor-infiltrating lymphocytes
+     - immature t cell from peripheral blood mononuclear cell
+     - cd34+ hematopoietic stem cells
+     - cd34+ hematopoietic stem/progenitor cells
+     - erythroid precursor
+     - monocytic precursor
+     - granulocytic precursor
+     - immune cells
+     - pbmc
+     - peripheral blood mononuclear cells (pbmcs)
+     - primary cell
+     - epithelial cell
+     - epithelial
+     - cd1c
+     - cd141hi
+     - cd34
+     - huh7
+     - mahlavu
+     - cdc2_cd5-cd163+cd14+
+     - cdc2_cd5-cd163+cd14-
+     - cdc2_cd5-cd163-
+     - cdc2_cd5+
+     - cd45+ cells
+     - blast cell
+     - t cell
+  Column name: cell line
+    Unique values (99):
+     - hep g2
+     - nan
+     - hepg2
+     - skm-1
+     - li-7
+     - huh-7
+     - plc/prf/5
+     - snu-475
+     - snu-449
+     - snu-387
+     - snu-423
+     - jhh-7
+     - gs-hepg2
+     - jhh-6
+     - snu-398
+     - jhh-5
+     - hep 3b2.1-7
+     - hle
+     - huh-1
+     - jhh-4
+     - snu-182
+     - jhh-1
+     - jhh-2
+     - hcclm3
+     - hepg3
+     - hepg4
+     - hepg5
+     - hepg6
+     - hepg7
+     - huh7
+     - plc8024
+     - heparg
+     - hg23
+     - hep-3b
+     - huh7.5
+     - hepg2/c3a
+     - plc-prl
+     - hk-hep1
+     - hep3b
+     - snu182
+     - tong-hcc
+     - mz-hep1
+     - li7a
+     - qgy-7703
+     - li21
+     - ha59t-vgh
+     - qgy-7701
+     - focus
+     - hbg
+     - hlf
+     - hcc9810
+     - snu354
+     - snu449
+     - ocuch16
+     - husp
+     - hcc36
+     - ht-17
+     - plc/prf5
+     - hep40
+     - huh2.2
+     - malhavu
+     - snu368
+     - snu398
+     - snu423
+     - flc4
+     - snu475
+     - suhc1
+     - huh1
+     - snu387
+     - ha22t-vgh
+     - nuk1
+     - na
+     - sk-hep-1
+     - snu-761
+     - snu-878
+     - f-36p
+     - snu-886
+     - mhcc97h
+     - smcc7721
+     - mds-l
+     - plc/prf-5
+     - huh7.5.1-derived cells
+     - bel-7402
+     - smmc-7721
+     - huh-6-clone5
+     - c3a
+     - mhcc97l
+     - hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male.
+     - lymphoblastoid cell lines (lcls)
+     - hb-8065 (hep g2) [hepg2]
+     - hkci10
+     - hkci11
+     - hkci2
+     - hkci4
+     - hkci9
+     - hkcic1
+     - hkcic2
+     - hkcic3
+     - hcc
+  Column name: sex
+    Unique values (11):
+     - male
+     - female
+     - nan
+     - not applicable
+     - unknown
+     - not collected
+     - not available
+     - not determined
+     - missing
+     - na
+     - mixed
+/Applications/PyCharm.app/Contents/helpers/pycharm_matplotlib_backend/backend_interagg.py:64: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all axes decorations.
+  self.figure.tight_layout()
+cell line  disease
+bel-7402   hcc                         2
+c3a        hepatocellular carcinoma    1
+f-36p      myelodysplastic syndrome    1
+flc4       hepatocellular carcinoma    1
+focus      hepatocellular carcinoma    1
+                                      ..
+snu423     hepatocellular carcinoma    1
+snu449     hepatocellular carcinoma    1
+snu475     hepatocellular carcinoma    1
+suhc1      hepatocellular carcinoma    1
+tong-hcc   hepatocellular carcinoma    1
+Length: 122, dtype: int64
+
+Process finished with exit code 0

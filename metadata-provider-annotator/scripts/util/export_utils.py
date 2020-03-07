@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 
 import scripts.util.utils as utils
-import scripts.util.ncbi_utils as ncbi_utils
 import scripts.util.filter_utils as filter_utils
 import scripts.constants as constants
 import xml.etree.ElementTree as ET
 import os
-import sys
 import xmltodict
 import json
+import copy
 
 
 def sample_to_json(sample, required_attributes):
@@ -153,9 +152,10 @@ def export_samples_to_json(root_folder_name, input_file, output_file, log_freque
         print('- Total samples exported: ' + str(len(samples_dct)))
 
 
-def transform_and_export_samples_to_json(root_folder_name, input_file, output_file, log_frequency=1000):
+def transform_and_export_samples_to_json(root_folder_name, input_file, output_file, insert_bioproject_info,
+                                         projects_file, log_frequency=1000):
     """
-       Parses an XML file with multiple NCBI biosamples and exports them to JSON
+       Parses an XML file with multiple NCBI biosamples and exports them to JSON. Optionally, inserts additional BioProject info.
 
     """
     constants.BASE_FOLDER = utils.get_base_folder(root_folder_name)
@@ -172,6 +172,8 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
 
         print('Input file: ' + input_file)
         print('Output file: ' + output_file)
+        if insert_bioproject_info:
+            print('Bioprojects input file: ' + output_file)
         print('Processing NCBI samples...')
 
         processed_samples_count = 0
@@ -180,9 +182,19 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
         tree = ET.parse(input_file)
         root = tree.getroot()
         num_biosamples = len(list(root))
+
+        if insert_bioproject_info:
+            # Read bioprojects from JSON file
+            with open(projects_file) as f:
+                projects = json.load(f)
+
         print('Extracting all samples from file (no. samples: ' + str(num_biosamples) + ')')
         for child in root:
-            biosample = NcbiBiosample()
+            if insert_bioproject_info:
+                biosample = NcbiBiosampleWithBioproject()
+            else:
+                biosample = NcbiBiosample()
+
             description_node = child.find('Description')
             attributes_node = child.find('Attributes')
 
@@ -209,8 +221,14 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
             if links is not None:
                 for link in links:
                     if link.get('target') == 'bioproject':
-                        value = link.text
-                        biosample.bioprojectAccession = value
+                        prj_accession = link.get('label')
+                        if insert_bioproject_info:
+                            if prj_accession in projects.keys():
+                                biosample.bioproject = copy.deepcopy(projects.get(prj_accession))
+                            else:
+                                print('Bioproject not found: ' + prj_accession)
+                        else:
+                            biosample.bioprojectAccession = prj_accession
 
             # organism
             if description_node is not None:
@@ -252,9 +270,18 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
         print('- Total samples exported: ' + str(len(biosamples)))
 
 
-def transform_and_export_projects_to_json(input_file, output_file, log_frequency=1000):
+def transform_and_export_projects_to_json(input_file, output_file, generate_dictionary,
+                                          output_file_dictionary, log_frequency=10000):
     """
     Parses an XML file with multiple NCBI bioprojects and exports them to JSON
+    :param input_file:
+    :param output_file:
+    :param generate_dictionary: Generates a dictionary where the keys are the bioproject accessions and exports it to JSON as well
+    :param log_frequency:
+    :return:
+    """
+    """
+    
     :param input_file:
     :param output_file:
     :param log_frequency:
@@ -295,28 +322,31 @@ def transform_and_export_projects_to_json(input_file, output_file, log_frequency
 
                 project_id = project_node.find('ProjectID')
                 archive_id = project_id.find('ArchiveID')
-                ncbi_bio_project_id = None
+                ncbi_bio_project_accession = None
 
                 project_description_node = project_node.find('ProjectDescr')
 
-                if archive_id.get('archive') == 'NCBI':
-                    ncbi_bio_project_id = archive_id.get('id')
+                if archive_id.get('accession'):
+                    ncbi_bio_project_accession = archive_id.get('accession')
+                else:
+                    print('No accession available')
 
-                if ncbi_bio_project_id is not None:
-                    project.id = ncbi_bio_project_id
+                if ncbi_bio_project_accession is not None:
+                    project.bioprojectAccession = ncbi_bio_project_accession
 
                     project_name = project_description_node.find('Name')
                     project_title = project_description_node.find('Title')
-                    project_description = project_description_node.find('Description')
+                    #project_description = project_description_node.find('Description')
 
                     if project_name is not None:
-                        project.name = project_name.text
+                        project.projectName = project_name.text
 
                     if project_title is not None:
-                        project.title = project_title.text
+                        project.projectTitle = project_title.text
 
-                    if project_description is not None:
-                        project.description = project_description.text
+                    # Dont' export description. It's too long and we won't use it.
+                    # if project_description is not None:
+                    #     project.description = project_description.text
 
                     project_organizations_nodes = submission_description_node.findall('Organization')
                     project_organizations = []
@@ -403,6 +433,11 @@ def transform_and_export_projects_to_json(input_file, output_file, log_frequency
             # print
             json.dump(projects, f, default=obj_dict)
 
+        if generate_dictionary:
+            projects_dict = {p.bioprojectAccession: p for p in projects}
+            with open(output_file_dictionary, 'w') as f:
+                json.dump(projects_dict, f, default=obj_dict)
+
         print('Finished processing projects')
         print('- Total projects processed: ' + str(processed_project_count))
         print('- Total projects exported: ' + str(len(projects)))
@@ -426,6 +461,18 @@ class NcbiBiosample:
         self.attributes = attributes
 
 
+class NcbiBiosampleWithBioproject:
+    def __init__(self, biosample_accession=None, sample_name=None, sample_title=None,
+                 bioproject=None,
+                 organism=None, attributes=None):
+        self.biosampleAccession = biosample_accession
+        self.sampleName = sample_name
+        self.sampleTitle = sample_title
+        self.bioproject = bioproject
+        self.organism = organism
+        self.attributes = attributes
+
+
 class NcbiBiosampleAttribute:
     def __init__(self, attribute_name=None, attribute_value=None):
         self.attributeName = attribute_name
@@ -433,11 +480,11 @@ class NcbiBiosampleAttribute:
 
 
 class BioProject:
-    def __init__(self, id=None, name=None, title=None, description=None, organizations=None, pis=None):
-        self.id = id
-        self.name = name
-        self.title = title
-        self.description = description
+    def __init__(self, bioprojectAccession=None, name=None, title=None, description=None, organizations=None, pis=None):
+        self.bioprojectAccession = bioprojectAccession
+        self.projectName = name
+        self.projectTitle = title
+        # self.description = description
         self.organizations = organizations
         self.pis = pis
 
