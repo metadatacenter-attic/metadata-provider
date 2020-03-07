@@ -9,6 +9,7 @@ public class ApiOutput {
   private List<Biosample> data;
   private List<String> biosampleAccessions;
   private Map<String, UniqueBioproject> bioprojectsAgg;
+  private List<UniqueOrganization> organizationsAgg;
   private AttributeAggregations attributesAgg;
 
   public ApiOutput() {
@@ -36,6 +37,8 @@ public class ApiOutput {
     return bioprojectsAgg;
   }
 
+  public List<UniqueOrganization> getOrganizationsAgg() { return organizationsAgg; }
+
   public AttributeAggregations getAttributesAgg() {
     return attributesAgg;
   }
@@ -47,6 +50,8 @@ public class ApiOutput {
   public void setBioprojectsAgg(Map<String, UniqueBioproject> bioprojectsAgg) {
     this.bioprojectsAgg = bioprojectsAgg;
   }
+
+  public void setOrganizationsAgg(List<UniqueOrganization> organizationsAgg) { this.organizationsAgg = organizationsAgg; }
 
   public void setAttributesAgg(AttributeAggregations attributesAgg) {
     this.attributesAgg = attributesAgg;

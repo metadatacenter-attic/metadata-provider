@@ -48,6 +48,7 @@ public class BiosampleResource {
 
   public enum Aggregation {
     project,
+    organization,
     disease,
     tissue,
     cellType,
@@ -105,7 +106,7 @@ public class BiosampleResource {
                          @ApiParam(value = "Target database") @QueryParam("db") @DefaultValue("annotated") BiosamplesDB db,
                          @ApiParam(value = "Return a list with all the biosample accessions that match the query") @QueryParam("include_accessions") @DefaultValue("false") boolean includeAccessions,
                          @ApiParam(value = "Return BioProject details") @QueryParam("include_bioproject") @DefaultValue("false") boolean includeBioprojectDetails,
-                         @ApiParam(value = "Return aggregated results for bioprojects or biosample attributes") @QueryParam("aggregations") List<Aggregation> aggregations,
+                         @ApiParam(value = "Return aggregated results for biosample attributes, bioprojects, or organizations") @QueryParam("aggregations") List<Aggregation> aggregations,
                          @QueryParam("offset") @DefaultValue("0") int offset,
                          @QueryParam("limit") @DefaultValue("25") int limit) {
     BiosampleService service;

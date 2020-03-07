@@ -8,6 +8,7 @@ import com.mongodb.client.MongoCursor;
 import org.bson.BsonDocument;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.checkerframework.common.aliasing.qual.Unique;
 import org.metadatacenter.metadataprovider.api.*;
 import org.metadatacenter.metadataprovider.resources.BiosampleResource;
 import org.slf4j.Logger;
@@ -50,8 +51,7 @@ public class BiosampleService {
     Document sampleDocument = samplesCollection.find(eq(SAMPLE_ACCESSION_FIELD, accession)).first();
     if (sampleDocument != null) {
       return mapper.readValue(sampleDocument.toJson(), Biosample.class);
-    }
-    else {
+    } else {
       return null;
     }
   }
@@ -79,6 +79,7 @@ public class BiosampleService {
 
     List<String> biosampleAccessions = new ArrayList<>();
     Map<String, UniqueBioproject> bioprojectsMap = new HashMap<>();
+    List<UniqueOrganization> organizationsList = new ArrayList<>();
     Map<String, UniqueBiosampleAttributeValue> diseaseValues = new HashMap<>();
     Map<String, UniqueBiosampleAttributeValue> tissueValues = new HashMap<>();
     Map<String, UniqueBiosampleAttributeValue> cellTypeValues = new HashMap<>();
@@ -95,7 +96,7 @@ public class BiosampleService {
         }
       }
 
-      // Bioproject Accessions
+      // Bioprojects
       if (aggregations.contains(BiosampleResource.Aggregation.project)) {
         if (sample.getBioprojectAccession() != null) {
           if (bioprojectsMap.containsKey(sample.getBioprojectAccession())) { // Update count
@@ -107,9 +108,24 @@ public class BiosampleService {
               bioprojectsMap.put(sample.getBioprojectAccession(),
                   new UniqueBioproject(sample.getBioprojectAccession(), sample.getBioproject().getProjectName(),
                       sample.getBioproject().getProjectTitle(), sample.getBioproject().getOrganizations(), 1));
-            }
-            else {
+            } else {
               throw new NullPointerException("Null Bioproject: " + sample.getBioprojectAccession());
+            }
+          }
+        }
+      }
+
+      // Organizations
+      if (aggregations.contains(BiosampleResource.Aggregation.organization)) {
+        if (sample.getBioproject() != null) {
+          for (Organization org : sample.getBioproject().getOrganizations()) {
+            int index = findOrganizationIndexByName(organizationsList, org.getName());
+            if (index > -1) { // found
+              UniqueOrganization found = organizationsList.get(index);
+              found.setCount(found.getCount() + 1);
+              organizationsList.set(index, found);
+            } else { // not found
+              organizationsList.add(new UniqueOrganization(org.getName(), org.getUrl(), 1));
             }
           }
         }
@@ -143,6 +159,7 @@ public class BiosampleService {
 
     output.setBiosampleAccessions(biosampleAccessions);
     output.setBioprojectsAgg(bioprojectsMap);
+    output.setOrganizationsAgg(organizationsList);
     AttributeAggregations attAggregations =
         new AttributeAggregations(diseaseValues, tissueValues, cellTypeValues, cellLineValues, sexValues);
     output.setAttributesAgg(attAggregations);
@@ -167,8 +184,7 @@ public class BiosampleService {
     if (attributesAndValuesFilter == null || attributesAndValuesFilter.size() == 0) { // Find all
       iterator = samplesCollection.find().skip(offset).limit(limit).iterator();
       total = (int) samplesCollection.countDocuments();
-    }
-    else { // Filtered search
+    } else { // Filtered search
       Bson searchFilter = buildSearchFilter(attributesAndValuesFilter, searchAnnotated);
       BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
           MongoClientSettings.getDefaultCodecRegistry());
@@ -273,6 +289,24 @@ public class BiosampleService {
       }
     }
     return uniqueAttributeValuesMap;
+  }
+
+  /**
+   * Return position in list
+   *
+   * @param organizations
+   * @param name
+   * @return
+   */
+  private int findOrganizationIndexByName(List<UniqueOrganization> organizations, String name) {
+    int i = 0;
+    for (UniqueOrganization org : organizations) {
+      if (org.getName().toLowerCase().equals(name.toLowerCase())) {
+        return i;
+      }
+      i++;
+    }
+    return -1;
   }
 
 }
