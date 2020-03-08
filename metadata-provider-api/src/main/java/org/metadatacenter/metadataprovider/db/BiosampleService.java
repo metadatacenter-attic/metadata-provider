@@ -14,11 +14,9 @@ import org.metadatacenter.metadataprovider.resources.BiosampleResource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import static com.mongodb.client.model.Filters.*;
 import static com.mongodb.client.model.Sorts.ascending;
@@ -158,10 +156,17 @@ public class BiosampleService {
     }
 
     output.setBiosampleAccessions(biosampleAccessions);
-    output.setBioprojectsAgg(bioprojectsMap);
+    output.setBioprojectsAgg(sortBioprojectMap(bioprojectsMap));
+
+    Collections.sort(organizationsList, Collections.reverseOrder());
+
     output.setOrganizationsAgg(organizationsList);
     AttributeAggregations attAggregations =
-        new AttributeAggregations(diseaseValues, tissueValues, cellTypeValues, cellLineValues, sexValues);
+        new AttributeAggregations(sortBiosampleAttributeValueMap(diseaseValues),
+            sortBiosampleAttributeValueMap(tissueValues),
+            sortBiosampleAttributeValueMap(cellTypeValues),
+            sortBiosampleAttributeValueMap(cellLineValues),
+            sortBiosampleAttributeValueMap(sexValues));
     output.setAttributesAgg(attAggregations);
 
     // Remove bioproject details at the sample level if they were not requested
@@ -289,6 +294,22 @@ public class BiosampleService {
       }
     }
     return uniqueAttributeValuesMap;
+  }
+
+  private LinkedHashMap sortBiosampleAttributeValueMap(Map<String, UniqueBiosampleAttributeValue> map) {
+
+    return map.entrySet().stream()
+        .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+            (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+  }
+
+  private LinkedHashMap sortBioprojectMap(Map<String, UniqueBioproject> map) {
+
+    return map.entrySet().stream()
+        .sorted(Collections.reverseOrder(Map.Entry.comparingByValue()))
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+            (oldValue, newValue) -> oldValue, LinkedHashMap::new));
   }
 
   /**

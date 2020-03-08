@@ -3,7 +3,7 @@ package org.metadatacenter.metadataprovider.api;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(value = {"role", "type"})
-public class UniqueOrganization {
+public class UniqueOrganization implements Comparable<UniqueOrganization> {
 
   private String name;
   private String url;
@@ -32,6 +32,11 @@ public class UniqueOrganization {
 
   public void setCount(int count) {
     this.count = count;
+  }
+
+  @Override
+  public int compareTo(UniqueOrganization obj) {
+    return Integer.compare(this.count, obj.getCount());
   }
 
 }

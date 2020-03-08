@@ -18,4 +18,5 @@ public class Organization {
   public String getUrl() {
     return url;
   }
+
 }

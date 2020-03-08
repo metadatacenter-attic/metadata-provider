@@ -30,7 +30,7 @@ function SearchComponent(props) {
   const [searchQuery, setSearchQuery] = useState(/*'disease=liver cancer'*/);
   const [sampleQueries, setSampleQueries] = useState([]);
   const [showEnterQueryMessage, setShowEnterQueryMessage] = useState(false);
-  const [showSamplesOrProjects, setShowSamplesOrProjects] = useState('samples');
+  const [selectedContentButton, setSelectedContentButton] = useState('samples');
 
   const [originalSampleIDs, setOriginalSamplesIDs] = useState([]);
   const [annotatedSamplesIDs, setAnnotatedSamplesIDs] = useState([]);
@@ -134,7 +134,7 @@ function SearchComponent(props) {
   };
 
   function showContent(e, content) {
-    setShowSamplesOrProjects(content);
+    setSelectedContentButton(content);
   };
 
   function formatNumber(num) {
@@ -300,14 +300,14 @@ function SearchComponent(props) {
                   {/*{projectIDs.length === 0 && <Col md={4}></Col>}*/}
                   {/*{projectIDs.length > 0 && <Col md={2}></Col>}*/}
                   <Col md={2}></Col>
-                  <Col className={showSamplesOrProjects === "samples" ?
+                  <Col className={selectedContentButton === "samples" ?
                     "results-count results-count-left results-count-selected" : "results-count results-count-left"}>
                     <Container onClick={e => showContent(e, 'samples')}>
                       <Row><Col className="title">Samples</Col></Row>
                       <Row><Col className="count-left">{formatNumber(samples.length)}</Col></Row>
                     </Container>
                   </Col>
-                  <Col className={showSamplesOrProjects === "projects" ?
+                  <Col className={selectedContentButton === "projects" ?
                     "results-count results-count-right results-count-selected" : "results-count results-count-right"}>
                     <Container onClick={e => showContent(e, 'projects')}>
                       <Row><Col className="title">Projects</Col></Row>
@@ -321,42 +321,42 @@ function SearchComponent(props) {
                 <Row>
                   {!props.relevantAttributes.includes("organization") &&
                   <Col className="results-count results-count-left">
-                    <Container>
+                    <Container onClick={e => showContent(e, 'organizations')}>
                       <Row><Col className="title-secondary">Centers</Col></Row>
                       <Row><Col className="count-secondary">{formatNumber(organizationsAggList.length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("disease") &&
                   <Col className="results-count results-count-left">
-                    <Container>
+                    <Container onClick={e => showContent(e, 'disease')}>
                       <Row><Col className="title-secondary">Diseases</Col></Row>
                       <Row><Col className="count-secondary">{formatNumber(Object.keys(diseaseAggMap).length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("tissue") &&
                   <Col className="results-count results-count-left">
-                    <Container>
+                    <Container onClick={e => showContent(e, 'tissue')}>
                       <Row><Col className="title-secondary">Tissues</Col></Row>
                       <Row><Col className="count-secondary">{formatNumber(Object.keys(tissueAggMap).length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("cell type") &&
                   <Col className="results-count results-count-left">
-                    <Container>
+                    <Container onClick={e => showContent(e, 'cell type')}>
                       <Row><Col className="title-secondary">Cell Types</Col></Row>
                       <Row><Col className="count-secondary">{formatNumber(Object.keys(cellTypeAggMap).length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("cell line") &&
                   <Col className="results-count results-count-left">
-                    <Container>
+                    <Container onClick={e => showContent(e, 'cell line')}>
                       <Row><Col className="title-secondary">Cell Lines</Col></Row>
                       <Row><Col className="count-secondary">{formatNumber(Object.keys(cellLineAggMap).length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("sex") &&
                   <Col className="results-count results-count-left">
-                    <Container>
+                    <Container onClick={e => showContent(e, 'sex')}>
                       <Row><Col className="title-secondary">Sex</Col></Row>
                       <Row><Col className="count-secondary">{formatNumber(Object.keys(sexAggMap).length)}</Col></Row>
                     </Container>
@@ -369,7 +369,7 @@ function SearchComponent(props) {
         }
         {!loading && showResults &&
         <ResultsTableComponent
-          showSamplesOrProjects={showSamplesOrProjects}
+          selectedContentButton={selectedContentButton}
           db={props.db}
           extraSampleIDs={extraSampleIDs}
           extraProjectIDs={extraProjectIDs}
