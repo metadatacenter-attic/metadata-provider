@@ -12,8 +12,9 @@ export default function ProjectDetailsModal(props) {
   return (
     <>
       <Button size={'sm'}
-              className={props.highlighted? "btn-secondary btn-secondary-fixed-width btn-projects-highlighted" : "btn-secondary btn-secondary-fixed-width"} onClick={handleShow}>
-        PRJNA{props.projectID}
+              className={props.highlighted ? "btn-secondary btn-secondary-fixed-width btn-projects-highlighted" : "btn-secondary btn-secondary-fixed-width"}
+              onClick={handleShow}>
+        {props.projectID}
       </Button>
 
       <Modal
@@ -30,11 +31,23 @@ export default function ProjectDetailsModal(props) {
           <Table className="result-details-modal" size={'sm'} striped bordered hover variant={'dark'}>
             <tbody>
             <tr>
-              <td>Project ID</td>
-              <td>PRJNA{props.projectID}
+              <td>Project Accession</td>
+              <td>{props.projectID}
                 <Button size="sm" variant="link"
                         href={'https://www.ncbi.nlm.nih.gov/bioproject/' + props.projectID}
                         target='blank'>View in BioProject</Button></td>
+            </tr>
+            <tr>
+              <td>Title</td>
+              <td>{props.projectTitle}</td>
+            </tr>
+            <tr>
+              <td>Organizations</td>
+              <td>
+                {props.projectOrganizations.map((org, index) => (
+                  <span key={index}>{org.name}{props.projectOrganizations.length > 0 && <br/>}</span>
+                ))}
+              </td>
             </tr>
             </tbody>
           </Table>

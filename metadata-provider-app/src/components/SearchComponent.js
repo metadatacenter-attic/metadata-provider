@@ -15,15 +15,16 @@ function SearchComponent(props) {
 
   const [hasError, setErrors] = useState(false);
   const [samples, setSamples] = useState([]);
-  // const [sampleIDs, setSampleIDs] = useState([]);
   const [projectIDs, setProjectIDs] = useState([]);
 
-  // Maps with unique attribute values
-  // const [diseases, setDiseases] = useState({});
-  // const [tissues, setTissues] = useState({});
-  // const [cellTypes, setCellTypes] = useState({});
-  // const [cellLines, setCellLines] = useState({});
-  // const [sexs, setSexs] = useState({});
+  // Aggregated information
+  const [projectsAggMap, setProjectsAggMap] = useState({});
+  const [organizationsAggList, setOrganizationsAggList] = useState({});
+  const [diseaseAggMap, setDiseaseAggMap] = useState({});
+  const [tissueAggMap, setTissueAggMap] = useState({});
+  const [cellTypeAggMap, setCellTypeAggMap] = useState({});
+  const [cellLineAggMap, setCellLineAggMap] = useState({});
+  const [sexAggMap, setSexAggMap] = useState({});
 
   const [showResults, setShowResults] = useState(false);
   const [searchQuery, setSearchQuery] = useState(/*'disease=liver cancer'*/);
@@ -48,10 +49,10 @@ function SearchComponent(props) {
     } else {
       setLoading(true);
       setShowEnterQueryMessage(false);
-      let preparedSearchQuery = searchQuery
-      let url = "http://localhost:8080/biosample/search?q=" + preparedSearchQuery + "&db=" +
-        db + "&include_accessions=true&aggregations=project&offset=0&limit=5000";
-      //http://localhost:8080/biosample/query?q=disease=mds&db=annotated&include_accessions=true&aggregations=project&aggregations=tissue&offset=0&limit=2
+      let url = "http://localhost:8080/biosample/search?q=" + searchQuery + "&db=" + db + "&include_accessions=true" +
+        "&aggregations=project&aggregations=organization&aggregations=disease&aggregations=tissue&" +
+        "aggregations=cellType&aggregations=cellLine&aggregations=sex&" +
+        "offset=0&limit=5000";
 
       fetch(url,
         {method: "GET"})
@@ -62,13 +63,15 @@ function SearchComponent(props) {
           setSamples(data["data"]);
           let sampleIDs = data["biosampleAccessions"];
           let projectIDs = Object.keys(data["bioprojectsAgg"]);
-
           setProjectIDs(projectIDs);
-          // setDiseases(data["diseaseValues"]);
-          // setTissues(data["tissueValues"]);
-          // setCellTypes(data["cellTypeValues"]);
-          // setCellLines(data["cellLineValues"]);
-          // setSexs(data["sexValues"]);
+          setProjectsAggMap(data["bioprojectsAgg"]);
+          setOrganizationsAggList(data["organizationsAgg"])
+          setDiseaseAggMap(data["attributesAgg"]["disease"])
+          setTissueAggMap(data["attributesAgg"]["tissue"])
+          setCellTypeAggMap(data["attributesAgg"]["cellType"])
+          setCellLineAggMap(data["attributesAgg"]["cellLine"])
+          setSexAggMap(data["attributesAgg"]["sex"])
+
           setShowResults(true);
 
           if (props.db === 'original') {
@@ -294,8 +297,9 @@ function SearchComponent(props) {
             <Col>
               <Container>
                 <Row>
-                  {projectIDs.length === 0 && <Col md={4}></Col>}
-                  {projectIDs.length > 0 && <Col md={2}></Col>}
+                  {/*{projectIDs.length === 0 && <Col md={4}></Col>}*/}
+                  {/*{projectIDs.length > 0 && <Col md={2}></Col>}*/}
+                  <Col md={2}></Col>
                   <Col className={showSamplesOrProjects === "samples" ?
                     "results-count results-count-left results-count-selected" : "results-count results-count-left"}>
                     <Container onClick={e => showContent(e, 'samples')}>
@@ -303,7 +307,6 @@ function SearchComponent(props) {
                       <Row><Col className="count-left">{formatNumber(samples.length)}</Col></Row>
                     </Container>
                   </Col>
-                  {projectIDs.length > 0 &&
                   <Col className={showSamplesOrProjects === "projects" ?
                     "results-count results-count-right results-count-selected" : "results-count results-count-right"}>
                     <Container onClick={e => showContent(e, 'projects')}>
@@ -311,56 +314,54 @@ function SearchComponent(props) {
                       <Row><Col className="count-right">{formatNumber(projectIDs.length)}</Col></Row>
                     </Container>
                   </Col>
-                  }
-                  {projectIDs.length === 0 && <Col md={4}></Col>}
-                  {projectIDs.length > 0 && <Col md={2}></Col>}
+                  {/*{projectIDs.length === 0 && <Col md={4}></Col>}*/}
+                  {/*{projectIDs.length > 0 && <Col md={2}></Col>}*/}
+                  <Col md={2}></Col>
                 </Row>
-                {/*<Row>*/}
-                {/*  <Col md={1}></Col>*/}
-                {/*  {!props.relevantAttributes.includes("disease") &&*/}
-                {/*  <Col className="results-count results-count-left">*/}
-                {/*    <Container>*/}
-                {/*      <Row><Col className="title-secondary">Diseases</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(diseases).length)}</Col></Row>*/}
-                {/*    </Container>*/}
-                {/*  </Col>}*/}
-                {/*  {!props.relevantAttributes.includes("tissue") &&*/}
-                {/*  <Col className="results-count results-count-left">*/}
-                {/*    <Container>*/}
-                {/*      <Row><Col className="title-secondary">Tissues</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(tissues).length)}</Col></Row>*/}
-                {/*    </Container>*/}
-                {/*  </Col>}*/}
-                {/*  {!props.relevantAttributes.includes("cell type") &&*/}
-                {/*  <Col className="results-count results-count-left">*/}
-                {/*    <Container>*/}
-                {/*      <Row><Col className="title-secondary">Cell Types</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(cellTypes).length)}</Col></Row>*/}
-                {/*    </Container>*/}
-                {/*  </Col>}*/}
-                {/*  {!props.relevantAttributes.includes("cell line") &&*/}
-                {/*  <Col className="results-count results-count-left">*/}
-                {/*    <Container>*/}
-                {/*      <Row><Col className="title-secondary">Cell Lines</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(cellLines).length)}</Col></Row>*/}
-                {/*    </Container>*/}
-                {/*  </Col>}*/}
-                {/*  {!props.relevantAttributes.includes("sex") &&*/}
-                {/*  <Col className="results-count results-count-left">*/}
-                {/*    <Container>*/}
-                {/*      <Row><Col className="title-secondary">Sex</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">{formatNumber(Object.keys(sexs).length)}</Col></Row>*/}
-                {/*    </Container>*/}
-                {/*  </Col>}*/}
-                {/*  {!props.relevantAttributes.includes("investigator") &&*/}
-                {/*  <Col className="results-count results-count-left">*/}
-                {/*    <Container>*/}
-                {/*      <Row><Col className="title-secondary">Investigators</Col></Row>*/}
-                {/*      <Row><Col className="count-secondary">5</Col></Row>*/}
-                {/*    </Container>*/}
-                {/*  </Col>}*/}
-                {/*  <Col md={1}></Col>*/}
-                {/*</Row>*/}
+                <Row>
+                  {!props.relevantAttributes.includes("organization") &&
+                  <Col className="results-count results-count-left">
+                    <Container>
+                      <Row><Col className="title-secondary">Centers</Col></Row>
+                      <Row><Col className="count-secondary">{formatNumber(organizationsAggList.length)}</Col></Row>
+                    </Container>
+                  </Col>}
+                  {!props.relevantAttributes.includes("disease") &&
+                  <Col className="results-count results-count-left">
+                    <Container>
+                      <Row><Col className="title-secondary">Diseases</Col></Row>
+                      <Row><Col className="count-secondary">{formatNumber(Object.keys(diseaseAggMap).length)}</Col></Row>
+                    </Container>
+                  </Col>}
+                  {!props.relevantAttributes.includes("tissue") &&
+                  <Col className="results-count results-count-left">
+                    <Container>
+                      <Row><Col className="title-secondary">Tissues</Col></Row>
+                      <Row><Col className="count-secondary">{formatNumber(Object.keys(tissueAggMap).length)}</Col></Row>
+                    </Container>
+                  </Col>}
+                  {!props.relevantAttributes.includes("cell type") &&
+                  <Col className="results-count results-count-left">
+                    <Container>
+                      <Row><Col className="title-secondary">Cell Types</Col></Row>
+                      <Row><Col className="count-secondary">{formatNumber(Object.keys(cellTypeAggMap).length)}</Col></Row>
+                    </Container>
+                  </Col>}
+                  {!props.relevantAttributes.includes("cell line") &&
+                  <Col className="results-count results-count-left">
+                    <Container>
+                      <Row><Col className="title-secondary">Cell Lines</Col></Row>
+                      <Row><Col className="count-secondary">{formatNumber(Object.keys(cellLineAggMap).length)}</Col></Row>
+                    </Container>
+                  </Col>}
+                  {!props.relevantAttributes.includes("sex") &&
+                  <Col className="results-count results-count-left">
+                    <Container>
+                      <Row><Col className="title-secondary">Sex</Col></Row>
+                      <Row><Col className="count-secondary">{formatNumber(Object.keys(sexAggMap).length)}</Col></Row>
+                    </Container>
+                  </Col>}
+                </Row>
               </Container>
             </Col>
           </Row>
@@ -374,11 +375,13 @@ function SearchComponent(props) {
           extraProjectIDs={extraProjectIDs}
           samples={samples}
           projectIDs={projectIDs}
-          // diseases={diseases}
-          // tissues={tissues}
-          // cellTypes={cellTypes}
-          // cellLines={cellLines}
-          // sexs={sexs}
+          projectsAggMap={projectsAggMap}
+          organizationsAggList={organizationsAggList}
+          diseaseAggMap={diseaseAggMap}
+          tissueAggMap={tissueAggMap}
+          cellTypeAggMap={cellTypeAggMap}
+          cellLineAggMap={cellLineAggMap}
+          sexAggMap={sexAggMap}
           relevantAttributes={props.relevantAttributes}
         />
         }

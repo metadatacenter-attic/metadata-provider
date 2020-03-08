@@ -46,54 +46,45 @@ export default function ResultsTableComponent(props) {
       }
       {props.showSamplesOrProjects === 'samples' && props.samples.length === 0
       && <div><p className="search-msg">No samples found</p></div>}
+      {/************************************************************************************************/}
+      {/*{props.showSamplesOrProjects === 'projects' && props.projectIDs.length > 0 &&*/}
+      {/*<Container>*/}
+      {/*  <Row>*/}
+      {/*    <Col>*/}
+      {/*      <Container>*/}
+      {/*        <div className="results">*/}
+      {/*          <Table size={'sm'} striped bordered hover variant="dark">*/}
+      {/*            <thead>*/}
+      {/*            <tr>*/}
+      {/*              <th>#</th>*/}
+      {/*              <th>Project Accession</th>*/}
+      {/*            </tr>*/}
+      {/*            </thead>*/}
+      {/*            <tbody>*/}
+      {/*            {props.projectIDs.map((id, index) => (*/}
+      {/*              <tr key={index}>*/}
+      {/*                <td>{index + 1}</td>*/}
+      {/*                <td>*/}
+      {/*                  <ProjectDetailsModal*/}
+      {/*                    projectID={id}*/}
+      {/*                    projectTitle={props.projectsAggMap[id].projectTitle}*/}
+      {/*                    projectOrganizations={props.projectsAggMap[id].organizations}*/}
+      {/*                    highlighted={props.extraProjectIDs.includes(id)}*/}
+      {/*                  />*/}
+      {/*                </td>*/}
+      {/*              </tr>*/}
+      {/*            ))}*/}
+      {/*            </tbody>*/}
+      {/*          </Table>*/}
+      {/*        </div>*/}
+      {/*      </Container>*/}
 
-      {props.showSamplesOrProjects === 'projects' && props.projectIDs.length > 0 &&
-      <Container>
-        <Row>
-          <Col>
-            <Container>
-              <div className="results">
-                <Table size={'sm'} striped bordered hover variant="dark">
-                  <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Project ID</th>
-                    {/*{props.db === 'annotated' && props.extraProjectIDs.length > 0 &&*/}
-                    {/*<th>Extra</th>*/}
-                    {/*}*/}
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {props.projectIDs.map((item, index) => (
-                    <tr key={index}>
-                      <td>{index + 1}</td>
-                      <td>
-                        <ProjectDetailsModal
-                          projectID={item}
-                          highlighted={props.extraProjectIDs.includes(item)}
-                        />
-                        {/*<Button size={'sm'} className="btn-secondary" target='_blank'*/}
-                        {/*        href={'https://www.ncbi.nlm.nih.gov/bioproject/' + item}>*/}
-                        {/*  PRJNA{item}*/}
-                        {/*</Button>*/}
-                      </td>
-                      {/*{props.db === 'annotated' && props.extraProjectIDs.length > 0 &&*/}
-                      {/*<td>{props.extraProjectIDs.includes(item) &&*/}
-                      {/*<FontAwesomeIcon className="star" icon={faStar}></FontAwesomeIcon>}</td>*/}
-                      {/*}*/}
-                    </tr>
-                  ))}
-                  </tbody>
-                </Table>
-              </div>
-            </Container>
-
-          </Col>
-        </Row>
-      </Container>
-      }
-      {props.showSamplesOrProjects === 'projects' && props.projectIDs.length === 0 &&
-      <div><p className="search-msg">No projects found</p></div>}
+      {/*    </Col>*/}
+      {/*  </Row>*/}
+      {/*</Container>*/}
+      {/*}*/}
+      {/*{props.showSamplesOrProjects === 'projects' && props.projectIDs.length === 0 &&*/}
+      {/*<div><p className="search-msg">No projects found</p></div>}*/}
     </>
   );
 

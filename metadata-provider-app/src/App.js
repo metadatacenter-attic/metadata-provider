@@ -2,75 +2,19 @@ import React, {useState} from 'react';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import SearchComponent from './components/SearchComponent';
 import Col from "react-bootstrap/Col";
 import {Form} from "react-bootstrap";
-
-//import 'holderjs/holder.js'; // uninstall if not needed
+import {SAMPLE_QUERIES} from "./constants";
 
 export default function App() {
 
   const [queryIndex, setQueryIndex] = useState();
   const [originalSampleIDsFound, setOriginalSampleIDsFound] = useState([]);
   const [originalProjectIDsFound, setOriginalProjectIDsFound] = useState([]);
-
-  const sampleQueries = [
-    {
-      "researchQuestion": "I need to find information about <u>biological samples</u> in the setting of <u>myelodysplasia</u>.",
-      "researchQuestionShort": "Myelodysplasia",
-      "relevantAttributes": ["disease"],
-      "queriesOriginalDB": [
-        "disease=myelodysplasia",
-        "disease=myelodysplastic syndrome",
-        "disease=myelodysplastic syndrome (mds)",
-        "disease=myelodysplastic syndromes",
-        "disease=mds"
-      ],
-      "queriesAnnotatedDB": [
-        "disease=myelodysplasia",
-        "disease=myelodysplastic syndrome",
-        "disease=myelodysplastic syndrome (mds)",
-        "disease=myelodysplastic syndromes",
-        "disease=mds",
-        "biolink:Disease=mondo:0018881"
-      ]
-    },
-    {
-      "researchQuestion": "I need to find information about <u>hepatocellular carcinoma</u> samples from the <u>HepaRG cell line</u>.",
-      "researchQuestionShort": "Hepatocellular carcinoma, HepaRG cell line",
-      "relevantAttributes": ["disease", "cell line"],
-      "queriesOriginalDB": [
-        "disease=hepatocellular carcinoma AND cell line=HepaRG",
-        "disease=hcc AND cell line=HepaRG",
-        "disease=hepatoma AND cell line=HepaRG"
-      ],
-      "queriesAnnotatedDB": [
-        "disease=hepatocellular carcinoma AND cell line=HepaRG",
-        "disease=hcc AND cell line=HepaRG",
-        "disease=hepatoma AND cell line=HepaRG",
-        "biolink:Disease=mondo:0007256 AND biolink:CellLine=efo:0001186"
-      ]
-    },
-    {
-      "researchQuestion": "I need to find information about <u>biological samples</u> in the setting of <u>systemic lupus erythematosus</u>.",
-      "researchQuestionShort": "Systemic lupus erythematosus",
-      "relevantAttributes": ["disease"],
-      "queriesOriginalDB": [
-        "disease=systemic lupus erythematosus",
-        "disease=sle",
-        "disease=systemic lupus erythematosus (SLE)"
-      ],
-      "queriesAnnotatedDB": [
-        "disease=systemic lupus erythematosus",
-        "disease=sle",
-        "disease=systemic lupus erythematosus (SLE)",
-        "biolink:Disease=mondo:0007915"
-      ]
-    }
-  ];
+  const sampleQueries = SAMPLE_QUERIES;
 
   function setSampleQueryIndex(selectedIndex) {
     if (selectedIndex) {
