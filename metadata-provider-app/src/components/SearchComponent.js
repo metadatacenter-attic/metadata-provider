@@ -65,12 +65,12 @@ function SearchComponent(props) {
           let projectIDs = Object.keys(data["bioprojectsAgg"]);
           setProjectIDs(projectIDs);
           setProjectsAggMap(data["bioprojectsAgg"]);
-          setOrganizationsAggList(data["organizationsAgg"])
-          setDiseaseAggMap(data["attributesAgg"]["disease"])
-          setTissueAggMap(data["attributesAgg"]["tissue"])
-          setCellTypeAggMap(data["attributesAgg"]["cellType"])
-          setCellLineAggMap(data["attributesAgg"]["cellLine"])
-          setSexAggMap(data["attributesAgg"]["sex"])
+          setOrganizationsAggList(data["organizationsAgg"]);
+          setDiseaseAggMap(data["attributesAgg"]["disease"]);
+          setTissueAggMap(data["attributesAgg"]["tissue"]);
+          setCellTypeAggMap(data["attributesAgg"]["cellType"]);
+          setCellLineAggMap(data["attributesAgg"]["cellLine"]);
+          setSexAggMap(data["attributesAgg"]["sex"]);
 
           setShowResults(true);
 

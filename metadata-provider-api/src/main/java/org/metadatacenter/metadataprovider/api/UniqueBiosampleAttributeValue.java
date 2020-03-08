@@ -28,8 +28,10 @@ public class UniqueBiosampleAttributeValue implements Comparable<UniqueBiosample
   }
 
   // Annotated value
-  public UniqueBiosampleAttributeValue(String attributeValueTermUri, String attributeValueTermLabel,
+  public UniqueBiosampleAttributeValue(String attributeValue,
+                                       String attributeValueTermUri, String attributeValueTermLabel,
                                        String attributeValueTermSource, int count) {
+    this.attributeValue = attributeValue;
     this.attributeValueTermUri = attributeValueTermUri;
     this.attributeValueTermLabel = attributeValueTermLabel;
     this.attributeValueTermSource = attributeValueTermSource;

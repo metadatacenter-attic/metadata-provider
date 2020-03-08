@@ -287,7 +287,8 @@ public class BiosampleService {
         if (!annotated) {
           uniqueValue = new UniqueBiosampleAttributeValue(attribute.getAttributeValue(), 1);
         } else {
-          uniqueValue = new UniqueBiosampleAttributeValue(attribute.getAttributeValueTermUri(),
+          uniqueValue = new UniqueBiosampleAttributeValue(attribute.getAttributeValue(),
+              attribute.getAttributeValueTermUri(),
               attribute.getAttributeValueTermLabel(), attribute.getAttributeValueTermSource(), 1);
         }
         uniqueAttributeValuesMap.put(key, uniqueValue);

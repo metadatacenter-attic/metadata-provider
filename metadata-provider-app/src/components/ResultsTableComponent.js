@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import SampleDetailsModal from "./SampleDetailsModal";
 import ProjectDetailsModal from "./ProjectDetailsModal";
+import AttributeValuesTableComponent from "./AttributeValuesTableComponent";
 
 export default function ResultsTableComponent(props) {
 
@@ -121,6 +122,17 @@ export default function ResultsTableComponent(props) {
         </Container>}
         {props.projectIDs.length === 0 && <div><p className="search-msg">No projects found</p></div>}
       </>}
+      {/************************************************************************************************/}
+      {props.selectedContentButton === 'disease' &&
+      <AttributeValuesTableComponent attributeValuesAggMap={props.diseaseAggMap} content="Diseases"/>}
+      {props.selectedContentButton === 'tissue' &&
+      <AttributeValuesTableComponent attributeValuesAggMap={props.tissueAggMap} content="Tissues"/>}
+      {props.selectedContentButton === 'cell type' &&
+      <AttributeValuesTableComponent attributeValuesAggMap={props.cellTypeAggMap} content="Cell types"/>}
+      {props.selectedContentButton === 'cell line' &&
+      <AttributeValuesTableComponent attributeValuesAggMap={props.cellLineAggMap} content="Cell lines"/>}
+      {props.selectedContentButton === 'sex' &&
+      <AttributeValuesTableComponent attributeValuesAggMap={props.sexAggMap} content="Sex values"/>}
     </>
   );
 
