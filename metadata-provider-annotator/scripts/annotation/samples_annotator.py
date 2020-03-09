@@ -162,7 +162,7 @@ def annotation_result_to_custom_annotation(result):
 
 
 def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=None, norm_attribute_values=None,
-                   preferred_ontologies=None, prioritize_pref=False, use_any_ontology_if_no_results=False,
+                   preferred_ontologies=None, preferred_ontologies_ordered=True, prioritize_pref=False, use_any_ontology_if_no_results=False,
                    ignore_values=None):
     if attribute_name is not None:
 
@@ -185,9 +185,18 @@ def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=No
                     'term-source': None
                 }
 
-        annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term, ontologies=preferred_ontologies,
-                                                    longest_only=False,
-                                                    expand_mappings=False, include=['prefLabel'])
+        if not preferred_ontologies_ordered:
+            annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term, ontologies=preferred_ontologies,
+                                                        longest_only=False,
+                                                        expand_mappings=False, include=['prefLabel'])
+        else:
+            for pref_ont in preferred_ontologies:
+                annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term,
+                                                            ontologies=[pref_ont],
+                                                            longest_only=False,
+                                                            expand_mappings=False, include=['prefLabel'])
+                if len(annotator_results) > 0:  # found annotation with the current ontology. Break loop
+                    break;
 
         if len(annotator_results) > 0:
             annotation = extract_annotation(annotator_results, prioritize_pref)
@@ -231,10 +240,9 @@ def save_alt_label(term_alt_labels, term_uri, term_pref_label, term_new_label):
     return term_alt_labels
 
 def build_annotation_cache(samples, att_names_values_variations, preferred_terms_for_att_names,
-                           preferred_ontologies_for_att_values, prioritize_pref, use_any_ontology_if_no_results,
-                           ignore_values,
-                           annotation_cache_file_path,
-                           evaluation_info_file_path):
+                           preferred_ontologies_for_att_values, preferred_ontologies_ordered,
+                           prioritize_pref, use_any_ontology_if_no_results, ignore_values,
+                           annotation_cache_file_path, evaluation_info_file_path):
     """
     Build annotation cache, according to the following structure:
     {
@@ -304,6 +312,7 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                                                                          norm_attribute_names=norm_att_names,
                                                                          norm_attribute_values=None,
                                                                          preferred_ontologies=None,
+                                                                         preferred_ontologies_ordered=True,
                                                                          prioritize_pref=prioritize_pref,
                                                                          use_any_ontology_if_no_results=use_any_ontology_if_no_results,
                                                                          ignore_values=ignore_values)
@@ -334,6 +343,7 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                                                    norm_attribute_names=norm_att_names,
                                                    norm_attribute_values=norm_att_values,
                                                    preferred_ontologies=preferred_ontologies,
+                                                   preferred_ontologies_ordered=True,
                                                    prioritize_pref=prioritize_pref,
                                                    use_any_ontology_if_no_results=use_any_ontology_if_no_results,
                                                    ignore_values=ignore_values)
@@ -410,7 +420,7 @@ def get_cached_annotation(annotation_cache, attribute_name, attribute_value=None
 
 def annotate_samples(input_file, output_file, prioritize_pref, use_any_ontology_if_no_results, ignore_values,
                      att_names_values_variations, annotation_filter_specs,
-                     preferred_terms_for_att_names, preferred_ontologies_for_att_values,
+                     preferred_terms_for_att_names, preferred_ontologies_for_att_values, preferred_ontologies_ordered,
                      annotation_cache_file_path, evaluation_output_file, regenerate_annotation_cache=False):
     """
     Annotates a list of BioSample samples in JSON format
@@ -439,6 +449,7 @@ def annotate_samples(input_file, output_file, prioritize_pref, use_any_ontology_
             print('Generating annotation cache. Path: ' + annotation_cache_file_path)
             build_annotation_cache(original_samples, relevant_atts_and_variations,
                                    preferred_terms_for_att_names, preferred_ontologies_for_att_values,
+                                   preferred_ontologies_ordered,
                                    prioritize_pref, use_any_ontology_if_no_results, ignore_values,
                                    annotation_cache_file_path, evaluation_output_file)
 

@@ -231,12 +231,11 @@
         "is-correct": null
       },
       "SKM-1": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0006753",
+        "term-label": "SKM-1",
+        "term-source": "EFO",
         "count": 8,
-        "is-correct": false
+        "is-correct": null
       },
       "Li-7": {
         "term-uri": "http://purl.obolibrary.org/obo/CLO_0050854",
@@ -330,12 +329,11 @@
         "is-correct": null
       },
       "JHH-5": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0006602",
+        "term-label": "JHH-5",
+        "term-source": "EFO",
         "count": 3,
-        "is-correct": false
+        "is-correct": null
       },
       "Hep 3B2.1-7": {
         "term-uri": "http://purl.obolibrary.org/obo/CLO_0054293",
@@ -401,12 +399,11 @@
         "is-correct": null
       },
       "HEPG3": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0005382",
+        "term-label": "HepG3",
+        "term-source": "EFO",
         "count": 1,
-        "is-correct": false
+        "is-correct": null
       },
       "HEPG4": {
         "term-uri": null,
@@ -456,12 +453,11 @@
         "is-correct": false
       },
       "HepaRG": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0001186",
+        "term-label": "HepaRG",
+        "term-source": "EFO",
         "count": 33,
-        "is-correct": false
+        "is-correct": null
       },
       "HG23": {
         "term-uri": null,
@@ -515,20 +511,18 @@
         "is-correct": null
       },
       "SNU182": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002345",
+        "term-label": "SNU182",
+        "term-source": "EFO",
         "count": 1,
-        "is-correct": false
+        "is-correct": null
       },
       "Tong-HCC": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0000182",
+        "term-label": "hepatocellular carcinoma",
+        "term-source": "EFO",
         "count": 1,
-        "is-correct": false
+        "is-correct": null
       },
       "MZ-Hep1": {
         "term-uri": null,
@@ -616,12 +610,11 @@
         "is-correct": false
       },
       "SNU449": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002349",
+        "term-label": "SNU449",
+        "term-source": "EFO",
         "count": 1,
-        "is-correct": false
+        "is-correct": null
       },
       "OCUCH16": {
         "term-uri": null,
@@ -703,20 +696,18 @@
         "is-correct": false
       },
       "SNU398": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002347",
+        "term-label": "SNU398",
+        "term-source": "EFO",
         "count": 1,
-        "is-correct": false
+        "is-correct": null
       },
       "SNU423": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002348",
+        "term-label": "SNU423",
+        "term-source": "EFO",
         "count": 1,
-        "is-correct": false
+        "is-correct": null
       },
       "FLC4": {
         "term-uri": null,
@@ -727,12 +718,11 @@
         "is-correct": false
       },
       "SNU475": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002350",
+        "term-label": "SNU475",
+        "term-source": "EFO",
         "count": 1,
-        "is-correct": false
+        "is-correct": null
       },
       "SuHC1": {
         "term-uri": null,
@@ -751,12 +741,11 @@
         "is-correct": false
       },
       "SNU387": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0002346",
+        "term-label": "SNU387",
+        "term-source": "EFO",
         "count": 1,
-        "is-correct": false
+        "is-correct": null
       },
       "HA22T-VGH": {
         "term-uri": null,
@@ -837,12 +826,11 @@
         "is-correct": false
       },
       "MDS-L": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0008801",
+        "term-label": "MDS",
+        "term-source": "EFO",
         "count": 3,
-        "is-correct": false
+        "is-correct": null
       },
       "PLC/PRF-5": {
         "term-uri": null,
@@ -981,19 +969,18 @@
         "is-correct": false
       },
       "HCC": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null,
+        "term-uri": "http://www.ebi.ac.uk/efo/EFO_0000182",
+        "term-label": "hepatocellular carcinoma",
+        "term-source": "EFO",
         "count": 12,
-        "is-correct": false
+        "is-correct": null
       }
     },
     "tissue": {
       "liver": {
-        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0000123",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
         "term-label": "liver",
-        "term-source": "UPHENO",
+        "term-source": "BTO",
         "count": 1318,
         "is-correct": null
       },
@@ -1012,16 +999,16 @@
         "is-correct": null
       },
       "T cells": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12476",
-        "term-label": "T-Lymphocyte",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0009000",
+        "term-label": "cell",
+        "term-source": "UPHENO",
         "count": 17,
         "is-correct": null
       },
       "blood": {
-        "term-uri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000089",
         "term-label": "blood",
-        "term-source": "UPHENO",
+        "term-source": "BTO",
         "count": 72,
         "is-correct": null
       },
@@ -1033,9 +1020,9 @@
         "is-correct": null
       },
       "Liver": {
-        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0000123",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
         "term-label": "liver",
-        "term-source": "UPHENO",
+        "term-source": "BTO",
         "count": 127,
         "is-correct": null
       },
@@ -1061,9 +1048,9 @@
         "is-correct": null
       },
       "whole blood": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C41067",
-        "term-label": "Whole Blood",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000089",
+        "term-label": "blood",
+        "term-source": "BTO",
         "count": 99,
         "is-correct": null
       },
@@ -1082,16 +1069,16 @@
         "is-correct": null
       },
       "non-cancerous liver tissue": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25594",
-        "term-label": "Negation",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
+        "term-label": "liver",
+        "term-source": "BTO",
         "count": 52,
         "is-correct": null
       },
       "cancerous liver tissue": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C32735",
-        "term-label": "Hepatic Tissue",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
+        "term-label": "liver",
+        "term-source": "BTO",
         "count": 56,
         "is-correct": null
       },
@@ -1110,9 +1097,9 @@
         "is-correct": null
       },
       "Liver tumor": {
-        "term-uri": "http://purl.obolibrary.org/obo/HP_0002896",
-        "term-label": "Neoplasm of the liver",
-        "term-source": "UPHENO",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
+        "term-label": "liver",
+        "term-source": "BTO",
         "count": 58,
         "is-correct": null
       },
@@ -1124,23 +1111,23 @@
         "is-correct": null
       },
       "plasma": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C13356",
-        "term-label": "Plasma",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000131",
+        "term-label": "blood plasma",
+        "term-source": "BTO",
         "count": 3,
         "is-correct": null
       },
       "Blood": {
-        "term-uri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000089",
         "term-label": "blood",
-        "term-source": "UPHENO",
+        "term-source": "BTO",
         "count": 81,
         "is-correct": null
       },
       "blood plasma": {
-        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0005654",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000131",
         "term-label": "blood plasma",
-        "term-source": "UPHENO",
+        "term-source": "BTO",
         "count": 12,
         "is-correct": null
       },
@@ -1168,30 +1155,30 @@
         "is-correct": null
       },
       "peripherial blood": {
-        "term-uri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000089",
         "term-label": "blood",
-        "term-source": "UPHENO",
+        "term-source": "BTO",
         "count": 6,
         "is-correct": null
       },
       "Peripheral blood mononuclear cell": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12954",
-        "term-label": "Peripheral Blood Mononuclear Cell",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0001025",
+        "term-label": "peripheral blood mononuclear cell",
+        "term-source": "BTO",
         "count": 8,
         "is-correct": null
       },
       "plasma and serum": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C13356",
-        "term-label": "Plasma",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000131",
+        "term-label": "blood plasma",
+        "term-source": "BTO",
         "count": 8,
         "is-correct": null
       },
       "Peripheral blood Mononuclear cell": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12954",
-        "term-label": "Peripheral Blood Mononuclear Cell",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0001025",
+        "term-label": "peripheral blood mononuclear cell",
+        "term-source": "BTO",
         "count": 8,
         "is-correct": null
       },
@@ -1210,9 +1197,9 @@
         "is-correct": null
       },
       "CD34+ bone Marrow": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C17280",
-        "term-label": "Hematopoietic Progenitor Cell Antigen CD34",
-        "term-source": "NCIT",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000141",
+        "term-label": "bone marrow",
+        "term-source": "BTO",
         "count": 5,
         "is-correct": null
       },
@@ -1224,9 +1211,9 @@
         "is-correct": null
       },
       "Liver, Epithelial": {
-        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0000123",
+        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000759",
         "term-label": "liver",
-        "term-source": "UPHENO",
+        "term-source": "BTO",
         "count": 12,
         "is-correct": null
       },
@@ -1263,9 +1250,9 @@
         "is-correct": null
       },
       "hepatocyte": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000575",
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000182",
         "term-label": "hepatocyte",
-        "term-source": "BTO",
+        "term-source": "CL",
         "count": 51,
         "is-correct": null
       },
@@ -1277,16 +1264,16 @@
         "is-correct": null
       },
       "HCC cell line": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000578",
-        "term-label": "hepatoma cell line",
-        "term-source": "BTO",
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL",
         "count": 1,
         "is-correct": null
       },
       "mononuclear cell": {
-        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0009357",
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000842",
         "term-label": "mononuclear cell",
-        "term-source": "UPHENO",
+        "term-source": "CL",
         "count": 10,
         "is-correct": null
       },
@@ -1319,9 +1306,9 @@
         "is-correct": null
       },
       "hepatocellular carcinoma cell line": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000578",
-        "term-label": "hepatoma cell line",
-        "term-source": "BTO",
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL",
         "count": 346,
         "is-correct": null
       },
@@ -1333,9 +1320,9 @@
         "is-correct": null
       },
       "hepatoma cell line": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000578",
-        "term-label": "hepatoma cell line",
-        "term-source": "BTO",
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL",
         "count": 42,
         "is-correct": null
       },
@@ -1347,23 +1334,23 @@
         "is-correct": null
       },
       "myelodysplasia cell line": {
-        "term-uri": "http://purl.obolibrary.org/obo/HP_0002863",
-        "term-label": "Myelodysplasia",
-        "term-source": "UPHENO",
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL",
         "count": 4,
         "is-correct": null
       },
       "erythrocyte": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000424",
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000232",
         "term-label": "erythrocyte",
-        "term-source": "BTO",
+        "term-source": "CL",
         "count": 1,
         "is-correct": null
       },
       "hepatocellular carcinoma cell": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000608",
-        "term-label": "hepatoma cell",
-        "term-source": "BTO",
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL",
         "count": 2,
         "is-correct": null
       },
@@ -1383,9 +1370,9 @@
         "is-correct": null
       },
       "CD4+ T-cells": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_P06332",
-        "term-label": "T-cell surface glycoprotein CD4 (mouse)",
-        "term-source": "UPHENO",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001004",
+        "term-label": "CD4 molecule",
+        "term-source": "CL",
         "count": 58,
         "is-correct": null
       },
@@ -1492,23 +1479,23 @@
         "is-correct": null
       },
       "Peripheral blood mononuclear cells (PBMCs)": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000553",
-        "term-label": "peripheral blood",
-        "term-source": "BTO",
+        "term-uri": "http://purl.obolibrary.org/obo/UBERON_0000178",
+        "term-label": "blood",
+        "term-source": "CL",
         "count": 20,
         "is-correct": null
       },
       "Primary cell": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0001413",
-        "term-label": "primary cell",
-        "term-source": "BTO",
+        "term-uri": "http://purl.obolibrary.org/obo/GO_0005623",
+        "term-label": "cell",
+        "term-source": "CL",
         "count": 12,
         "is-correct": null
       },
       "epithelial cell": {
-        "term-uri": "http://purl.obolibrary.org/obo/BTO_0000414",
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000066",
         "term-label": "epithelial cell",
-        "term-source": "BTO",
+        "term-source": "CL",
         "count": 52,
         "is-correct": null
       },
@@ -1559,30 +1546,30 @@
         "is-correct": false
       },
       "cDC2_CD5-CD163+CD14+": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_P06127",
-        "term-label": "T-cell surface glycoprotein CD5 (human)",
-        "term-source": "UPHENO",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001839",
+        "term-label": "T-cell surface glycoprotein CD5",
+        "term-source": "CL",
         "count": 2,
         "is-correct": null
       },
       "cDC2_CD5-CD163+CD14-": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_P06127",
-        "term-label": "T-cell surface glycoprotein CD5 (human)",
-        "term-source": "UPHENO",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001839",
+        "term-label": "T-cell surface glycoprotein CD5",
+        "term-source": "CL",
         "count": 7,
         "is-correct": null
       },
       "cDC2_CD5-CD163-": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_P06127",
-        "term-label": "T-cell surface glycoprotein CD5 (human)",
-        "term-source": "UPHENO",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001839",
+        "term-label": "T-cell surface glycoprotein CD5",
+        "term-source": "CL",
         "count": 1,
         "is-correct": null
       },
       "cDC2_CD5+": {
-        "term-uri": "http://purl.obolibrary.org/obo/PR_P06127",
-        "term-label": "T-cell surface glycoprotein CD5 (human)",
-        "term-source": "UPHENO",
+        "term-uri": "http://purl.obolibrary.org/obo/PR_000001839",
+        "term-label": "T-cell surface glycoprotein CD5",
+        "term-source": "CL",
         "count": 7,
         "is-correct": null
       },
@@ -1594,16 +1581,16 @@
         "is-correct": null
       },
       "blast cell": {
-        "term-uri": "http://purl.obolibrary.org/obo/WBbt_0006783",
-        "term-label": "blast cell",
-        "term-source": "UPHENO",
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000055",
+        "term-label": "non-terminally differentiated cell",
+        "term-source": "CL",
         "count": 27,
         "is-correct": null
       },
       "T cell": {
-        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0009046",
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000084",
         "term-label": "T cell",
-        "term-source": "UPHENO",
+        "term-source": "CL",
         "count": 43,
         "is-correct": null
       }

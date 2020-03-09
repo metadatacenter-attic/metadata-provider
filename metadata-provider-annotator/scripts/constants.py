@@ -251,7 +251,7 @@ ANNOTATION_PREFERRED_ONTOLOGIES_FOR_ATT_VALUES = {
     "disease": ["MONDO"],
     "tissue": ["BTO", "UPHENO", "NCIT"],
     "cell type": ["CL", "BTO", "UPHENO"],
-    "cell line": ["CLO"],
+    "cell line": ["CLO", "EFO"],
     "sex": ["PATO"]
 }
 
