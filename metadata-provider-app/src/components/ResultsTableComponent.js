@@ -96,10 +96,11 @@ export default function ResultsTableComponent(props) {
           <Row>
             <Col>
               <Container>
-                <div className="results">
+                <div className="results results-large">
                   <Table size={'sm'} striped bordered hover variant="dark">
                     <thead>
                     <tr>
+                      <th>#</th>
                       <th>Center name</th>
                       <th>No. samples</th>
                     </tr>
@@ -107,6 +108,7 @@ export default function ResultsTableComponent(props) {
                     <tbody>
                     {props.organizationsAggList.map((organization, index) => (
                       <tr key={index}>
+                        <td>{index + 1}</td>
                         <td>
                           {organization.name}
                         </td>

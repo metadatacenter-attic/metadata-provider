@@ -185,7 +185,7 @@ h2 {
 }
 
 .results-count :hover {
-  background-color: #5c5c5c;
+  background-color: #5c5c5c !important;
   cursor: pointer;
 }
 
@@ -193,7 +193,12 @@ h2 {
   margin-right: 1vw;
 }
 
+
 .results-count-right {
+  margin-right: 1vw;
+}
+
+.results-count-bottom {
   margin-right: 1vw;
 }
 
@@ -239,6 +244,14 @@ h2 {
   margin: 1.5vw auto;
   padding: 0;
   font-size: calc(var(--font-size-theme) + 0.5vmin);
+}
+
+.results-large {
+  width: 100%;
+}
+
+.results-large tr td {
+  font-weight: normal;
 }
 
 ::-webkit-scrollbar {

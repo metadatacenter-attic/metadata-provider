@@ -202,9 +202,6 @@ function SearchComponent(props) {
 
   return (
     <>
-      {/*{originalSampleIDs.length} <br/>*/}
-      {/*{annotatedSamplesIDs.length} <br/>*/}
-      {/*{extraSampleIDs.length} <br/>*/}
       <h2 className="mt-4">{props.title}</h2>
       <Form className="mt-4">
         <Form.Group>
@@ -245,22 +242,6 @@ function SearchComponent(props) {
                     <FontAwesomeIcon icon={faSearch}/>
                   </Button>
 
-                  {/*<ButtonGroup>*/}
-                  {/*  {sampleQueries.length > 0 && props.db === "original" &&*/}
-                  {/*  <DropdownButton title="" as={ButtonGroup} className="search-dropdown-btn">*/}
-                  {/*    {sampleQueries.map((item, index) => (*/}
-                  {/*      <Dropdown.Item className="search-field-dropdown item" key={index}*/}
-                  {/*                     onClick={e => {*/}
-                  {/*                       updateSearchQuery(e, item);*/}
-                  {/*                     }}>Query {index + 1}. {item}</Dropdown.Item>*/}
-                  {/*    ))}*/}
-                  {/*  </DropdownButton>}*/}
-                  {/*  <Button className="search-btn" type="submit" onClick={e => {*/}
-                  {/*    querySamples(e, props.db)*/}
-                  {/*  }}>*/}
-                  {/*    <FontAwesomeIcon icon={faSearch}/>*/}
-                  {/*  </Button>*/}
-                  {/*</ButtonGroup>*/}
                 </InputGroup.Append>
               </InputGroup>
             </Row>
@@ -320,42 +301,51 @@ function SearchComponent(props) {
                 </Row>
                 <Row>
                   {!props.relevantAttributes.includes("organization") &&
-                  <Col className="results-count results-count-left">
+                  <Col className={selectedContentButton === "organizations" ?
+                    "results-count results-count-bottom results-count-selected" : "results-count results-count-bottom"}>
                     <Container onClick={e => showContent(e, 'organizations')}>
                       <Row><Col className="title-secondary">Centers</Col></Row>
                       <Row><Col className="count-secondary">{formatNumber(organizationsAggList.length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("disease") &&
-                  <Col className="results-count results-count-left">
+                  <Col className={selectedContentButton === "disease" ?
+                    "results-count results-count-bottom results-count-selected" : "results-count results-count-bottom"}>
                     <Container onClick={e => showContent(e, 'disease')}>
                       <Row><Col className="title-secondary">Diseases</Col></Row>
-                      <Row><Col className="count-secondary">{formatNumber(Object.keys(diseaseAggMap).length)}</Col></Row>
+                      <Row><Col
+                        className="count-secondary">{formatNumber(Object.keys(diseaseAggMap).length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("tissue") &&
-                  <Col className="results-count results-count-left">
+                  <Col className={selectedContentButton === "tissue" ?
+                    "results-count results-count-bottom results-count-selected" : "results-count results-count-bottom"}>
                     <Container onClick={e => showContent(e, 'tissue')}>
                       <Row><Col className="title-secondary">Tissues</Col></Row>
                       <Row><Col className="count-secondary">{formatNumber(Object.keys(tissueAggMap).length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("cell type") &&
-                  <Col className="results-count results-count-left">
+                  <Col className={selectedContentButton === "cell type" ?
+                    "results-count results-count-bottom results-count-selected" : "results-count results-count-bottom"}>
                     <Container onClick={e => showContent(e, 'cell type')}>
                       <Row><Col className="title-secondary">Cell Types</Col></Row>
-                      <Row><Col className="count-secondary">{formatNumber(Object.keys(cellTypeAggMap).length)}</Col></Row>
+                      <Row><Col
+                        className="count-secondary">{formatNumber(Object.keys(cellTypeAggMap).length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("cell line") &&
-                  <Col className="results-count results-count-left">
+                  <Col className={selectedContentButton === "cell line" ?
+                    "results-count results-count-bottom results-count-selected" : "results-count results-count-bottom"}>
                     <Container onClick={e => showContent(e, 'cell line')}>
                       <Row><Col className="title-secondary">Cell Lines</Col></Row>
-                      <Row><Col className="count-secondary">{formatNumber(Object.keys(cellLineAggMap).length)}</Col></Row>
+                      <Row><Col
+                        className="count-secondary">{formatNumber(Object.keys(cellLineAggMap).length)}</Col></Row>
                     </Container>
                   </Col>}
                   {!props.relevantAttributes.includes("sex") &&
-                  <Col className="results-count results-count-left">
+                  <Col className={selectedContentButton === "sex" ?
+                    "results-count results-count-bottom results-count-selected" : "results-count results-count-bottom"}>
                     <Container onClick={e => showContent(e, 'sex')}>
                       <Row><Col className="title-secondary">Sex</Col></Row>
                       <Row><Col className="count-secondary">{formatNumber(Object.keys(sexAggMap).length)}</Col></Row>

@@ -5,6 +5,7 @@ import Table from "react-bootstrap/Table";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import {REGCOGNIZED_BIOSAMPLE_ATT_NAMES} from "../constants"
+import CurieButtonComponent from "./CurieButtonComponent";
 
 export default function SampleDetailsModal(props) {
   const [show, setShow] = useState(false);
@@ -16,51 +17,6 @@ export default function SampleDetailsModal(props) {
       return str
     }
     return str.slice(0, num) + '...'
-  };
-
-  function extractTermID(termUri) {
-    let separator;
-    if (termUri.includes('_')) {
-      separator = '_';
-    } else if (termUri.includes('#')) {
-      separator = '#';
-    } else if (termUri.includes('/')) {
-      separator = '/';
-    } else {
-      console.error('Invalid term uri: ' + termUri);
-    }
-    return termUri.substring(termUri.lastIndexOf(separator) + 1);
-  };
-
-  function generateCurie(termSource, termUri) {
-    if (termUri) {
-      return termSource.toLowerCase() + ':' + extractTermID(termUri);
-    }
-  };
-
-  function renderPopOver(termUri, termLabel, termSource) {
-    return (
-      <Popover id="popover-basic">
-        <Popover.Title as="h3">Term details</Popover.Title>
-        <Popover.Content>
-          <Table size={'sm'} striped bordered>
-            <tbody>
-            <tr>
-              <td>Label</td>
-              <td><strong>{termLabel}</strong></td>
-            </tr>
-            <tr>
-              <td>URI</td>
-              <td><a href={termUri} target='_blank' rel="noopener noreferrer">{termUri}</a></td>
-            </tr>
-            <tr>
-              <td>Source</td>
-              <td>{termSource}</td>
-            </tr>
-            </tbody>
-          </Table>
-        </Popover.Content>
-      </Popover>);
   };
 
   return (
@@ -104,32 +60,18 @@ export default function SampleDetailsModal(props) {
                 <td><strong>{item.attributeName}</strong>
                   {!REGCOGNIZED_BIOSAMPLE_ATT_NAMES.includes(item.attributeName) &&
                   <span><strong>{item.attributeName}</strong> (*)</span>}
-                  {item.attributeNameTermUri &&
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="auto"
-                    rootClose={true}
-                    overlay={renderPopOver(item.attributeNameTermUri, item.attributeNameTermLabel,
-                      item.attributeNameTermSource)}>
-                    <Button className='ml-2 btn-secondary btn-secondary-curie' size={'sm'} variant="secondary">
-                      {generateCurie(item.attributeNameTermSource, item.attributeNameTermUri)}
-                    </Button>
-                  </OverlayTrigger>
-                  }
+                  <CurieButtonComponent
+                    attributeValueTermUri={item.attributeValueTermUri}
+                    attributeValueTermLabel={item.attributeValueTermLabel}
+                    attributeValueTermSource={item.attributeValueTermSource}
+                  />
                 </td>
                 <td>{truncateString(item.attributeValue, 200)}
-                  {item.attributeValueTermUri &&
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="auto"
-                    rootClose={true}
-                    overlay={renderPopOver(item.attributeValueTermUri, item.attributeValueTermLabel,
-                      item.attributeValueTermSource)}>
-                    <Button className='ml-2 btn-secondary btn-secondary-curie' size={'sm'} variant="secondary">
-                      {generateCurie(item.attributeValueTermSource, item.attributeValueTermUri)}
-                    </Button>
-                  </OverlayTrigger>
-                  }
+                  <CurieButtonComponent
+                    attributeValueTermUri={item.attributeValueTermUri}
+                    attributeValueTermLabel={item.attributeValueTermLabel}
+                    attributeValueTermSource={item.attributeValueTermSource}
+                  />
                 </td>
               </tr>
             ))}
