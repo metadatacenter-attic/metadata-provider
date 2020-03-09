@@ -20,7 +20,7 @@ import java.util.Map;
     info = @Info(
         title = "Metadata Provider",
         version = "prototype",
-        description = "Prototype utilities to query a subset of NCBI BioSample metadata records that were processed " +
+        description = "Prototype API to query a subset of NCBI BioSample metadata records that were processed " +
             "using semantic technology to increase their value.\n\nThe current database contains " +
             "<strong>4,346 records</strong> for three diseases: <i>hepatocellular carcinoma</i>, <i>myelodysplasia</i>, " +
             "and <i>systemic lupus erythematosus</i>. The original records were downloaded on " +

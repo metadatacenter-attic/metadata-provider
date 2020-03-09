@@ -22,7 +22,7 @@ export const SAMPLE_QUERIES =
     ]
   },
     {
-      "researchQuestion": "I need to find information about <u>hepatocellular carcinoma</u> samples.",
+      "researchQuestion": "I need to find information about <u>biological samples</u> in the setting of <u>hepatocellular carcinoma</u>.",
       "researchQuestionShort": "Hepatocellular carcinoma",
       "relevantAttributes": ["disease"],
       "queriesOriginalDB": [
