@@ -9,6 +9,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faAngleDown, faSearch} from '@fortawesome/free-solid-svg-icons'
 import ResultsTableComponent from "./ResultsTableComponent";
 import Spinner from "react-bootstrap/Spinner";
+import {API_BASE_URL} from "./../constants";
 
 
 function SearchComponent(props) {
@@ -49,7 +50,7 @@ function SearchComponent(props) {
     } else {
       setLoading(true);
       setShowEnterQueryMessage(false);
-      let url = "http://localhost:8080/biosample/search?q=" + searchQuery + "&db=" + db + "&include_accessions=true" +
+      let url = API_BASE_URL + "biosample/search?q=" + searchQuery + "&db=" + db + "&include_accessions=true" +
         "&aggregations=project&aggregations=organization&aggregations=disease&aggregations=tissue&" +
         "aggregations=cellType&aggregations=cellLine&aggregations=sex&" +
         "offset=0&limit=5000";
