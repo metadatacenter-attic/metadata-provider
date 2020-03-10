@@ -1,4 +1,6 @@
 openapi: 3.0.0
+servers:
+  - url: 'http://api.kp.metadatacenter.org/'
 info:
   description: >-
     Prototype utilities to query a subset of NCBI BioSample metadata records
@@ -8,12 +10,14 @@ info:
     The current database contains 4,346 records for three diseases: hepatocellular carcinoma, myelodysplasia, and systemic lupus erythematosus. The original records were downloaded on February 2, 2020 from the NCBI's FTP server (https://ftp.ncbi.nih.gov/biosample).
   version: prototype
   title: Metadata Provider
-  termsOfService: http://localhost:8080/biosample/tos
+  termsOfService: http://api.kp.metadatacenter.org/biosample/tos
   contact:
     name: " "
     email: marcosmr@stanford.edu
 tags:
+  - name: metadata
   - name: biosample
+  - name: translator
 paths:
   /biosample/search:
     get:
