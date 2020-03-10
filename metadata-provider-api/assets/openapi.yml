@@ -9,7 +9,7 @@ info:
 
     The current database contains 4,346 records for three diseases: hepatocellular carcinoma, myelodysplasia, and systemic lupus erythematosus. The original records were downloaded on February 2, 2020 from the NCBI's FTP server (https://ftp.ncbi.nih.gov/biosample).
   version: prototype
-  title: Metadata Provider
+  title: Metadata Provider API
   termsOfService: http://api.kp.metadatacenter.org/biosample/tos
   contact:
     name: " "

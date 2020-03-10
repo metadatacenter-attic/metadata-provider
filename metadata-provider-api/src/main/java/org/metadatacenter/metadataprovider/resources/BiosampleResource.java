@@ -18,7 +18,7 @@ import java.util.Map;
 
 @SwaggerDefinition(
     info = @Info(
-        title = "Metadata Provider",
+        title = "Metadata Provider API",
         version = "prototype",
         description = "Prototype API to query a subset of NCBI BioSample metadata records that were processed " +
             "using semantic technology to increase their value.\n\nThe current database contains " +
