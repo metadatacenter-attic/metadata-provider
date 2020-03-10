@@ -289,7 +289,8 @@ public class BiosampleService {
         } else {
           uniqueValue = new UniqueBiosampleAttributeValue(attribute.getAttributeValue(),
               attribute.getAttributeValueTermUri(),
-              attribute.getAttributeValueTermLabel(), attribute.getAttributeValueTermSource(), 1);
+              attribute.getAttributeValueTermLabel(), attribute.getAttributeValueTermAltLabels(),
+              attribute.getAttributeValueTermSource(), 1);
         }
         uniqueAttributeValuesMap.put(key, uniqueValue);
       }

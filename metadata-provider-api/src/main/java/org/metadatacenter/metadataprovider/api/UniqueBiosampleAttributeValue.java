@@ -3,18 +3,16 @@ package org.metadatacenter.metadataprovider.api;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.List;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UniqueBiosampleAttributeValue implements Comparable<UniqueBiosampleAttributeValue> {
 
-  @JsonProperty("attributeValue")
   private String attributeValue;
-  @JsonProperty("attributeValueTermUri")
   private String attributeValueTermUri;
-  @JsonProperty("attributeValueTermLabel")
   private String attributeValueTermLabel;
-  @JsonProperty("attributeValueTermSource")
+  private List<String> attributeValueTermAltLabels;
   private String attributeValueTermSource;
-  @JsonProperty("count")
   private int count;
 
   public UniqueBiosampleAttributeValue() {
@@ -30,10 +28,12 @@ public class UniqueBiosampleAttributeValue implements Comparable<UniqueBiosample
   // Annotated value
   public UniqueBiosampleAttributeValue(String attributeValue,
                                        String attributeValueTermUri, String attributeValueTermLabel,
+                                       List<String> attributeValueTermAltLabels,
                                        String attributeValueTermSource, int count) {
     this.attributeValue = attributeValue;
     this.attributeValueTermUri = attributeValueTermUri;
     this.attributeValueTermLabel = attributeValueTermLabel;
+    this.attributeValueTermAltLabels = attributeValueTermAltLabels;
     this.attributeValueTermSource = attributeValueTermSource;
     this.count = count;
   }
@@ -49,6 +49,8 @@ public class UniqueBiosampleAttributeValue implements Comparable<UniqueBiosample
   public String getAttributeValueTermLabel() {
     return attributeValueTermLabel;
   }
+
+  public List<String> getAttributeValueTermAltLabels() { return attributeValueTermAltLabels; }
 
   public String getAttributeValueTermSource() {
     return attributeValueTermSource;

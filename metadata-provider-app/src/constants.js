@@ -5,7 +5,7 @@ export const REGCOGNIZED_BIOSAMPLE_ATT_NAMES = ["EDTA inhibitor tested", "FAO cl
 
 export const SAMPLE_QUERIES =
   [{
-    "researchQuestion": "I need to find information about <u>biological samples</u> in the setting of <u>myelodysplasia</u>.",
+    "researchQuestion": "I need to find information about biological samples in the setting of <u>myelodysplasia</u>.",
     "researchQuestionShort": "Myelodysplasia",
     "relevantAttributes": ["disease"],
     "queriesOriginalDB": [
@@ -25,7 +25,47 @@ export const SAMPLE_QUERIES =
     ]
   },
     {
-      "researchQuestion": "I need to find information about <u>biological samples</u> in the setting of <u>hepatocellular carcinoma</u>.",
+      "researchQuestion": "I need to find information about <u>male</u> biological samples in the setting of <u>myelodysplasia</u>.",
+      "researchQuestionShort": "Myelodysplasia, male",
+      "relevantAttributes": ["disease", "sex"],
+      "queriesOriginalDB": [
+        "disease=myelodysplasia AND sex=male",
+        "disease=myelodysplastic syndrome AND sex=male",
+        "disease=myelodysplastic syndrome (mds) AND sex=male",
+        "disease=myelodysplastic syndromes AND sex=male",
+        "disease=mds AND sex=male"
+      ],
+      "queriesAnnotatedDB": [
+        "disease=myelodysplasia AND sex=male",
+        "disease=myelodysplastic syndrome AND sex=male",
+        "disease=myelodysplastic syndrome (mds) AND sex=male",
+        "disease=myelodysplastic syndromes AND sex=male",
+        "disease=mds AND sex=male",
+        "biolink:Disease=mondo:0018881 AND biolink:BiologicalSex=pato:0000384"
+      ]
+    },
+    {
+      "researchQuestion": "I need to find information about <u>female</u> biological samples in the setting of <u>myelodysplasia</u>.",
+      "researchQuestionShort": "Myelodysplasia, female",
+      "relevantAttributes": ["disease", "sex"],
+      "queriesOriginalDB": [
+        "disease=myelodysplasia AND sex=female",
+        "disease=myelodysplastic syndrome AND sex=female",
+        "disease=myelodysplastic syndrome (mds) AND sex=female",
+        "disease=myelodysplastic syndromes AND sex=female",
+        "disease=mds AND sex=female"
+      ],
+      "queriesAnnotatedDB": [
+        "disease=myelodysplasia AND sex=female",
+        "disease=myelodysplastic syndrome AND sex=female",
+        "disease=myelodysplastic syndrome (mds) AND sex=female",
+        "disease=myelodysplastic syndromes AND sex=female",
+        "disease=mds AND sex=female",
+        "biolink:Disease=mondo:0018881 AND biolink:BiologicalSex=pato:0000383"
+      ]
+    },
+    {
+      "researchQuestion": "I need to find information about biological samples in the setting of <u>hepatocellular carcinoma</u>.",
       "researchQuestionShort": "Hepatocellular carcinoma",
       "relevantAttributes": ["disease"],
       "queriesOriginalDB": [
@@ -38,6 +78,55 @@ export const SAMPLE_QUERIES =
         "disease=hepatocellular carcinoma",
         "disease=hepatoma",
         "biolink:Disease=mondo:0007256"
+      ]
+    },
+    {
+      "researchQuestion": "I need to find information about <u>male</u> biological samples in the setting of <u>hepatocellular carcinoma</u>.",
+      "researchQuestionShort": "Hepatocellular carcinoma, male",
+      "relevantAttributes": ["disease", "sex"],
+      "queriesOriginalDB": [
+        "disease=hcc AND sex=male",
+        "disease=hepatocellular carcinoma AND sex=male",
+        "disease=hepatoma AND sex=male"
+      ],
+      "queriesAnnotatedDB": [
+        "disease=hcc AND sex=male",
+        "disease=hepatocellular carcinoma AND sex=male",
+        "disease=hepatoma AND sex=male",
+        "biolink:Disease=mondo:0007256 AND biolink:BiologicalSex=pato:0000384"
+      ]
+    },
+
+    {
+      "researchQuestion": "I need to find information about <u>female</u> biological samples in the setting of <u>hepatocellular carcinoma</u>.",
+      "researchQuestionShort": "Hepatocellular carcinoma, female",
+      "relevantAttributes": ["disease", "sex"],
+      "queriesOriginalDB": [
+        "disease=hcc AND sex=female",
+        "disease=hepatocellular carcinoma AND sex=female",
+        "disease=hepatoma AND sex=female"
+      ],
+      "queriesAnnotatedDB": [
+        "disease=hcc AND sex=female",
+        "disease=hepatocellular carcinoma AND sex=female",
+        "disease=hepatoma AND sex=female",
+        "biolink:Disease=mondo:0007256 AND biolink:BiologicalSex=pato:0000383"
+      ]
+    },
+    {
+      "researchQuestion": "I need to find information about <u>hepatocellular carcinoma</u> samples from the <u>HuH-7 cell line</u>.",
+      "researchQuestionShort": "Hepatocellular carcinoma, HuH-7 cell line",
+      "relevantAttributes": ["disease", "cell line"],
+      "queriesOriginalDB": [
+        "disease=hepatocellular carcinoma AND cell line=HuH-7",
+        "disease=hcc AND cell line=HuH-7",
+        "disease=hepatoma AND cell line=HuH-7"
+      ],
+      "queriesAnnotatedDB": [
+        "disease=hepatocellular carcinoma AND cell line=HepaRG",
+        "disease=hcc AND cell line=HepaRG",
+        "disease=hepatoma AND cell line=HepaRG",
+        "biolink:Disease=mondo:0007256 AND biolink:CellLine=efo:0001186"
       ]
     },
     {
@@ -57,7 +146,7 @@ export const SAMPLE_QUERIES =
       ]
     },
     {
-      "researchQuestion": "I need to find information about <u>biological samples</u> in the setting of <u>systemic lupus erythematosus</u>.",
+      "researchQuestion": "I need to find information about biological samples in the setting of <u>systemic lupus erythematosus</u>.",
       "researchQuestionShort": "Systemic lupus erythematosus",
       "relevantAttributes": ["disease"],
       "queriesOriginalDB": [
@@ -71,6 +160,37 @@ export const SAMPLE_QUERIES =
         "disease=systemic lupus erythematosus (SLE)",
         "biolink:Disease=mondo:0007915"
       ]
+    },
+    {
+      "researchQuestion": "I need to find information about <u>male</u> biological samples in the setting of <u>systemic lupus erythematosus</u>.",
+      "researchQuestionShort": "Systemic lupus erythematosus, male",
+      "relevantAttributes": ["disease", "sex"],
+      "queriesOriginalDB": [
+        "disease=systemic lupus erythematosus AND sex=male",
+        "disease=sle AND sex=male",
+        "disease=systemic lupus erythematosus (SLE) AND sex=male"
+      ],
+      "queriesAnnotatedDB": [
+        "disease=systemic lupus erythematosus AND sex=male",
+        "disease=sle AND sex=male",
+        "disease=systemic lupus erythematosus (SLE) AND sex=male",
+        "biolink:Disease=mondo:0007915 AND biolink:BiologicalSex=pato:0000384"
+      ]
+    },
+    {
+      "researchQuestion": "I need to find information about <u>female</u> biological samples in the setting of <u>systemic lupus erythematosus</u>.",
+      "researchQuestionShort": "Systemic lupus erythematosus, female",
+      "relevantAttributes": ["disease", "sex"],
+      "queriesOriginalDB": [
+        "disease=systemic lupus erythematosus AND sex=female",
+        "disease=sle AND sex=female",
+        "disease=systemic lupus erythematosus (SLE) AND sex=female"
+      ],
+      "queriesAnnotatedDB": [
+        "disease=systemic lupus erythematosus AND sex=female",
+        "disease=sle AND sex=female",
+        "disease=systemic lupus erythematosus (SLE) AND sex=female",
+        "biolink:Disease=mondo:0007915 AND biolink:BiologicalSex=pato:0000383"
+      ]
     }
-  ]
-;
+  ];
