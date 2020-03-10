@@ -3,12 +3,6 @@ import Table from "react-bootstrap/Table";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import SampleDetailsModal from "./SampleDetailsModal";
-import ProjectDetailsModal from "./ProjectDetailsModal";
-import {REGCOGNIZED_BIOSAMPLE_ATT_NAMES} from "../constants";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Button from "react-bootstrap/Button";
-import Popover from "react-bootstrap/Popover";
 import CurieButtonComponent from "./CurieButtonComponent";
 
 export default function ResultsTableComponent(props) {
@@ -50,8 +44,8 @@ export default function ResultsTableComponent(props) {
           </Col>
         </Row>
       </Container>}
-      {!props.attributeValuesAggMap || props.attributeValuesAggMap.length === 0
-      && <div><p className="search-msg">No {props.content.toLowerCase()} found</p></div>}
+      {(!props.attributeValuesAggMap || Object.keys(props.attributeValuesAggMap).length === 0) &&
+      <div><p className="search-msg">No {props.content.toLowerCase()} found</p></div>}
     </>
   );
 }

@@ -3,7 +3,7 @@
   --theme-default-font-size: 10px;
   --theme-presentation-font-size: 15px;
   --font-size-theme: var(--theme-default-font-size); /* Optimized for regular use */
-  --font-size-theme: var(--theme-presentation-font-size); /* Optimized for demos */
+  /*--font-size-theme: var(--theme-presentation-font-size); !* Optimized for demos *!*/
   --color-dark0: #000;
   --color-dark1: #2e3032;
   --color-dark2: #5c5c5c;
@@ -37,6 +37,20 @@
   border-width: 0;
   border-style: solid;
   padding-top: 1vw;
+}
+
+.App-footer {
+  padding: 1vw 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-color: #5c5c5c;
+  border-width: 0;
+  border-style: solid;
+  font-weight: 500;
+  font-size: calc(var(--font-size-theme) + 0.4vmin) !important;
 }
 
 h1 {
@@ -348,6 +362,20 @@ h2 {
   font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
   border-width: 0 !important;
   background-color: var(--color-dark3) !important;
+}
+
+.btn-clear {
+  background: var(--color-dark1) !important;
+  margin-left: 0.1vw;
+  color: var(--color-dark4) !important;
+  border-width: 0px !important;
+  border-color: #fff !important;
+  font-size: calc(var(--font-size-theme) + 0.5vmin) !important;
+}
+
+.btn-clear:hover {
+  cursor: pointer;
+  color: var(--color-light) !important;
 }
 
 

@@ -90,12 +90,12 @@ function SearchComponent(props) {
   };
 
   function updateExtraSampleIDs(originalSampleIDs, annotatedSamplesIDs) {
-    if (originalSampleIDs.length > 0 && annotatedSamplesIDs.length > 0) {
-      let difference = annotatedSamplesIDs.filter(x => !originalSampleIDs.includes(x));
-      setExtraSampleIDs(difference);
-    } else {
-      setExtraSampleIDs([]);
-    }
+    // if (originalSampleIDs.length > 0 && annotatedSamplesIDs.length > 0) {
+    let difference = annotatedSamplesIDs.filter(x => !originalSampleIDs.includes(x));
+    setExtraSampleIDs(difference);
+    // } else {
+    //   setExtraSampleIDs([]);
+    // }
   };
 
   function updateExtraProjectIDs(originalProjectIDs, annotatedProjectIDs) {
@@ -228,7 +228,7 @@ function SearchComponent(props) {
                   className="search-field"
                   as="textarea"
                   rows="2"
-                  placeholder="Enter your search query"
+                  placeholder="Enter your query"
                   value={searchQuery}
                   onChange={e => {
                     setShowEnterQueryMessage(false);
@@ -343,14 +343,14 @@ function SearchComponent(props) {
                         className="count-secondary">{formatNumber(Object.keys(cellLineAggMap).length)}</Col></Row>
                     </Container>
                   </Col>}
-                  {!props.relevantAttributes.includes("sex") &&
-                  <Col className={selectedContentButton === "sex" ?
-                    "results-count results-count-bottom results-count-selected" : "results-count results-count-bottom"}>
-                    <Container onClick={e => showContent(e, 'sex')}>
-                      <Row><Col className="title-secondary">Sex</Col></Row>
-                      <Row><Col className="count-secondary">{formatNumber(Object.keys(sexAggMap).length)}</Col></Row>
-                    </Container>
-                  </Col>}
+                  {/*{!props.relevantAttributes.includes("sex") &&*/}
+                  {/*<Col className={selectedContentButton === "sex" ?*/}
+                  {/*  "results-count results-count-bottom results-count-selected" : "results-count results-count-bottom"}>*/}
+                  {/*  <Container onClick={e => showContent(e, 'sex')}>*/}
+                  {/*    <Row><Col className="title-secondary">Sex</Col></Row>*/}
+                  {/*    <Row><Col className="count-secondary">{formatNumber(Object.keys(sexAggMap).length)}</Col></Row>*/}
+                  {/*  </Container>*/}
+                  {/*</Col>}*/}
                 </Row>
               </Container>
             </Col>

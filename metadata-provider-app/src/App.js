@@ -8,6 +8,10 @@ import SearchComponent from './components/SearchComponent';
 import Col from "react-bootstrap/Col";
 import {Form} from "react-bootstrap";
 import {SAMPLE_QUERIES} from "./constants";
+import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faTimes} from "@fortawesome/free-solid-svg-icons";
 
 export default function App() {
 
@@ -15,15 +19,6 @@ export default function App() {
   const [originalSampleIDsFound, setOriginalSampleIDsFound] = useState([]);
   const [originalProjectIDsFound, setOriginalProjectIDsFound] = useState([]);
   const sampleQueries = SAMPLE_QUERIES;
-
-  function setSampleQueryIndex(selectedIndex) {
-    if (selectedIndex) {
-      setQueryIndex(selectedIndex);
-    } else { // when there is no example selected
-      setQueryIndex(null);
-    }
-
-  };
 
   function getSampleQueries(index, db) {
     if (index) {
@@ -63,19 +58,29 @@ export default function App() {
       <div className="App-content">
 
         <div className="instructions-container">
-          <p><span className="database">Database: NCBI BioSample </span><span>(4,346 samples from Homo sapiens)</span></p>
+          <p><span
+            className="database">Database: NCBI BioSample Extract </span><span>(4,346 samples from Homo sapiens)</span>
+          </p>
           {/*<p className="label">Enter a search query or load an example:</p>*/}
           <Container>
             <Row className="example-selection">
               <Col></Col>
-              <Col md={5}>
+              <Col md={6}>
                 <Form.Group controlId="exampleSelectionForm">
-                  <Form.Control as="select" onChange={e => setSampleQueryIndex(e.target.value)}>
-                    {!queryIndex && <option>Load an example...</option>}
-                    {sampleQueries.map((item, index) => (
-                      <option key={index} value={index}>Example {index + 1} ({item.researchQuestionShort})</option>
-                    ))}
-                  </Form.Control>
+                  <InputGroup>
+                    <Form.Control value={queryIndex} as="select" onChange={e => setQueryIndex(e.target.value)}>
+                      {!queryIndex && <option>Load a sample query ...</option>}
+                      {sampleQueries.map((item, index) => (
+                        <option key={index} value={index}>Example {index + 1} ({item.researchQuestionShort})</option>
+                      ))}
+                    </Form.Control>
+                    {queryIndex && queryIndex != "" &&
+                    <InputGroup.Append>
+                      <Button type={"reset"} className="btn-clear" onClick={e => setQueryIndex("")}>
+                        <FontAwesomeIcon icon={faTimes}/></Button>
+                    </InputGroup.Append>}
+                  </InputGroup>
+
                 </Form.Group>
               </Col>
               <Col></Col>
@@ -119,6 +124,22 @@ export default function App() {
         </div>
 
       </div>
+
+      <div className="App-footer">
+        <div className="d-flex flex-column">
+          <footer className="footer">
+            <div>
+              <a href="https://bmir.stanford.edu/">Stanford Center for Biomedical Informatics Research (BMIR)</a>
+
+            </div>
+            <div className="ml-auto">
+              <span>&copy; 2020 </span>
+              The Board of Trustees of Leland Stanford Junior University
+            </div>
+          </footer>
+        </div>
+      </div>
+
     </div>
   );
 }

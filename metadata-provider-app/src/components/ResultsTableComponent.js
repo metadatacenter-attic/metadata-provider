@@ -122,7 +122,7 @@ export default function ResultsTableComponent(props) {
             </Col>
           </Row>
         </Container>}
-        {props.projectIDs.length === 0 && <div><p className="search-msg">No projects found</p></div>}
+        {props.projectIDs.length === 0 && <div><p className="search-msg">No centers found</p></div>}
       </>}
       {/************************************************************************************************/}
       {props.selectedContentButton === 'disease' &&

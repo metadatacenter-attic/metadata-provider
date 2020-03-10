@@ -2,8 +2,6 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import React, {useState} from 'react';
 import Table from "react-bootstrap/Table";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
 import {REGCOGNIZED_BIOSAMPLE_ATT_NAMES} from "../constants"
 import CurieButtonComponent from "./CurieButtonComponent";
 
