@@ -25,7 +25,7 @@ import java.util.Map;
             "<strong>4,346 records</strong> for three diseases: <i>hepatocellular carcinoma</i>, <i>myelodysplasia</i>, " +
             "and <i>systemic lupus erythematosus</i>. The original records were downloaded on " +
             "February 2, 2020 from the NCBI's FTP server (https://ftp.ncbi.nih.gov/biosample).",
-        termsOfService = "http://localhost:8080/biosample/tos",
+        termsOfService = "/biosample/tos",
         // license = @License(name = "Apache 2.0", url = "http://foo.bar"),
         contact = @Contact(name = " ", email = "marcosmr@stanford.edu")
     )
