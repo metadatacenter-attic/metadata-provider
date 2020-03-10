@@ -74,7 +74,7 @@ export default function App() {
                         <option key={index} value={index}>Example {index + 1} ({item.researchQuestionShort})</option>
                       ))}
                     </Form.Control>
-                    {queryIndex && queryIndex != "" &&
+                    {queryIndex && queryIndex !== "" &&
                     <InputGroup.Append>
                       <Button type={"reset"} className="btn-clear" onClick={e => setQueryIndex("")}>
                         <FontAwesomeIcon icon={faTimes}/></Button>
