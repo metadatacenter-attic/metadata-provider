@@ -1,0 +1,129 @@
+openapi: 3.0.0
+info:
+  description: >-
+    Prototype utilities to query a subset of NCBI BioSample metadata records
+    that were processed using semantic technology to increase their value.
+
+
+    The current database contains 4,346 records for three diseases: hepatocellular carcinoma, myelodysplasia, and systemic lupus erythematosus. The original records were downloaded on February 2, 2020 from the NCBI's FTP server (https://ftp.ncbi.nih.gov/biosample).
+  version: prototype
+  title: Metadata Provider
+  termsOfService: http://localhost:8080/biosample/tos
+  contact:
+    name: " "
+    email: marcosmr@stanford.edu
+tags:
+  - name: biosample
+paths:
+  /biosample/search:
+    get:
+      tags:
+        - biosample
+      summary: Search biosamples by attribute name and value
+      description: ""
+      operationId: search
+      parameters:
+        - name: q
+          in: query
+          description: "Search query in the format: attributeName1=attributeValue1 AND
+            attributeName2=attributeValue2 AND ... AND
+            attributeNameN=attributeValueN. Note that the attribute names
+            and values can be expressed using either free text (e.g.,
+            disease=HCC) or CURIEs (e.g.,
+            biolink:Disease=mondo:0007256)"
+          required: false
+          example: disease=HCC AND tissue=liver
+          schema:
+            type: string
+        - name: db
+          in: query
+          description: Target database
+          required: false
+          schema:
+            type: string
+            enum:
+              - original
+              - annotated
+            default: annotated
+        - name: include_accessions
+          in: query
+          description: Return a list with all the biosample accessions that match the query
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: include_bioproject
+          in: query
+          description: Return BioProject details
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: aggregations
+          in: query
+          description: Return aggregated results for biosample attributes, bioprojects, or
+            organizations
+          required: false
+          explode: true
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - project
+                - organization
+                - disease
+                - tissue
+                - cellType
+                - cellLine
+                - sex
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 25
+      responses:
+        default:
+          description: successful operation
+  "/biosample/{accession}":
+    get:
+      tags:
+        - biosample
+      summary: Find biosample by accession number
+      description: ""
+      operationId: findBiosampleByAccession
+      parameters:
+        - name: accession
+          in: path
+          required: true
+          example: SAMEA104169478
+          schema:
+            type: string
+        - name: include_bioproject
+          in: query
+          description: Return BioProject details
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: db
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - original
+              - annotated
+            default: annotated
+      responses:
+        default:
+          description: successful operation
