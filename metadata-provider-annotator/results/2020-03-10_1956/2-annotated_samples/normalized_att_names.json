@@ -1,0 +1,15 @@
+{
+  "disease": "disease",
+  "tissue": "tissue",
+  "cell type": "cell type",
+  "type cell": "cell type",
+  "cell line": "cell line",
+  "line cell": "cell line",
+  "sex": "sex",
+  "cell sex": "sex",
+  "sex cell": "sex",
+  "patient gender": "sex",
+  "gender patient": "sex",
+  "donor gender": "sex",
+  "gender donor": "sex"
+}

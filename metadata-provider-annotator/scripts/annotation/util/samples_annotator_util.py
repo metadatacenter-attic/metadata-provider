@@ -44,7 +44,7 @@ def extract_unique_attribute_names_values(samples, att_names_values_variations):
 
 def normalize_term(term, norm_terms = None):
     """
-    Normalizes a term to ensure that the NCBO Annotator is able to annotate it
+    Basic normalization to ensure that the NCBO Annotator is able to annotate it
     :param term:
     :param norm_terms: Custom normalized values to help improve the annotation results
     :return:
@@ -54,10 +54,40 @@ def normalize_term(term, norm_terms = None):
     else:
         # term = utils.camel_case_to_space_delimited(term)  # We removed this transformation because it's a source of mistakes
         # term = re.sub('([^A-Za-z0-9]+)|(uberon:)', ' ', term) # Errors when normalizing F-36P to F 36p
-        term = re.sub('uberon:', ' ', term)
-        term = re.sub(' +', ' ', term)
-        term = term.lower().strip()
+        term = re.sub(' +', ' ', term)  # Multiple spaces to single space
+        term = term.lower().strip()  # To lowercase and strip
         return term
+
+
+def normalize_term2(term):
+    """
+    Deeper normalization. It removes all special symbols and spaces
+    :param term:
+    :return:
+    """
+    term = re.sub('([^A-Za-z0-9]+)', '', term)  # Errors when normalizing F-36P to F 36p
+    term = term.lower()
+    return term
+
+
+def normalize_term_spaces(term):
+    term = re.sub(' +', ' ', term)  # Remove spaces
+    return term
+
+
+def normalize_term_caml_case(term):
+    """
+    Deeper normalization
+    :param term:
+    :return:
+    """
+    # term = utils.camel_case_to_space_delimited(term)  # We removed this transformation because it's a source of mistakes
+    # term = re.sub('([^A-Za-z0-9]+)|(uberon:)', ' ', term) # Errors when normalizing F-36P to F 36p
+    term = re.sub('uberon:', ' ', term)  # Remove uberon: prefix
+    term = re.sub(' +', ' ', term)  # Multiple spaces to single space
+    term = term.lower().strip()  # To lowercase and strip
+    return term
+
 
 
 def equal_norm_str(str1, str2):

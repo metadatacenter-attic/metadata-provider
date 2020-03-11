@@ -71,7 +71,7 @@ export default function ResultsTableComponent(props) {
                         <td>
                           <ProjectDetailsModal
                             projectID={id}
-                            projectTitle={props.projectsAggMap[id].projectTitle}
+                            projectTitle={props.projectsAggMap[id].projectTitle ? props.projectsAggMap[id].projectTitle : 'NA'}
                             projectOrganizations={props.projectsAggMap[id].organizations}
                             highlighted={props.extraProjectIDs.includes(id)}
                           />

@@ -168,16 +168,16 @@ def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=No
 
         if attribute_value is None:
             print('Annotating attribute name: ' + attribute_name)
-            term = annotator_util.normalize_term(attribute_name, norm_attribute_names)
+            original_term = attribute_name
 
         else:
             print('Annotating attribute value: ' + attribute_value + ' (attribute name: ' + attribute_name + ')')
-            term = annotator_util.normalize_term(attribute_value, norm_attribute_values)
+            original_term = annotator_util.normalize_term(attribute_value, norm_attribute_values)
 
             # Check if the value is in the list of values to ignore
             if ignore_values is not None and len(ignore_values) > 0 \
-                    and annotator_util.contained_in_list_norm_str(term, ignore_values):
-                print('Ignoring value: ' + term)
+                    and annotator_util.contained_in_list_norm_str(original_term, ignore_values):
+                print('Ignoring value: ' + original_term)
                 return {
                     'term-uri': None,
                     'term-label': None,
@@ -185,17 +185,33 @@ def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=No
                     'term-source': None
                 }
 
+        # Normalization
+        term_normalized_1 = annotator_util.normalize_term(original_term, norm_attribute_names)  # Basic normalization
+        term_normalized_2 = annotator_util.normalize_term2(original_term)  # Deep normalization
+
+        norm_terms = [term_normalized_2]
+        if term_normalized_1 not in norm_terms:
+            norm_terms.append(term_normalized_1)
+
+        print('Normalized terms: ' + str(norm_terms))
+
         if not preferred_ontologies_ordered:
-            annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term, ontologies=preferred_ontologies,
-                                                        longest_only=False,
-                                                        expand_mappings=False, include=['prefLabel'])
-        else:
-            for pref_ont in preferred_ontologies:
-                annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term,
-                                                            ontologies=[pref_ont],
+            for term in norm_terms:
+                annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term, ontologies=preferred_ontologies,
                                                             longest_only=False,
                                                             expand_mappings=False, include=['prefLabel'])
-                if len(annotator_results) > 0:  # found annotation with the current ontology. Break loop
+                if len(annotator_results) > 0:  # found annotation with the current normalized term
+                    break;
+        else:
+            for pref_ont in preferred_ontologies:
+                for term in norm_terms:
+                    annotator_results = bioportal_util.annotate(constants.BIOPORTAL_APIKEY, term,
+                                                                ontologies=[pref_ont],
+                                                                longest_only=False,
+                                                                expand_mappings=False, include=['prefLabel'])
+                    if len(annotator_results) > 0:  # found annotation with the current ontology and normalized term. Break loop
+                        break;
+                if len(annotator_results) > 0:
                     break;
 
         if len(annotator_results) > 0:
@@ -204,11 +220,11 @@ def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=No
             return annotation
         else:
             if preferred_ontologies is None:
-                print('  No annotations found. Term: ' + term)
+                print('  No annotations found. Term: ' + original_term)
                 return None
             else:
                 if not use_any_ontology_if_no_results:
-                    print('  No annotations found. Term: ' + term)
+                    print('  No annotations found. Term: ' + original_term)
                     return None
                 else:
                     preferred_ontologies = None
@@ -243,32 +259,6 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                            preferred_ontologies_for_att_values, preferred_ontologies_ordered,
                            prioritize_pref, use_any_ontology_if_no_results, ignore_values,
                            annotation_cache_file_path, evaluation_info_file_path):
-    """
-    Build annotation cache, according to the following structure:
-    {
-        "att-names": {
-            "disease": {
-                "term-uri":"...",
-                "term-label":"...",
-                "term-source":"..."
-            },
-            "sex": {...},
-            ...
-        },
-        "att-values": {
-            "disease": {
-                "liver cancer": {
-                    "term-uri":"...",
-                    "term-label":"...",
-                    "term-source":"..."
-                },
-                "hcc": {...}
-            },
-            "sex": {...},
-            ...
-        }
-    }
-    """
 
     # Generate files with normalized attribute names and values. These normalized terms will be used later, to
     # ensure that the NCBO Annotator is able to return the right URI for them
@@ -312,7 +302,7 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                                                                          norm_attribute_names=norm_att_names,
                                                                          norm_attribute_values=None,
                                                                          preferred_ontologies=None,
-                                                                         preferred_ontologies_ordered=True,
+                                                                         preferred_ontologies_ordered=preferred_ontologies_ordered,
                                                                          prioritize_pref=prioritize_pref,
                                                                          use_any_ontology_if_no_results=use_any_ontology_if_no_results,
                                                                          ignore_values=ignore_values)
@@ -343,7 +333,7 @@ def build_annotation_cache(samples, att_names_values_variations, preferred_terms
                                                    norm_attribute_names=norm_att_names,
                                                    norm_attribute_values=norm_att_values,
                                                    preferred_ontologies=preferred_ontologies,
-                                                   preferred_ontologies_ordered=True,
+                                                   preferred_ontologies_ordered=preferred_ontologies_ordered,
                                                    prioritize_pref=prioritize_pref,
                                                    use_any_ontology_if_no_results=use_any_ontology_if_no_results,
                                                    ignore_values=ignore_values)

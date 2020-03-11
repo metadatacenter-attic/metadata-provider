@@ -157,7 +157,15 @@ NCBI_ATT_NAMES_VALUES_VARIATIONS = [
         "att_name_variations": [
             "cell type"
         ],
-        "att_values": []
+        "att_values": [
+            {
+                "att_value": "epithelial cell",
+                "att_value_variations": [
+                    "epithelial cells",
+                    "epithelial"
+                ]
+            }
+        ]
     },
     {
         "att_name": "age",
@@ -210,7 +218,7 @@ ANNOTATION_FILTER_SPECS = [{"att_name": "disease",
                                            "myelodysplasia",
                                            "systemic lupus erythematosus"]},
                            {"att_name": "tissue", "att_values": []},
-                           {"att_name": "cell type", "att_values": []},
+                           {"att_name": "cell type", "att_values": ["epithelial cell"]},
                            {"att_name": "cell line", "att_values": []},
                            {"att_name": "sex", "att_values": []}]
 

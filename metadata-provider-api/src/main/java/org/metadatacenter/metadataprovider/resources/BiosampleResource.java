@@ -21,7 +21,7 @@ import java.util.Map;
         title = "Metadata Provider API",
         version = "prototype",
         description = "Prototype API to query a subset of NCBI BioSample metadata records that were processed " +
-            "using semantic technology to increase their value.\n\nThe current database contains " +
+            "using semantic technology.\n\nThe current database contains " +
             "<strong>4,346 records</strong> for three diseases: <i>hepatocellular carcinoma</i>, <i>myelodysplasia</i>, " +
             "and <i>systemic lupus erythematosus</i>. The original records were downloaded on " +
             "February 2, 2020 from the NCBI's FTP server (https://ftp.ncbi.nih.gov/biosample).",

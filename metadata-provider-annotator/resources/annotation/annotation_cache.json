@@ -316,12 +316,14 @@
     },
     "cell line": {
       "Hep G2": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0050856",
-        "term-label": "RCB1648 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0003704",
+        "term-label": "Hep G2 cell",
         "term-source": "CLO",
         "term-alt-labels": [
           "hep g2",
-          "hb-8065 (hep g2) [hepg2]"
+          "hepg2",
+          "hepg2/c3a",
+          "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
         ]
       },
       "HepG2": {
@@ -329,6 +331,7 @@
         "term-label": "Hep G2 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "hep g2",
           "hepg2",
           "hepg2/c3a",
           "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
@@ -349,11 +352,14 @@
         ]
       },
       "Huh-7": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0051863",
-        "term-label": "NICR1692 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
+        "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7"
+          "huh-7",
+          "huh7",
+          "huh7.5",
+          "huh7.5.1-derived cells"
         ]
       },
       "PLC/PRF/5": {
@@ -397,11 +403,14 @@
         ]
       },
       "HUH-7": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0051863",
-        "term-label": "NICR1692 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
+        "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7"
+          "huh-7",
+          "huh7",
+          "huh7.5",
+          "huh7.5.1-derived cells"
         ]
       },
       "JHH-7": {
@@ -421,11 +430,14 @@
         ]
       },
       "HuH-7": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0051863",
-        "term-label": "NICR1692 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
+        "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7"
+          "huh-7",
+          "huh7",
+          "huh7.5",
+          "huh7.5.1-derived cells"
         ]
       },
       "JHH-6": {
@@ -519,6 +531,7 @@
         "term-label": "Hep G2 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "hep g2",
           "hepg2",
           "hepg2/c3a",
           "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
@@ -559,6 +572,7 @@
         "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "huh-7",
           "huh7",
           "huh7.5",
           "huh7.5.1-derived cells"
@@ -583,11 +597,12 @@
         "term-source": null
       },
       "Hep-3B": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0003710",
-        "term-label": "HEP-3B cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0054295",
+        "term-label": "NICR837 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "hep-3b"
+          "hep-3b",
+          "hep3b"
         ]
       },
       "Huh7.5": {
@@ -595,6 +610,7 @@
         "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "huh-7",
           "huh7",
           "huh7.5",
           "huh7.5.1-derived cells"
@@ -605,6 +621,7 @@
         "term-label": "Hep G2 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "hep g2",
           "hepg2",
           "hepg2/c3a",
           "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
@@ -629,6 +646,7 @@
         "term-label": "NICR837 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "hep-3b",
           "hep3b"
         ]
       },
@@ -772,6 +790,7 @@
         "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "huh-7",
           "huh7",
           "huh7.5",
           "huh7.5.1-derived cells"
@@ -914,6 +933,7 @@
         "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "huh-7",
           "huh7",
           "huh7.5",
           "huh7.5.1-derived cells"
@@ -962,6 +982,7 @@
         "term-label": "Hep G2 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "hep g2",
           "hepg2",
           "hepg2/c3a",
           "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
@@ -980,7 +1001,6 @@
         "term-label": "RCB1648 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "hep g2",
           "hb-8065 (hep g2) [hepg2]"
         ]
       },
@@ -1560,11 +1580,12 @@
         "term-source": null
       },
       "epithelial cells": {
-        "term-uri": "http://purl.obolibrary.org/obo/ZFA_0009034",
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000066",
         "term-label": "epithelial cell",
-        "term-source": "UPHENO",
+        "term-source": "CL",
         "term-alt-labels": [
-          "epithelial cells"
+          "epithelial cells",
+          "epithelial"
         ]
       },
       "immature T cell from tumor-infiltrating lymphocytes": {
@@ -1667,13 +1688,19 @@
         "term-uri": "http://purl.obolibrary.org/obo/CL_0000066",
         "term-label": "epithelial cell",
         "term-source": "CL",
-        "term-alt-labels": []
+        "term-alt-labels": [
+          "epithelial cells",
+          "epithelial"
+        ]
       },
       "epithelial": {
-        "term-uri": null,
-        "term-label": null,
-        "term-alt-labels": null,
-        "term-source": null
+        "term-uri": "http://purl.obolibrary.org/obo/CL_0000066",
+        "term-label": "epithelial cell",
+        "term-source": "CL",
+        "term-alt-labels": [
+          "epithelial cells",
+          "epithelial"
+        ]
       },
       "CD1c": {
         "term-uri": "http://purl.obolibrary.org/obo/PR_000002027",
