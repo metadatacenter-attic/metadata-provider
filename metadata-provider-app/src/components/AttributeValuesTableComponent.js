@@ -29,9 +29,9 @@ export default function ResultsTableComponent(props) {
                       <td>{index + 1}</td>
                       <td>{props.attributeValuesAggMap[key]["attributeValue"]}
                         <CurieButtonComponent
-                          attributeValueTermUri={props.attributeValuesAggMap[key]["attributeValueTermUri"]}
-                          attributeValueTermLabel={props.attributeValuesAggMap[key]["attributeValueTermLabel"]}
-                          attributeValueTermSource={props.attributeValuesAggMap[key]["attributeValueTermSource"]}
+                          termUri={props.attributeValuesAggMap[key]["attributeValueTermUri"]}
+                          termLabel={props.attributeValuesAggMap[key]["attributeValueTermLabel"]}
+                          termSource={props.attributeValuesAggMap[key]["attributeValueTermSource"]}
                         />
                       </td>
                       <td>{props.attributeValuesAggMap[key]["count"]}</td>

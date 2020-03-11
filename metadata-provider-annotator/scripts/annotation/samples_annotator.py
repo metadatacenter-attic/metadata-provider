@@ -189,9 +189,9 @@ def get_annotation(attribute_name, attribute_value=None, norm_attribute_names=No
         term_normalized_1 = annotator_util.normalize_term(original_term, norm_attribute_names)  # Basic normalization
         term_normalized_2 = annotator_util.normalize_term2(original_term)  # Deep normalization
 
-        norm_terms = [term_normalized_2]
-        if term_normalized_1 not in norm_terms:
-            norm_terms.append(term_normalized_1)
+        norm_terms = [term_normalized_1]
+        if term_normalized_2 not in norm_terms:
+            norm_terms.append(term_normalized_2)
 
         print('Normalized terms: ' + str(norm_terms))
 
@@ -254,6 +254,7 @@ def save_alt_label(term_alt_labels, term_uri, term_pref_label, term_new_label):
         if term_new_label_basic_norm != pref_label_basic_norm and term_new_label_basic_norm not in term_alt_labels[term_uri]:
             term_alt_labels[term_uri].append(term_new_label_basic_norm)
     return term_alt_labels
+
 
 def build_annotation_cache(samples, att_names_values_variations, preferred_terms_for_att_names,
                            preferred_ontologies_for_att_values, preferred_ontologies_ordered,

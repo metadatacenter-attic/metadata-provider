@@ -59,16 +59,16 @@ export default function SampleDetailsModal(props) {
                   {!REGCOGNIZED_BIOSAMPLE_ATT_NAMES.includes(item.attributeName) &&
                   <span><strong>{item.attributeName}</strong> (*)</span>}
                   <CurieButtonComponent
-                    attributeValueTermUri={item.attributeValueTermUri}
-                    attributeValueTermLabel={item.attributeValueTermLabel}
-                    attributeValueTermSource={item.attributeValueTermSource}
+                    termUri={item.attributeNameTermUri}
+                    termLabel={item.attributeNameTermLabel}
+                    termSource={item.attributeNameTermSource}
                   />
                 </td>
                 <td>{truncateString(item.attributeValue, 200)}
                   <CurieButtonComponent
-                    attributeValueTermUri={item.attributeValueTermUri}
-                    attributeValueTermLabel={item.attributeValueTermLabel}
-                    attributeValueTermSource={item.attributeValueTermSource}
+                    termUri={item.attributeValueTermUri}
+                    termLabel={item.attributeValueTermLabel}
+                    termSource={item.attributeValueTermSource}
                   />
                 </td>
               </tr>
