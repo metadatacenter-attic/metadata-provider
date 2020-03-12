@@ -42,7 +42,7 @@ export default function ProjectDetailsModal(props) {
               <td>{props.projectTitle}</td>
             </tr>
             <tr>
-              <td>Centers</td>
+              <td>Center</td>
               <td>
                 {props.projectOrganizations.map((org, index) => (
                   <span key={index}>{org.name}{props.projectOrganizations.length > 0 && <br/>}</span>

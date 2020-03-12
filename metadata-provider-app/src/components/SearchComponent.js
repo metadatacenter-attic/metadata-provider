@@ -220,7 +220,7 @@ function SearchComponent(props) {
                     title="Search">
                     {sampleQueries.map((item, index) => (
                       <Dropdown.Item className="search-field-dropdown item" key={index}
-                                     onClick={e => updateSearchQuery(e, item)}>Query {index + 1}. {item}</Dropdown.Item>
+                                     onClick={e => updateSearchQuery(e, item)}>Variant {index + 1}. {item}</Dropdown.Item>
                     ))}
                   </Dropdown.Menu>
                 </Dropdown>}

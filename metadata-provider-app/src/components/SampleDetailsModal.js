@@ -57,7 +57,7 @@ export default function SampleDetailsModal(props) {
                   className={props.relevantAttributes.includes(item.attributeName) ? 'highlighted-result' : ''}>
                 <td><strong>{item.attributeName}</strong>
                   {!REGCOGNIZED_BIOSAMPLE_ATT_NAMES.includes(item.attributeName) &&
-                  <span><strong>{item.attributeName}</strong> (*)</span>}
+                  <span> (*)</span>}
                   <CurieButtonComponent
                     termUri={item.attributeNameTermUri}
                     termLabel={item.attributeNameTermLabel}
