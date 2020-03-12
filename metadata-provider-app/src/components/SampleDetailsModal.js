@@ -75,8 +75,8 @@ export default function SampleDetailsModal(props) {
             ))}
             </tbody>
           </Table>
-        <p className="unrecognized-att-message">(*) Unrecognized BioSample attribute (view <a href="https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/"
-                                                         target="_blank" rel="noopener noreferrer">list of recognized attributes</a>)</p>
+        <p className="unrecognized-att-message">(*) Non-standard BioSample attribute (view <a href="https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/"
+                                                         target="_blank" rel="noopener noreferrer">list of standard attributes</a>)</p>
 
         </Modal.Body>
         <Modal.Footer>
