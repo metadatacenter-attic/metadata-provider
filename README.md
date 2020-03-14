@@ -57,6 +57,6 @@ The three repository folders contain all the code required for the demonstration
 * API: http://api.kp.metadatacenter.org
 * SmartAPI: http://smart-api.info/ui/4692da88e681a6b23e1ea9ed2152bd85
 * Jupyter Notebook describing Annotation Pipeline: https://github.com/metadatacenter/metadata-provider/blob/master/metadata-provider-annotator/translator-demo.ipynb
-* Jupyter Notebook demonstrating integration with BioThings Explorer: 
+* Jupyter Notebook demonstrating integration with BioThings Explorer: https://github.com/biothings/biothings_explorer/blob/master/jupyter%20notebooks/Demo%20of%20Integrating%20Stanford%20BioSample%20API%20into%20BTE.ipynb
 * GitHub repo: https://github.com/metadatacenter/metadata-provider
 
