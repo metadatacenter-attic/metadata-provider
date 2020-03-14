@@ -14,9 +14,9 @@ thereby clarifying the user’s intent and preparing the query for submission to
 The standardized user query will be distributed to various Knowledge Providers by the Translator infrastructure.
 Our own Knowledge Provider, the Metadata Provider, offers knowledge from NCBI BioSample about biomedical research samples. 
 (Of course, our approach can be applied to the data descriptions from many other data sources.) 
-We pre-curated the NCBI BioSample metadata—a subset of the entire BioSample repository—by performing three steps:
+We pre-curated the NCBI BioSample metadata—a subset of the entire BioSample repository [1]—by performing three steps:
 * eliminating spelling and other syntactic weaknesses; 
-* intelligently replacing text phrases with ontology terms, thereby standardizing on common terms [1]; and 
+* intelligently replacing text phrases with ontology terms, thereby standardizing on common terms [2]; and 
 * finding unique identifiers that are already understood in a larger semantic context. 
 
 We then tagged the original source metadata descriptions with the precise semantic identifiers we found, 
@@ -60,3 +60,13 @@ The three repository folders contain all the code required for the demonstration
 * Jupyter Notebook demonstrating integration with BioThings Explorer: https://github.com/biothings/biothings_explorer/blob/master/jupyter%20notebooks/Demo%20of%20Integrating%20Stanford%20BioSample%20API%20into%20BTE.ipynb
 * GitHub repo: https://github.com/metadatacenter/metadata-provider
 
+## Footnotes
+
+[1] The data we used from BioSample included 4,346 samples, 
+representing samples of human tissue filtered to include 3 diseases 
+(hepatocellular carcinoma, myelodysplasia, and systemic lupus erythematosus). 
+We normalized 5 attributes associated with these samples (disease, tissue, cell type, cell line, and sex). 
+We also captured the BioProject associated with the sample, to answer questions related to BioProject.
+
+[2] Our term curation relies on BioPortal UMLS and OBO ontologies, 
+following priorities of the BioThings Explorer. (The prioritization is configurable.)
