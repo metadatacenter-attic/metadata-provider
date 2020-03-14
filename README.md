@@ -41,7 +41,8 @@ The initial prototype project had 5 milestones (rephrased below):
 The following diagram shows the overview of the Metadata Provider Architecture, 
 including the components responsible for each milestone from the section above.
 
-<img src="https://github.com/metadatacenter/metadata-provider/blob/master/img/MetadataProviderArchitecture.png" width="80%" />
+<p align="center"><img src="https://github.com/metadatacenter/metadata-provider/blob/master/img/MetadataProviderArchitecture.png" width="90%" align="center" />
+</p>
 
 ## Repository Content 
 
