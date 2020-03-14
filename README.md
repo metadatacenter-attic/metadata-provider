@@ -68,5 +68,5 @@ representing samples of human tissue filtered to include 3 diseases
 We normalized 5 attributes associated with these samples (disease, tissue, cell type, cell line, and sex). 
 We also captured the BioProject associated with the sample, to answer questions related to BioProject.
 
-[2] Our term curation relies on BioPortal UMLS and OBO ontologies, 
-following priorities of the BioThings Explorer. (The prioritization is configurable.)
+[2] Our term curation relies on BioPortal OBO ontologies and UMLS, 
+following priorities of the Biolink Model. (The prioritization is configurable.)
