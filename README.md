@@ -3,29 +3,29 @@
 ## Introduction
 
 Stanford's Center for Biomedical Informatics Research (BMIR) developed this prototype Metadata Provider for the NCATS Translator.
-Many data sources could inform the Translator, but their power is limited by poor metadata. 
+Many data sources can inform the Translator, but their power is limited by weak metadata. 
 Our process strengthens weak metadata by replacing textual attribute names and values with precise ontological representations.
 
 The most obvious beneficiary is a non-sophisticated user making a query to the Translator. 
-Following this use case, we represent the user’s plaintext query in our UI as a simple attribute name and value. 
-(In the future this reframing will be standardized in the Translator and may normalize the attribute name-value pairs, 
-which clarify the user’s intent and prepare the query for submission to the Translator.)
+We represent the user’s plaintext query in our UI using simple attribute names and values. 
+(In the future this conversion will be offered by the Translator and may normalize the attribute name-value pairs, 
+thereby clarifying the user’s intent and preparing the query for submission to the rest of the system.)
 
-Any standardized user query will then be distributed to various knowledge providers by the Translator infrastructure.
+The standardized user query will be distributed to various Knowledge Providers by the Translator infrastructure.
 Our own Knowledge Provider, the Metadata Provider, offers knowledge from NCBI BioSample about biomedical research samples. 
 (Of course, our approach can be applied to the data descriptions from many other data sources.) 
-We pre-curated these data sources’ metadata by performing three steps:
+We pre-curated the NCBI BioSample metadata—a subset of the entire BioSample repository—by performing three steps:
 * eliminating spelling and other syntactic weaknesses; 
 * intelligently replacing text phrases with ontology terms, thereby standardizing on common terms [1]; and 
-* assigning unique identifiers that are already understood in a larger semantic context. 
+* finding unique identifiers that are already understood in a larger semantic context. 
 
-We then tag the original source metadata descriptions with our precise semantic identifiers, 
-and for rapid discovery index the descriptions with the various search strings that correspond to those identifiers.
+We then tagged the original source metadata descriptions with the precise semantic identifiers we found, 
+and for rapid discovery we indexed the original descriptions with the various search strings that correspond to the found identifiers.
 
-As a result, our non-sophisticated user’s query about biomedical samples will discover many more results than would otherwise be possible.
-This directly and indirectly enables many more discoveries, especially for multi-part queries. 
+As a result, our non-sophisticated user’s query about biomedical samples finds many more results than would otherwise be possible.
+This directly and indirectly enables many more discoveries, especially for multi-part queries . 
 
-In the future, we hope to leverage known semantic relationships to further increase returns, 
+In the future, we hope to leverage known semantic relationships to further increase results, 
 and apply the knowledge we gain about metadata relationships to help convert user text queries into Translator-ready queries.
 
 ## Prototype Milestones
@@ -46,7 +46,6 @@ including the components responsible for each milestone from the section above.
 ## Repository Content 
 
 The three repository folders contain all the code required for the demonstration. Numbers in brackets refer to the Milestones (above) that are addressed by the code in that folder.
-
 * metadata-provider-annotator [1,2,3]: processes the raw metadata (attribute names and values) to find best mappings to known concepts, and tag the raw metadata with those mappings
 * metadata-provider-api [4]: provides an API service to the Translator to search for BioSamples and find them by their accession number 
 * metadata-provider-app [5]: user interface software for accessing and demonstrating the capabilities offered by the Metadata Provider prototype
