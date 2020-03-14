@@ -229,7 +229,7 @@ function SearchComponent(props) {
                   className="search-field"
                   as="textarea"
                   rows="2"
-                  placeholder="Enter your query"
+                  placeholder="Enter your query (e.g., disease=HCC)"
                   value={searchQuery}
                   onChange={e => {
                     setShowEnterQueryMessage(false);

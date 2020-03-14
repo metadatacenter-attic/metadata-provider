@@ -57,7 +57,7 @@ export default function SampleDetailsModal(props) {
                   className={props.relevantAttributes.includes(item.attributeName) ? 'highlighted-result' : ''}>
                 <td><strong>{item.attributeName}</strong>
                   {!REGCOGNIZED_BIOSAMPLE_ATT_NAMES.includes(item.attributeName) &&
-                  <span> (*)</span>}
+                  <span> *</span>}
                   <CurieButtonComponent
                     termUri={item.attributeNameTermUri}
                     termLabel={item.attributeNameTermLabel}
@@ -75,8 +75,8 @@ export default function SampleDetailsModal(props) {
             ))}
             </tbody>
           </Table>
-        <p className="unrecognized-att-message">(*) Non-standard BioSample attribute (view <a href="https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/"
-                                                         target="_blank" rel="noopener noreferrer">list of standard attributes</a>)</p>
+        <p className="unrecognized-att-message">* Used-defined BioSample attribute (view <a href="https://www.ncbi.nlm.nih.gov/biosample/docs/attributes/"
+                                                         target="_blank" rel="noopener noreferrer">list of attributes recognized by BioSample</a>)</p>
 
         </Modal.Body>
         <Modal.Footer>
