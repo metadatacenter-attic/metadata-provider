@@ -36,16 +36,20 @@ The initial prototype project had 5 milestones (rephrased below):
 * Milestone 4: Make processed BioSample metadata available to Translator through BioThings Explorer
 * Milestone 5: Demonstrate enhanced query capabilities made possible by our work
 
-## Architecture Diagram.
+## Architecture Diagram
 
 The following diagram shows the overview of the Metadata Provider Architecture, 
-with the parts responsible for each milestone from the section above.
+including the components responsible for each milestone from the section above.
 
-![Metadata Provider Architecture](https://github.com/metadatacenter/metadata-provider/blob/master/img/MetadataProviderArchitecture.png)
+![Metadata Provider Architecture](https://github.com/metadatacenter/metadata-provider/blob/master/img/MetadataProviderArchitecture.png){:width=50%}
 
-## Repository Content. 
+## Repository Content 
 
-Description of the content of the three folders.
+The three repository folders contain all the code required for the demonstration. Numbers in brackets refer to the Milestones (above) that are addressed by the code in that folder.
+
+* metadata-provider-annotator [1,2,3]: processes the raw metadata (attribute names and values) to find best mappings to known concepts, and tag the raw metadata with those mappings
+* metadata-provider-api [4]: provides an API service to the Translator to search for BioSamples and find them by their accession number 
+* metadata-provider-app [5]: user interface software for accessing and demonstrating the capabilities offered by the Metadata Provider prototype
 
 ## Public Links to Related Material
 
