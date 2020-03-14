@@ -38,8 +38,21 @@ The initial prototype project had 5 milestones (rephrased below):
 
 ## Architecture Diagram.
 
+The following diagram shows the overview of the Metadata Provider Architecture, 
+with the parts responsible for each milestone from the section above.
+
+![Metadata Provider Architecture](https://github.com/metadatacenter/metadata-provider/img/MetadataProviderArchitecture.png)
 
 ## Repository Content. 
 
 Description of the content of the three folders.
-Links.
+
+## Public Links to Related Material
+
+* User Interface: http://kp.metadatacenter.org
+* API: http://api.kp.metadatacenter.org
+* SmartAPI: http://smart-api.info/ui/4692da88e681a6b23e1ea9ed2152bd85
+* Jupyter Notebook describing Annotation Pipeline: https://github.com/metadatacenter/metadata-provider/blob/master/metadata-provider-annotator/translator-demo.ipynb
+* Jupyter Notebook demonstrating integration with BioThings Explorer: 
+* GitHub repo: https://github.com/metadatacenter/metadata-provider
+
