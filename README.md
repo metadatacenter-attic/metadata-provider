@@ -56,12 +56,11 @@ requires the BIoThings Explorer to access the Metadata Provider,
 and this capability is demonstrated by the [BioThings Explorer Jupyter notebook](https://github.com/biothings/biothings_explorer/blob/master/jupyter%20notebooks/Demo%20of%20Integrating%20Stanford%20BioSample%20API%20into%20BTE.ipynb) 
 that answers the query `What biosamples are associated with diseases related to gene SLC15A4?`. 
 The following diagram highlights the Translator components (Gene, DiseaseOrPhenotypicFeature, Disease) that are engaged in this query. 
-The BioThings Explorer ultimately generates queries the Biological Sample component that the Metadata Provider has enabled. 
+The BioThings Explorer ultimately generates queries the Metadata Provider's Biological Sample component. 
 (The two components circled in red are Metadata Provider components that have been added to the BioThings Explorer diagram.)
 <p align="center">
   <img src="https://github.com/metadatacenter/metadata-provider/blob/master/img/ARA demo 20200318v2-Query Highlights.png" width="90%" />
 </p>
-
 
 ## Public Links to Related Material
 
