@@ -52,17 +52,22 @@ The three repository folders contain all the Stanford-developed code required fo
 * metadata-provider-app [5]: user interface software for accessing and demonstrating the capabilities offered by the Metadata Provider prototype
 
 Milestone 4 ('Demonstrate enhanced query capabilities made possible by our work') 
-requires the BIoThings Explorer to access the Metadata Provider, and this capability is demonstrated by the [BioThings Explorer Jupyter notebook](https://github.com/biothings/biothings_explorer/blob/master/jupyter%20notebooks/Demo%20of%20Integrating%20Stanford%20BioSample%20API%20into%20BTE.ipynb) that answers the query `What biosamples are associated with diseases related to gene SLC15A4?`. The following diagram highlights the Translator components (Gene, DiseaseOrPhenotypicFeature, Disease)that are engaged in this query. The BioThings Explorer ultimately generates queries the Biological Sample component that the Metadata Provider has enabled.
+requires the BIoThings Explorer to access the Metadata Provider, 
+and this capability is demonstrated by the [BioThings Explorer Jupyter notebook](https://github.com/biothings/biothings_explorer/blob/master/jupyter%20notebooks/Demo%20of%20Integrating%20Stanford%20BioSample%20API%20into%20BTE.ipynb) 
+that answers the query `What biosamples are associated with diseases related to gene SLC15A4?`. 
+The following diagram highlights the Translator components (Gene, DiseaseOrPhenotypicFeature, Disease) that are engaged in this query. 
+The BioThings Explorer ultimately generates queries the Biological Sample component that the Metadata Provider has enabled. 
+(The two components circled in red are Metadata Provider components that have been added to the BioThings Explorer diagram.)
 <p align="center">
-  <img src="https://github.com/metadatacenter/metadata-provider/blob/master/img/ARA demo 20200318v2-Query.png" width="90%" />
+  <img src="https://github.com/metadatacenter/metadata-provider/blob/master/img/ARA demo 20200318v2-Query Highlights.png" width="90%" />
 </p>
 
 
 ## Public Links to Related Material
 
 * User Interface: http://kp.metadatacenter.org
-* API: http://api.kp.metadatacenter.org
-* SmartAPI: http://smart-api.info/ui/4692da88e681a6b23e1ea9ed2152bd85
+* API Documentation: http://api.kp.metadatacenter.org
+* SmartAPI Entry: http://smart-api.info/ui/4692da88e681a6b23e1ea9ed2152bd85
 * Jupyter Notebook describing Annotation Pipeline: https://github.com/metadatacenter/metadata-provider/blob/master/metadata-provider-annotator/translator-demo.ipynb
 * Jupyter Notebook demonstrating integration with BioThings Explorer: https://github.com/biothings/biothings_explorer/blob/master/jupyter%20notebooks/Demo%20of%20Integrating%20Stanford%20BioSample%20API%20into%20BTE.ipynb
 * GitHub repo: https://github.com/metadatacenter/metadata-provider
