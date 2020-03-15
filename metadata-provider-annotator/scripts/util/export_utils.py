@@ -268,7 +268,7 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
 
 
 def transform_and_export_projects_to_json(input_file, output_file, generate_dictionary,
-                                          output_file_dictionary, log_frequency=10000):
+                                          output_file_dictionary, log_frequency=100000):
     """
     Parses an XML file with multiple NCBI bioprojects and exports them to JSON
     :param input_file:

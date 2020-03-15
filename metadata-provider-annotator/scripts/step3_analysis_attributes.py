@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Utility to...
+# Utility to perform a preliminary analysis on the frequency of attribute names and attribute values in BioSample
 
 import scripts.constants as constants
 import xml.dom.pulldom as pulldom

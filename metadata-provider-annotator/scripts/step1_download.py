@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-# Utility to download the most recent NCBI biosamples and BioProjects to the workspace
+# Utility to download the most recent NCBI biosamples and bioprojects to the workspace
 import os
 import urllib.request
 import scripts.constants as constants
 import scripts.util.utils as utils
 
-DOWNLOAD_SAMPLES = False
+DOWNLOAD_SAMPLES = True
 DOWNLOAD_PROJECTS = True
 
 
