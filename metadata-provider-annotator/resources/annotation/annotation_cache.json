@@ -316,14 +316,12 @@
     },
     "cell line": {
       "Hep G2": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0003704",
-        "term-label": "Hep G2 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0050856",
+        "term-label": "RCB1648 cell",
         "term-source": "CLO",
         "term-alt-labels": [
           "hep g2",
-          "hepg2",
-          "hepg2/c3a",
-          "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
+          "hb-8065 (hep g2) [hepg2]"
         ]
       },
       "HepG2": {
@@ -331,7 +329,6 @@
         "term-label": "Hep G2 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "hep g2",
           "hepg2",
           "hepg2/c3a",
           "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
@@ -352,14 +349,11 @@
         ]
       },
       "Huh-7": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
-        "term-label": "Huh7 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0051864",
+        "term-label": "NICR2172 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7",
-          "huh7",
-          "huh7.5",
-          "huh7.5.1-derived cells"
+          "huh-7"
         ]
       },
       "PLC/PRF/5": {
@@ -403,14 +397,11 @@
         ]
       },
       "HUH-7": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
-        "term-label": "Huh7 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0051864",
+        "term-label": "NICR2172 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7",
-          "huh7",
-          "huh7.5",
-          "huh7.5.1-derived cells"
+          "huh-7"
         ]
       },
       "JHH-7": {
@@ -430,14 +421,11 @@
         ]
       },
       "HuH-7": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009989",
-        "term-label": "Huh7 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0051864",
+        "term-label": "NICR2172 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7",
-          "huh7",
-          "huh7.5",
-          "huh7.5.1-derived cells"
+          "huh-7"
         ]
       },
       "JHH-6": {
@@ -531,7 +519,6 @@
         "term-label": "Hep G2 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "hep g2",
           "hepg2",
           "hepg2/c3a",
           "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
@@ -572,7 +559,6 @@
         "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7",
           "huh7",
           "huh7.5",
           "huh7.5.1-derived cells"
@@ -597,12 +583,11 @@
         "term-source": null
       },
       "Hep-3B": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0054295",
-        "term-label": "NICR837 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0003710",
+        "term-label": "HEP-3B cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "hep-3b",
-          "hep3b"
+          "hep-3b"
         ]
       },
       "Huh7.5": {
@@ -610,7 +595,6 @@
         "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7",
           "huh7",
           "huh7.5",
           "huh7.5.1-derived cells"
@@ -621,7 +605,6 @@
         "term-label": "Hep G2 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "hep g2",
           "hepg2",
           "hepg2/c3a",
           "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
@@ -646,7 +629,6 @@
         "term-label": "NICR837 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "hep-3b",
           "hep3b"
         ]
       },
@@ -790,7 +772,6 @@
         "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7",
           "huh7",
           "huh7.5",
           "huh7.5.1-derived cells"
@@ -869,8 +850,8 @@
         "term-source": null
       },
       "SK-HEP-1": {
-        "term-uri": "http://purl.obolibrary.org/obo/CLO_0009037",
-        "term-label": "SK-HEP-1 cell",
+        "term-uri": "http://purl.obolibrary.org/obo/CLO_0051871",
+        "term-label": "NICR677 \u7ec6\u80de",
         "term-source": "CLO",
         "term-alt-labels": [
           "sk-hep-1"
@@ -933,7 +914,6 @@
         "term-label": "Huh7 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "huh-7",
           "huh7",
           "huh7.5",
           "huh7.5.1-derived cells"
@@ -982,7 +962,6 @@
         "term-label": "Hep G2 cell",
         "term-source": "CLO",
         "term-alt-labels": [
-          "hep g2",
           "hepg2",
           "hepg2/c3a",
           "hepg2 was derived from a liver hepatocellular carcinoma of a 15 year old caucasian male."
@@ -1001,6 +980,7 @@
         "term-label": "RCB1648 cell",
         "term-source": "CLO",
         "term-alt-labels": [
+          "hep g2",
           "hb-8065 (hep g2) [hepg2]"
         ]
       },
@@ -1200,8 +1180,8 @@
         ]
       },
       "tumor": {
-        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C98275",
-        "term-label": "Tumor Mass",
+        "term-uri": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C3262",
+        "term-label": "Neoplasm",
         "term-source": "NCIT",
         "term-alt-labels": [
           "tumor"

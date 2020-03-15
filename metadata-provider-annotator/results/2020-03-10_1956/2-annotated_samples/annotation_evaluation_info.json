@@ -6,7 +6,7 @@
         "term-label": "hepatocellular carcinoma",
         "term-source": "MONDO",
         "count": 1860,
-        "is-correct": null
+        "is-correct": true
       },
       "MDS": {
         "term-uri": "http://purl.obolibrary.org/obo/MONDO_0018881",

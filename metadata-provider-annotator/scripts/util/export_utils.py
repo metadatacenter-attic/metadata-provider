@@ -224,8 +224,8 @@ def transform_and_export_samples_to_json(root_folder_name, input_file, output_fi
                         if prj_accession in projects.keys():
                             biosample.bioprojectAccession = prj_accession
                             biosample.bioproject = copy.deepcopy(projects.get(prj_accession))
-                        else:
-                            print('Bioproject not found: ' + prj_accession)
+                        # else:
+                        #     print('Bioproject not found: ' + prj_accession)
 
             # organism
             if description_node is not None:
