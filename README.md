@@ -7,7 +7,7 @@ Many data sources can inform the Translator, but their power is limited by weak 
 Our process strengthens weak metadata by replacing textual attribute names and values with precise ontological representations.
 
 The most obvious beneficiary is a non-sophisticated user making a query to the Translator. 
-We represent the user’s plaintext query in our UI using simple attribute names and values. 
+We represent the user’s plaintext query in our [Demonstration UI](http://kp.metadatacenter.org/) using simple attribute names and values. 
 (In the future this conversion will be offered by the Translator and may normalize the attribute name-value pairs, 
 thereby clarifying the user’s intent and preparing the query for submission to the rest of the system.)
 
