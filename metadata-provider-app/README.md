@@ -1,4 +1,4 @@
-# NCATS Metadata Provider - User Interface
+# Metadata Provider Prototype - User Interface
 
 ## Available Scripts
 
