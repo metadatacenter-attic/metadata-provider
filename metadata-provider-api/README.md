@@ -1,4 +1,4 @@
-# Metadata Provider API
+# Metadata Provider Prototype - API
 
 How to start the Metadata Provider API application
 ---
