@@ -4,7 +4,7 @@ servers:
 info:
   description: >-
     Prototype utilities to query a subset of NCBI BioSample metadata records
-    that were processed using semantic technology to increase their value.
+    that were processed using semantic technology.
 
 
     The current database contains 4,346 records for three diseases: hepatocellular carcinoma, myelodysplasia, and systemic lupus erythematosus. The original records were downloaded on February 2, 2020 from the NCBI's FTP server (https://ftp.ncbi.nih.gov/biosample).
@@ -19,115 +19,130 @@ tags:
   - name: biosample
   - name: translator
 paths:
-  /biosample/search:
+  '/biosample/search':
     get:
-      tags:
-        - biosample
-      summary: Search biosamples by attribute name and value
-      description: ""
-      operationId: search
+      summary: 'retrieve biosample information'
       parameters:
         - name: q
           in: query
-          description: "Search query in the format: attributeName1=attributeValue1 AND
-            attributeName2=attributeValue2 AND ... AND
-            attributeNameN=attributeValueN. Note that the attribute names
-            and values can be expressed using either free text (e.g.,
-            disease=HCC) or CURIEs (e.g.,
-            biolink:Disease=mondo:0007256)"
-          required: false
-          example: disease=HCC AND tissue=liver
+          description: >-
+            query
+          required: true
+          example: "biolink:Disease=MONDO:0007256"
           schema:
             type: string
-        - name: db
-          in: query
-          description: Target database
-          required: false
-          schema:
-            type: string
-            enum:
-              - original
-              - annotated
-            default: annotated
-        - name: include_accessions
-          in: query
-          description: Return a list with all the biosample accessions that match the query
-          required: false
-          schema:
-            type: boolean
-            default: false
-        - name: include_bioproject
-          in: query
-          description: Return BioProject details
-          required: false
-          schema:
-            type: boolean
-            default: false
-        - name: aggregations
-          in: query
-          description: Return aggregated results for biosample attributes, bioprojects, or
-            organizations
-          required: false
-          explode: true
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - project
-                - organization
-                - disease
-                - tissue
-                - cellType
-                - cellLine
-                - sex
-        - name: offset
-          in: query
-          required: false
-          schema:
-            type: integer
-            format: int32
-            default: 0
         - name: limit
           in: query
-          required: false
+          description: size of the output
+          example: 200
           schema:
             type: integer
-            format: int32
-            default: 25
       responses:
-        default:
-          description: successful operation
-  "/biosample/{accession}":
+        '200':
+          description: 'A biosample object'
+          x-bte-response-mapping:
+            - $ref: '#/components/x-bte-response-mapping/disease-biosample'
+            - $ref: '#/components/x-bte-response-mapping/cellline-biosample'
+      x-bte-kgs-operations:
+        diseaseAssociatedWithBiosample:
+          $ref: '#/components/x-bte-kgs-operations/diseaseAssociatedWithBiosample'
+        clAssociatedWithBiosample:
+          $ref: '#/components/x-bte-kgs-operations/clAssociatedWithBiosample'
+  '/biosample/{sampleid}':
     get:
-      tags:
-        - biosample
-      summary: Find biosample by accession number
-      description: ""
-      operationId: findBiosampleByAccession
+      summary: 'retrieve biosample information'
       parameters:
-        - name: accession
+        - name: sampleid
           in: path
+          description: >-
+            the SAMD biosample ID
           required: true
-          example: SAMEA104169478
+          example: "SAMD00005006"
           schema:
             type: string
-        - name: include_bioproject
-          in: query
-          description: Return BioProject details
-          required: false
-          schema:
-            type: boolean
-            default: false
-        - name: db
-          in: query
-          required: false
-          schema:
-            type: string
-            enum:
-              - original
-              - annotated
-            default: annotated
       responses:
-        default:
-          description: successful operation
+        '200':
+          description: 'A biosample object'
+          x-bte-response-mapping:
+            $ref: '#/components/x-bte-response-mapping/biosample'
+      x-bte-kgs-operations:
+        biosampleAssociatedWithDisease:
+          $ref: '#/components/x-bte-kgs-operations/biosampleAssociatedWithDisease'
+components:
+  x-bte-kgs-operations:
+    diseaseAssociatedWithBiosample:
+      inputs:
+        - id: mondo
+          semantic: DiseaseOrPhenotypicFeature
+      outputs:
+        - id: samd
+          semantic: Biosample
+      parameters:
+        q: "biolink:Disease={input1}"
+      supportBatch: false
+      response-mapping:
+        $ref: '#/components/x-bte-response-mapping/disease-biosample'
+    clAssociatedWithBiosample:
+      inputs:
+        - id: clo
+          semantic: CellLine
+      outputs:
+        - id: samd
+          semantic: Biosample
+      parameters:
+        q: "biolink:CellLine={input1}"
+      supportBatch: false
+      response-mapping:
+        $ref: '#/components/x-bte-response-mapping/cellline-biosample'
+    biosampleAssociatedWithDisease:
+      inputs:
+        - id: samd
+          semantic: Biosample
+      outputs:
+        - id: mondo
+          semantic: DiseaseOrPhenotypicFeature
+      parameters:
+        sampleid: "{input1}"
+      supportBatch: false
+      response-mapping:
+        $ref: '#/components/x-bte-response-mapping/biosample'
+  x-bte-response-mapping:
+    disease-biosample:
+      "@context": http://schema.org
+      "@type": DiseaseOrPhenotypicFeature
+      bts:mondo: mondo
+      bts:diseaseAssociatedWithBiosample:
+        - "@type": Biosample
+          bts:samd: data.biosampleAccession
+          bts:organism: data.oorganism
+          bts:age: data.attributes.age
+          bts:sex: data.attributes.sex.name
+          bts:cellline: data.attributes.cell_line.name
+          "$input": bts:mondo
+          "$source": NCBI Biosample Database
+    cellline-biosample:
+      "@context": http://schema.org
+      "@type": CellLine
+      bts:clo: clo
+      bts:clAssociatedWithBiosample:
+        - "@type": Biosample
+          bts:samd: data.biosampleAccession
+          bts:organism: data.oorganism
+          bts:age: data.attributes.age
+          bts:sex: data.attributes.sex.name
+          bts:cellline: data.attributes.cell_line.name
+          "$input": bts:clo
+          "$source": NCBI Biosample Database
+    biosample:
+      "@context": http://schema.org
+      "@type": Biosample
+      bts:samd: samd
+      bts:biosampleAssociatedWithDisease:
+        - "@type": DiseaseOrPhenotypicFeature
+          bts:mondo: data.attributes.Disease.mondo
+          bts:organism: data.attributes.organism
+          bts:age: data.attributes.age
+          bts:sex: data.attributes.sex.name
+          bts:cellline: data.attributes.cell_line.name
+          "$input": bts:samd
+          "$source": NCBI Biosample Database
