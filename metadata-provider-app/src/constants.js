@@ -37,7 +37,7 @@ export const SAMPLE_QUERIES =
     ]
   },
     {
-      "researchQuestion": "I need to find information about <u>male</u> biological samples in the setting of <u>myelodysplasia</u>.",
+      "researchQuestion": "I need to find information about biological samples <u>from males</u> in the setting of <u>myelodysplasia</u>.",
       "researchQuestionShort": "Myelodysplasia, male",
       "relevantAttributes": ["disease", "sex"],
       "queriesOriginalDB": [
@@ -57,7 +57,7 @@ export const SAMPLE_QUERIES =
       ]
     },
     {
-      "researchQuestion": "I need to find information about <u>female</u> biological samples in the setting of <u>myelodysplasia</u>.",
+      "researchQuestion": "I need to find information about biological samples <u>from females</u> in the setting of <u>myelodysplasia</u>.",
       "researchQuestionShort": "Myelodysplasia, female",
       "relevantAttributes": ["disease", "sex"],
       "queriesOriginalDB": [
@@ -132,7 +132,7 @@ export const SAMPLE_QUERIES =
       ]
     },
     {
-      "researchQuestion": "I need to find information about <u>male</u> biological samples in the setting of <u>hepatocellular carcinoma</u>.",
+      "researchQuestion": "I need to find information about biological samples <u>from males</u> in the setting of <u>hepatocellular carcinoma</u>.",
       "researchQuestionShort": "Hepatocellular carcinoma, male",
       "relevantAttributes": ["disease", "sex"],
       "queriesOriginalDB": [
@@ -149,7 +149,7 @@ export const SAMPLE_QUERIES =
     },
 
     {
-      "researchQuestion": "I need to find information about <u>female</u> biological samples in the setting of <u>hepatocellular carcinoma</u>.",
+      "researchQuestion": "I need to find information about biological samples <u>from females</u> in the setting of <u>hepatocellular carcinoma</u>.",
       "researchQuestionShort": "Hepatocellular carcinoma, female",
       "relevantAttributes": ["disease", "sex"],
       "queriesOriginalDB": [
@@ -181,7 +181,7 @@ export const SAMPLE_QUERIES =
       ]
     },
     {
-      "researchQuestion": "I need to find information about <u>male</u> biological samples in the setting of <u>systemic lupus erythematosus</u>.",
+      "researchQuestion": "I need to find information about biological samples <u>from males</u> in the setting of <u>systemic lupus erythematosus</u>.",
       "researchQuestionShort": "Systemic lupus erythematosus, male",
       "relevantAttributes": ["disease", "sex"],
       "queriesOriginalDB": [
@@ -197,7 +197,7 @@ export const SAMPLE_QUERIES =
       ]
     },
     {
-      "researchQuestion": "I need to find information about <u>female</u> biological samples in the setting of <u>systemic lupus erythematosus</u>.",
+      "researchQuestion": "I need to find information about biological samples <u>from females</u> in the setting of <u>systemic lupus erythematosus</u>.",
       "researchQuestionShort": "Systemic lupus erythematosus, female",
       "relevantAttributes": ["disease", "sex"],
       "queriesOriginalDB": [
