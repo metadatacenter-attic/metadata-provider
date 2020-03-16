@@ -1,0 +1,59 @@
+GENERAL INFO:
+- Current date: 2020-03-15 18:12:35.276896
+- Input file: /Users/marcosmr/Development/CEDAR/metadata-provider/metadata-provider-annotator/results/2020-03-10_1956/2-annotated_samples/annotation_evaluation_info_reviewed.json
+
+ANNOTATION RESULTS: 
+
+Results for: ALL
+  TP: 10440
+  TN: 1267
+  FP: 574
+  FN: 113
+  - Precision: 0.95
+  - Recall: 0.99
+  - F-Measure: 0.97
+
+Results for: disease
+  TP: 4347
+  TN: 0
+  FP: 0
+  FN: 0
+  - Precision: 1.00
+  - Recall: 1.00
+  - F-Measure: 1.00
+
+Results for: tissue
+  TP: 2837
+  TN: 447
+  FP: 25
+  FN: 4
+  - Precision: 0.99
+  - Recall: 1.00
+  - F-Measure: 0.99
+
+Results for: cell type
+  TP: 820
+  TN: 112
+  FP: 437
+  FN: 43
+  - Precision: 0.65
+  - Recall: 0.95
+  - F-Measure: 0.77
+
+Results for: cell line
+  TP: 873
+  TN: 0
+  FP: 112
+  FN: 66
+  - Precision: 0.89
+  - Recall: 0.93
+  - F-Measure: 0.91
+
+Results for: sex
+  TP: 1563
+  TN: 708
+  FP: 0
+  FN: 0
+  - Precision: 1.00
+  - Recall: 1.00
+  - F-Measure: 1.00
