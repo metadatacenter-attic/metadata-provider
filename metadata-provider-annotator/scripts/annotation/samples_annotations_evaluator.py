@@ -4,7 +4,9 @@
 
 import json
 import os
+import copy
 import datetime
+import sys
 
 import scripts.util.utils as utils
 
@@ -16,7 +18,8 @@ def evaluate_annotations(annotation_evaluation_info_file_reviewed, annotation_ev
     :param annotation_evaluation_results_file:
     :return:
     """
-    print('Input file (file with info about the correctness of annotations): ' + annotation_evaluation_info_file_reviewed)
+    print(
+        'Input file (file with info about the correctness of annotations): ' + annotation_evaluation_info_file_reviewed)
     print('Output file (evaluation results): ' + annotation_evaluation_results_file)
 
     run = True
@@ -29,28 +32,37 @@ def evaluate_annotations(annotation_evaluation_info_file_reviewed, annotation_ev
 
         with open(annotation_evaluation_info_file_reviewed) as f:
 
-            total_unique_att_values_count = 0
-            total_att_values_count = 0
-            total_unique_annotations_count = 0
-            total_annotations_count = 0
+            outcomes = {
+                "TP": 0,
+                "TN": 0,
+                "FP": 0,
+                "FN": 0
+            }
 
-            total_true_positives = 0
-            unique_true_positives = 0
+            results = {
+                "ALL": copy.deepcopy(outcomes),
+                "disease": copy.deepcopy(outcomes),
+                "tissue": copy.deepcopy(outcomes),
+                "cell type": copy.deepcopy(outcomes),
+                "cell line": copy.deepcopy(outcomes),
+                "sex": copy.deepcopy(outcomes)
+            }
 
             annotations_info = json.load(f)
             for att_name in annotations_info['att-values']:
                 for att_value in annotations_info['att-values'][att_name]:
 
-                    total_unique_att_values_count += 1
-                    total_att_values_count += annotations_info['att-values'][att_name][att_value]['count']
+                    count = annotations_info['att-values'][att_name][att_value]['count']
+                    outcome = annotations_info['att-values'][att_name][att_value]['is-correct']
 
-                    if annotations_info['att-values'][att_name][att_value]['term-uri'] is not None:
-                        total_unique_annotations_count += 1
-                        total_annotations_count += annotations_info['att-values'][att_name][att_value]['count']
-
-                        if annotations_info['att-values'][att_name][att_value]['is-correct']:
-                            unique_true_positives += 1
-                            total_true_positives += annotations_info['att-values'][att_name][att_value]['count']
+                    if outcome:
+                        results[att_name][outcome] = results[att_name][outcome] + count
+                        results['ALL'][outcome] = results['ALL'][outcome] + count
+                        outcome = None
+                    # else:
+                    #     print("Error: the outcome cannot be null. The execution has been stopped.")
+                    #     sys.exit(1)
+                        # Error
 
         # Save evaluation results
         with open(annotation_evaluation_results_file, 'w') as results_file:
@@ -60,34 +72,26 @@ def evaluate_annotations(annotation_evaluation_info_file_reviewed, annotation_ev
             print('- Input file: ' + os.path.abspath(annotation_evaluation_info_file_reviewed), file=results_file)
 
             print("\nANNOTATION RESULTS: ", file=results_file)
-            print("All values:", file=results_file)
-            print("- Attribute values: " + '{:,.0f}'.format(total_att_values_count), file=results_file)
 
-            percent_annotated_values = (total_annotations_count / total_att_values_count) * 100
-            print("- Annotated values: " + '{:,.0f}'.format(total_annotations_count) + " (%.2f" % percent_annotated_values + "%)", file=results_file)
+            for results_item in results:
+                print("\nResults for: " + results_item, file=results_file)
+                for outcome in outcomes:
+                    print("  " + outcome + ": " + str(results[results_item][outcome]), file=results_file)
 
-            total_non_annotated_values = total_att_values_count - total_annotations_count
-            percent_non_annotated_values = (total_non_annotated_values / total_att_values_count) * 100
-            print("- Values with no annotations: "
-                  + '{:,.0f}'.format(total_non_annotated_values) + " (%.2f" % percent_non_annotated_values + "%)", file=results_file)
-            print("- Total True Positives: " + '{:,.2f}'.format(total_true_positives), file=results_file)
-            print("- Annotation accuracy (total): %.2f" % (total_true_positives / total_att_values_count), file=results_file)
+                tp = results[results_item]["TP"]
+                fp = results[results_item]["FP"]
+                tn = results[results_item]["TN"]
+                fn = results[results_item]["FN"]
 
-            print("Unique values:", file=results_file)
-            print("- Unique attribute values: " + '{:,.0f}'.format(total_unique_att_values_count), file=results_file)
+                if tp == 0:
+                    precision = 0
+                    recall = 0
+                    f_measure = 0
+                else:
+                    precision = tp / (tp + fp)
+                    recall = tp / (tp + fn)
+                    f_measure = (2 * precision * recall) / (precision + recall)
 
-            percent_annotated_unique_values = (total_unique_annotations_count / total_unique_att_values_count) * 100
-            print("- Unique annotated values: " + '{:,.0f}'.format(total_unique_annotations_count) + " (%.2f" % percent_annotated_unique_values + "%)", file=results_file)
-
-            total_non_annotated_unique_values = total_unique_att_values_count - total_unique_annotations_count
-            percent_non_annotated_unique_values = (total_non_annotated_unique_values / total_unique_att_values_count) * 100
-            print("- Unique values with no annotations: "
-                  + '{:,.0f}'.format(total_non_annotated_unique_values) + " (%.2f" % percent_non_annotated_unique_values + "%)", file=results_file)
-            print("- Unique True Positives: " + '{:,.2f}'.format(unique_true_positives), file=results_file)
-            print("- Annotation accuracy (unique values): %.2f" % (unique_true_positives / total_unique_att_values_count), file=results_file)
-
-
-
-
-
-
+                print("  - Precision: " + '{:,.2f}'.format(precision), file=results_file)
+                print("  - Recall: " + '{:,.2f}'.format(recall), file=results_file)
+                print("  - F-Measure: " + '{:,.2f}'.format(f_measure), file=results_file)

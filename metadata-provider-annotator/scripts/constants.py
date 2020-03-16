@@ -207,7 +207,7 @@ ANNOTATION_NORMALIZED_ATT_VALUES_FILE = RESOURCES_FOLDER + '/annotation/normaliz
 ANNOTATION_EVALUATION_INFO_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
                          + '/' + 'annotation_evaluation_info.json'
 #ANNOTATION_EVALUATION_INFO_FILE_REVIEWED = RESULTS_FOLDER + '/2020-02-26_0920/3-annotations_evaluation/annotation_evaluation_info_reviewed.json'
-ANNOTATION_EVALUATION_INFO_FILE_REVIEWED = RESULTS_FOLDER + '/2020-02-26_1535/3-annotations_evaluation/annotation_evaluation_info_reviewed.json'
+ANNOTATION_EVALUATION_INFO_FILE_REVIEWED = RESULTS_FOLDER + '/2020-03-10_1956/2-annotated_samples/annotation_evaluation_info_reviewed.json'
 ANNOTATION_EVALUATION_RESULTS_FILE = WORKSPACE_FOLDER + '/' + SAMPLES_FOLDER + '/' + ANNOTATED_SAMPLES_FOLDER \
                          + '/' + 'annotation_evaluation_results.txt'
 
