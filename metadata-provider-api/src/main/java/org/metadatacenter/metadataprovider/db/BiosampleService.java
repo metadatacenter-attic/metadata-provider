@@ -8,7 +8,6 @@ import com.mongodb.client.MongoCursor;
 import org.bson.BsonDocument;
 import org.bson.Document;
 import org.bson.conversions.Bson;
-import org.checkerframework.common.aliasing.qual.Unique;
 import org.metadatacenter.metadataprovider.api.*;
 import org.metadatacenter.metadataprovider.resources.BiosampleResource;
 import org.slf4j.Logger;
@@ -193,7 +192,7 @@ public class BiosampleService {
       Bson searchFilter = buildSearchFilter(attributesAndValuesFilter, searchAnnotated);
       BsonDocument bsonDocument = searchFilter.toBsonDocument(BsonDocument.class,
           MongoClientSettings.getDefaultCodecRegistry());
-      logger.info("Search filter: " + bsonDocument.toJson());
+      //logger.info("Search filter: " + bsonDocument.toJson());
       iterator = samplesCollection.find(searchFilter).sort(orderBy(ascending(SAMPLE_ACCESSION_FIELD)))
           .skip(offset).limit(limit).iterator();
       total = (int) samplesCollection.countDocuments(searchFilter);
