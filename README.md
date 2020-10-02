@@ -65,7 +65,7 @@ The BioThings Explorer ultimately generates queries the Metadata Provider's Biol
 ## Public Links to Related Material
 
 * User Interface: http://kp.metadatacenter.org
-* API Documentation: http://api.kp.metadatacenter.org
+* API Documentation: http://api.kp.metadatacenter.org/swagger
 * SmartAPI Entry: http://smart-api.info/ui/4692da88e681a6b23e1ea9ed2152bd85
 * Jupyter Notebook describing Annotation Pipeline: https://github.com/metadatacenter/metadata-provider/blob/master/metadata-provider-annotator/translator-demo.ipynb
 * Jupyter Notebook demonstrating integration with BioThings Explorer: https://github.com/biothings/biothings_explorer/blob/master/jupyter%20notebooks/Demo%20of%20Integrating%20Stanford%20BioSample%20API%20into%20BTE.ipynb
